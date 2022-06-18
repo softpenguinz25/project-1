@@ -14,6 +14,8 @@ public class TileLoader : MonoBehaviour
 	[SerializeField] private GameObject player;
 
 	private GameObject currentChunkComparison;
+
+	public event Action<int> ChunkSpawned;
 	private void Awake()
 	{
 		ts = FindObjectOfType<TileSpawner>();
@@ -54,6 +56,8 @@ public class TileLoader : MonoBehaviour
 		chunk.transform.position = pos;
 		chunks.Add(chunk);
 		newChunk = chunk;
+
+		ChunkSpawned?.Invoke(chunks.Count);
 	}
 
 	private void AddTileToChunk(TilePrefab tile)
