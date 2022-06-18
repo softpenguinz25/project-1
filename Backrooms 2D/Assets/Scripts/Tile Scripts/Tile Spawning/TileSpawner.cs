@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
 	private TileDataManager tm;
+	private TileLoader tl;
 
 	[Header("Spawning")]
 	[SerializeField] public TileCollection tileCollection;
@@ -15,6 +17,7 @@ public class TileSpawner : MonoBehaviour
 	private void Awake()
 	{
 		tm = FindObjectOfType<TileDataManager>();
+		tl = FindObjectOfType<TileLoader>();
 	}
 
 	private void Start()
@@ -38,8 +41,29 @@ public class TileSpawner : MonoBehaviour
 			yield return new WaitForSeconds(timeBtwnSpawns);
 
 			//1. Spawn Tile
-			Transform randomConnectionPoint = tm.connectionPoints[UnityEngine.Random.Range(0, tm.connectionPoints.Count)];
-			TilePrefab randomTileSelected = tileCollection.tiles[UnityEngine.Random.Range(0, tileCollection.tiles.Count)].tilePrefab;
+			List<Transform> validConnectionPoints = new List<Transform>();
+			while (validConnectionPoints.Count <= 0)
+			{
+				foreach (Transform connectionPoint in tm.connectionPoints)
+				{
+					Vector2 roundedConnectionPointPos = new Vector2(Mathf.Round(connectionPoint.transform.position.x / tl.chunkSize), Mathf.Round(connectionPoint.transform.position.y / tl.chunkSize)) * tl.chunkSize;
+					//Debug.Log(roundedConnectionPointPos + "" + tl.CurrentPlayerChunk().transform.position);
+					if (Vector2.Distance(roundedConnectionPointPos, tl.CurrentPlayerChunk().transform.position) < Mathf.Sqrt(tl.chunkSize*tl.chunkSize+ tl.chunkSize * tl.chunkSize) + .01f)//Pythagorean theorem!
+					{
+						validConnectionPoints.Add(connectionPoint);
+					}
+					else
+					{
+						tl.AddChunk(roundedConnectionPointPos);
+					}
+				}
+				
+				yield return null;
+			}
+
+			yield return new WaitUntil(() => validConnectionPoints.Count > 0);
+
+			Transform randomConnectionPoint = validConnectionPoints[UnityEngine.Random.Range(0, validConnectionPoints.Count)];
 			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
 
 			//2. Rotate Tile

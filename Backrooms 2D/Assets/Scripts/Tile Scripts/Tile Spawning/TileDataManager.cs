@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class TileDataManager : MonoBehaviour
 {
-	public List<Vector2> tilePositions;
-    public List<Transform> connectionPoints;
+	[HideInInspector] public List<Vector2> tilePositions;
+    [HideInInspector] public List<Transform> connectionPoints;
 
 	public void AddTilePosition(Vector2 tilePositionToAdd)
 	{

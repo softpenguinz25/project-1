@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,11 +6,14 @@ public class TileLoader : MonoBehaviour
 {
 	private TileSpawner ts;
 
-	[SerializeField] private List<GameObject> chunks = new List<GameObject>();
-	[SerializeField] private float chunkSize = 16;
+	private List<GameObject> chunks = new List<GameObject>();
+	public float chunkSize = 16;
 
 	private GameObject newChunk;
 
+	[SerializeField] private GameObject player;
+
+	private GameObject currentChunkComparison;
 	private void Awake()
 	{
 		ts = FindObjectOfType<TileSpawner>();
@@ -27,11 +31,25 @@ public class TileLoader : MonoBehaviour
 
 	private void Start()
 	{
-		SpawnChunk(Vector2.zero);
+		AddChunk(new Vector2(-chunkSize, chunkSize));
+		AddChunk(new Vector2(0, chunkSize));
+		AddChunk(new Vector2(chunkSize, chunkSize));
+		AddChunk(new Vector2(-chunkSize, 0));
+		AddChunk(Vector2.zero);
+		AddChunk(new Vector2(chunkSize, 0));
+		AddChunk(new Vector2(-chunkSize, -chunkSize));
+		AddChunk(new Vector2(0, -chunkSize));
+		AddChunk(new Vector2(chunkSize, -chunkSize));
+
+		currentChunkComparison = CurrentPlayerChunk();
 	}
 
-	private void SpawnChunk(Vector2 pos)
+	public void AddChunk(Vector2 pos)
 	{
+		foreach (GameObject chunkCheck in chunks)
+		{
+			if (Vector2.Distance(pos, chunkCheck.transform.position) < .01f) return;
+		}
 		GameObject chunk = new GameObject(pos.ToString());
 		chunk.transform.position = pos;
 		chunks.Add(chunk);
@@ -40,8 +58,8 @@ public class TileLoader : MonoBehaviour
 
 	private void AddTileToChunk(TilePrefab tile)
 	{
-		Vector3 tilePos = tile.transform.position;
-		Vector3 roundedTilePos = new Vector3(Mathf.Round(tilePos.x / chunkSize), Mathf.Round(tilePos.y / chunkSize), Mathf.Round(tilePos.z / chunkSize)) * chunkSize;
+		Vector2 tilePos = tile.transform.position;
+		Vector2 roundedTilePos = new Vector2(Mathf.Round(tilePos.x / chunkSize), Mathf.Round(tilePos.y / chunkSize)) * chunkSize;
 
 		bool assignedToChunk = false;
 		foreach(GameObject chunk in chunks)
@@ -55,8 +73,43 @@ public class TileLoader : MonoBehaviour
 
 		if (!assignedToChunk)
 		{
-			SpawnChunk(roundedTilePos);
+			AddChunk(roundedTilePos);
 			tile.transform.parent = newChunk.transform;
 		}
+	}
+
+	private void Update()
+	{
+		if (currentChunkComparison != CurrentPlayerChunk())
+		{
+			LoadChunks();
+			currentChunkComparison = CurrentPlayerChunk();
+		}		
+	}
+
+	private void LoadChunks()
+	{
+		foreach (GameObject chunk in chunks) {
+			//Pythagorean theorem!
+			if (Vector2.Distance(chunk.transform.position, CurrentPlayerChunk().transform.position) > Mathf.Sqrt(chunkSize * chunkSize + chunkSize * chunkSize) + .01f) chunk.gameObject.SetActive(false);
+			else chunk.gameObject.SetActive(true);
+		}
+	}
+
+	public GameObject CurrentPlayerChunk()
+	{
+		Vector2 playerPos = player.transform.position;
+		Vector2 roundedPlayerPos = new Vector2(Mathf.Round(playerPos.x / chunkSize), Mathf.Round(playerPos.y / chunkSize)) * chunkSize;
+
+		foreach (GameObject chunk in chunks)
+		{
+			if (Vector2.Distance(roundedPlayerPos, chunk.transform.position) < .01f)
+			{
+				return chunk;
+			}
+		}
+
+		Debug.LogError("Could Not Detect Current Player Chunk.");
+		return null;
 	}
 }
