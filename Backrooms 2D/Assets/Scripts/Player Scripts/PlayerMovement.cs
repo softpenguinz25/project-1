@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Awake()
 	{
-		rb = FindObjectOfType<Rigidbody2D>();
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 

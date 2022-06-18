@@ -14,6 +14,9 @@ public class TileSpawner : MonoBehaviour
 
 	public event Action<TilePrefab> TileSpawned;
 
+	private bool canSpawnTilesEvent = false;
+	public event Action<bool> CanSpawnTiles;
+
 	private void Awake()
 	{
 		tm = FindObjectOfType<TileDataManager>();
@@ -56,11 +59,17 @@ public class TileSpawner : MonoBehaviour
 					{
 						tl.AddChunk(roundedConnectionPointPos);
 					}
-				}
+				}		
 				
-				yield return null;
-			}
+				if(validConnectionPoints.Count <= 0 && canSpawnTilesEvent)
+				{
+					CanSpawnTiles?.Invoke(false);
 
+					canSpawnTilesEvent = false;
+				}
+
+				yield return null;
+			}			
 			yield return new WaitUntil(() => validConnectionPoints.Count > 0);
 
 			Transform randomConnectionPoint = validConnectionPoints[UnityEngine.Random.Range(0, validConnectionPoints.Count)];
@@ -92,6 +101,12 @@ public class TileSpawner : MonoBehaviour
 			tm.CheckConnectionPoints();
 
 			TileSpawned?.Invoke(tilePrefab);
+
+			if (!canSpawnTilesEvent)
+			{
+				CanSpawnTiles?.Invoke(true);
+				canSpawnTilesEvent = true;
+			}			
 		}
 	}
 
