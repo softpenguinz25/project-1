@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
@@ -9,6 +9,8 @@ public class TileSpawner : MonoBehaviour
 	[Header("Spawning")]
 	[SerializeField] public TileCollection tileCollection;
 	[SerializeField] [Range(0.001f, 1)] private float timeBtwnSpawns = .001f;
+
+	public event Action<TilePrefab> TileSpawned;
 
 	private void Awake()
 	{
@@ -36,9 +38,9 @@ public class TileSpawner : MonoBehaviour
 			yield return new WaitForSeconds(timeBtwnSpawns);
 
 			//1. Spawn Tile
-			Transform randomConnectionPoint = tm.connectionPoints[Random.Range(0, tm.connectionPoints.Count)];
-			TilePrefab randomTileSelected = tileCollection.tiles[Random.Range(0, tileCollection.tiles.Count)].tilePrefab;
-			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, Random.Range(0, 4) * 90));
+			Transform randomConnectionPoint = tm.connectionPoints[UnityEngine.Random.Range(0, tm.connectionPoints.Count)];
+			TilePrefab randomTileSelected = tileCollection.tiles[UnityEngine.Random.Range(0, tileCollection.tiles.Count)].tilePrefab;
+			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
 
 			//2. Rotate Tile
 			Transform spawnedTileReference = randomConnectionPoint.parent;
@@ -64,6 +66,8 @@ public class TileSpawner : MonoBehaviour
 			tm.AddTilePosition(tilePrefab.transform.position);
 			foreach (Transform connectionPoint in tilePrefab.connectionPoints) tm.AddConnectionPoints(connectionPoint);
 			tm.CheckConnectionPoints();
+
+			TileSpawned?.Invoke(tilePrefab);
 		}
 	}
 
@@ -77,7 +81,7 @@ public class TileSpawner : MonoBehaviour
 			totalDenomination += tile.spawnChance;
 		}
 
-		float randomNumber = Random.Range(0, totalDenomination);	
+		float randomNumber = UnityEngine.Random.Range(0, totalDenomination);	
 		
 		foreach(TileTemplate tile in tileCollection.tiles)
 		{
