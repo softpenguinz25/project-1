@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Corner
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 7860367701308102915, guid: 9ab52b00d89b27542aef79613c26d604, type: 3}
+  spawnChance: 2.5

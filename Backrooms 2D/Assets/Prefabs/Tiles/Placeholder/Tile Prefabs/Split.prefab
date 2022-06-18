@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed5b78500332504392ce4aa56d2f0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingConnectionPoints:
+  connectionPoints:
   - {fileID: 1781725028916088540}
   - {fileID: 1781725028263143111}
   - {fileID: 1781725029532212071}
