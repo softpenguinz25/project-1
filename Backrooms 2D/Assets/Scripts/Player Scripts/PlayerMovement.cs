@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 	private Rigidbody2D rb;
-	private Vector2 movement
+	public Vector2 Movement
 	{
 		get
 		{
@@ -21,6 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+		rb.MovePosition(rb.position + Movement * speed * Time.fixedDeltaTime);
 	}
 }
