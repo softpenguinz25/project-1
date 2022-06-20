@@ -1,14 +1,18 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TileDataManager : MonoBehaviour
 {
-	[HideInInspector] public List<Vector2> tilePositions;
-    [HideInInspector] public List<Transform> connectionPoints;
+	public List<TilePrefab> tiles;
+    public List<Transform> connectionPoints;
 
-	public void AddTilePosition(Vector2 tilePositionToAdd)
+	public event Action<TilePrefab, int> TileAdded;
+
+	public void AddTilePosition(TilePrefab tileToAdd)
 	{
-		tilePositions.Add(tilePositionToAdd);
+		tiles.Add(tileToAdd);
+		TileAdded?.Invoke(tileToAdd, tiles.Count);
 	}
 
 	public void AddConnectionPoints(Transform connectionPointToAdd)
@@ -19,8 +23,9 @@ public class TileDataManager : MonoBehaviour
 	public void CheckConnectionPoints()
 	{
 		List<Transform> impossibleConnectionPoints = new List<Transform>();
-		foreach (Vector2 tilePosition in tilePositions)
+		foreach (TilePrefab tile in tiles)
 		{
+			Vector2 tilePosition = tile.transform.position;
 			foreach (Transform connectionPoint in connectionPoints)
 			{
 				if(Vector3.Distance(connectionPoint.position, tilePosition) < .01f)//If connection point overlaps with a tile...
@@ -39,7 +44,7 @@ public class TileDataManager : MonoBehaviour
 
 		if(connectionPoints.Count <= 0)
 		{
-			FindObjectOfType<TileDisabler>().DisableScripts();
+			FindObjectOfType<TileRestarter>().RestartTileGeneration();
 		}
 	}
 }

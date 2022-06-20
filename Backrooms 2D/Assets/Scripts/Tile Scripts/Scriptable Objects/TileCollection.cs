@@ -5,4 +5,6 @@ public class TileCollection : ScriptableObject
 {
     public List<TileTemplate> tiles;
     public TileTemplate firstTile;
+
+    public float tileSize = 3;
 }

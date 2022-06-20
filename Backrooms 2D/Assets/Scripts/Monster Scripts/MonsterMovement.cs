@@ -10,7 +10,7 @@ public class MonsterMovement : MonoBehaviour
 
 	private GameObject player;
 
-	private TileSpawner ts;
+	private MonsterClose mc;
 
 	private AstarPath pathfinding;
     private Path path;
@@ -18,8 +18,21 @@ public class MonsterMovement : MonoBehaviour
 	private bool reachedEndOfPath = false;
 
 	[Header("Monster Attributes")]
-	[SerializeField] private float speed = 200f;
+	[SerializeField] private float roamingSpeed = 200f;
+	private float currentSpeed;
 	[SerializeField] private float nextWaypointDistance = 3f;
+
+	[HideInInspector] public Vector2 Force;
+
+	/*[Header("Monster Is Close Attributes")]
+	[SerializeField] private float isCloseSpeedMultiplier = 1.5f;
+	private float closeSpeed
+	{
+		get
+		{
+			return roamingSpeed * isCloseSpeedMultiplier;
+		}
+	}*/
 
 	private void Awake()
 	{
@@ -29,18 +42,32 @@ public class MonsterMovement : MonoBehaviour
 
 		player = FindObjectOfType<PlayerMovement>().gameObject;
 
-		ts = FindObjectOfType<TileSpawner>();
+		//mc = GetComponent<MonsterClose>();
 	}
+
+	/*private void OnEnable()
+	{
+		mc.MonsterIsClose += () => 
+		{
+			Debug.Log("IS CLOSE");
+			currentSpeed = closeSpeed;
+			GetComponent<SpriteRenderer>().color = Color.cyan;
+		};
+
+		mc.PlayerHasEscaped += () =>
+		{
+			Debug.Log("player has escaped....");
+
+			currentSpeed = roamingSpeed;
+			GetComponent<SpriteRenderer>().color = Color.blue;
+		};
+	}*/
 
 	private void Start()
 	{
+		currentSpeed = roamingSpeed;
+
 		StartCoroutine(GeneratePathCoroutine());
-		/*ts.CanSpawnTiles += (canSpawnTiles) => 
-		{
-			Debug.Log(canSpawnTiles);
-			if (canSpawnTiles) StartCoroutine(GeneratePathCoroutine());
-			else StopCoroutine(GeneratePathCoroutine());
-		};*/
 	}
 
 	private IEnumerator GeneratePathCoroutine()
@@ -55,7 +82,8 @@ public class MonsterMovement : MonoBehaviour
 			// This creates a Grid Graph
 			GridGraph gg = data.graphs[0] as GridGraph;
 
-			gg.center = transform.position;
+			float tileSize = FindObjectOfType<TileSpawner>().tileCollection.tileSize;
+			gg.center = new Vector3(Mathf.Round(transform.position.x / tileSize), Mathf.Round(transform.position.y / tileSize), Mathf.Round(transform.position.z / tileSize)) * tileSize;
 
 			pathfinding.Scan();
 
@@ -89,7 +117,8 @@ public class MonsterMovement : MonoBehaviour
 		}
 
 		Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-		Vector2 force = direction * speed * Time.deltaTime;
+		Vector2 force = direction * roamingSpeed * Time.deltaTime;
+		Force = force;
 
 		rb.AddForce(force);
 

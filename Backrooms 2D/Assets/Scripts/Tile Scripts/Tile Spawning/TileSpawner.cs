@@ -9,7 +9,7 @@ public class TileSpawner : MonoBehaviour
 	private TileLoader tl;
 
 	[Header("Spawning")]
-	[SerializeField] public TileCollection tileCollection;
+	public TileCollection tileCollection;
 	[SerializeField] [Range(0.001f, 1)] private float timeBtwnSpawns = .001f;
 
 	public event Action<TilePrefab> TileSpawned;
@@ -31,7 +31,7 @@ public class TileSpawner : MonoBehaviour
 	private void SpawnFirstTile()
 	{
 		TilePrefab firstTile = Instantiate(tileCollection.firstTile.tilePrefab, Vector3.zero, Quaternion.identity);
-		tm.AddTilePosition(firstTile.transform.position);
+		tm.AddTilePosition(firstTile);
 		foreach(Transform connectionPoint in firstTile.connectionPoints) tm.AddConnectionPoints(connectionPoint);
 
 		StartCoroutine(SpawnTilesCoroutine());
@@ -96,7 +96,7 @@ public class TileSpawner : MonoBehaviour
 			}
 
 			//3. Update Manager Lists
-			tm.AddTilePosition(tilePrefab.transform.position);
+			tm.AddTilePosition(tilePrefab);
 			foreach (Transform connectionPoint in tilePrefab.connectionPoints) tm.AddConnectionPoints(connectionPoint);
 			tm.CheckConnectionPoints();
 

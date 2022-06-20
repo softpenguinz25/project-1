@@ -58,14 +58,13 @@ public class MonsterSpawner : MonoBehaviour
 	{
 		if (!canSpawnMonster) return;
 
-		Debug.Log("Spawn Monter");
-
 		Vector2 randomEdgePos = UnityEngine.Random.insideUnitCircle.normalized * spawnRadiusAwayFromPlayer.Max + (Vector2)player.transform.position;
 		Vector2 randomEdgeOffsetPos = new Vector2(UnityEngine.Random.Range(0, spawnRadiusAwayFromPlayer.Max - spawnRadiusAwayFromPlayer.Min), UnityEngine.Random.Range(0, spawnRadiusAwayFromPlayer.Max - spawnRadiusAwayFromPlayer.Min));
 		Vector2 randomPos = (new Vector2(Mathf.Abs(randomEdgePos.x), Mathf.Abs(randomEdgePos.y)) - randomEdgeOffsetPos) * new Vector2(Mathf.Sign(randomEdgePos.x), Mathf.Sign(randomEdgePos.y));
 
-		foreach(Vector2 tilePos in FindObjectOfType<TileDataManager>().tilePositions)
+		foreach(TilePrefab tile in FindObjectOfType<TileDataManager>().tiles)
 		{
+			Vector2 tilePos = tile.transform.position;
 			if (Vector2.Distance(randomPos, tilePos) < 5)
 			{
 				Instantiate(monster, tilePos, Quaternion.identity);

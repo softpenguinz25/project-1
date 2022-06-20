@@ -23,8 +23,7 @@ public class AudioManager : MonoBehaviour
         Sound s = GetSoundFromName(name);
         if (s == null) return;
 
-        Debug.Log(s.sources.Count);
-        AudioSource randomSource = s.sources[UnityEngine.Random.Range(0, s.sources.Count)]; Debug.Log(randomSource);
+        AudioSource randomSource = s.sources[UnityEngine.Random.Range(0, s.sources.Count)];
         randomSource.volume = UnityEngine.Random.Range(s.volume.Min, s.volume.Max);
         randomSource.pitch = UnityEngine.Random.Range(s.pitch.Min, s.pitch.Max);
         randomSource.Play();

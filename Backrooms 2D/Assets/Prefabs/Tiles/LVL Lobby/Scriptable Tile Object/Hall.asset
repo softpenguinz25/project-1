@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hall
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 5997680658439493360, guid: 6c6af7a22e00a4444bf8d37714d51edc, type: 3}
-  spawnChance: 3
+  spawnChance: 2.5
