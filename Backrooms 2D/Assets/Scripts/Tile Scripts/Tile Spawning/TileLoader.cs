@@ -48,10 +48,8 @@ public class TileLoader : MonoBehaviour
 
 	public void AddChunk(Vector2 pos)
 	{
-		foreach (GameObject chunkCheck in chunks)
-		{
-			if (Vector2.Distance(pos, chunkCheck.transform.position) < .01f) return;
-		}
+		if (ChunkExists(pos)) return;
+		
 		GameObject chunk = new GameObject(pos.ToString());
 		chunk.transform.position = pos;
 		chunks.Add(chunk);
@@ -115,5 +113,14 @@ public class TileLoader : MonoBehaviour
 
 		Debug.LogError("Could Not Detect Current Player Chunk.");
 		return null;
+	}
+
+	private bool ChunkExists(Vector2 pos)
+	{
+		foreach (GameObject chunkCheck in chunks)
+		{
+			if (Vector2.Distance(pos, chunkCheck.transform.position) < .01f) return true;
+		}
+		return false;
 	}
 }

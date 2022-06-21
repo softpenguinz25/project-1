@@ -21,6 +21,7 @@ public class TileSpawner : MonoBehaviour
 	{
 		tm = FindObjectOfType<TileDataManager>();
 		tl = FindObjectOfType<TileLoader>();
+		if (!tl.enabled) tl = null;
 	}
 
 	private void Start()
@@ -49,18 +50,23 @@ public class TileSpawner : MonoBehaviour
 			{
 				List<Transform> validConnectionPoints = new List<Transform>();
 				while (validConnectionPoints.Count <= 0)
-				{
+				{					
+					//Debug.Log("(Spawn Tile) Valid Connection Points Count: " + validConnectionPoints.Count);
+					//Debug.Log("(Spawn Tile) TileManager Connection Points Count: " + tm.connectionPoints.Count);
 					foreach (Transform connectionPoint in tm.connectionPoints)
 					{
 						Vector2 roundedConnectionPointPos = new Vector2(Mathf.Round(connectionPoint.transform.position.x / tl.chunkSize), Mathf.Round(connectionPoint.transform.position.y / tl.chunkSize)) * tl.chunkSize;
-						//Debug.Log(roundedConnectionPointPos + "" + tl.CurrentPlayerChunk().transform.position);
+						//Debug.Log("(Spawn Tile) Rounded Connection Pos: " + roundedConnectionPointPos);
+						//Debug.Log("(Spawn Tile) Current Player Chunk: " + tl.CurrentPlayerChunk());
 						if (Vector2.Distance(roundedConnectionPointPos, tl.CurrentPlayerChunk().transform.position) < Mathf.Sqrt(tl.chunkSize * tl.chunkSize + tl.chunkSize * tl.chunkSize) + .01f)//Pythagorean theorem!
 						{
 							validConnectionPoints.Add(connectionPoint);
+							//Debug.Log("(Spawn Tile) Added Valid Connection Point: " + connectionPoint);
 						}
 						else
 						{
 							tl.AddChunk(roundedConnectionPointPos);
+							//Debug.Log("(Spawn Tile) Chunk Added at Position: " + roundedConnectionPointPos);
 						}
 					}
 
@@ -70,12 +76,14 @@ public class TileSpawner : MonoBehaviour
 
 						canSpawnTilesEvent = false;
 					}
+					else if (validConnectionPoints.Count > 0) break;
 
 					yield return null;
 				}
-				yield return new WaitUntil(() => validConnectionPoints.Count > 0);
+				//yield return new WaitUntil(() => validConnectionPoints.Count > 0);
 
 				randomConnectionPoint = validConnectionPoints[UnityEngine.Random.Range(0, validConnectionPoints.Count)];
+				//Debug.Log("Random Connection Point Found: " + randomConnectionPoint);
 			}
 			else
 			{
@@ -86,22 +94,24 @@ public class TileSpawner : MonoBehaviour
 
 			//2. Rotate Tile
 			Transform spawnedTileReference = randomConnectionPoint.parent;
-			bool tileConnected = false;
+			bool tileHasValidRotation = false;
 			Transform connectedPoint;
-			while (!tileConnected)
+			while (!tileHasValidRotation)
 			{
 				foreach (Transform connectionPoint in tilePrefab.connectionPoints)
 				{
+					Debug.Log(Vector3.Distance(connectionPoint.position, spawnedTileReference.position), connectionPoint);
 					if (Vector3.Distance(connectionPoint.position, spawnedTileReference.position) < .01f)
 					{
 						connectedPoint = connectionPoint;
-						tileConnected = true;
+						tileHasValidRotation = true;
 					}
 				}
 
-				if (tileConnected) break;
+				if (tileHasValidRotation) break;
 
 				tilePrefab.transform.eulerAngles = new Vector3(0, 0, tilePrefab.transform.eulerAngles.z + 90);
+				yield return null;
 			}
 
 			//3. Update Manager Lists

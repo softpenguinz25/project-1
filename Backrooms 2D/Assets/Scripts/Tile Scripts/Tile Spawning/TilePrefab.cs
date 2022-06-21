@@ -1,6 +1,5 @@
 using MyBox;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class TilePrefab : MonoBehaviour
@@ -11,8 +10,10 @@ public class TilePrefab : MonoBehaviour
     [ButtonMethod]
     private string AutoDetectPoints()
     {
-        connectionPoints = GetComponentsInChildren<Transform>().ToList();
-        connectionPoints.Remove(transform);
+        foreach(Transform childObj in GetComponentsInChildren<Transform>())
+		{
+            if (childObj.CompareTag("Connection Point")) connectionPoints.Add(childObj);
+		}
         return connectionPoints.Count + " transforms found in object, cached";
     }
     #endif

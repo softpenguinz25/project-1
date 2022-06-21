@@ -97,6 +97,20 @@ MonoBehaviour:
       Min: 0.9
       Max: 1.1
     sources: []
+  - name: LVLFun_Player_Footsteps
+    clips:
+    - {fileID: 8300000, guid: 1615ec79207cbd54f9499e0294e1c101, type: 3}
+    - {fileID: 8300000, guid: c0155cda5fd804a40973f70079995634, type: 3}
+    - {fileID: 8300000, guid: 04177275fdb54354abe00d0d43b6ab87, type: 3}
+    - {fileID: 8300000, guid: 0d7b4b2d2ee991842bff579f4af2760d, type: 3}
+    - {fileID: 8300000, guid: d82e0eab3257d9a42a24317f52c1871b, type: 3}
+    volume:
+      Min: 0.8
+      Max: 1
+    pitch:
+      Min: 0.9
+      Max: 1.1
+    sources: []
 --- !u!1 &4832884539536724277
 GameObject:
   m_ObjectHideFlags: 0

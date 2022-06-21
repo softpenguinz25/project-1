@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5090ff7e52b2d134ba08f71466ef3c45, type: 3}
+  m_Name: LVL Fun Tile Collection
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: be4383430c3f5ee44b78a01e8986b88b, type: 2}
+  - {fileID: 11400000, guid: 9e5923147cdfca04089611e3ff2bd64d, type: 2}
+  - {fileID: 11400000, guid: 676c889d2f7a4d243be35409871ac307, type: 2}
+  - {fileID: 11400000, guid: 69c08fa38b6ab9c47be86c1dd9b6588d, type: 2}
+  - {fileID: 11400000, guid: 3233d84309081a044a0650d39e87a4ce, type: 2}
+  - {fileID: 11400000, guid: 65c06c6d3f5251344adf47ebcac44e54, type: 2}
+  firstTile: {fileID: 11400000, guid: 3233d84309081a044a0650d39e87a4ce, type: 2}
+  tileSize: 3
