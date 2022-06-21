@@ -3,5 +3,5 @@ using UnityEngine;
 public class TileTemplate : ScriptableObject
 {
     public TilePrefab tilePrefab;
-    [Tooltip("1 = low chance, 5 = high chance")][Range(1, 5)] public float spawnChance;
+    [Tooltip("0 = low chance, 5 = high chance")][Range(0, 5)] public float spawnChance;
 }

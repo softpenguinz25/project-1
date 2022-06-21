@@ -20,6 +20,16 @@ public class SceneLoader : MonoBehaviour
 		SceneManager.LoadScene(sceneToLoad.SceneName);
 	}
 
+	public void LoadScene(string sceneToLoad)
+	{
+		SceneManager.LoadScene(sceneToLoad);
+	}
+
+	public void LoadScene(int sceneToLoad)
+	{
+		SceneManager.LoadScene(sceneToLoad);
+	}
+
 	public void LoadScenes(List<SceneReference> loadScenes, List<SceneReference> unloadScenes, bool enableBaseScene = true)
 	{
 		foreach (SceneReference scene in unloadScenes)

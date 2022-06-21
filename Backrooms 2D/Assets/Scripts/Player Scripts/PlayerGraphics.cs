@@ -2,6 +2,7 @@ using MyBox;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerGraphics : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class PlayerGraphics : MonoBehaviour
 
 				if (canPlayFootstep)
 				{
-					FindObjectOfType<AudioManager>().Play("LVLLobby_Player_Footsteps");
+					FindObjectOfType<AudioManager>().Play(SceneManager.GetActiveScene().name.Replace(" ", string.Empty) + "_Player_Footsteps");
 					StartCoroutine(CanPlayFootstep());
 				}				
 			}
@@ -67,7 +68,7 @@ public class PlayerGraphics : MonoBehaviour
 			{
 				timeBtwnFootsteps = Random.Range(startTimeBtwnFootsteps.Min, startTimeBtwnFootsteps.Max);
 				
-				FindObjectOfType<AudioManager>().Play("LVLLobby_Player_Footsteps");
+				FindObjectOfType<AudioManager>().Play(SceneManager.GetActiveScene().name.Replace(" ", string.Empty) + "_Player_Footsteps");
 				StartCoroutine(CanPlayFootstep());
 			}
 		}

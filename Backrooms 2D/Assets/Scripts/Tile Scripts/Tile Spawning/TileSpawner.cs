@@ -43,37 +43,46 @@ public class TileSpawner : MonoBehaviour
 		{
 			yield return new WaitForSeconds(timeBtwnSpawns);
 
+			Transform randomConnectionPoint = null;
 			//1. Spawn Tile
-			List<Transform> validConnectionPoints = new List<Transform>();
-			while (validConnectionPoints.Count <= 0)
+			if (tl != null)
 			{
-				foreach (Transform connectionPoint in tm.connectionPoints)
+				List<Transform> validConnectionPoints = new List<Transform>();
+				while (validConnectionPoints.Count <= 0)
 				{
-					Vector2 roundedConnectionPointPos = new Vector2(Mathf.Round(connectionPoint.transform.position.x / tl.chunkSize), Mathf.Round(connectionPoint.transform.position.y / tl.chunkSize)) * tl.chunkSize;
-					//Debug.Log(roundedConnectionPointPos + "" + tl.CurrentPlayerChunk().transform.position);
-					if (Vector2.Distance(roundedConnectionPointPos, tl.CurrentPlayerChunk().transform.position) < Mathf.Sqrt(tl.chunkSize*tl.chunkSize+ tl.chunkSize * tl.chunkSize) + .01f)//Pythagorean theorem!
+					foreach (Transform connectionPoint in tm.connectionPoints)
 					{
-						validConnectionPoints.Add(connectionPoint);
+						Vector2 roundedConnectionPointPos = new Vector2(Mathf.Round(connectionPoint.transform.position.x / tl.chunkSize), Mathf.Round(connectionPoint.transform.position.y / tl.chunkSize)) * tl.chunkSize;
+						//Debug.Log(roundedConnectionPointPos + "" + tl.CurrentPlayerChunk().transform.position);
+						if (Vector2.Distance(roundedConnectionPointPos, tl.CurrentPlayerChunk().transform.position) < Mathf.Sqrt(tl.chunkSize * tl.chunkSize + tl.chunkSize * tl.chunkSize) + .01f)//Pythagorean theorem!
+						{
+							validConnectionPoints.Add(connectionPoint);
+						}
+						else
+						{
+							tl.AddChunk(roundedConnectionPointPos);
+						}
 					}
-					else
-					{
-						tl.AddChunk(roundedConnectionPointPos);
-					}
-				}		
-				
-				if(validConnectionPoints.Count <= 0 && canSpawnTilesEvent)
-				{
-					CanSpawnTiles?.Invoke(false);
 
-					canSpawnTilesEvent = false;
+					if (validConnectionPoints.Count <= 0 && canSpawnTilesEvent)
+					{
+						CanSpawnTiles?.Invoke(false);
+
+						canSpawnTilesEvent = false;
+					}
+
+					yield return null;
 				}
+				yield return new WaitUntil(() => validConnectionPoints.Count > 0);
 
-				yield return null;
+				randomConnectionPoint = validConnectionPoints[UnityEngine.Random.Range(0, validConnectionPoints.Count)];
+			}
+			else
+			{
+				randomConnectionPoint = tm.connectionPoints[UnityEngine.Random.Range(0, tm.connectionPoints.Count)];
 			}			
-			yield return new WaitUntil(() => validConnectionPoints.Count > 0);
-
-			Transform randomConnectionPoint = validConnectionPoints[UnityEngine.Random.Range(0, validConnectionPoints.Count)];
-			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
+			
+			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));			
 
 			//2. Rotate Tile
 			Transform spawnedTileReference = randomConnectionPoint.parent;

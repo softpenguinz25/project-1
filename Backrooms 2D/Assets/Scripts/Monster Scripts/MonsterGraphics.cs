@@ -25,11 +25,10 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void Update()
 	{
-		//Debug.Log("RB Velocity" + rb.velocity + " Force " + mm.Force);
-		if (mm.Force.y > spriteThreshold) sr.sprite = playerPoses[0];
-		else if (mm.Force.y < -spriteThreshold) sr.sprite = playerPoses[2];
-		else if (mm.Force.x > spriteThreshold) sr.sprite = playerPoses[1];
-		else if (mm.Force.x < -spriteThreshold) sr.sprite = playerPoses[3];
+		if (rb.velocity.y > spriteThreshold) sr.sprite = playerPoses[0];
+		else if (rb.velocity.y < -spriteThreshold) sr.sprite = playerPoses[2];
+		else if (rb.velocity.x > spriteThreshold) sr.sprite = playerPoses[1];
+		else if (rb.velocity.x < -spriteThreshold) sr.sprite = playerPoses[3];
 
 		/*Vector2 roundedForce = new Vector2(Math.Sign(mm.Force.x), Math.Sign(mm.Force.y));
 		Debug.Log(roundedForce);

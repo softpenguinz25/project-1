@@ -1,6 +1,8 @@
 using MyBox;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
@@ -8,7 +10,7 @@ public class MonsterSpawner : MonoBehaviour
 	private TileLoader tl;
 
 	[Header("Initial Spawn")]
-	[SerializeField] [Range(0, 35)] private int chunksBeforeSpawn = 25;
+	[SerializeField] [Range(0, 250)] private int chunksBeforeSpawn = 25;
 	[SerializeField] [MinMaxRange(0, 60)] private RangedFloat maxSpawnTimeDelay = new RangedFloat(20, 40);
 
 	[Header("Spawn")]
@@ -62,16 +64,27 @@ public class MonsterSpawner : MonoBehaviour
 		Vector2 randomEdgeOffsetPos = new Vector2(UnityEngine.Random.Range(0, spawnRadiusAwayFromPlayer.Max - spawnRadiusAwayFromPlayer.Min), UnityEngine.Random.Range(0, spawnRadiusAwayFromPlayer.Max - spawnRadiusAwayFromPlayer.Min));
 		Vector2 randomPos = (new Vector2(Mathf.Abs(randomEdgePos.x), Mathf.Abs(randomEdgePos.y)) - randomEdgeOffsetPos) * new Vector2(Mathf.Sign(randomEdgePos.x), Mathf.Sign(randomEdgePos.y));
 
+		List<TileDistance> tileDistances = new List<TileDistance>();
 		foreach(TilePrefab tile in FindObjectOfType<TileDataManager>().tiles)
 		{
-			Vector2 tilePos = tile.transform.position;
-			if (Vector2.Distance(randomPos, tilePos) < 5)
-			{
-				Instantiate(monster, tilePos, Quaternion.identity);
-				break;
-			}
+			tileDistances.Add(new TileDistance(tile, Vector2.Distance(randomPos, tile.transform.position)));
 		}
+		//THANKS iwaldrop! https://answers.unity.com/questions/476940/how-to-sort-a-list-by-a-class-paramater.html
+		tileDistances = tileDistances.OrderBy(x => x.distance).ToList();
+		Instantiate(monster, tileDistances[0].tile.transform.position, Quaternion.identity);
 
 		canSpawnMonster = false;
+	}
+}
+
+public struct TileDistance
+{
+	public TilePrefab tile;
+	public float distance;
+
+	public TileDistance(TilePrefab _tile, float _distance)
+	{
+		tile = _tile;
+		distance = _distance;
 	}
 }
