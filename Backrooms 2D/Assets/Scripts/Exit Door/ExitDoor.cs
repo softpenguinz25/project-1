@@ -14,7 +14,7 @@ public class ExitDoor : MonoBehaviour
 	private void Start()
 	{
 		fourthWall.SetActive(false);
-		InvokeRepeating(nameof(CorrectRotation), 0, 4f);
+		InvokeRepeating(nameof(CorrectRotation), 0, 1f);
 	}
 
 	[ContextMenu("Correct Rotation")]

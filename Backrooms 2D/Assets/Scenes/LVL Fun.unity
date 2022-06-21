@@ -215,15 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: chunksBeforeSpawn
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: maxSpawnTimeDelay.Max
-      value: 2.5130243
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: maxSpawnTimeDelay.Min
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573522, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_RootOrder
@@ -275,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573523, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
@@ -584,7 +576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427791821919923567, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: tilesUntilDoorSpawns
-      value: 200
+      value: 640
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
