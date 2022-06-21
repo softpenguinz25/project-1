@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
@@ -45,12 +46,12 @@ public class TileSpawner : MonoBehaviour
 			yield return new WaitForSeconds(timeBtwnSpawns);
 
 			Transform randomConnectionPoint = null;
-			//1. Spawn Tile
+			//1. Pick Connection Point
 			if (tl != null)
 			{
 				List<Transform> validConnectionPoints = new List<Transform>();
 				while (validConnectionPoints.Count <= 0)
-				{					
+				{
 					//Debug.Log("(Spawn Tile) Valid Connection Points Count: " + validConnectionPoints.Count);
 					//Debug.Log("(Spawn Tile) TileManager Connection Points Count: " + tm.connectionPoints.Count);
 					foreach (Transform connectionPoint in tm.connectionPoints)
@@ -88,11 +89,74 @@ public class TileSpawner : MonoBehaviour
 			else
 			{
 				randomConnectionPoint = tm.connectionPoints[UnityEngine.Random.Range(0, tm.connectionPoints.Count)];
-			}			
-			
-			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));			
+			}
 
-			//2. Rotate Tile
+			//2. Spawn Tile
+			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
+
+			//2.5. Apply Group Tile Settings (If Applicable)
+			if (tilePrefab.isGroupTile)
+			{
+				//Correct Rotation
+				tilePrefab.transform.eulerAngles = Vector3.zero;
+
+				//Correct Position
+				float epsilon = .01f;
+				Vector2 diffBetweenConnectionAndTile = randomConnectionPoint.position - randomConnectionPoint.parent.position;
+
+				bool connectionPointIsUp = Mathf.Abs(diffBetweenConnectionAndTile.x) < epsilon && diffBetweenConnectionAndTile.y > epsilon;
+				bool connectionPointIsRight = diffBetweenConnectionAndTile.x > epsilon && Mathf.Abs(diffBetweenConnectionAndTile.y) < epsilon;
+				bool connectionPointIsDown = Mathf.Abs(diffBetweenConnectionAndTile.x) < epsilon && diffBetweenConnectionAndTile.y < -epsilon;
+				bool connectionPointIsLeft = diffBetweenConnectionAndTile.x < -epsilon && Mathf.Abs(diffBetweenConnectionAndTile.y) < epsilon;
+
+				/*Debug.Log("Up: " + connectionPointIsUp);
+				Debug.Log("Right: " + connectionPointIsRight);
+				Debug.Log("Down: " + connectionPointIsDown);
+				Debug.Log("Left: " + connectionPointIsLeft);*/
+
+				if (!((connectionPointIsUp && tilePrefab.canConnectDown) || (connectionPointIsRight && tilePrefab.canConnectLeft) || (connectionPointIsDown && tilePrefab.canConnectUp) || (connectionPointIsLeft && tilePrefab.canConnectRight)))
+				{
+					Destroy(tilePrefab.gameObject);
+					continue;
+				}
+				else if (connectionPointIsUp && tilePrefab.canConnectDown) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueDown; tilePrefab.transform.position = newPos; }
+				else if (connectionPointIsRight && tilePrefab.canConnectLeft) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueLeft; tilePrefab.transform.position = newPos; }
+				else if (connectionPointIsDown && tilePrefab.canConnectUp) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueUp; tilePrefab.transform.position = newPos; }
+				else if (connectionPointIsLeft && tilePrefab.canConnectRight) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueRight; tilePrefab.transform.position = newPos; }
+
+				//Check if tiles are obstructing
+				List<TilePrefab> areaTiles = tilePrefab.GetComponentsInChildren<TilePrefab>().ToList();
+				areaTiles.Remove(tilePrefab);
+
+				bool groupTileInIllegalPosition = false;
+				foreach (TilePrefab areaTile in areaTiles)
+				{
+					foreach (TilePrefab existingTile in tm.tiles)
+					{
+						if (Vector2.Distance(areaTile.transform.position, existingTile.transform.position) < epsilon)
+						{							
+							groupTileInIllegalPosition = true;
+							break;
+						}
+					}
+					if (groupTileInIllegalPosition) break;
+				}
+
+				if (groupTileInIllegalPosition)
+				{
+					Destroy(tilePrefab.gameObject);
+					continue;
+				}
+
+				foreach (TilePrefab areaTile in areaTiles)
+				{
+					AddTile(areaTile);
+				}
+
+				continue;
+			}
+
+			//3. Rotate Tile
 			Transform spawnedTileReference = randomConnectionPoint.parent;
 			bool tileHasValidRotation = false;
 			Transform connectedPoint;
@@ -100,7 +164,6 @@ public class TileSpawner : MonoBehaviour
 			{
 				foreach (Transform connectionPoint in tilePrefab.connectionPoints)
 				{
-					Debug.Log(Vector3.Distance(connectionPoint.position, spawnedTileReference.position), connectionPoint);
 					if (Vector3.Distance(connectionPoint.position, spawnedTileReference.position) < .01f)
 					{
 						connectedPoint = connectionPoint;
@@ -114,18 +177,23 @@ public class TileSpawner : MonoBehaviour
 				yield return null;
 			}
 
-			//3. Update Manager Lists
-			tm.AddTilePosition(tilePrefab);
-			foreach (Transform connectionPoint in tilePrefab.connectionPoints) tm.AddConnectionPoints(connectionPoint);
-			tm.CheckConnectionPoints();
+			//4. Update Manager Lists
+			AddTile(tilePrefab);
+		}
+	}
 
-			TileSpawned?.Invoke(tilePrefab);
+	private void AddTile(TilePrefab tilePrefab)
+	{
+		tm.AddTilePosition(tilePrefab);
+		foreach (Transform connectionPoint in tilePrefab.connectionPoints) tm.AddConnectionPoints(connectionPoint);
+		tm.CheckConnectionPoints();
 
-			if (!canSpawnTilesEvent)
-			{
-				CanSpawnTiles?.Invoke(true);
-				canSpawnTilesEvent = true;
-			}			
+		TileSpawned?.Invoke(tilePrefab);
+
+		if (!canSpawnTilesEvent)
+		{
+			CanSpawnTiles?.Invoke(true);
+			canSpawnTilesEvent = true;
 		}
 	}
 

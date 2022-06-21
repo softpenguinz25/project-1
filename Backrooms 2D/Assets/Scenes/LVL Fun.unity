@@ -143,14 +143,14 @@ PrefabInstance:
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.Scene
       value: 
-      objectReference: {fileID: 102900000, guid: b70e0c2fe2df6b24f9bf9c76ddb9cdc2, type: 3}
+      objectReference: {fileID: 102900000, guid: 0aa453de5f04329499924903e9ba0f18, type: 3}
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.SceneName
-      value: LVL Pipe Dreams
+      value: LVL Fun
       objectReference: {fileID: 0}
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.sceneIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4832884539794707007, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: m_IsActive
@@ -212,10 +212,18 @@ PrefabInstance:
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: monster
       value: 
-      objectReference: {fileID: 6103907285034565761, guid: 698b16287b46185499e25dec6844e4a5, type: 3}
+      objectReference: {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: chunksBeforeSpawn
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: maxSpawnTimeDelay.Max
+      value: 2.5130243
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: maxSpawnTimeDelay.Min
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573522, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_RootOrder
@@ -267,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573523, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
