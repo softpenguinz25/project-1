@@ -18,8 +18,8 @@ public class MonsterMovement : MonoBehaviour
 	private bool reachedEndOfPath = false;
 
 	[Header("Monster Attributes")]
-	[SerializeField] private float roamingSpeed = 200f;
-	private float currentSpeed;
+	public float speed = 200f;
+	//private float currentSpeed;
 	[SerializeField] private float nextWaypointDistance = 3f;
 
 	[HideInInspector] public Vector2 Force;
@@ -65,7 +65,7 @@ public class MonsterMovement : MonoBehaviour
 
 	private void Start()
 	{
-		currentSpeed = roamingSpeed;
+		//currentSpeed = roamingSpeed;
 
 		StartCoroutine(GeneratePathCoroutine());
 	}
@@ -117,7 +117,7 @@ public class MonsterMovement : MonoBehaviour
 		}
 
 		Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-		Vector2 force = direction * roamingSpeed * Time.deltaTime;
+		Vector2 force = direction * speed * Time.deltaTime;
 		Force = force;
 
 		rb.AddForce(force);

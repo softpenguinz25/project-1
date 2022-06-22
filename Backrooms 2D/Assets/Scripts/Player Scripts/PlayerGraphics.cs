@@ -1,6 +1,5 @@
 using MyBox;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,11 +21,28 @@ public class PlayerGraphics : MonoBehaviour
 	private bool playFirstFootstep;
 	private bool canPlayFootstep = true;
 
+	[Header("Poolrooms Slow Down")]
+	[SerializeField] private float slowDownSpeedMultiplier = .5f;
+	private float slowDownSpeed
+	{
+		get
+		{
+			return originalSpeed * slowDownSpeedMultiplier;
+		}
+	}
+	private float originalSpeed;
+
 	private void Awake()
 	{
 		sr = GetComponent<SpriteRenderer>();
 
 		pm = GetComponent<PlayerMovement>();
+	}
+
+	private void OnEnable()
+	{
+		LVLPoolroomPoolSpeed.SlowDown += (objToSlow) => { if (objToSlow == gameObject) { pm.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); } };
+		LVLPoolroomPoolSpeed.SpeedUp += (objToSlow) => { if (objToSlow == gameObject) pm.speed = originalSpeed; };
 	}
 
 	private void Start()
@@ -35,10 +51,12 @@ public class PlayerGraphics : MonoBehaviour
 
 		lastPos = transform.position;
 		timeBtwnFootsteps = Random.Range(startTimeBtwnFootsteps.Min, startTimeBtwnFootsteps.Max);
+
+		originalSpeed = pm.speed;
 	}
 
 	private void Update()
-	{
+	{		
 		if (pm.Movement.x > 0) sr.sprite = playerPoses[1];
 		else if (pm.Movement.x < 0) sr.sprite = playerPoses[3];
 		else if (pm.Movement.y > 0) sr.sprite = playerPoses[0];

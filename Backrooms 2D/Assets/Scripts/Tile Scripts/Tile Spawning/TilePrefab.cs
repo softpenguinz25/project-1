@@ -16,7 +16,8 @@ public class TilePrefab : MonoBehaviour
     [Space]
     [Header("IF IS GROUP TILE = TRUE")]
     public List<TilePrefab> tileArea;
-    public bool canConnectUp, canConnectRight, canConnectDown, canConnectLeft;
+    [ConditionalField(nameof(isGroupTile))] public Transform checkForObstructingTilesPointA, checkForObstructingTilesPointB;
+    [ConditionalField(nameof(isGroupTile))] public bool canConnectUp, canConnectRight, canConnectDown, canConnectLeft;
     [ConditionalField(nameof(canConnectUp))] public Vector2 positionOffsetValueUp;
     [ConditionalField(nameof(canConnectRight))] public Vector2 positionOffsetValueRight;
     [ConditionalField(nameof(canConnectDown))] public Vector2 positionOffsetValueDown;

@@ -302,6 +302,7 @@ MonoBehaviour:
   maxTimeBtwnFootsteps:
     Min: 0.31934872
     Max: 0.31934872
+  slowDownSpeedMultiplier: 0.25
 --- !u!61 &8578826946237513871
 BoxCollider2D:
   m_ObjectHideFlags: 0

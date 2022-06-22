@@ -128,26 +128,58 @@ public class TileSpawner : MonoBehaviour
 				List<TilePrefab> areaTiles = tilePrefab.GetComponentsInChildren<TilePrefab>().ToList();
 				areaTiles.Remove(tilePrefab);
 
-				bool groupTileInIllegalPosition = false;
+				#region Old (Laggy) (CHECKS LIKE 50000 TILES LOL)
+				/*bool groupTileInIllegalPosition = false;
+				int tileIndex = 0;
 				foreach (TilePrefab areaTile in areaTiles)
 				{
 					foreach (TilePrefab existingTile in tm.tiles)
 					{
+						tileIndex++;
+						Debug.Log("tileIndex: " + tileIndex);
 						if (Vector2.Distance(areaTile.transform.position, existingTile.transform.position) < epsilon)
-						{							
+						{
 							groupTileInIllegalPosition = true;
 							break;
 						}
+
+						if (tileIndex % 100 == 0)
+							yield return null;//Stop crashing from lag
 					}
 					if (groupTileInIllegalPosition) break;
+					//yield return null;//Stop crashing from lag
 				}
 
 				if (groupTileInIllegalPosition)
 				{
 					Destroy(tilePrefab.gameObject);
 					continue;
+				}*/
+				#endregion
+
+				List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(tilePrefab.checkForObstructingTilesPointA.position, tilePrefab.checkForObstructingTilesPointB.position).ToList();
+				List<Collider2D> invalidTiles = new List<Collider2D>();
+				foreach (Collider2D collider in tilesDetectedInArea)
+				{
+					TilePrefab colliderTilePrefab = collider.GetComponent<TilePrefab>();
+					if (colliderTilePrefab == null) { invalidTiles.Add(collider); continue; }
+					else if(colliderTilePrefab.isGroupTile) { invalidTiles.Add(collider); continue; }
+					else if(colliderTilePrefab.transform.IsChildOf(tilePrefab.transform)) { invalidTiles.Add(collider); continue; }
 				}
 
+				foreach(Collider2D invalidTile in invalidTiles)
+				{
+					if(tilesDetectedInArea.Contains(invalidTile))
+						tilesDetectedInArea.Remove(invalidTile);
+				}				
+				
+				if(tilesDetectedInArea.Count > 1)
+				{
+					Destroy(tilePrefab.gameObject);
+					continue;
+				}
+
+				//Passed the obstruction test
 				foreach (TilePrefab areaTile in areaTiles)
 				{
 					AddTile(areaTile);

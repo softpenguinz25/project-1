@@ -11,6 +11,17 @@ public class MonsterGraphics : MonoBehaviour
 	[SerializeField] private Sprite[] playerPoses = new Sprite[4];
 	[SerializeField] private float spriteThreshold = .4f;
 
+	[Header("Poolrooms Slow Down")]
+	[SerializeField] private float slowDownSpeedMultiplier = .25f;
+	private float slowDownSpeed
+	{
+		get
+		{
+			return originalSpeed * slowDownSpeedMultiplier;
+		}
+	}
+	private float originalSpeed;
+
 	private void Awake()
 	{
 		mm = GetComponent<MonsterMovement>();
@@ -20,7 +31,14 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void Start()
 	{
-		sr.sprite = playerPoses[2];
+		originalSpeed = mm.speed;
+		sr.sprite = playerPoses[2];	
+	}
+
+	private void OnEnable()
+	{
+		LVLPoolroomPoolSpeed.SlowDown += (objToSlow) => { if (objToSlow == gameObject) { mm.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); } };
+		LVLPoolroomPoolSpeed.SpeedUp += (objToSlow) => { if (objToSlow == gameObject) mm.speed = originalSpeed; };
 	}
 
 	private void Update()

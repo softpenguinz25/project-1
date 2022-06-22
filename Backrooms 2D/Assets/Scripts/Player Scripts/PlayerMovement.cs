@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 			return moveVector.normalized;
 		}
 	}
-	[SerializeField] private float speed = 5;
+	public float speed = 5;
 
 	private void Awake()
 	{

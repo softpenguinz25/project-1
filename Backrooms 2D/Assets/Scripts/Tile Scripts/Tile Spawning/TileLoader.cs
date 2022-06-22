@@ -78,6 +78,8 @@ public class TileLoader : MonoBehaviour
 			AddChunk(roundedTilePos);
 			tile.transform.parent = newChunk.transform;
 		}
+
+		//if(tile.isGroupTile) Debug.Log("Tile Added to Chunk");
 	}
 
 	private void Update()

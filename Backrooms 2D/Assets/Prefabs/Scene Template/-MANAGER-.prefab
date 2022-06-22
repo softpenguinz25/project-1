@@ -111,6 +111,35 @@ MonoBehaviour:
       Min: 0.9
       Max: 1.1
     sources: []
+  - name: LVLPoolrooms_Player_Footsteps
+    clips:
+    - {fileID: 8300000, guid: 6c69704e8b70c2a4c87c181ce74d46db, type: 3}
+    - {fileID: 8300000, guid: 444a6e1b37259c54fa7e16f3ad6ed5de, type: 3}
+    - {fileID: 8300000, guid: db878f768076fd04a8045c6b40fb1865, type: 3}
+    - {fileID: 8300000, guid: baad9821d9b547f44844af779cd32fee, type: 3}
+    - {fileID: 8300000, guid: aabf9243fdc3bb842966666044a522b4, type: 3}
+    - {fileID: 8300000, guid: 26d95446bb66adb4796280e2340c0e80, type: 3}
+    - {fileID: 8300000, guid: cd58479d2b7a6b24d9fe82a2433f7e2c, type: 3}
+    - {fileID: 8300000, guid: 65cb5a880ac7b1e408c5c725261b2acc, type: 3}
+    volume:
+      Min: 0.8
+      Max: 1
+    pitch:
+      Min: 0.9
+      Max: 1.1
+    sources: []
+  - name: LVLPoolrooms_Splash
+    clips:
+    - {fileID: 8300000, guid: 0d699c998f6ed9947b7fa8a32b233b1e, type: 3}
+    - {fileID: 8300000, guid: caf18c113bf19b644904e41fdda084e5, type: 3}
+    - {fileID: 8300000, guid: 8bebf919261a333439a09fa4474b0f97, type: 3}
+    volume:
+      Min: 0.8
+      Max: 1
+    pitch:
+      Min: 0.9
+      Max: 1.1
+    sources: []
   - name: Escape_Player_Footsteps
     clips:
     - {fileID: 8300000, guid: b14b55755c516604e966af89958cc820, type: 3}

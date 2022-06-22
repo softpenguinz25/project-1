@@ -32,7 +32,7 @@ public class ExitDoor : MonoBehaviour
 
 		//Rotate if is hitting a wall
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, raycastCheckRotationDistance, tileMask);
-		while (hit.collider != null)
+		while (hit.collider != null && !hit.collider.isTrigger)
 		{
 			transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z + 90);
 			hit = Physics2D.Raycast(transform.position, transform.up, raycastCheckRotationDistance, tileMask);

@@ -29,6 +29,17 @@ public class AudioManager : MonoBehaviour
         randomSource.Play();
     }
 
+    public void PlayOneShot(string name)
+    {
+        Sound s = GetSoundFromName(name);
+        if (s == null) return;
+
+        AudioSource randomSource = s.sources[UnityEngine.Random.Range(0, s.sources.Count)];
+        randomSource.volume = UnityEngine.Random.Range(s.volume.Min, s.volume.Max);
+        randomSource.pitch = UnityEngine.Random.Range(s.pitch.Min, s.pitch.Max);
+        randomSource.PlayOneShot(randomSource.clip);
+    }
+
     #region TODO: Add 3D position
     public void Play(string name, Vector3 worldPos)
     {
