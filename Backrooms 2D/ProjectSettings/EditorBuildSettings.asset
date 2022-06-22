@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LVL Fun.unity
     guid: 0aa453de5f04329499924903e9ba0f18
+  - enabled: 1
+    path: Assets/Scenes/Escape.unity
+    guid: 7b301d6fc4f6e714bb1f42f367d82d25
   m_configObjects: {}

@@ -111,6 +111,18 @@ MonoBehaviour:
       Min: 0.9
       Max: 1.1
     sources: []
+  - name: Escape_Player_Footsteps
+    clips:
+    - {fileID: 8300000, guid: b14b55755c516604e966af89958cc820, type: 3}
+    - {fileID: 8300000, guid: dc86f89dadc2a6c49b6c86815a4e3952, type: 3}
+    - {fileID: 8300000, guid: 7318877658799d54a82fd159ef8e5d32, type: 3}
+    volume:
+      Min: 0.8
+      Max: 1
+    pitch:
+      Min: 0.9
+      Max: 1.1
+    sources: []
 --- !u!1 &4832884539536724277
 GameObject:
   m_ObjectHideFlags: 0

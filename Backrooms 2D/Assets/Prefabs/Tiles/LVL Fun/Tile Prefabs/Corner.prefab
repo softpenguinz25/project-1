@@ -261,7 +261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed5b78500332504392ce4aa56d2f0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionPoints: []
+  isGroupTile: 0
+  connectionPoints:
+  - {fileID: 459659920422334838}
+  - {fileID: 459659921741579752}
+  tileArea: []
+  canConnectUp: 0
+  canConnectRight: 0
+  canConnectDown: 0
+  canConnectLeft: 0
+  positionOffsetValueUp: {x: 0, y: 0}
+  positionOffsetValueRight: {x: 0, y: 0}
+  positionOffsetValueDown: {x: 0, y: 0}
+  positionOffsetValueLeft: {x: 0, y: 0}
 --- !u!61 &8715071060730105757
 BoxCollider2D:
   m_ObjectHideFlags: 0
