@@ -37,8 +37,24 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void OnEnable()
 	{
-		LVLPoolroomPoolSpeed.SlowDown += (objToSlow) => { if (objToSlow == gameObject) { mm.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); } };
-		LVLPoolroomPoolSpeed.SpeedUp += (objToSlow) => { if (objToSlow == gameObject) mm.speed = originalSpeed; };
+		LVLPoolroomPoolSpeed.SlowDown += SlowDown;
+		LVLPoolroomPoolSpeed.SpeedUp += SpeedUp;
+	}
+
+	private void OnDisable()
+	{
+		LVLPoolroomPoolSpeed.SlowDown -= SlowDown;
+		LVLPoolroomPoolSpeed.SpeedUp -= SpeedUp;
+	}
+
+	private void SlowDown(GameObject objToSlow)
+	{
+		if (objToSlow == gameObject) { mm.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
+	}
+
+	private void SpeedUp(GameObject objToSpeedUp)
+	{
+		if (objToSpeedUp == gameObject) mm.speed = originalSpeed;
 	}
 
 	private void Update()

@@ -13,6 +13,14 @@ public class MonsterSpawner : MonoBehaviour
 	[SerializeField] [Range(0, 250)] private int chunksBeforeSpawn = 25;
 	[SerializeField] [MinMaxRange(0, 60)] private RangedFloat maxSpawnTimeDelay = new RangedFloat(20, 40);
 
+	[Header("Reocurring Spawns")]
+	[SerializeField] private bool canReocurringlySpawn = true;
+	[ConditionalField(nameof(canReocurringlySpawn))][SerializeField] [Range(0, 250)] private int reoccurringChunksBeforeSpawn = 25;
+	[ConditionalField(nameof(canReocurringlySpawn))] [SerializeField] [MinMaxRange(0, 60)] private RangedFloat reoccurringMaxSpawnTimeDelay = new RangedFloat(20, 40);
+	private bool hasSpawnedOnce;
+	[ConditionalField(nameof(canReocurringlySpawn))] [SerializeField] private int maxNumMonsters = 3;
+	private List<GameObject> monsters = new List<GameObject>();
+
 	[Header("Spawn")]
 	[SerializeField] private GameObject monster;
 	[Space]
@@ -42,23 +50,38 @@ public class MonsterSpawner : MonoBehaviour
 	{
 		tl.ChunkSpawned += (numChunks) =>
 		{
-			if (numChunks >= chunksBeforeSpawn)
+			if (!hasSpawnedOnce)
 			{
-				StopCoroutine(SpawnMonsterAfterDelayCoroutine());
-				SpawnMonster();
+				if (numChunks % chunksBeforeSpawn == 0)
+				{
+					StopCoroutine(SpawnMonsterAfterDelayCoroutine());
+					SpawnMonster();
+				}
+			}
+			else
+			{
+				if ((numChunks + chunksBeforeSpawn) % reoccurringChunksBeforeSpawn == 0)
+				{
+					StopCoroutine(SpawnMonsterAfterDelayCoroutine());
+					SpawnMonster();
+				}
 			}
 		};
 	}
 
 	private IEnumerator SpawnMonsterAfterDelayCoroutine()
 	{
-		yield return new WaitForSeconds(UnityEngine.Random.Range(maxSpawnTimeDelay.Min, maxSpawnTimeDelay.Max));
+		if(!hasSpawnedOnce)
+			yield return new WaitForSeconds(UnityEngine.Random.Range(maxSpawnTimeDelay.Min, maxSpawnTimeDelay.Max));
+		else
+			yield return new WaitForSeconds(UnityEngine.Random.Range(reoccurringMaxSpawnTimeDelay.Min, reoccurringMaxSpawnTimeDelay.Max));
 		SpawnMonster();
 	}
 
 	private void SpawnMonster()
 	{
 		if (!canSpawnMonster) return;
+		hasSpawnedOnce = true;
 
 		Vector2 randomEdgePos = UnityEngine.Random.insideUnitCircle.normalized * spawnRadiusAwayFromPlayer.Max + (Vector2)player.transform.position;
 		Vector2 randomEdgeOffsetPos = new Vector2(UnityEngine.Random.Range(0, spawnRadiusAwayFromPlayer.Max - spawnRadiusAwayFromPlayer.Min), UnityEngine.Random.Range(0, spawnRadiusAwayFromPlayer.Max - spawnRadiusAwayFromPlayer.Min));
@@ -71,9 +94,41 @@ public class MonsterSpawner : MonoBehaviour
 		}
 		//THANKS iwaldrop! https://answers.unity.com/questions/476940/how-to-sort-a-list-by-a-class-paramater.html
 		tileDistances = tileDistances.OrderBy(x => x.distance).ToList();
-		Instantiate(monster, tileDistances[0].tile.transform.position, Quaternion.identity);
+
+		List<TileDistance> tooClose = new List<TileDistance>();
+		foreach(TileDistance tileDistance in tileDistances)
+		{
+			if(Vector2.Distance(tileDistance.tile.transform.position, player.transform.position) < spawnRadiusAwayFromPlayer.Min)
+			{
+				tooClose.Add(tileDistance);
+			}
+		}
+
+		foreach(TileDistance closeTile in tooClose)
+		{
+			tileDistances.Remove(closeTile);
+		}
+
+		GameObject monsterObj = Instantiate(monster, tileDistances[0].tile.transform.position, Quaternion.identity);
 
 		canSpawnMonster = false;
+		monsters.Add(monsterObj);
+
+		if(monsters.Count > maxNumMonsters)
+		{
+			Destroy(monsters[0]);
+			monsters.RemoveAt(0);
+		}
+
+		StartCoroutine(RestartSystem());
+	}
+
+	private IEnumerator RestartSystem()
+	{
+		yield return new WaitForSeconds(reoccurringMaxSpawnTimeDelay.Min * .01f);
+
+		canSpawnMonster = true;
+		StartCoroutine(SpawnMonsterAfterDelayCoroutine());
 	}
 }
 

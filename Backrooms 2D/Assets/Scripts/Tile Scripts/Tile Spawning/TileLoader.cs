@@ -5,8 +5,9 @@ using UnityEngine;
 public class TileLoader : MonoBehaviour
 {
 	private TileSpawner ts;
+	private TileDataManager tdm;
 
-	private List<GameObject> chunks = new List<GameObject>();
+	[SerializeField] private List<GameObject> chunks = new List<GameObject>();
 	public float chunkSize = 16;
 
 	private GameObject newChunk;
@@ -19,6 +20,7 @@ public class TileLoader : MonoBehaviour
 	private void Awake()
 	{
 		ts = FindObjectOfType<TileSpawner>();
+		tdm = FindObjectOfType<TileDataManager>();
 	}
 
 	private void OnEnable()
@@ -79,6 +81,8 @@ public class TileLoader : MonoBehaviour
 			tile.transform.parent = newChunk.transform;
 		}
 
+		LoadChunks();
+
 		//if(tile.isGroupTile) Debug.Log("Tile Added to Chunk");
 	}
 
@@ -88,7 +92,7 @@ public class TileLoader : MonoBehaviour
 		{
 			LoadChunks();
 			currentChunkComparison = CurrentPlayerChunk();
-		}		
+		}
 	}
 
 	private void LoadChunks()

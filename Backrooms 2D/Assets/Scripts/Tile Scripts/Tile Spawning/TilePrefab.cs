@@ -5,6 +5,7 @@ using UnityEngine;
 [SelectionBase]
 public class TilePrefab : MonoBehaviour
 {
+    public GameObject referenceTile;
     public bool isGroupTile;
 
     [Header("IF IS GROUP TILE = FALSE")]

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5247684f1af2f4e97cdfa755301aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roamingSpeed: 500
+  speed: 300
   nextWaypointDistance: 0.25
   Force: {x: 0, y: 0}
 --- !u!114 &2720332078630763168
@@ -190,6 +190,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: eef6e96a5df919748adfc6af2f2e96e5, type: 3}
   - {fileID: 7834785790638510443, guid: b9131726bd12db342977d1196c905a56, type: 3}
   spriteThreshold: 1.5
+  slowDownSpeedMultiplier: 0.5
 --- !u!114 &6051211600283715042
 MonoBehaviour:
   m_ObjectHideFlags: 0

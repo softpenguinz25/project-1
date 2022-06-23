@@ -201,6 +201,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2295088065563165929, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAACQn+tXDYmbXQIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GkJCE3lqHkB6SMCGdXHxZrDXWIEsefQRIhv/elWxjl05PLG/f7r79kL+YULbG3GmzMII/aY7s+4gFm30b9c5H3MNGq5X4xI7zLrgrAwki5xWc0ISPQ5jVFToj8h9qIwM5IdArUWhTzfkGU22dJbgAaZFcRrsQrQj6GrE9/VzMQsiBrMltsD7JmiWjI5k5Koemp3bEjtawvMolVDXyILknTzv2tKEpaqZlJJfTkF1LKWyrhblDHXtNobaeOiECF0C9RQHjyxsCShSb0gWlw/CXorDoWlkGDvfC0JCavOynbiZXgd022j5A+lDpLqpqUj79470YR3dhdPXYVR0noYIrRb59hUMO1g0GO4TvB8LjgHYgt7CW+F6ietYLo73i5HTGh1BvcXLf/z01lpaYb3u8kXoG+vr/6wk9HGPv+1SKah0nf90AK6njvOPy0dBufpHgeBq2TUFoUPHb4htshjfUOh6EsY5cbZcqyFtrbwKVzePMQjfepdoojHArukYF0h2WlMadL/DMNyh75nmA8Fra4q2vewRnIRHu+Uly5lrq3WlZttS7J7Tli3dSKOxFB8czzSnVSjX3NZxJF7bypoB8ELbxgv99WuwmuZvdzvJJXiBMJ9Ori2vAYjoeX/HZ3S2siwmLtycU9Qly2Qhtx0NbU31yRXfWfURGCwN1vHVuYLcQn5UejFyoQq9yg6hemgwn4WioCL1LPueCBrRC54SK+2ZfGZM63yLPTomy2Ol87wxkfZaM1eJDu4BkLI1fjYwF+HTLS4MfAneheJfsyI5/AFBLAwQUAAAICAAAkJ/rpOOaX20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kpmBhaW5ZbJRclpqoqmRqbGuSWJqmqmhoXGKpYV5YlKakVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAkJ/rVw2Jm10CAAAUBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAkJ/rpOOaX20AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
+      objectReference: {fileID: 0}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: player
       value: 
@@ -210,8 +214,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6103907285034565761, guid: 698b16287b46185499e25dec6844e4a5, type: 3}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: maxNumMonsters
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: chunksBeforeSpawn
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: canReocurringlySpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: reoccurringChunksBeforeSpawn
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: spawnRadiusAwayFromPlayer.Max
+      value: 25.108536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: spawnRadiusAwayFromPlayer.Min
+      value: 18.449587
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: reoccurringMaxSpawnTimeDelay.Max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: reoccurringMaxSpawnTimeDelay.Min
+      value: 56.53846
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573522, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_RootOrder
@@ -556,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427791821919923567, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: tilesUntilDoorSpawns
-      value: 200
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}

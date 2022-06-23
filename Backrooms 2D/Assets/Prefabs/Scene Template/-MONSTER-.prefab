@@ -138,8 +138,8 @@ MonoBehaviour:
   monster: {fileID: 7368467659627920316, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
   player: {fileID: 0}
   spawnRadiusAwayFromPlayer:
-    Min: 26.9253
-    Max: 33.58425
+    Min: 15.084202
+    Max: 21.743149
 --- !u!1 &2295088066985573523
 GameObject:
   m_ObjectHideFlags: 0

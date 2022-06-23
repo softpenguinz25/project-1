@@ -24,6 +24,8 @@ public class MonsterMovement : MonoBehaviour
 
 	[HideInInspector] public Vector2 Force;
 
+	private float timeBeforeGenerateNextPath = 1.5f;
+
 	/*[Header("Monster Is Close Attributes")]
 	[SerializeField] private float isCloseSpeedMultiplier = 1.5f;
 	private float closeSpeed
@@ -89,7 +91,7 @@ public class MonsterMovement : MonoBehaviour
 
 			seeker.StartPath(rb.position, player.transform.position, OnPathComplete);
 
-			yield return new WaitForSeconds(.5f);
+			yield return new WaitForSeconds(timeBeforeGenerateNextPath);
 		}
 	}
 

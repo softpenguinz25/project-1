@@ -93,6 +93,7 @@ public class TileSpawner : MonoBehaviour
 
 			//2. Spawn Tile
 			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
+			tilePrefab.referenceTile = randomConnectionPoint.parent.gameObject;
 
 			//2.5. Apply Group Tile Settings (If Applicable)
 			if (tilePrefab.isGroupTile)
@@ -157,7 +158,12 @@ public class TileSpawner : MonoBehaviour
 				}*/
 				#endregion
 
+				//Thanks Baste! https://forum.unity.com/threads/cant-get-physics2d-overlapbox-to-hit-triggers.1068140/
+				var old = Physics2D.queriesHitTriggers;
+				Physics2D.queriesHitTriggers = true;
 				List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(tilePrefab.checkForObstructingTilesPointA.position, tilePrefab.checkForObstructingTilesPointB.position).ToList();
+				Physics2D.queriesHitTriggers = old;
+
 				List<Collider2D> invalidTiles = new List<Collider2D>();
 				foreach (Collider2D collider in tilesDetectedInArea)
 				{
@@ -173,16 +179,45 @@ public class TileSpawner : MonoBehaviour
 						tilesDetectedInArea.Remove(invalidTile);
 				}				
 				
+				//Debug.Log("Checking invalid tile: " + tilePrefab.gameObject.name, tilePrefab);
 				if(tilesDetectedInArea.Count > 1)
 				{
 					Destroy(tilePrefab.gameObject);
 					continue;
 				}
 
+				#region Hacky Fix to Overlapping Tiles Bug =(
+				/*bool tileOverlapsWithGroupTile = false;
+				foreach (TilePrefab tile in tm.tiles)
+				{
+					if (!tile.isGroupTile) continue;
+					foreach(TilePrefab tileArea in tile.tileArea)
+					{
+						foreach (TilePrefab areaTile in areaTiles)
+						{
+							if(Vector2.Distance(areaTile.transform.position, tileArea.transform.position) < .01f)
+							{
+								tileOverlapsWithGroupTile = true;
+								break;
+							}
+						}
+						if (tileOverlapsWithGroupTile) break;
+					}
+					if (tileOverlapsWithGroupTile) break;
+				}
+
+				if (tileOverlapsWithGroupTile)
+				{
+					Destroy(tilePrefab.gameObject);
+					continue;
+				}*/
+				#endregion
+
 				//Passed the obstruction test
 				foreach (TilePrefab areaTile in areaTiles)
 				{
 					AddTile(areaTile);
+					yield return null;
 				}
 
 				continue;
