@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Party
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6659174551815613922, guid: 6a4391cffc9945644b42ce0edb475ccd, type: 3}
-  spawnChance: 1
+  spawnChance: 10

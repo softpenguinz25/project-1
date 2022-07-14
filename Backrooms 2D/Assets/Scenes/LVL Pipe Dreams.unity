@@ -468,6 +468,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 217976159}
+    - target: {fileID: 3441267525647845288, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3441267525647845289, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: tileCollection
       value: 
@@ -538,6 +542,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8427791820186929125, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 217976159}
     - target: {fileID: 8427791820475095584, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2720332078630763168}
   - component: {fileID: 6051211600283715042}
   - component: {fileID: 1473480131879910231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bacteria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,13 +309,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6391615013832272666}
   - component: {fileID: 4090194617726259584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6391615013832272666
 Transform:
   m_ObjectHideFlags: 0

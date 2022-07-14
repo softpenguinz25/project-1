@@ -97,7 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5925f9c81a66e40870e5912768c983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   screenBoundsIndent: -1
+  timeBeforeGenerateNextPath: 1
 --- !u!1 &8427791820475095587
 GameObject:
   m_ObjectHideFlags: 0

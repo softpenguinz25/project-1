@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Split
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6256332544350902762, guid: 02594c7629f1b4742bcf960edda3541e, type: 3}
-  spawnChance: 2.5
+  spawnChance: 0

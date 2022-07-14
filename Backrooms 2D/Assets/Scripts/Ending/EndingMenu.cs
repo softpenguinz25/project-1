@@ -4,9 +4,7 @@ public class EndingMenu : MonoBehaviour
 {
     public void PlayVideo()
 	{
-		Debug.Log("playing video...");
-		//string baseUrl = "https://www.youtube.com";
-		Application.OpenURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+		Application.OpenURL("https://youtu.be/OXRUEqbV2oM");
 	}
 
 	public void Quit()
