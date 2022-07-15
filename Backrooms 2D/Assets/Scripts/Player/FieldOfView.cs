@@ -10,6 +10,9 @@ public class FieldOfView : MonoBehaviour
     private Vector3 origin;
     [SerializeField] private float fovAngle;
     [SerializeField] private LayerMask layerMask;
+
+    [Header("Hello darkness my old friend")]
+    [SerializeField] private float raycastExtend = .2f;
     private void Start()
     {
         mesh = new Mesh();
@@ -19,7 +22,7 @@ public class FieldOfView : MonoBehaviour
 
     private void LateUpdate()
     {
-        int rayCount = 50;
+        int rayCount = 800;
         float angle = fovAngle;
         float angleIncrease = fov / rayCount;
 
@@ -34,21 +37,47 @@ public class FieldOfView : MonoBehaviour
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
+            Vector3 raycastDir = GetVectorFromAngle(angle);
+            RaycastHit2D initalRaycastHit2D = Physics2D.Raycast(origin, raycastDir, viewDistance, layerMask);
+            Vector2 extendedPoint = initalRaycastHit2D.point + raycastExtend * (Vector2)raycastDir;
+            RaycastHit2D[] raycastHit2DThroughWallCols = Physics2D.RaycastAll(extendedPoint, -raycastDir, viewDistance, layerMask);
 
-            if (raycastHit2D.collider == null)
+            if (initalRaycastHit2D.collider == null)
             {
                 //No hit
                 vertex = origin + GetVectorFromAngle(angle) * viewDistance;
 
             }
             else
-            {
-                //Hit object
-                vertex = raycastHit2D.point;
-            }
+			{
+				//Hit object
+				#region Calculate Collider Offset
+				//initalRaycastHit2D = CalculateColliderOffset(initalRaycastHit2D);
 
-            verticies[vertexIndex] = vertex;
+				//Vector2 colliderHitPos = (Vector2)initalRaycastHit2D.collider.transform.position + colliderOffset;
+				//Thanks Threeli, renman3000, outsky! https://forum.unity.com/threads/place-an-object-on-the-opposite-side-of-another-from-a-third.143509/
+				//Vector2 pointThroughWall = initalRaycastHit2D.point + initalRaycastHit2D.point - colliderHitPos;
+				#endregion
+
+				RaycastHit2D otherSideOfWall = new RaycastHit2D();
+				foreach (RaycastHit2D raycastHit2D in raycastHit2DThroughWallCols)
+				{
+					if (raycastHit2D.collider == initalRaycastHit2D.collider)
+					{
+						otherSideOfWall = raycastHit2D;
+						break;
+					}
+					else if (Vector2.Distance(raycastHit2D.point + CalculateColliderOffset(raycastHit2D), initalRaycastHit2D.point + CalculateColliderOffset(initalRaycastHit2D)) < 1.01f)
+					{
+                        otherSideOfWall = raycastHit2D;
+                        break;
+                    }
+				}
+
+				vertex = otherSideOfWall.point;
+			}
+
+			verticies[vertexIndex] = vertex;
 
             if (i > 0)
             {
@@ -66,8 +95,31 @@ public class FieldOfView : MonoBehaviour
         mesh.vertices = verticies;
         mesh.uv = uv;
         mesh.triangles = triangles;
+        mesh.bounds = new Bounds(origin, Vector3.one * 10000f);
     }
-    public void SetOrigin(Vector3 origin)
+
+	private static Vector2 CalculateColliderOffset(RaycastHit2D raycastHit2D)
+	{
+		Vector2 colliderOffset = raycastHit2D.collider.offset;
+		GameObject colliderTile = raycastHit2D.collider.gameObject;
+
+		if (Mathf.Abs(colliderTile.transform.eulerAngles.z - 90) < .01f) colliderOffset = new Vector2(colliderOffset.y, -colliderOffset.x);
+		else if (Mathf.Abs(colliderTile.transform.eulerAngles.z + 180) < .01f) colliderOffset *= -1;
+		else if (Mathf.Abs(colliderTile.transform.eulerAngles.z + 90) < .01f) colliderOffset = new Vector2(-colliderOffset.y, colliderOffset.x);
+		//else Debug.LogError("Rotation Checks didn't work :sadge:");
+
+
+		//      Forward
+		//
+		//      (x,y)
+		//
+		//(-y,x)        (y,-x)
+		//
+		//      (-x,-y)
+		return colliderOffset;
+	}
+
+	public void SetOrigin(Vector3 origin)
 	{
         this.origin = origin;
 	}

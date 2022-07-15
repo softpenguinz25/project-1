@@ -8,7 +8,7 @@ public class PlayerFieldOfView : MonoBehaviour
 	{
 		fov = FindObjectOfType<FieldOfView>();
 
-		if (fov == null) Debug.LogError("Count not find FieldOfView!");
+		if (fov == null && enabled) Debug.LogError("Count not find FieldOfView!");
 	}
 
 	private void Update()

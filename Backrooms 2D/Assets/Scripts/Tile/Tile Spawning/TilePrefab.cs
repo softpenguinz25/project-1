@@ -24,6 +24,11 @@ public class TilePrefab : MonoBehaviour
     [ConditionalField(nameof(canConnectDown))] public Vector2 positionOffsetValueDown;
     [ConditionalField(nameof(canConnectLeft))] public Vector2 positionOffsetValueLeft;
 
+    [Space]
+    public bool hasSpecialCPs;
+    public List<Transform> specialCPs;
+    public List<TilePrefab> tileCanSpawnOnCP;
+
 #if UNITY_EDITOR // conditional compilation is not mandatory
     [ButtonMethod]
     private string AutoDetectPoints()

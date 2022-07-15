@@ -68,7 +68,7 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
-	public void CheckTiles(bool canSpawnTiles)
+	/*public void CheckTiles(bool canSpawnTiles)
 	{
 		Debug.Log(canSpawnTiles);
 		if (canSpawnTiles) return;//Only check if we cant spawn tiles (signify that tile spawning is done)
@@ -91,5 +91,5 @@ public class TileDataManager : MonoBehaviour
 		{
 			tiles.Remove(impossibleTile);
 		}
-	}
+	}*/
 }

@@ -180,7 +180,7 @@ public class TileSpawner : MonoBehaviour
 					if (tilesDetectedInArea.Contains(invalidTile))
 					{
 						tilesDetectedInArea.Remove(invalidTile);
-						Debug.Log("Removed: " + invalidTile, invalidTile);
+						//Debug.Log("Removed: " + invalidTile, invalidTile);
 					}
 				}
 
