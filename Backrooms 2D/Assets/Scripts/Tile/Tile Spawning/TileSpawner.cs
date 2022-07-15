@@ -33,8 +33,23 @@ public class TileSpawner : MonoBehaviour
 	private void SpawnFirstTile()
 	{
 		TilePrefab firstTile = Instantiate(tileCollection.firstTile.tilePrefab, Vector3.zero, Quaternion.identity);
-		tm.AddTilePosition(firstTile);
-		foreach(Transform connectionPoint in firstTile.connectionPoints) tm.AddConnectionPoints(connectionPoint);
+		if (!firstTile.isGroupTile)
+		{
+			tm.AddTile(firstTile);
+			foreach (Transform connectionPoint in firstTile.connectionPoints) tm.AddConnectionPoint(connectionPoint);
+		}
+		else
+		{
+			//Regular CPs
+			foreach(TilePrefab tile in firstTile.tileArea)
+			{
+				tm.AddTile(tile);
+				foreach (Transform connectionPoint in tile.connectionPoints) tm.AddConnectionPoint(connectionPoint);				
+			}
+
+			//Special CPs
+			foreach (Transform specialCP in firstTile.specialCPs) tm.AddConnectionPoint(specialCP);
+		}
 
 		StartCoroutine(SpawnTilesCoroutine());
 	}
@@ -69,7 +84,7 @@ public class TileSpawner : MonoBehaviour
 						else
 						{
 							tl.AddChunk(roundedConnectionPointPos);
-							//Debug.Log("(Spawn Tile) Chunk Added at Position: " + roundedConnectionPointPos);
+							Debug.Log("(Spawn Tile) Chunk Added at Position: " + roundedConnectionPointPos);
 						}
 					}
 
@@ -94,14 +109,22 @@ public class TileSpawner : MonoBehaviour
 			}
 
 			//2. Spawn Tile
-			TilePrefab tilePrefab = Instantiate(RandomSpawnChanceTile().tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
+			TileTemplate randomTileTemplate;
+			CPData cpData = randomConnectionPoint.GetComponent<CPData>();
+
+			if (cpData == null) randomTileTemplate = RandomSpawnChanceTile(tileCollection);
+			else randomTileTemplate = RandomSpawnChanceTile(cpData.tileCollection);
+			TilePrefab tilePrefab = Instantiate(randomTileTemplate.tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
+			//Debug.Log("Tile Instantiated: " + tilePrefab.name, tilePrefab);
 			tilePrefab.referenceTile = randomConnectionPoint.parent.gameObject;
 
 			//2.5. Apply Group Tile Settings (If Applicable)
 			if (tilePrefab.isGroupTile)
 			{
-				//Correct Rotation
-				tilePrefab.transform.eulerAngles = Vector3.zero;
+				//Debug.Log("Executing Group Tile Logic...");
+
+				//Temporary Rotation Correction
+				if(!tilePrefab.canBeRotated) tilePrefab.transform.eulerAngles = Vector3.zero;
 
 				//Correct Position
 				float epsilon = .01f;
@@ -112,13 +135,14 @@ public class TileSpawner : MonoBehaviour
 				bool connectionPointIsDown = Mathf.Abs(diffBetweenConnectionAndTile.x) < epsilon && diffBetweenConnectionAndTile.y < -epsilon;
 				bool connectionPointIsLeft = diffBetweenConnectionAndTile.x < -epsilon && Mathf.Abs(diffBetweenConnectionAndTile.y) < epsilon;
 
-				/*Debug.Log("Up: " + connectionPointIsUp);
-				Debug.Log("Right: " + connectionPointIsRight);
-				Debug.Log("Down: " + connectionPointIsDown);
-				Debug.Log("Left: " + connectionPointIsLeft);*/
+				/*Debug.Log("CP Up: " + connectionPointIsUp + "Can Connect Up: " + tilePrefab.canConnectUp);
+				Debug.Log("CP Right: " + connectionPointIsRight + "Can Connect Right: " + tilePrefab.canConnectRight);
+				Debug.Log("CP Down: " + connectionPointIsDown + "Can Connect Down: " + tilePrefab.canConnectDown);
+				Debug.Log("CP Left: " + connectionPointIsLeft + "Can Connect Left: " + tilePrefab.canConnectLeft);*/
 
-				if (!((connectionPointIsUp && tilePrefab.canConnectDown) || (connectionPointIsRight && tilePrefab.canConnectLeft) || (connectionPointIsDown && tilePrefab.canConnectUp) || (connectionPointIsLeft && tilePrefab.canConnectRight)))
+				if (!((connectionPointIsUp && tilePrefab.canConnectDown) || (connectionPointIsRight && tilePrefab.canConnectLeft) || (connectionPointIsDown && tilePrefab.canConnectUp) || (connectionPointIsLeft && tilePrefab.canConnectRight)) && tilePrefab.specialCPs.Count <= 0)
 				{
+					Debug.Log("Destroyed Tile.");
 					Destroy(tilePrefab.gameObject);
 					continue;
 				}
@@ -128,6 +152,9 @@ public class TileSpawner : MonoBehaviour
 				else if (connectionPointIsLeft && tilePrefab.canConnectRight) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueRight; tilePrefab.transform.position = newPos; }
 
 				//Check if tiles are obstructing
+
+				//Debug.Log("Doing obstruction test...");
+
 				List<TilePrefab> areaTiles = tilePrefab.GetComponentsInChildren<TilePrefab>().ToList();
 				areaTiles.Remove(tilePrefab);
 
@@ -188,13 +215,51 @@ public class TileSpawner : MonoBehaviour
 				bool obstructingTileDetected = tilesDetectedInArea.Count > 1 ? true : false;
 				if (obstructingTileDetected)
 				{
+					Debug.Log("Deleting " + tilePrefab.name + " at pos " + tilePrefab.transform.position + " (" + tilesDetectedInArea.Count + " tiles found)", tilePrefab);
 					Destroy(tilePrefab.gameObject);
-					doWaitTime = false;
+					//doWaitTime = false;
 					continue;
 				}
 				#endregion
 
 				//Passed the obstruction test
+
+				//Correct rotation
+				Debug.Log(tilePrefab.canBeRotated);
+				if (tilePrefab.canBeRotated)
+				{
+					Transform spawnedGroupTileReference = randomConnectionPoint.root;
+					//Debug.Log("Tile Ref: " + spawnedGroupTileReference, spawnedGroupTileReference);
+					bool groupTileHasValidRotation = false;
+					while (!groupTileHasValidRotation)
+					{
+						foreach (Transform connectionPoint in tilePrefab.specialCPs)
+						{
+							if (Vector3.Distance(connectionPoint.position, spawnedGroupTileReference.position) < .01f)
+							{
+								groupTileHasValidRotation = true;
+								Debug.Log("Connection Point Pos: " + connectionPoint.position, connectionPoint);
+								Debug.Log("Reference Tile Pos: " + spawnedGroupTileReference.position, spawnedGroupTileReference);
+								break;
+							}
+						}
+
+						if (groupTileHasValidRotation) break;
+
+						tilePrefab.transform.eulerAngles = new Vector3(0, 0, tilePrefab.transform.eulerAngles.z + 90);
+
+						yield return null;
+					}
+				}
+
+				//Apply data
+				foreach (Transform scp in tilePrefab.specialCPs) {
+					tm.AddConnectionPoint(scp);
+					//Debug.Log("Adding " + scp.name);
+				}
+
+				AddTile(tilePrefab);
+
 				int currentAreaTile = 0;
 				foreach (TilePrefab areaTile in areaTiles)
 				{
@@ -235,8 +300,8 @@ public class TileSpawner : MonoBehaviour
 
 	private void AddTile(TilePrefab tilePrefab)
 	{
-		tm.AddTilePosition(tilePrefab);
-		foreach (Transform connectionPoint in tilePrefab.connectionPoints) tm.AddConnectionPoints(connectionPoint);
+		tm.AddTile(tilePrefab);
+		foreach (Transform connectionPoint in tilePrefab.connectionPoints) tm.AddConnectionPoint(connectionPoint);
 		tm.CheckConnectionPoints();
 
 		TileSpawned?.Invoke(tilePrefab);
@@ -248,8 +313,8 @@ public class TileSpawner : MonoBehaviour
 		}
 	}
 
-	//THANKS https://www.youtube.com/watch?v=Gj7UU5IU3-E
-	private TileTemplate RandomSpawnChanceTile()
+	//THANKS Dev Leonardo! https://www.youtube.com/watch?v=Gj7UU5IU3-E
+	private TileTemplate RandomSpawnChanceTile(TileCollection tileCollection)
 	{
 		float totalDenomination = 0;
 

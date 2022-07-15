@@ -26,20 +26,20 @@ public class TileDataManager : MonoBehaviour
 		ts.CanSpawnTiles -= CheckTiles;
 	}*/
 
-	public void AddTilePosition(TilePrefab tileToAdd)
+	public void AddTile(TilePrefab tileToAdd)
 	{
 		tiles.Add(tileToAdd);
 		TileAdded?.Invoke(tileToAdd, tiles.Count);
 	}
 
-	public void AddConnectionPoints(Transform connectionPointToAdd)
+	public void AddConnectionPoint(Transform connectionPointToAdd)
 	{
 		connectionPoints.Add(connectionPointToAdd);
 	}
 
 	public void CheckConnectionPoints()
 	{
-		//int i = 0;
+		//Debug.Log("Checking " + connectionPoints.Count + " CPs in " + tiles.Count + " tiles...");
 		List<Transform> impossibleConnectionPoints = new List<Transform>();
 		foreach (TilePrefab tile in tiles)
 		{
@@ -55,14 +55,27 @@ public class TileDataManager : MonoBehaviour
 			//if(i % 10 == 0)Debug.Log("Checking connection points: " + i, tile);
 		}
 
-		foreach(Transform impossibleConnectionPoint in impossibleConnectionPoints)
+		/*foreach (Transform impossibleConnectionPoint in impossibleConnectionPoints)
 		{
 			connectionPoints.Remove(impossibleConnectionPoint);
 			impossibleConnectionPoint.transform.parent.GetComponent<TilePrefab>().connectionPoints.Remove(impossibleConnectionPoint);
 			Destroy(impossibleConnectionPoint.gameObject);
+		}*/
+
+		foreach (Transform impossibleConnectionPoint in impossibleConnectionPoints)
+		{
+			TilePrefab impossibleConnectionPointParent = impossibleConnectionPoint.transform.root.GetComponent<TilePrefab>();
+			//Debug.Log(impossibleConnectionPoint, impossibleConnectionPoint);
+			//Debug.Log(impossibleConnectionPointParent, impossibleConnectionPointParent);
+			connectionPoints.Remove(impossibleConnectionPoint);
+			impossibleConnectionPointParent.connectionPoints.Remove(impossibleConnectionPoint);
+			if (impossibleConnectionPointParent.connectionPoints.Contains(impossibleConnectionPoint)) impossibleConnectionPointParent.connectionPoints.Remove(impossibleConnectionPoint);
+			else if (impossibleConnectionPointParent.specialCPs.Contains(impossibleConnectionPoint)) impossibleConnectionPointParent.specialCPs.Remove(impossibleConnectionPoint);
+			//Debug.Log(impossibleConnectionPoint.gameObject, impossibleConnectionPoint.gameObject);
+			Destroy(impossibleConnectionPoint.gameObject);
 		}
 
-		if(connectionPoints.Count <= 0)
+		if (connectionPoints.Count <= 0)
 		{
 			FindObjectOfType<TileRestarter>().RestartTileGeneration();
 		}

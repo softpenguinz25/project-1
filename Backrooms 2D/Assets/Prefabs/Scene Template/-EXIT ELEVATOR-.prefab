@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8427791820186929124}
   - component: {fileID: 8427791820186929122}
   - component: {fileID: 8427791820186929125}
+  - component: {fileID: 4613598634254095590}
   m_Layer: 0
   m_Name: Exit Door Arrow
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1673886433
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 5271888155569117586, guid: 00ea457e33233564ea6e63d353919afd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,6 +101,26 @@ MonoBehaviour:
   player: {fileID: 0}
   screenBoundsIndent: -1
   timeBeforeGenerateNextPath: 1
+--- !u!95 &4613598634254095590
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427791820186929127}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d42861ac551268b4fa1fc499f012d4b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8427791820475095587
 GameObject:
   m_ObjectHideFlags: 0

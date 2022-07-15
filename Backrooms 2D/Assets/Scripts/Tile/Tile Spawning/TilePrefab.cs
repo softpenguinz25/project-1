@@ -25,9 +25,8 @@ public class TilePrefab : MonoBehaviour
     [ConditionalField(nameof(canConnectLeft))] public Vector2 positionOffsetValueLeft;
 
     [Space]
-    public bool hasSpecialCPs;
+    public bool canBeRotated = false;
     public List<Transform> specialCPs;
-    public List<TilePrefab> tileCanSpawnOnCP;
 
 #if UNITY_EDITOR // conditional compilation is not mandatory
     [ButtonMethod]

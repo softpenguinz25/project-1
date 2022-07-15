@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5090ff7e52b2d134ba08f71466ef3c45, type: 3}
-  m_Name: LVL Pipe Dreams Tile Collection
+  m_Name: LVL Habitable Zone Tile Collection
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: aaa0935365f189e4f9a616cc742744de, type: 2}
   - {fileID: 11400000, guid: 7de4bc037e75a2647bc3e2bda8269509, type: 2}
   - {fileID: 11400000, guid: adbb93bc6b7c2fa44b24832c22af9069, type: 2}
+  - {fileID: 11400000, guid: c1bb3ecd2b1033247b5202d5f04e1db3, type: 2}
   firstTile: {fileID: 11400000, guid: 7de4bc037e75a2647bc3e2bda8269509, type: 2}
   tileSize: 3

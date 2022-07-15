@@ -8,6 +8,7 @@ public class TileRestarter : MonoBehaviour
 
 	public void RestartTileGeneration()
 	{
+		Debug.Log("Restarting Tile Generation...");
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 

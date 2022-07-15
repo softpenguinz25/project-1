@@ -91,7 +91,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: lvl_habitablezone_tile_corner_big
+  - name: lvl_habitablezone_tile_split_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -100,6 +100,27 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
+      width: 256
+      height: 256
+    spriteID: 6920b25e3a70d064b96675a807ab4fa5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: -252}
+  - name: lvl_habitablezone_tile_corner_big
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 268
       width: 256
       height: 256
     spriteID: cf2eea502951b1540b78075eeac9406d
@@ -111,7 +132,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -252, y: -252}
+    uvTransform: {x: -252, y: 12}
   - name: lvl_habitablezone_tile_hall_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -120,7 +141,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 268
+      y: 532
       width: 256
       height: 256
     spriteID: 0177fab41b9ecee4ea8a60e8b207f846
@@ -132,7 +153,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -252, y: 268}
+    uvTransform: {x: -252, y: 532}
   - name: lvl_habitablezone_tile_end_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -140,8 +161,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 532
+      x: 268
+      y: 4
       width: 256
       height: 256
     spriteID: bfbfded59d76bae418a6ed9a58118195
@@ -153,7 +174,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 532}
+    uvTransform: {x: 268, y: 4}
   characterData:
     bones: []
     parts: []
@@ -248,13 +269,23 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 0
+  - name: lvl_habitablezone_tile_split_big
+    spriteName: lvl_habitablezone_tile_split_big
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6920b25e3a70d064b96675a807ab4fa5
+    layerID: 121
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: lvl_habitablezone_tile_corner_big
     spriteName: lvl_habitablezone_tile_corner_big
     isGroup: 0
     parentIndex: -1
     spriteID: cf2eea502951b1540b78075eeac9406d
     layerID: 120
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 4, y: 268}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -264,7 +295,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 0177fab41b9ecee4ea8a60e8b207f846
     layerID: 119
-    mosaicPosition: {x: 4, y: 268}
+    mosaicPosition: {x: 4, y: 532}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -274,7 +305,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: bfbfded59d76bae418a6ed9a58118195
     layerID: 42
-    mosaicPosition: {x: 4, y: 532}
+    mosaicPosition: {x: 268, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
