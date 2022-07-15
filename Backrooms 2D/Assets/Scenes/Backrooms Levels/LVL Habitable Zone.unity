@@ -293,6 +293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: -MONSTER-
       objectReference: {fileID: 0}
+    - target: {fileID: 2295088066985573523, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
 --- !u!1001 &2836963145061492368
@@ -479,7 +483,7 @@ PrefabInstance:
     - target: {fileID: 3441267525647845289, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: tileCollection
       value: 
-      objectReference: {fileID: 11400000, guid: 7e8f97e712f2be84995bec099ffe4001, type: 2}
+      objectReference: {fileID: 11400000, guid: b67becb916692da4e8e47ec05d429faf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
 --- !u!1001 &6523338969204306345

@@ -225,7 +225,7 @@ public class TileSpawner : MonoBehaviour
 				//Passed the obstruction test
 
 				//Correct rotation
-				Debug.Log(tilePrefab.canBeRotated);
+				//Debug.Log(tilePrefab.canBeRotated);
 				if (tilePrefab.canBeRotated)
 				{
 					Transform spawnedGroupTileReference = randomConnectionPoint.root;
@@ -238,8 +238,8 @@ public class TileSpawner : MonoBehaviour
 							if (Vector3.Distance(connectionPoint.position, spawnedGroupTileReference.position) < .01f)
 							{
 								groupTileHasValidRotation = true;
-								Debug.Log("Connection Point Pos: " + connectionPoint.position, connectionPoint);
-								Debug.Log("Reference Tile Pos: " + spawnedGroupTileReference.position, spawnedGroupTileReference);
+								//Debug.Log("Connection Point Pos: " + connectionPoint.position, connectionPoint);
+								//Debug.Log("Reference Tile Pos: " + spawnedGroupTileReference.position, spawnedGroupTileReference);
 								break;
 							}
 						}

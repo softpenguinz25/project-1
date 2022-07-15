@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 606d2f5fb7f30ff40a03cf0ae84f12db, type: 3}
-  m_Name: Hall
+  m_Name: lvl_habitablezone_tile_split_small
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 5997680658439493360, guid: 6040dc3809839c641ae0cd113e71bf5f, type: 3}
-  spawnChance: 5
+  tilePrefab: {fileID: 5997680658439493360, guid: 77125d08eec896a48a6c9eb0b688054a, type: 3}
+  spawnChance: 1

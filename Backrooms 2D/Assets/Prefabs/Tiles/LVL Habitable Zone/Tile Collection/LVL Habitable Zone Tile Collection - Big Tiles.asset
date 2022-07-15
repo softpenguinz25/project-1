@@ -17,5 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7de4bc037e75a2647bc3e2bda8269509, type: 2}
   - {fileID: 11400000, guid: adbb93bc6b7c2fa44b24832c22af9069, type: 2}
   - {fileID: 11400000, guid: c1bb3ecd2b1033247b5202d5f04e1db3, type: 2}
+  - {fileID: 11400000, guid: ea84232cf0d9d7b4b97b96ff688ea18f, type: 2}
+  - {fileID: 11400000, guid: 4b19e48cfc22cd341a81a7371f2a5a83, type: 2}
+  - {fileID: 11400000, guid: bc02fe98686943a41b717a4ed937ded2, type: 2}
+  - {fileID: 11400000, guid: 2db6126303dc06b40b32f0bcbe4aaeb4, type: 2}
   firstTile: {fileID: 11400000, guid: 7de4bc037e75a2647bc3e2bda8269509, type: 2}
   tileSize: 3
