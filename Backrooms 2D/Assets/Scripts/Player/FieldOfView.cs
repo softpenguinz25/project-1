@@ -9,10 +9,11 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private float viewDistance = 10f;
     private Vector3 origin;
     [SerializeField] private float fovAngle;
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask tileMask;
+    [SerializeField] private int rayCount = 800;
 
     [Header("Hello darkness my old friend")]
-    [SerializeField] private float raycastExtend = .2f;
+    [SerializeField] private float wallAccuracy = .05f;
     private void Start()
     {
         mesh = new Mesh();
@@ -22,7 +23,6 @@ public class FieldOfView : MonoBehaviour
 
     private void LateUpdate()
     {
-        int rayCount = 800;
         float angle = fovAngle;
         float angleIncrease = fov / rayCount;
 
@@ -38,9 +38,15 @@ public class FieldOfView : MonoBehaviour
         {
             Vector3 vertex;
             Vector3 raycastDir = GetVectorFromAngle(angle);
-            RaycastHit2D initalRaycastHit2D = Physics2D.Raycast(origin, raycastDir, viewDistance, layerMask);
-            Vector2 extendedPoint = initalRaycastHit2D.point + raycastExtend * (Vector2)raycastDir;
-            RaycastHit2D[] raycastHit2DThroughWallCols = Physics2D.RaycastAll(extendedPoint, -raycastDir, viewDistance, layerMask);
+            RaycastHit2D initalRaycastHit2D = Physics2D.Raycast(origin, raycastDir, viewDistance, tileMask);
+            Vector2 pointThroughWall = initalRaycastHit2D.point + .04f * (Vector2)raycastDir;
+            while(Physics2D.OverlapPoint(pointThroughWall, tileMask)/* == initalRaycastHit2D.collider*/)
+			{
+                pointThroughWall += wallAccuracy * (Vector2)raycastDir;
+			}
+
+            //Vector2 extendedPoint = initalRaycastHit2D.point + raycastExtend * (Vector2)raycastDir;
+            //RaycastHit2D[] raycastHit2DThroughWallCols = Physics2D.RaycastAll(extendedPoint, -raycastDir, viewDistance, layerMask);
 
             if (initalRaycastHit2D.collider == null)
             {
@@ -59,7 +65,7 @@ public class FieldOfView : MonoBehaviour
 				//Vector2 pointThroughWall = initalRaycastHit2D.point + initalRaycastHit2D.point - colliderHitPos;
 				#endregion
 
-				RaycastHit2D otherSideOfWall = new RaycastHit2D();
+				/*RaycastHit2D otherSideOfWall = new RaycastHit2D();
 				foreach (RaycastHit2D raycastHit2D in raycastHit2DThroughWallCols)
 				{
 					if (raycastHit2D.collider == initalRaycastHit2D.collider)
@@ -72,9 +78,9 @@ public class FieldOfView : MonoBehaviour
                         otherSideOfWall = raycastHit2D;
                         break;
                     }
-				}
+				}*/
 
-				vertex = otherSideOfWall.point;
+				vertex = pointThroughWall;
 			}
 
 			verticies[vertexIndex] = vertex;

@@ -262,6 +262,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 57889b5cea113cd40a9333108884ba54, type: 2}
+  checkSpecialCPIsLegal: 1
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8
+  boxSize: {x: 24, y: 24}
+  wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
 --- !u!1 &3673901036716322563
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +585,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 57889b5cea113cd40a9333108884ba54, type: 2}
+  checkSpecialCPIsLegal: 1
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8
+  boxSize: {x: 24, y: 24}
+  wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
 --- !u!1 &5701565305637038947
 GameObject:
   m_ObjectHideFlags: 0

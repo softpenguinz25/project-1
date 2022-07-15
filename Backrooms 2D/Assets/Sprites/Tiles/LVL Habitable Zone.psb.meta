@@ -91,6 +91,27 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
+  - name: lvl_habitablezone_wall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 836
+      width: 256
+      height: 3
+    spriteID: 9ba5e1db4cd1c8f4386b9e6a138d9578
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 324}
   - name: lvl_habitablezone_tile_split_big_cracked
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -479,6 +500,16 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 0
+  - name: lvl_habitablezone_wall
+    spriteName: lvl_habitablezone_wall
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9ba5e1db4cd1c8f4386b9e6a138d9578
+    layerID: 131
+    mosaicPosition: {x: 4, y: 836}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: lvl_habitablezone_tile_split_big_cracked
     spriteName: lvl_habitablezone_tile_split_big_cracked
     isGroup: 0

@@ -45,6 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 57889b5cea113cd40a9333108884ba54, type: 2}
+  checkSpecialCPIsLegal: 1
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8
+  boxSize: {x: 24, y: 24}
+  wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
 --- !u!1 &1853261095233359076
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,11 +469,11 @@ MonoBehaviour:
   checkForObstructingTilesPointB: {fileID: 5120551101899895039}
   canConnectUp: 0
   canConnectRight: 0
-  canConnectDown: 0
+  canConnectDown: 1
   canConnectLeft: 0
   positionOffsetValueUp: {x: 1.5, y: -3}
   positionOffsetValueRight: {x: -4.5, y: -3}
-  positionOffsetValueDown: {x: 0, y: 0}
+  positionOffsetValueDown: {x: 4.5, y: 10.5}
   positionOffsetValueLeft: {x: 4.5, y: 3}
   canBeRotated: 1
   specialCPs:
@@ -2486,6 +2492,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 7e8f97e712f2be84995bec099ffe4001, type: 2}
+  checkSpecialCPIsLegal: 0
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 8, y: 8}
+  wallPrefab: {fileID: 0}
 --- !u!4 &7894639010374720281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6837335661449690022, guid: ffe8494cf38c7004984802c726e3cca7, type: 3}

@@ -376,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &650858853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &954813879
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,7 +1118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1797200703
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1184,10 +1184,11 @@ MonoBehaviour:
   fov: 360
   viewDistance: 11
   fovAngle: 0
-  layerMask:
+  tileMask:
     serializedVersion: 2
     m_Bits: 8
-  raycastExtend: 5
+  rayCount: 400
+  wallAccuracy: 0.03
 --- !u!4 &1797200706
 Transform:
   m_ObjectHideFlags: 0
@@ -1551,7 +1552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2836963145505955258, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836963145688518533, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
@@ -1559,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584377820429836190, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
@@ -1820,7 +1821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427791821919923567, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: tilesUntilDoorSpawns
-      value: 1200
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}

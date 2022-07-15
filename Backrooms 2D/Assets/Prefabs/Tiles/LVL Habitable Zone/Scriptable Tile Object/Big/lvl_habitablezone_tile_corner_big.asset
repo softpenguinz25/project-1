@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: lvl_habitablezone_tile_corner_big
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6659174551815613922, guid: 5f89a6b1c0349334998646d9bf6ccddd, type: 3}
-  spawnChance: 3
+  spawnChance: 1.2

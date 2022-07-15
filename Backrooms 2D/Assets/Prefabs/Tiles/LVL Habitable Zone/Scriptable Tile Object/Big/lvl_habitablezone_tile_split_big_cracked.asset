@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: lvl_habitablezone_tile_split_big_cracked
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6659174551815613922, guid: f12c5f18dbc2b7d4486a424c0900c5cc, type: 3}
-  spawnChance: 0.3
+  spawnChance: 3

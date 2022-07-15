@@ -64,7 +64,8 @@ public class TileDataManager : MonoBehaviour
 
 		foreach (Transform impossibleConnectionPoint in impossibleConnectionPoints)
 		{
-			TilePrefab impossibleConnectionPointParent = impossibleConnectionPoint.transform.root.GetComponent<TilePrefab>();
+			TilePrefab impossibleConnectionPointParent = impossibleConnectionPoint.transform.parent.GetComponent<TilePrefab>();
+			if(impossibleConnectionPointParent == null) impossibleConnectionPointParent = impossibleConnectionPoint.transform.root.GetComponent<TilePrefab>();
 			//Debug.Log(impossibleConnectionPoint, impossibleConnectionPoint);
 			//Debug.Log(impossibleConnectionPointParent, impossibleConnectionPointParent);
 			connectionPoints.Remove(impossibleConnectionPoint);

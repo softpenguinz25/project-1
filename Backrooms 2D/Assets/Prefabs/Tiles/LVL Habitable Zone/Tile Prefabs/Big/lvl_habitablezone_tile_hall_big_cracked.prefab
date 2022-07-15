@@ -262,6 +262,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 57889b5cea113cd40a9333108884ba54, type: 2}
+  checkSpecialCPIsLegal: 1
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8
+  boxSize: {x: 24, y: 24}
+  wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
 --- !u!1 &3673901036716322563
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,13 +529,13 @@ MonoBehaviour:
   checkForObstructingTilesPointA: {fileID: 2582274783462372858}
   checkForObstructingTilesPointB: {fileID: 722509810325859463}
   canConnectUp: 0
-  canConnectRight: 0
+  canConnectRight: 1
   canConnectDown: 0
-  canConnectLeft: 0
+  canConnectLeft: 1
   positionOffsetValueUp: {x: 1.5, y: -3}
-  positionOffsetValueRight: {x: -4.5, y: -3}
+  positionOffsetValueRight: {x: -10.5, y: 7.5}
   positionOffsetValueDown: {x: 0, y: 0}
-  positionOffsetValueLeft: {x: 4.5, y: 3}
+  positionOffsetValueLeft: {x: 10.5, y: -10.5}
   canBeRotated: 1
   specialCPs:
   - {fileID: 1499074458877395190}
@@ -579,6 +585,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 57889b5cea113cd40a9333108884ba54, type: 2}
+  checkSpecialCPIsLegal: 1
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8
+  boxSize: {x: 24, y: 24}
+  wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
 --- !u!1 &5701565305637038947
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,6 +3188,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 7e8f97e712f2be84995bec099ffe4001, type: 2}
+  checkSpecialCPIsLegal: 0
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 8, y: 8}
+  wallPrefab: {fileID: 0}
 --- !u!4 &7342128023072049851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6836747377943707304, guid: ffe8494cf38c7004984802c726e3cca7, type: 3}
@@ -4723,6 +4741,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: 7e8f97e712f2be84995bec099ffe4001, type: 2}
+  checkSpecialCPIsLegal: 0
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 8, y: 8}
+  wallPrefab: {fileID: 0}
 --- !u!4 &1174220022283291129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6836747378412818032, guid: ffe8494cf38c7004984802c726e3cca7, type: 3}
