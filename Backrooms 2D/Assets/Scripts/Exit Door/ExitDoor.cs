@@ -5,7 +5,7 @@ public class ExitDoor : MonoBehaviour
 	[Header("Door Spawn")]
 	[SerializeField] private float raycastCheckRotationDistance = .5f;
 	[SerializeField] private LayerMask tileMask;
-	private bool isInDoor;
+	private bool isInDoor;	
 
 	[Header("Player In Door")]
 	[SerializeField] private GameObject fourthWall;

@@ -144,7 +144,7 @@ ScriptedImporter:
       y: 268
       width: 256
       height: 256
-    spriteID: 871c3b65bb06f9f4c82b48a5531eb11c
+    spriteID: dbc086c0e573d4a4487216a3abe1859e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -165,7 +165,7 @@ ScriptedImporter:
       y: 532
       width: 256
       height: 256
-    spriteID: 887465dbca133f948a6a3692439d2696
+    spriteID: 208e47ab5d23aed489ef09fd853cb7f6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -186,7 +186,7 @@ ScriptedImporter:
       y: 4
       width: 256
       height: 256
-    spriteID: 910954d47c987a04787b19463cbf2752
+    spriteID: e8a5a469ed45c0a4580646e495d2d91d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -207,7 +207,7 @@ ScriptedImporter:
       y: 268
       width: 256
       height: 256
-    spriteID: 6920b25e3a70d064b96675a807ab4fa5
+    spriteID: 140be404e109141409660f81eed79a9f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -228,7 +228,7 @@ ScriptedImporter:
       y: 532
       width: 256
       height: 256
-    spriteID: cf2eea502951b1540b78075eeac9406d
+    spriteID: 80e546f42cab4df438ddc988f9cb243f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -249,7 +249,7 @@ ScriptedImporter:
       y: 4
       width: 256
       height: 256
-    spriteID: 0177fab41b9ecee4ea8a60e8b207f846
+    spriteID: b102c5bc1d9b27445b0feeb87f1c573d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -270,7 +270,7 @@ ScriptedImporter:
       y: 268
       width: 256
       height: 256
-    spriteID: bfbfded59d76bae418a6ed9a58118195
+    spriteID: 80f8f46e689a242439283e5e3279ab18
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -524,8 +524,8 @@ ScriptedImporter:
     spriteName: lvl_habitablezone_tile_corner_big_cracked
     isGroup: 0
     parentIndex: -1
-    spriteID: 871c3b65bb06f9f4c82b48a5531eb11c
-    layerID: 124
+    spriteID: dbc086c0e573d4a4487216a3abe1859e
+    layerID: 133
     mosaicPosition: {x: 4, y: 268}
     flatten: 0
     isImported: 1
@@ -534,8 +534,8 @@ ScriptedImporter:
     spriteName: lvl_habitablezone_tile_hall_big_cracked
     isGroup: 0
     parentIndex: -1
-    spriteID: 887465dbca133f948a6a3692439d2696
-    layerID: 123
+    spriteID: 208e47ab5d23aed489ef09fd853cb7f6
+    layerID: 134
     mosaicPosition: {x: 4, y: 532}
     flatten: 0
     isImported: 1
@@ -544,8 +544,8 @@ ScriptedImporter:
     spriteName: lvl_habitablezone_tile_end_big_cracked
     isGroup: 0
     parentIndex: -1
-    spriteID: 910954d47c987a04787b19463cbf2752
-    layerID: 122
+    spriteID: e8a5a469ed45c0a4580646e495d2d91d
+    layerID: 135
     mosaicPosition: {x: 268, y: 4}
     flatten: 0
     isImported: 1
@@ -554,8 +554,8 @@ ScriptedImporter:
     spriteName: lvl_habitablezone_tile_split_big
     isGroup: 0
     parentIndex: -1
-    spriteID: 6920b25e3a70d064b96675a807ab4fa5
-    layerID: 121
+    spriteID: 140be404e109141409660f81eed79a9f
+    layerID: 136
     mosaicPosition: {x: 268, y: 268}
     flatten: 0
     isImported: 1
@@ -564,8 +564,8 @@ ScriptedImporter:
     spriteName: lvl_habitablezone_tile_corner_big
     isGroup: 0
     parentIndex: -1
-    spriteID: cf2eea502951b1540b78075eeac9406d
-    layerID: 120
+    spriteID: 80e546f42cab4df438ddc988f9cb243f
+    layerID: 137
     mosaicPosition: {x: 268, y: 532}
     flatten: 0
     isImported: 1
@@ -574,8 +574,8 @@ ScriptedImporter:
     spriteName: lvl_habitablezone_tile_hall_big
     isGroup: 0
     parentIndex: -1
-    spriteID: 0177fab41b9ecee4ea8a60e8b207f846
-    layerID: 119
+    spriteID: b102c5bc1d9b27445b0feeb87f1c573d
+    layerID: 138
     mosaicPosition: {x: 532, y: 4}
     flatten: 0
     isImported: 1
@@ -584,12 +584,102 @@ ScriptedImporter:
     spriteName: lvl_habitablezone_tile_end_big
     isGroup: 0
     parentIndex: -1
-    spriteID: bfbfded59d76bae418a6ed9a58118195
-    layerID: 42
+    spriteID: 80f8f46e689a242439283e5e3279ab18
+    layerID: 139
     mosaicPosition: {x: 532, y: 268}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: BACKUP
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 140
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: BACKUP lvl_habitablezone_tile_split_big_cracked
+    spriteName: 
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 00000000000000000000000000000000
+    layerID: 132
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BACKUP lvl_habitablezone_tile_corner_big_cracked
+    spriteName: lvl_habitablezone_tile_corner_big_cracked
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 871c3b65bb06f9f4c82b48a5531eb11c
+    layerID: 124
+    mosaicPosition: {x: 4, y: 268}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BACKUP lvl_habitablezone_tile_hall_big_cracked
+    spriteName: lvl_habitablezone_tile_hall_big_cracked
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 887465dbca133f948a6a3692439d2696
+    layerID: 123
+    mosaicPosition: {x: 4, y: 532}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BACKUP lvl_habitablezone_tile_end_big_cracked
+    spriteName: lvl_habitablezone_tile_end_big_cracked
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 910954d47c987a04787b19463cbf2752
+    layerID: 122
+    mosaicPosition: {x: 268, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BACKUP lvl_habitablezone_tile_split_big
+    spriteName: lvl_habitablezone_tile_split_big
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 6920b25e3a70d064b96675a807ab4fa5
+    layerID: 121
+    mosaicPosition: {x: 268, y: 268}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BACKUP lvl_habitablezone_tile_corner_big
+    spriteName: lvl_habitablezone_tile_corner_big
+    isGroup: 0
+    parentIndex: 11
+    spriteID: cf2eea502951b1540b78075eeac9406d
+    layerID: 120
+    mosaicPosition: {x: 268, y: 532}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BACKUP lvl_habitablezone_tile_hall_big
+    spriteName: lvl_habitablezone_tile_hall_big
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 0177fab41b9ecee4ea8a60e8b207f846
+    layerID: 119
+    mosaicPosition: {x: 532, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: BACKUP lvl_habitablezone_tile_end_big
+    spriteName: lvl_habitablezone_tile_end_big
+    isGroup: 0
+    parentIndex: 11
+    spriteID: bfbfded59d76bae418a6ed9a58118195
+    layerID: 42
+    mosaicPosition: {x: 532, y: 268}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: lvl_habitablezone_tile_open_small_2
     spriteName: lvl_habitablezone_tile_open_small_2
     isGroup: 0

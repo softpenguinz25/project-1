@@ -90,7 +90,7 @@ public class ExitDoorArrow : MonoBehaviour
 	{
 		if (exitDoor == null)
 		{
-			Debug.LogError("Exit door could not be detected!");
+			//Debug.LogError("Exit door could not be detected!");
 			return;
 		}
 
