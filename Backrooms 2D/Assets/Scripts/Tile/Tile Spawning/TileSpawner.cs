@@ -13,6 +13,9 @@ public class TileSpawner : MonoBehaviour
 	public TileCollection tileCollection;
 	[SerializeField] [Range(0.001f, 1)] private float timeBtwnSpawns = .001f;
 
+	[Header("Wall Breaking")]
+	[SerializeField] private LayerMask wallMask;
+
 	public event Action<TilePrefab> TileSpawned;
 
 	private bool canSpawnTilesEvent = false;
@@ -330,7 +333,38 @@ public class TileSpawner : MonoBehaviour
 				yield return null;
 			}
 
-			//4. Update Manager Lists
+			//4. Destroy walls that lead to dead ends
+			List<Transform> otherCPs = tilePrefab.connectionPoints.Count > 0 ? tilePrefab.connectionPoints : tilePrefab.specialCPs;
+			Transform referenceCP = null;
+			foreach(Transform cp in otherCPs)
+			{
+				if(Vector2.Distance(cp.position, tilePrefab.referenceTile.transform.position) < .1f)
+				{
+					referenceCP = cp;
+					break;
+				}
+			}
+			if (referenceCP == null) Debug.LogError("Could not find reference CP!");
+			otherCPs.Remove(referenceCP);
+
+			foreach(Transform otherCP in otherCPs)
+			{
+				RaycastHit2D[] linecastHitColliders = Physics2D.LinecastAll(tilePrefab.transform.position, otherCP.transform.position, wallMask);
+				if (linecastHitColliders.Count() > 0)
+				{
+					foreach (RaycastHit2D linecastHitDeadEndWall in linecastHitColliders)
+					{
+						WallData deadEndWall = linecastHitDeadEndWall.collider.GetComponent<WallData>();
+						if (deadEndWall != null)
+							if (deadEndWall.isBreakable)
+								Destroy(deadEndWall.gameObject);
+					}
+				}
+			}
+
+			
+
+			//5. Update Manager Lists + Check Connection Points
 			AddTile(tilePrefab);
 		}
 	}

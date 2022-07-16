@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5175070436499516243}
   - component: {fileID: 633908390021149478}
-  - component: {fileID: 4366976799224995313}
-  m_Layer: 0
-  m_Name: lvl_habitablezone_wall
+  - component: {fileID: 9074057110131257494}
+  - component: {fileID: -5699907973315036156}
+  m_Layer: 3
+  m_Name: lvl_habitablezone_wall_big_little
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3862268651811156481, guid: 13b2d5abfdb4577499ad812a75e88d7e, type: 3}
+  m_Sprite: {fileID: 576617587276707552, guid: 13b2d5abfdb4577499ad812a75e88d7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4366976799224995313
+--- !u!61 &9074057110131257494
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,12 +103,25 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8, y: 0.09375}
+    oldSize: {x: 1, y: 0.09375}
     newSize: {x: 8, y: 0.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8, y: 0.09375}
+  m_Size: {x: 1, y: 0.09375}
   m_EdgeRadius: 0
+--- !u!114 &-5699907973315036156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235454110724991021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acba8bfe1ff8caf42a7c16767432b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBreakable: 1

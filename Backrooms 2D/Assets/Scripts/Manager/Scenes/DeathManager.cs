@@ -1,6 +1,5 @@
 using MyBox;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DeathManager : MonoBehaviour
 {
@@ -15,4 +14,14 @@ public class DeathManager : MonoBehaviour
 	{
 		FindObjectOfType<SceneLoader>().LoadScene(currentScene);
 	}
+
+#if UNITY_EDITOR
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			FindObjectOfType<SceneLoader>().LoadScene(currentScene);
+		}
+	}
+#endif
 }
