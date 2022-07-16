@@ -84,7 +84,7 @@ public class TileSpawner : MonoBehaviour
 						else
 						{
 							tl.AddChunk(roundedConnectionPointPos);
-							Debug.Log("(Spawn Tile) Chunk Added at Position: " + roundedConnectionPointPos);
+							//Debug.Log("(Spawn Tile) Chunk Added at Position: " + roundedConnectionPointPos);
 						}
 					}
 
@@ -117,8 +117,8 @@ public class TileSpawner : MonoBehaviour
 			else randomTileTemplate = RandomSpawnChanceTile(cpData.tileCollection);
 			TilePrefab tilePrefab = Instantiate(randomTileTemplate.tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
 			//Debug.Log("Tile Instantiated: " + tilePrefab.name, tilePrefab);
-			tilePrefab.referenceTile = randomConnectionPoint.parent.gameObject;
-			if(tilePrefab.referenceTile.GetComponent<TilePrefab>() == null) tilePrefab.referenceTile = randomConnectionPoint.root.gameObject;
+			tilePrefab.referenceTile = randomConnectionPoint.gameObject.GetComponentInParent<TilePrefab>(true).gameObject;/*randomConnectionPoint.parent.gameObject;
+			if(tilePrefab.referenceTile.GetComponent<TilePrefab>() == null) tilePrefab.referenceTile = randomConnectionPoint.root.gameObject;*/
 
 			//2.5. Apply Group Tile Settings (If Applicable)
 			if (tilePrefab.isGroupTile)
@@ -233,7 +233,7 @@ public class TileSpawner : MonoBehaviour
 				{
 					if (tilePrefab.referenceTile.GetComponent<TilePrefab>().isGroupTile)
 					{
-						Transform spawnedGroupTileReference = randomConnectionPoint.root;
+						Transform spawnedGroupTileReference = randomConnectionPoint.GetComponentInParent<TilePrefab>(true).transform;//randomConnectionPoint.root;
 						//Debug.Log("Tile Ref: " + spawnedGroupTileReference, spawnedGroupTileReference);
 						bool groupTileHasValidRotation = false;
 						while (!groupTileHasValidRotation)

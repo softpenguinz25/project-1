@@ -94,12 +94,12 @@ public class ExitDoorArrow : MonoBehaviour
 			return;
 		}
 
-		Vector2 wayPointPos = new Vector2();
+		Vector2 wayPointPos;
 		if (Vector2.Distance(path.vectorPath[path.vectorPath.Count - 1], exitDoor.transform.position) < 2f)
 		{
 			int currentWayPoint = 0;
 			wayPointPos = path.vectorPath[currentWayPoint];
-			Debug.Log(wayPointPos + ": " + WayPointInCameraView(wayPointPos));
+			//Debug.Log(wayPointPos + ": " + WayPointInCameraView(wayPointPos));
 			while (WayPointInCameraView(wayPointPos))
 			{
 				currentWayPoint++;
@@ -114,7 +114,7 @@ public class ExitDoorArrow : MonoBehaviour
 
 				if (!WayPointInCameraView(wayPointPos))
 				{
-					Debug.Log("Waypoint out of camera view found at pos " + wayPointPos);
+					//Debug.Log("Waypoint out of camera view found at pos " + wayPointPos);
 					break;
 				}
 			}
@@ -162,8 +162,8 @@ public class ExitDoorArrow : MonoBehaviour
 		Vector2 horizontalBounds = new Vector2((-screenSize.x * .5f + screenBoundsIndent) + player.transform.position.x, (screenSize.x * .5f - screenBoundsIndent) + player.transform.position.x);
 		Vector2 verticalBounds = new Vector2((-screenSize.y * .5f + screenBoundsIndent) + player.transform.position.y, (screenSize.y * .5f - screenBoundsIndent) + player.transform.position.y);
 
-		Debug.Log("Horizontal Bounds: " + horizontalBounds);
-		Debug.Log("Vertical Bounds: " + verticalBounds);
+		//Debug.Log("Horizontal Bounds: " + horizontalBounds);
+		//Debug.Log("Vertical Bounds: " + verticalBounds);
 
 		return wayPointPos.x > horizontalBounds.x &&
 				wayPointPos.x < horizontalBounds.y &&

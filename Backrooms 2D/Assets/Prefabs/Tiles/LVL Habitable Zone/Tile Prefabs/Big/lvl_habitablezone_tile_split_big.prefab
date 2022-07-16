@@ -207,8 +207,10 @@ MonoBehaviour:
   tileMask:
     serializedVersion: 2
     m_Bits: 8
-  boxSize: {x: 24, y: 24}
+  boxSize: {x: 23.5, y: 23.5}
   wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
+  collidersCheck:
+    Value: []
 --- !u!1 &3035120040755555147
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,8 +260,10 @@ MonoBehaviour:
   tileMask:
     serializedVersion: 2
     m_Bits: 8
-  boxSize: {x: 24, y: 24}
+  boxSize: {x: 23.5, y: 23.5}
   wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
+  collidersCheck:
+    Value: []
 --- !u!1 &3673901036716322563
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,8 +586,10 @@ MonoBehaviour:
   tileMask:
     serializedVersion: 2
     m_Bits: 8
-  boxSize: {x: 24, y: 24}
+  boxSize: {x: 23.5, y: 23.5}
   wallPrefab: {fileID: 235454110724991021, guid: 748c4caa1c841c141b39aa4c632f79d7, type: 3}
+  collidersCheck:
+    Value: []
 --- !u!1 &5701565305637038947
 GameObject:
   m_ObjectHideFlags: 0

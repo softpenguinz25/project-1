@@ -64,12 +64,18 @@ public class TileDataManager : MonoBehaviour
 
 		foreach (Transform impossibleConnectionPoint in impossibleConnectionPoints)
 		{
-			TilePrefab impossibleConnectionPointParent = impossibleConnectionPoint.transform.parent.GetComponent<TilePrefab>();
-			if(impossibleConnectionPointParent == null) impossibleConnectionPointParent = impossibleConnectionPoint.transform.root.GetComponent<TilePrefab>();
+			TilePrefab impossibleConnectionPointParent = impossibleConnectionPoint.gameObject.GetComponentInParent<TilePrefab>(true);
+			if(impossibleConnectionPointParent == null)
+			{
+				Debug.Log("Could not find impossible connection point parent in " + impossibleConnectionPoint.gameObject.name, impossibleConnectionPoint);
+				//break;
+			}
+			//Debug.Log(impossibleConnectionPointParent.name, impossibleConnectionPointParent);
+			/*TilePrefab impossibleConnectionPointParent = impossibleConnectionPoint.transform.parent.GetComponent<TilePrefab>();
+			if(impossibleConnectionPointParent == null) impossibleConnectionPointParent = impossibleConnectionPoint.transform.root.GetComponent<TilePrefab>();*/
 			//Debug.Log(impossibleConnectionPoint, impossibleConnectionPoint);
 			//Debug.Log(impossibleConnectionPointParent, impossibleConnectionPointParent);
 			connectionPoints.Remove(impossibleConnectionPoint);
-			impossibleConnectionPointParent.connectionPoints.Remove(impossibleConnectionPoint);
 			if (impossibleConnectionPointParent.connectionPoints.Contains(impossibleConnectionPoint)) impossibleConnectionPointParent.connectionPoints.Remove(impossibleConnectionPoint);
 			else if (impossibleConnectionPointParent.specialCPs.Contains(impossibleConnectionPoint)) impossibleConnectionPointParent.specialCPs.Remove(impossibleConnectionPoint);
 			//Debug.Log(impossibleConnectionPoint.gameObject, impossibleConnectionPoint.gameObject);
