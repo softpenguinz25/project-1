@@ -10,7 +10,9 @@ public class PlayerGraphics : MonoBehaviour
 	private SpriteRenderer sr;
 
 	[Header("Sprite")]
+	//Back, right, front, left
 	[SerializeField] private Sprite[] playerPoses = new Sprite[4];
+	[SerializeField] private float changeSpriteThreshold = .1f;
 
 	[Header("Footsteps")]
 	[SerializeField] private float velocityThreshold = .4f;
@@ -72,13 +74,13 @@ public class PlayerGraphics : MonoBehaviour
 		originalSpeed = pm.speed;
 	}
 
-	private void Update()
+	/*private void Update()
 	{		
 		if (pm.Movement.x > 0) sr.sprite = playerPoses[1];
 		else if (pm.Movement.x < 0) sr.sprite = playerPoses[3];
 		else if (pm.Movement.y > 0) sr.sprite = playerPoses[0];
 		else if (pm.Movement.y < 0) sr.sprite = playerPoses[2];
-	}
+	}*/
 
 	private void FixedUpdate()
 	{
@@ -115,6 +117,19 @@ public class PlayerGraphics : MonoBehaviour
 			}
 			playFirstFootstep = true;
 		}
+
+		bool movingVertically = Mathf.Abs(pm.Movement.y) > Mathf.Abs(pm.Movement.x);
+		if (movingVertically)
+		{
+			if(pm.Movement.y > changeSpriteThreshold) sr.sprite = playerPoses[0];
+			else if (pm.Movement.y < -changeSpriteThreshold) sr.sprite = playerPoses[2];
+		}
+		else
+		{
+			if (pm.Movement.x > changeSpriteThreshold) sr.sprite = playerPoses[1];
+			else if (pm.Movement.x < -changeSpriteThreshold) sr.sprite = playerPoses[3];
+		}
+
 		lastPos = transform.position;
 	}
 

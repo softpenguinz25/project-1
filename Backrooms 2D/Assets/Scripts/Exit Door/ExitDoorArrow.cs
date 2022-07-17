@@ -108,7 +108,7 @@ public class ExitDoorArrow : MonoBehaviour
 
 				if (currentWayPoint >= path.vectorPath.Count - 1)
 				{
-					Debug.LogError("No Waypoint out of camera view!");
+					//Debug.LogError("No Waypoint out of camera view!");
 					break;
 				}
 

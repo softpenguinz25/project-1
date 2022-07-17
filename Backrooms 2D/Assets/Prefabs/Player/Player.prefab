@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  joystick: {fileID: 0}
 --- !u!114 &2836963145136598005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +324,7 @@ MonoBehaviour:
   - {fileID: -7593490727041852880, guid: 3eef163a8e48dfc4d99b325b330789bd, type: 3}
   - {fileID: 3471607745067227470, guid: 3eef163a8e48dfc4d99b325b330789bd, type: 3}
   - {fileID: 1280996507925118084, guid: 3eef163a8e48dfc4d99b325b330789bd, type: 3}
+  changeSpriteThreshold: 0.005
   velocityThreshold: 0.05
   startTimeBtwnFootsteps:
     Min: 0.6358799
