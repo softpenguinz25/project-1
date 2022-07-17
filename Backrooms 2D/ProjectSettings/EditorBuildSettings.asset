@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Backrooms Levels/LVL Poolrooms.unity
     guid: 7d095e00a52275545b214911f9090e77
   - enabled: 1
+    path: Assets/Scenes/Backrooms Levels/LVL !.unity
+    guid: e46489455eeae874c906cd7b7ef79e77
+  - enabled: 1
     path: Assets/Scenes/Escape.unity
     guid: 7b301d6fc4f6e714bb1f42f367d82d25
   m_configObjects: {}

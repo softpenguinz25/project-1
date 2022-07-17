@@ -101,11 +101,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed5b78500332504392ce4aa56d2f0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referenceTile: {fileID: 0}
+  isGroupTile: 0
   connectionPoints:
   - {fileID: 6836747379232851241}
   - {fileID: 6836747378412818032}
   - {fileID: 6836747379502681241}
   - {fileID: 6836747377943707304}
+  tileArea: []
+  checkForObstructingTilesPointA: {fileID: 0}
+  checkForObstructingTilesPointB: {fileID: 0}
+  canConnectUp: 0
+  canConnectRight: 0
+  canConnectDown: 0
+  canConnectLeft: 0
+  positionOffsetValueUp: {x: 0, y: 0}
+  positionOffsetValueRight: {x: 0, y: 0}
+  positionOffsetValueDown: {x: 0, y: 0}
+  positionOffsetValueLeft: {x: 0, y: 0}
+  canBeRotated: 0
+  specialCPs: []
 --- !u!1 &6836747377943707305
 GameObject:
   m_ObjectHideFlags: 0

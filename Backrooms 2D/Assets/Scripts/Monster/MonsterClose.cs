@@ -14,16 +14,25 @@ public class MonsterClose : MonoBehaviour
 	[SerializeField] private LayerMask tileMask;
 	[SerializeField] private float distanceBtwnCloseActivate = 8f;
 	private bool hasActivatedCloseEvent;
-
+	//public Collider2D obstrucingObjectsTest;
 	public event Action MonsterIsClose;
 	public event Action PlayerHasEscaped;
 
-	private bool IsClose
+	public bool IsClose
 	{
 		get
 		{
-			Vector3 rayDir = player.transform.position - transform.position;
-			return !Physics2D.Raycast(transform.position, rayDir, rayDir.sqrMagnitude, tileMask) && Vector2.Distance(transform.position, player.transform.position) < distanceBtwnCloseActivate;
+			var old = Physics2D.queriesHitTriggers;
+			Physics2D.queriesHitTriggers = false;
+
+			bool obstructingObjectDetected = Physics2D.Linecast(transform.position, player.transform.position, tileMask);
+
+			Physics2D.queriesHitTriggers = old;
+
+			bool playerIsClose = Vector2.Distance(transform.position, player.transform.position) < distanceBtwnCloseActivate;
+			//Debug.Log("obj detected: " + obstructingObjectDetected + " player is close: " + playerIsClose, this);
+			//obstrucingObjectsTest = obstructingObjectDetected.collider;
+			return !obstructingObjectDetected && playerIsClose;
 		}
 	}
 
@@ -39,15 +48,17 @@ public class MonsterClose : MonoBehaviour
 		if (visualizeRay)
 		{
 			Vector3 rayDir = player.transform.position - transform.position;
-			Debug.DrawRay(transform.position, rayDir, Color.cyan, rayDir.sqrMagnitude);
+			if(IsClose) Debug.DrawRay(transform.position, rayDir, Color.red);
+			else if (GetComponent<MonsterMovement>().isSlow)Debug.DrawRay(transform.position, rayDir, Color.yellow);
+			else Debug.DrawRay(transform.position, rayDir, Color.cyan);
 		}
 	}
 
 	private void Update()
 	{
-		Vector3 rayDir = player.transform.position - transform.position;;
 		if (IsClose)//If nothing is between monster and player
 		{
+			//Debug.Log("Is close!");
 			if (hasActivatedCloseEvent)
 			{
 				MonsterIsClose?.Invoke();
@@ -56,6 +67,7 @@ public class MonsterClose : MonoBehaviour
 		}
 		else
 		{
+			//Debug.Log("Far away :(");
 			if (!hasActivatedCloseEvent)
 			{
 				PlayerHasEscaped?.Invoke();

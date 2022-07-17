@@ -73,11 +73,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920307, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.09
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920307, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920307, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -124,16 +124,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
-      propertyPath: speed
-      value: 450
-      objectReference: {fileID: 0}
-    - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: roamingSpeed
       value: 550
-      objectReference: {fileID: 0}
-    - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
-      propertyPath: nextWaypointDistance
-      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}

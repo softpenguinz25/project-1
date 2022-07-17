@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8169872300122906294}
   - component: {fileID: 2720332078630763168}
   - component: {fileID: 6051211600283715042}
+  - component: {fileID: 8439881886016590097}
   - component: {fileID: 1473480131879910231}
   m_Layer: 8
   m_Name: Bacteria
@@ -120,7 +121,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 40
   m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -169,8 +170,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5247684f1af2f4e97cdfa755301aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  timeBeforeGenerateNextPath: 0.2
+  speed: 510
   nextWaypointDistance: 0.25
+  linearDrag: 3
+  slowThreshold: 0
+  isSlow: 0
+  slowSpeedMultiplier: 1
+  slowTimeBeforeGenerateNextPath: 1.5
+  slowNextWaypointDistance: 3
+  slowLinearDrag: 3
+  closeSpeedMultiplier: 1.5
+  closeLinearDrag: 3
   Force: {x: 0, y: 0}
 --- !u!114 &2720332078630763168
 MonoBehaviour:
@@ -203,6 +214,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e55aca3401f5c7408d881a5e19a818a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8439881886016590097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368467659627920316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81baf8939b77cb24cb1d9ad7a96e3a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualizeRay: 1
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8
+  distanceBtwnCloseActivate: 10000
 --- !u!82 &1473480131879910231
 AudioSource:
   m_ObjectHideFlags: 0

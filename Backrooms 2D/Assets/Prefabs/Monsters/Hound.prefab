@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 606261463975722488, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: m_LinearDrag
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1473480131879910231, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -105,15 +109,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920317, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Radius
-      value: 0.3
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
-      propertyPath: speed
-      value: 500
+      propertyPath: Force.x
+      value: 7.8851185
       objectReference: {fileID: 0}
     - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
-      propertyPath: nextWaypointDistance
+      propertyPath: Force.y
+      value: -3.9019063
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: isCloseSpeedMultiplier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: closeNextWaypointDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: closeTimeBeforeGenerateNextPath
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
