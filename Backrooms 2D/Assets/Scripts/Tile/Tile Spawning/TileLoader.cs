@@ -117,7 +117,8 @@ public class TileLoader : MonoBehaviour
 			}
 		}
 
-		Debug.LogError("Could Not Detect Current Player Chunk.");
+		AddChunk(roundedPlayerPos);
+		Debug.Log("Player went to undiscovered chunk; creating new chunk.");
 		return null;
 	}
 

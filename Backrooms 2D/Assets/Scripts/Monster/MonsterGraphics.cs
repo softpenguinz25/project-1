@@ -20,7 +20,7 @@ public class MonsterGraphics : MonoBehaviour
 			return originalSpeed * slowDownSpeedMultiplier;
 		}
 	}
-	private float originalSpeed;
+	private float originalSpeed;	
 
 	private void Awake()
 	{
@@ -31,7 +31,7 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void Start()
 	{
-		originalSpeed = mm.speed;
+		originalSpeed = mm.CurrentStats.speed;
 		sr.sprite = playerPoses[2];	
 	}
 
@@ -49,12 +49,12 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void SlowDown(GameObject objToSlow)
 	{
-		if (objToSlow == gameObject) { mm.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
+		if (objToSlow == gameObject) { mm.CurrentStats.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
 	}
 
 	private void SpeedUp(GameObject objToSpeedUp)
 	{
-		if (objToSpeedUp == gameObject) mm.speed = originalSpeed;
+		if (objToSpeedUp == gameObject) mm.CurrentStats.speed = originalSpeed;
 	}
 
 	private void Update()

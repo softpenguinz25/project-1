@@ -111,7 +111,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 364, y: -148}
+    uvTransform: {x: 492, y: -276}
   - name: Huge Pool Transition 4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -127, y: 260}
+    uvTransform: {x: 1, y: 132}
   - name: Huge Pool Transition 3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +153,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -126, y: 188}
+    uvTransform: {x: 2, y: 60}
   - name: Huge Pool Transition 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -174,7 +174,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -125, y: 116}
+    uvTransform: {x: 3, y: -12}
   - name: Huge Pool Transition 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -195,7 +195,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -124, y: 44}
+    uvTransform: {x: 4, y: -84}
   - name: Huge Pool
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +216,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -124, y: -60}
+    uvTransform: {x: 4, y: -188}
   - name: Big Pools Transition 4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -237,7 +237,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -127, y: 529}
+    uvTransform: {x: 1, y: 401}
   - name: Big Pools Transition 3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +258,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -126, y: 431}
+    uvTransform: {x: 2, y: 303}
   - name: Big Pools Transition 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +279,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -125, y: 332}
+    uvTransform: {x: 3, y: 204}
   - name: Big Pools Transition 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -300,7 +300,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -124, y: 232}
+    uvTransform: {x: 4, y: 104}
   - name: Big Pools
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -321,8 +321,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 204, y: -188}
-  - name: Open_Water
+    uvTransform: {x: 332, y: -316}
+  - name: lvl_poolrooms_dark_open
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -331,6 +331,111 @@ ScriptedImporter:
       serializedVersion: 2
       x: 468
       y: 4
+      width: 32
+      height: 32
+    spriteID: a452ddec8b702a346ab5705a51af0487
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 308, y: -444}
+  - name: lvl_poolrooms_dark_split
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 17bfa1e0c77d1584a8cf23a58811d59d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 340, y: -404}
+  - name: lvl_poolrooms_dark_hall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 84
+      width: 32
+      height: 32
+    spriteID: 0448f6fff6b340d42a2603146eeee356
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 244, y: -396}
+  - name: lvl_poolrooms_dark_corner
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 140
+      width: 32
+      height: 32
+    spriteID: d6abe9273acd5284e98ea0a248fe1e82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 140, y: -340}
+  - name: lvl_poolrooms_dark_end
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 372
+      y: 140
+      width: 32
+      height: 32
+    spriteID: 94a4c040f5e395b459140dc61a7c29ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 212, y: -340}
+  - name: Open_Water
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 412
+      y: 140
       width: 32
       height: 32
     spriteID: 6cf2554edc44f864593cf1e98ca9978c
@@ -342,7 +447,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 308, y: -316}
+    uvTransform: {x: 380, y: -308}
   - name: Open
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -350,8 +455,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 468
-      y: 44
+      x: 452
+      y: 140
       width: 32
       height: 32
     spriteID: 50ba9d6f9488ec644bf535c2f432114b
@@ -363,7 +468,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 308, y: -276}
+    uvTransform: {x: 420, y: -308}
   - name: Split_Water
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -371,8 +476,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 452
-      y: 140
+      x: 328
+      y: 284
       width: 32
       height: 28
     spriteID: 5ed2c0934f7d88246b5fe7858b4bf2d2
@@ -384,7 +489,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 324, y: -184}
+    uvTransform: {x: 328, y: -168}
   - name: Split
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -392,8 +497,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 468
-      y: 84
+      x: 330
+      y: 212
       width: 32
       height: 32
     spriteID: 5efed1b525c7d1a478fcdd6346eba0ee
@@ -405,7 +510,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 340, y: -236}
+    uvTransform: {x: 330, y: -236}
   - name: Hall_Water
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -413,8 +518,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 330
-      y: 212
+      x: 326
+      y: 356
       width: 24
       height: 32
     spriteID: 9304089d332d7f940bd70d0dbda71f25
@@ -426,7 +531,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 102, y: -140}
+    uvTransform: {x: 226, y: -124}
   - name: Hall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -434,8 +539,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 332
-      y: 140
+      x: 370
+      y: 212
       width: 32
       height: 32
     spriteID: 047311c5dcc41a647bcd90650dbba142
@@ -447,7 +552,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 108, y: -212}
+    uvTransform: {x: 274, y: -268}
   - name: Corner_Water
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -455,8 +560,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 452
-      y: 176
+      x: 368
+      y: 284
       width: 28
       height: 28
     spriteID: abc5a22886fbbfd4d838e969fa7ef6a5
@@ -468,7 +573,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 260, y: -180}
+    uvTransform: {x: 304, y: -200}
   - name: Corner
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -476,8 +581,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 372
-      y: 140
+      x: 410
+      y: 212
       width: 32
       height: 32
     spriteID: 9388006c1aefc2e4fb92522251e35bcf
@@ -489,7 +594,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 180, y: -212}
+    uvTransform: {x: 346, y: -268}
   - name: End_Water
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -497,8 +602,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 362
-      y: 212
+      x: 404
+      y: 284
       width: 24
       height: 28
     spriteID: a1e601258add9fb4fbf9b4a2a1fa9422
@@ -510,7 +615,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 198, y: -144}
+    uvTransform: {x: 368, y: -200}
   - name: End
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -518,8 +623,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 140
+      x: 450
+      y: 212
       width: 32
       height: 32
     spriteID: f74005c631ec222448d33109aaa2d399
@@ -531,7 +636,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 252, y: -212}
+    uvTransform: {x: 418, y: -268}
   characterData:
     bones: []
     parts: []
@@ -816,6 +921,66 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 1
+  - name: Dark Tiles
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 71b15817fa986064c8ec041e565271fa
+    layerID: 357
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: lvl_poolrooms_dark_open
+    spriteName: lvl_poolrooms_dark_open
+    isGroup: 0
+    parentIndex: 21
+    spriteID: a452ddec8b702a346ab5705a51af0487
+    layerID: 360
+    mosaicPosition: {x: 468, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_poolrooms_dark_split
+    spriteName: lvl_poolrooms_dark_split
+    isGroup: 0
+    parentIndex: 21
+    spriteID: 17bfa1e0c77d1584a8cf23a58811d59d
+    layerID: 352
+    mosaicPosition: {x: 468, y: 44}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_poolrooms_dark_hall
+    spriteName: lvl_poolrooms_dark_hall
+    isGroup: 0
+    parentIndex: 21
+    spriteID: 0448f6fff6b340d42a2603146eeee356
+    layerID: 348
+    mosaicPosition: {x: 468, y: 84}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_poolrooms_dark_corner
+    spriteName: lvl_poolrooms_dark_corner
+    isGroup: 0
+    parentIndex: 21
+    spriteID: d6abe9273acd5284e98ea0a248fe1e82
+    layerID: 344
+    mosaicPosition: {x: 332, y: 140}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_poolrooms_dark_end
+    spriteName: lvl_poolrooms_dark_end
+    isGroup: 0
+    parentIndex: 21
+    spriteID: 94a4c040f5e395b459140dc61a7c29ed
+    layerID: 340
+    mosaicPosition: {x: 372, y: 140}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Open
     spriteName: 
     isGroup: 1
@@ -829,20 +994,20 @@ ScriptedImporter:
   - name: Open_Water
     spriteName: Open_Water
     isGroup: 0
-    parentIndex: 21
+    parentIndex: 27
     spriteID: 6cf2554edc44f864593cf1e98ca9978c
     layerID: 206
-    mosaicPosition: {x: 468, y: 4}
+    mosaicPosition: {x: 412, y: 140}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Open
     spriteName: Open
     isGroup: 0
-    parentIndex: 21
+    parentIndex: 27
     spriteID: 50ba9d6f9488ec644bf535c2f432114b
     layerID: 205
-    mosaicPosition: {x: 468, y: 44}
+    mosaicPosition: {x: 452, y: 140}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -859,20 +1024,20 @@ ScriptedImporter:
   - name: Split_Water
     spriteName: Split_Water
     isGroup: 0
-    parentIndex: 24
+    parentIndex: 30
     spriteID: 5ed2c0934f7d88246b5fe7858b4bf2d2
     layerID: 204
-    mosaicPosition: {x: 452, y: 140}
+    mosaicPosition: {x: 328, y: 284}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Split
     spriteName: Split
     isGroup: 0
-    parentIndex: 24
+    parentIndex: 30
     spriteID: 5efed1b525c7d1a478fcdd6346eba0ee
     layerID: 203
-    mosaicPosition: {x: 468, y: 84}
+    mosaicPosition: {x: 330, y: 212}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -889,20 +1054,20 @@ ScriptedImporter:
   - name: Hall_Water
     spriteName: Hall_Water
     isGroup: 0
-    parentIndex: 27
+    parentIndex: 33
     spriteID: 9304089d332d7f940bd70d0dbda71f25
     layerID: 202
-    mosaicPosition: {x: 330, y: 212}
+    mosaicPosition: {x: 326, y: 356}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Hall
     spriteName: Hall
     isGroup: 0
-    parentIndex: 27
+    parentIndex: 33
     spriteID: 047311c5dcc41a647bcd90650dbba142
     layerID: 201
-    mosaicPosition: {x: 332, y: 140}
+    mosaicPosition: {x: 370, y: 212}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -919,20 +1084,20 @@ ScriptedImporter:
   - name: Corner_Water
     spriteName: Corner_Water
     isGroup: 0
-    parentIndex: 30
+    parentIndex: 36
     spriteID: abc5a22886fbbfd4d838e969fa7ef6a5
     layerID: 200
-    mosaicPosition: {x: 452, y: 176}
+    mosaicPosition: {x: 368, y: 284}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Corner
     spriteName: Corner
     isGroup: 0
-    parentIndex: 30
+    parentIndex: 36
     spriteID: 9388006c1aefc2e4fb92522251e35bcf
     layerID: 199
-    mosaicPosition: {x: 372, y: 140}
+    mosaicPosition: {x: 410, y: 212}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -949,20 +1114,20 @@ ScriptedImporter:
   - name: End_Water
     spriteName: End_Water
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 39
     spriteID: a1e601258add9fb4fbf9b4a2a1fa9422
     layerID: 197
-    mosaicPosition: {x: 362, y: 212}
+    mosaicPosition: {x: 404, y: 284}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: End
     spriteName: End
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 39
     spriteID: f74005c631ec222448d33109aaa2d399
     layerID: 196
-    mosaicPosition: {x: 412, y: 140}
+    mosaicPosition: {x: 450, y: 212}
     flatten: 0
     isImported: 1
     isVisible: 1

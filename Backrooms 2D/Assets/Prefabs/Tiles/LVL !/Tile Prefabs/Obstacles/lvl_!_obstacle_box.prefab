@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2411166864146669650}
   - component: {fileID: 8700514468249738288}
   - component: {fileID: 3138805240538849110}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: lvl_!_obstacle_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}

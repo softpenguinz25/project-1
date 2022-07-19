@@ -31,6 +31,18 @@ PrefabInstance:
       propertyPath: playerPoses.Array.data[3]
       value: 
       objectReference: {fileID: 1146177220416550555, guid: 8147c18697552d94193a2a90fcf587ca, type: 3}
+    - target: {fileID: 4742552814224836672, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f6b8e69e9ec89204e8487cc9063b85cb, type: 3}
+    - target: {fileID: 6051211600283715042, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: jumpscareMonsterType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051211600283715042, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: jumpscareMonsterData.monsterName
+      value: Hound_JUMPSCARE
+      objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Size.x
       value: 0.53125

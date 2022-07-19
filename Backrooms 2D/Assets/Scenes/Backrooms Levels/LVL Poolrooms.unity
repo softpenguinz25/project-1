@@ -218,6 +218,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: chunksBeforeSpawn
       value: 25
       objectReference: {fileID: 0}
@@ -271,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573523, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
@@ -282,6 +286,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1309285726}
     m_Modifications:
+    - target: {fileID: 2836963144834113263, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2836963145136597967, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -452,6 +460,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 217976159}
+    - target: {fileID: 3441267525647845288, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3441267525647845289, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: tileCollection
       value: 

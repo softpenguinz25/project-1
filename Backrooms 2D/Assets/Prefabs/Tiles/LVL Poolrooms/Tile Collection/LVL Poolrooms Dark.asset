@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5090ff7e52b2d134ba08f71466ef3c45, type: 3}
+  m_Name: LVL Poolrooms Dark
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 3b0dc06b41990b44ab66cc44784280eb, type: 2}
+  - {fileID: 11400000, guid: df8e7c8bfdbc304498ba64ec55bf4025, type: 2}
+  - {fileID: 11400000, guid: 7ce3edf42e368f941a898499f063698f, type: 2}
+  - {fileID: 11400000, guid: daea3ffdcb63c784fa5382b22b55f9e4, type: 2}
+  - {fileID: 11400000, guid: bafd441453e650c498f4920bc8960177, type: 2}
+  - {fileID: 11400000, guid: a11d7e00946588a42bc2afc9b8aae21e, type: 2}
+  - {fileID: 11400000, guid: faceade7880a7704691d5f1703d64870, type: 2}
+  - {fileID: 11400000, guid: 43b0748b696207d45976e6af26dace9d, type: 2}
+  - {fileID: 11400000, guid: d9fa83f50afa47940abe7ebc5874198c, type: 2}
+  - {fileID: 11400000, guid: e9e6a9f96f0486f4bb7a21c28a7e4d99, type: 2}
+  - {fileID: 11400000, guid: 2dd755b2d17b9df42a6bb05094d22cd2, type: 2}
+  - {fileID: 11400000, guid: a20544b724168184f81b39b7a5db94ac, type: 2}
+  firstTile: {fileID: 11400000, guid: daea3ffdcb63c784fa5382b22b55f9e4, type: 2}
+  tileSize: 3

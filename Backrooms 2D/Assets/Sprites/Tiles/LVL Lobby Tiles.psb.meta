@@ -91,6 +91,27 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
+  - name: lvl_lobby_corner
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 204
+      width: 4
+      height: 4
+    spriteID: 4675efa56df98b747a78d4cb40d9df50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -80, y: 200}
   - name: lvl_lobby_wall_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -417,6 +438,16 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: lvl_lobby_corner
+    spriteName: lvl_lobby_corner
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4675efa56df98b747a78d4cb40d9df50
+    layerID: 18
+    mosaicPosition: {x: 44, y: 204}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: lvl_lobby_wall_1
     spriteName: lvl_lobby_wall_1
     isGroup: 0

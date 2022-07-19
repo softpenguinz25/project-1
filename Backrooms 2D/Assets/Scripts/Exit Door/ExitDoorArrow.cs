@@ -94,7 +94,7 @@ public class ExitDoorArrow : MonoBehaviour
 			return;
 		}
 
-		if (path.vectorPath[path.vectorPath.Count - 1] == null) return;
+		if (path == null) return;
 
 		Vector2 wayPointPos;
 		if (Vector2.Distance(path.vectorPath[path.vectorPath.Count - 1], exitDoor.transform.position) < 2f)

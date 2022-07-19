@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5090ff7e52b2d134ba08f71466ef3c45, type: 3}
+  m_Name: LVL Poolrooms Light
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 9f6353b5d3025e0409d15b53da15b825, type: 2}
+  - {fileID: 11400000, guid: fa2ec611805519245844465b93e0dcc5, type: 2}
+  - {fileID: 11400000, guid: e9d8d00647762c94e8b304f256fcc174, type: 2}
+  - {fileID: 11400000, guid: bd93561e66b16b449b4d7c395ade5199, type: 2}
+  - {fileID: 11400000, guid: ad0407c0dabb46d47b5ab6a256f21292, type: 2}
+  - {fileID: 11400000, guid: 71b1063337b68294e8cb5360ff908a8e, type: 2}
+  - {fileID: 11400000, guid: 87d79dcbc268c8b4e9f0d3b568e477b6, type: 2}
+  - {fileID: 11400000, guid: cfcbf3f5d687bb64d8752e94c70ec5d2, type: 2}
+  - {fileID: 11400000, guid: 44795cb5f3ee87947ab20a26aef1a8c9, type: 2}
+  - {fileID: 11400000, guid: 2e7a1795935c1df4e8f029200f22e443, type: 2}
+  - {fileID: 11400000, guid: ca325e6463ae04845a0f1091a62f64bf, type: 2}
+  - {fileID: 11400000, guid: 651a1eb8fc2fb1d42b9a23df4bd1f1fe, type: 2}
+  firstTile: {fileID: 11400000, guid: e9d8d00647762c94e8b304f256fcc174, type: 2}
+  tileSize: 3

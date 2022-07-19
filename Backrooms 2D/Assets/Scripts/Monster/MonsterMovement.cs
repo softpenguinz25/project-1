@@ -18,32 +18,53 @@ public class MonsterMovement : MonoBehaviour
 	private int currentWaypoint = 0;
 	private bool reachedEndOfPath = false;
 
+	[HideInInspector] public Vector2 Force;
+
 	[Header("Regular Monster Attributes")]
-	[SerializeField] private float timeBeforeGenerateNextPath = 1.5f;
+	[SerializeField] private MonsterStats regularStats;
+	/*[SerializeField] private float timeBeforeGenerateNextPath = 1.5f;
 	public float speed = 200f;
 	private float originalSpeed;
 	//private float currentSpeed;
 	[SerializeField] private float nextWaypointDistance = 3f;
-	[SerializeField] private float linearDrag = 3;
+	[SerializeField] private float linearDrag = 3;*/
 
 	[Header("Slow Monster Attributes")]
 	[SerializeField] private float slowThreshold = 5;
 	[HideInInspector] public bool isSlow;
 	[Space]
-	[SerializeField] private float slowSpeedMultiplier = 1f;
+	[SerializeField] private MonsterStats slowStats;
+	/*[SerializeField] private float slowSpeedMultiplier = 1f;
 	[SerializeField] private float slowTimeBeforeGenerateNextPath = 1.5f;
 	[SerializeField] private float slowNextWaypointDistance = 3f;
-	[SerializeField] private float slowLinearDrag = 3;
+	[SerializeField] private float slowLinearDrag = 3;*/
 
 	[Header("Close Monster Attributes")]
-	[SerializeField] private float closeSpeedMultiplier = 1.5f;
-	/*[SerializeField] */private float closeTimeBeforeGenerateNextPath = 1.5f;
-	/*[SerializeField] */private float closeNextWaypointDistance = 3f;
-	[SerializeField] private float closeLinearDrag = 3;
+	[SerializeField] private MonsterStats closeToPlayerStats;
+	[Header("Far Monster Attributes")]
+	[SerializeField] private MonsterStats farUnobstructing;
+	[SerializeField] private MonsterStats farObstructing;
+	/*[SerializeField] private float closeSpeedMultiplier = 1.5f;
+	*//*[SerializeField] *//*private float closeTimeBeforeGenerateNextPath = 1.5f;
+	*//*[SerializeField] *//*private float closeNextWaypointDistance = 3f;
+	[SerializeField] private float closeLinearDrag = 3;*/
 
-	[HideInInspector] public Vector2 Force;
+	public MonsterStats CurrentStats
+	{
+		get
+		{
+			if (mc.IsClose) return closeToPlayerStats;
+			else if (isSlow) return slowStats;
+			else if (mc.IsFarUnobstructing) return farUnobstructing;
+			else if (mc.IsFarObstructing) return farObstructing;
+			return regularStats;
+		}
+	}
+	private MonsterStats oldStat;
+	float currentTimeBeforeGenerateNextPath;
+
 	//True variables
-	private float TrueTimeBeforeGenerateNextPath
+	/*private float TrueTimeBeforeGenerateNextPath
 	{
 		get
 		{
@@ -66,7 +87,7 @@ public class MonsterMovement : MonoBehaviour
 			if (mc.IsClose) return closeNextWaypointDistance;
 			return isSlow ? slowNextWaypointDistance : nextWaypointDistance;
 		}
-	}
+	}*/
 
 	private void Awake()
 	{
@@ -99,15 +120,17 @@ public class MonsterMovement : MonoBehaviour
 
 	private void Start()
 	{
-		originalSpeed = speed;
+		oldStat = CurrentStats;		
 
 		StartCoroutine(GeneratePathCoroutine());
 	}
-
+	
 	private IEnumerator GeneratePathCoroutine()
 	{
 		while (true)
 		{
+			currentTimeBeforeGenerateNextPath = CurrentStats.timeBeforeGenerateNextPath;
+
 			//Documentation - https://arongranberg.com/astar/docs/gridgraph.html#center
 
 			// This holds all graph data
@@ -123,7 +146,18 @@ public class MonsterMovement : MonoBehaviour
 
 			seeker.StartPath(rb.position, player.transform.position, OnPathComplete);
 
-			yield return new WaitForSeconds(TrueTimeBeforeGenerateNextPath);
+			while (currentTimeBeforeGenerateNextPath > 0)
+			{
+				currentTimeBeforeGenerateNextPath -= Time.deltaTime;
+				yield return null;
+				if (CurrentStats != oldStat)
+				{
+					oldStat = CurrentStats;
+					break;
+				}
+			}
+
+			//yield return new WaitForSeconds(CurrentStat.timeBeforeGenerateNextPath);
 		}
 	}
 
@@ -140,7 +174,7 @@ public class MonsterMovement : MonoBehaviour
 	{
 		isSlow = rb.velocity.sqrMagnitude < slowThreshold ? true : false;
 
-		rb.drag = mc.IsClose ? closeLinearDrag : linearDrag;
+		rb.drag = CurrentStats.linearDrag;
 
 		if (path == null) return;
 
@@ -157,9 +191,9 @@ public class MonsterMovement : MonoBehaviour
 
 		Vector2 targetPoint = path.vectorPath[currentWaypoint];
 		if(mc.IsClose) targetPoint = player.transform.position;
-
+		//Debug.Log(currentWaypoint);
 		Vector2 direction = (targetPoint - rb.position).normalized;
-		Vector2 force = direction * TrueSpeed * Time.deltaTime * rb.mass;
+		Vector2 force = direction * CurrentStats.speed * Time.deltaTime * rb.mass;
 		Force = force;
 
 		rb.AddForce(force);
@@ -168,7 +202,7 @@ public class MonsterMovement : MonoBehaviour
 
 		float distance = Vector2.Distance(rb.position, targetPoint);
 
-		if (distance < TrueNextWaypointDistance)
+		if (distance < CurrentStats.nextWaypointDistance)
 		{
 			currentWaypoint++;
 		}

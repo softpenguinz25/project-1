@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781725028263143111}
+  - component: {fileID: 6563269254883183375}
   m_Layer: 3
   m_Name: 2
   m_TagString: Connection Point
@@ -31,6 +32,27 @@ Transform:
   m_Father: {fileID: 4230624446586015626}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6563269254883183375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781725028263143110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813512abe4b5b1f43b04c2da3e766e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileCollection: {fileID: 11400000, guid: 485a882c179c50b4db0c8ab7cd946453, type: 2}
+  checkSpecialCPIsLegal: 0
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 8, y: 8}
+  wallPrefab: {fileID: 0}
+  collidersCheck:
+    Value: []
 --- !u!1 &1781725028916088543
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,6 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781725028916088540}
+  - component: {fileID: 9208111896040381360}
   m_Layer: 3
   m_Name: 1
   m_TagString: Connection Point
@@ -62,6 +85,27 @@ Transform:
   m_Father: {fileID: 4230624446586015626}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9208111896040381360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781725028916088543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813512abe4b5b1f43b04c2da3e766e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileCollection: {fileID: 11400000, guid: 485a882c179c50b4db0c8ab7cd946453, type: 2}
+  checkSpecialCPIsLegal: 0
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 8, y: 8}
+  wallPrefab: {fileID: 0}
+  collidersCheck:
+    Value: []
 --- !u!1 &1781725029532212070
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781725029532212071}
+  - component: {fileID: 2860233494263123176}
   m_Layer: 3
   m_Name: 3
   m_TagString: Connection Point
@@ -93,6 +138,27 @@ Transform:
   m_Father: {fileID: 4230624446586015626}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2860233494263123176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781725029532212070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813512abe4b5b1f43b04c2da3e766e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileCollection: {fileID: 11400000, guid: 485a882c179c50b4db0c8ab7cd946453, type: 2}
+  checkSpecialCPIsLegal: 0
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 8, y: 8}
+  wallPrefab: {fileID: 0}
+  collidersCheck:
+    Value: []
 --- !u!1 &3737202475489745561
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,12 +345,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed5b78500332504392ce4aa56d2f0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referenceTile: {fileID: 0}
   isGroupTile: 0
   connectionPoints:
   - {fileID: 1781725028916088540}
   - {fileID: 1781725028263143111}
   - {fileID: 1781725029532212071}
   tileArea: []
+  checkForObstructingTilesPointA: {fileID: 0}
+  checkForObstructingTilesPointB: {fileID: 0}
   canConnectUp: 0
   canConnectRight: 0
   canConnectDown: 0
@@ -293,6 +362,8 @@ MonoBehaviour:
   positionOffsetValueRight: {x: 0, y: 0}
   positionOffsetValueDown: {x: 0, y: 0}
   positionOffsetValueLeft: {x: 0, y: 0}
+  canBeRotated: 0
+  specialCPs: []
 --- !u!61 &5785124149572334475
 BoxCollider2D:
   m_ObjectHideFlags: 0

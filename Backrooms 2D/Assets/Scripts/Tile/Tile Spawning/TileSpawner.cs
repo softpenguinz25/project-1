@@ -116,7 +116,7 @@ public class TileSpawner : MonoBehaviour
 			TileTemplate randomTileTemplate;
 			CPData cpData = randomConnectionPoint.GetComponent<CPData>();
 
-			if (cpData == null) randomTileTemplate = RandomSpawnChanceTile(tileCollection);
+			if (cpData == null || !cpData.enabled || !cpData.gameObject.activeSelf) randomTileTemplate = RandomSpawnChanceTile(tileCollection);
 			else randomTileTemplate = RandomSpawnChanceTile(cpData.tileCollection);
 			TilePrefab tilePrefab = Instantiate(randomTileTemplate.tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
 			//Debug.Log("Tile Instantiated: " + tilePrefab.name, tilePrefab);
@@ -145,10 +145,11 @@ public class TileSpawner : MonoBehaviour
 				Debug.Log("CP Down: " + connectionPointIsDown + "Can Connect Down: " + tilePrefab.canConnectDown);
 				Debug.Log("CP Left: " + connectionPointIsLeft + "Can Connect Left: " + tilePrefab.canConnectLeft);*/
 
-				if ((!((connectionPointIsUp && tilePrefab.canConnectDown) || (connectionPointIsRight && tilePrefab.canConnectLeft) || (connectionPointIsDown && tilePrefab.canConnectUp) || (connectionPointIsLeft && tilePrefab.canConnectRight)) && tilePrefab.specialCPs.Count <= 0))
+				if (!((connectionPointIsUp && tilePrefab.canConnectDown) || (connectionPointIsRight && tilePrefab.canConnectLeft) || (connectionPointIsDown && tilePrefab.canConnectUp) || (connectionPointIsLeft && tilePrefab.canConnectRight)) && tilePrefab.specialCPs.Count <= 0)
 				{
-					Debug.Log("Destroyed Tile.");
+					//Debug.Log("Destroyed Tile.");
 					Destroy(tilePrefab.gameObject);
+					doWaitTime = false;
 					continue;
 				}
 				else if (tilePrefab.referenceTile.GetComponent<TilePrefab>().isGroupTile) {/*do noting lol*/ }
@@ -305,7 +306,7 @@ public class TileSpawner : MonoBehaviour
 				{
 					AddTile(areaTile);
 					currentAreaTile++;
-					if (currentAreaTile % 5	 == 0)
+					if (currentAreaTile % 5 == 0)
 						yield return null;//Stop lagspikes
 				}
 

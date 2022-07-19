@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6051211600283715042}
   - component: {fileID: 8439881886016590097}
   - component: {fileID: 1473480131879910231}
+  - component: {fileID: 4742552814224836672}
   m_Layer: 8
   m_Name: Bacteria
   m_TagString: Untagged
@@ -121,7 +122,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 40
+  m_Mass: 50
   m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -170,19 +171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5247684f1af2f4e97cdfa755301aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeGenerateNextPath: 0.2
-  speed: 510
-  nextWaypointDistance: 0.25
-  linearDrag: 3
+  Force: {x: 0, y: 0}
+  regularStats: {fileID: 11400000, guid: 9ee47d22049501145b8178b361430ae7, type: 2}
   slowThreshold: 0
   isSlow: 0
-  slowSpeedMultiplier: 1
-  slowTimeBeforeGenerateNextPath: 1.5
-  slowNextWaypointDistance: 3
-  slowLinearDrag: 3
-  closeSpeedMultiplier: 1.5
-  closeLinearDrag: 3
-  Force: {x: 0, y: 0}
+  slowStats: {fileID: 11400000, guid: 38e86a274a668b749a6aa4e99bf4e4cd, type: 2}
+  closeToPlayerStats: {fileID: 11400000, guid: 0c06c7f79a826cf418eecc26e0c7a09b, type: 2}
+  farUnobstructing: {fileID: 11400000, guid: d611e162ddd6e78499f0a949cdb1674d, type: 2}
+  farObstructing: {fileID: 11400000, guid: c918edcf9bcdc5647947125246dbe3bc, type: 2}
 --- !u!114 &2720332078630763168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e55aca3401f5c7408d881a5e19a818a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpscareMonsterData:
+    monsterName: Bacteria_JUMPSCARE
+    jumpscareSFX: {fileID: 4742552814224836672}
 --- !u!114 &8439881886016590097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,10 +226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualizeRay: 1
-  tileMask:
+  obstacleMask:
     serializedVersion: 2
     m_Bits: 8
-  distanceBtwnCloseActivate: 10000
+  closeThreshold: 15
+  farThreshold: 5
 --- !u!82 &1473480131879910231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -288,6 +288,102 @@ AudioSource:
     - serializedVersion: 3
       time: 0
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &4742552814224836672
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368467659627920316}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c16788b6f12c6145bb7c71ce9086bf9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Open
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6659174551815613922, guid: 032ee55f3bc308a46bd0e965793ac179, type: 3}
-  spawnChance: 3.5
+  spawnChance: 3

@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2817516776110654289}
+  - component: {fileID: 8543535354574625689}
   m_Layer: 3
   m_Name: 1
   m_TagString: Connection Point
@@ -115,6 +116,27 @@ Transform:
   m_Father: {fileID: 6849461600679574836}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8543535354574625689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2817516776110654290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813512abe4b5b1f43b04c2da3e766e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileCollection: {fileID: 11400000, guid: 485a882c179c50b4db0c8ab7cd946453, type: 2}
+  checkSpecialCPIsLegal: 0
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 8, y: 8}
+  wallPrefab: {fileID: 0}
+  collidersCheck:
+    Value: []
 --- !u!1 &2853371600995084700
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,10 +239,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed5b78500332504392ce4aa56d2f0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referenceTile: {fileID: 0}
   isGroupTile: 0
   connectionPoints:
   - {fileID: 2817516776110654289}
   tileArea: []
+  checkForObstructingTilesPointA: {fileID: 0}
+  checkForObstructingTilesPointB: {fileID: 0}
   canConnectUp: 0
   canConnectRight: 0
   canConnectDown: 0
@@ -229,6 +254,8 @@ MonoBehaviour:
   positionOffsetValueRight: {x: 0, y: 0}
   positionOffsetValueDown: {x: 0, y: 0}
   positionOffsetValueLeft: {x: 0, y: 0}
+  canBeRotated: 0
+  specialCPs: []
 --- !u!61 &4347636755649743988
 BoxCollider2D:
   m_ObjectHideFlags: 0

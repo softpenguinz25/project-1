@@ -42,7 +42,18 @@ public class FieldOfView : MonoBehaviour
             Vector2 pointThroughWall = initalRaycastHit2D.point + .04f * (Vector2)raycastDir;
             while(Physics2D.OverlapPoint(pointThroughWall, tileMask)/* == initalRaycastHit2D.collider*/)
 			{
-                pointThroughWall += wallAccuracy * (Vector2)raycastDir;
+                /*GameObject initialWall = initalRaycastHit2D.collider.gameObject;
+                GameObject wallThroughInitialWall = Physics2D.OverlapPoint(pointThroughWall).gameObject;
+				if (wallThroughInitialWall.gameObject != initialWall)
+				{
+                    float wallRotation = wallThroughInitialWall.transform.eulerAngles.z;
+                    Vector2 wallPosition = wallThroughInitialWall.transform.position;
+                    bool isSandwichWall = (Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) < .1f || (Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) < 180.1f && Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) > 179.9f)) && Vector2.Distance(wallPosition, initialWall.transform.position) < .5f;
+                    if(!isSandwichWall)
+                        break;
+				}
+*/
+				pointThroughWall += wallAccuracy * (Vector2)raycastDir;
 			}
 
             //Vector2 extendedPoint = initalRaycastHit2D.point + raycastExtend * (Vector2)raycastDir;
