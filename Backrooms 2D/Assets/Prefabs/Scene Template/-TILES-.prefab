@@ -141,6 +141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileCollection: {fileID: 11400000, guid: b4e72a38c35dc7f449ff2919d4ca60b9, type: 2}
   timeBtwnSpawns: 0.001
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8
   wallMask:
     serializedVersion: 2
     m_Bits: 8

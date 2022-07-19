@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2295088066985573522}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2295088065563165929
 MonoBehaviour:
@@ -135,7 +135,13 @@ MonoBehaviour:
   maxSpawnTimeDelay:
     Min: 30.306889
     Max: 32.819916
-  monster: {fileID: 7368467659627920316, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+  canReocurringlySpawn: 1
+  reoccurringChunksBeforeSpawn: 25
+  reoccurringMaxSpawnTimeDelay:
+    Min: 20
+    Max: 40
+  maxNumMonsters: 3
+  possibleMonsters: []
   player: {fileID: 0}
   spawnRadiusAwayFromPlayer:
     Min: 15.084202
@@ -169,7 +175,100 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2295088066230371668}
+  - {fileID: 5709879260077626716}
   - {fileID: 2295088065563165928}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6851481777609427216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5709879260077626716}
+  - component: {fileID: 4856744208721178699}
+  m_Layer: 0
+  m_Name: Monster Chase GFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5709879260077626716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851481777609427216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2295088066985573522}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4856744208721178699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851481777609427216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4363c247712274a8158e901a95dd02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeThreshold: 10
+  checkObstructingObjects: 1
+  obstructingObstaclesMask:
+    serializedVersion: 2
+    m_Bits: 8
+  postProcessingWeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0003139485
+      value: 0.9999465
+      inSlope: -0.9641939
+      outSlope: -0.9641939
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5031433
+      value: 0.51512146
+      inSlope: 0.035863586
+      outSlope: 0.035863586
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.18868591
+    - serializedVersion: 3
+      time: 4.999766
+      value: 0.5078576
+      inSlope: 0.011264834
+      outSlope: 0.011264834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10205946
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5.99433
+      value: 0.0006348491
+      inSlope: -0.5099951
+      outSlope: -0.5099951
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  timeUntilRestartSequence: 20

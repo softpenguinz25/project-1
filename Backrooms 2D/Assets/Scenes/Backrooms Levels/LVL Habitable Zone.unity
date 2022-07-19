@@ -376,6 +376,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1346697303
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740622, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740722, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_Name
+      value: FieldOfView
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
 --- !u!1001 &2295088065805864055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -396,28 +453,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3429954377138724354, guid: 388de96b929bdbc40a755ba80a6bcd96, type: 3}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: maxNumMonsters
+      propertyPath: possibleMonsters.Array.size
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: chunksBeforeSpawn
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: canReocurringlySpawn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: maxSpawnTimeDelay.Max
-      value: 2.513029
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: maxSpawnTimeDelay.Min
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: reoccurringChunksBeforeSpawn
-      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: spawnRadiusAwayFromPlayer.Max
@@ -428,13 +465,9 @@ PrefabInstance:
       value: 18.449587
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: reoccurringMaxSpawnTimeDelay.Max
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: reoccurringMaxSpawnTimeDelay.Min
-      value: 56.53846
-      objectReference: {fileID: 0}
+      propertyPath: possibleMonsters.Array.data[0]
+      value: 
+      objectReference: {fileID: 3429954377138724354, guid: 388de96b929bdbc40a755ba80a6bcd96, type: 3}
     - target: {fileID: 2295088066230371669, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -12,6 +12,7 @@ public class TileSpawner : MonoBehaviour
 	[Header("Spawning")]
 	public TileCollection tileCollection;
 	[SerializeField] [Range(0.001f, 1)] private float timeBtwnSpawns = .001f;
+	[SerializeField] private LayerMask tileMask;
 
 	[Header("Wall Breaking")]
 	[SerializeField] private LayerMask wallMask;
@@ -197,7 +198,7 @@ public class TileSpawner : MonoBehaviour
 				//Thanks Baste! https://forum.unity.com/threads/cant-get-physics2d-overlapbox-to-hit-triggers.1068140/
 				var old = Physics2D.queriesHitTriggers;
 				Physics2D.queriesHitTriggers = true;
-				List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(tilePrefab.checkForObstructingTilesPointA.position, tilePrefab.checkForObstructingTilesPointB.position).ToList();
+				List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(tilePrefab.checkForObstructingTilesPointA.position, tilePrefab.checkForObstructingTilesPointB.position, tileMask).ToList();
 				Physics2D.queriesHitTriggers = old;
 
 				List<Collider2D> invalidTiles = new List<Collider2D>();

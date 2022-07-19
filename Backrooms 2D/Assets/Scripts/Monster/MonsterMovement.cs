@@ -57,7 +57,7 @@ public class MonsterMovement : MonoBehaviour
 			else if (isSlow) return slowStats;
 			else if (mc.IsFarUnobstructing) return farUnobstructing;
 			else if (mc.IsFarObstructing) return farObstructing;
-			return regularStats;
+			else return regularStats;
 		}
 	}
 	private MonsterStats oldStat;

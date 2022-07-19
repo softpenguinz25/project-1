@@ -7,12 +7,14 @@ public class PlayerGraphics : MonoBehaviour
 {
 	private PlayerMovement pm;
 
-	private SpriteRenderer sr;
+	//private SpriteRenderer sr;
 
-	[Header("Sprite")]
+	[Header("Animation")]
 	//Back, right, front, left
-	[SerializeField] private Sprite[] playerPoses = new Sprite[4];
-	[SerializeField] private float changeSpriteThreshold = .1f;
+	private Animator animator;
+	private float lastHorizontalMovement, lastVerticalMovement;
+	//[SerializeField] private Sprite[] playerPoses = new Sprite[4];
+	//[SerializeField] private float changeSpriteThreshold = .1f;
 
 	[Header("Footsteps")]
 	[SerializeField] private float velocityThreshold = .4f;
@@ -36,7 +38,8 @@ public class PlayerGraphics : MonoBehaviour
 
 	private void Awake()
 	{
-		sr = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
+		//sr = GetComponent<SpriteRenderer>();
 
 		pm = GetComponent<PlayerMovement>();
 	}
@@ -66,7 +69,7 @@ public class PlayerGraphics : MonoBehaviour
 
 	private void Start()
 	{
-		sr.sprite = playerPoses[2];
+		//sr.sprite = playerPoses[2];
 
 		lastPos = transform.position;
 		timeBtwnFootsteps = Random.Range(startTimeBtwnFootsteps.Min, startTimeBtwnFootsteps.Max);
@@ -74,13 +77,28 @@ public class PlayerGraphics : MonoBehaviour
 		originalSpeed = pm.speed;
 	}
 
-	/*private void Update()
-	{		
-		if (pm.Movement.x > 0) sr.sprite = playerPoses[1];
+	private void Update()
+	{
+		/*if (pm.Movement.x > 0) sr.sprite = playerPoses[1];
 		else if (pm.Movement.x < 0) sr.sprite = playerPoses[3];
 		else if (pm.Movement.y > 0) sr.sprite = playerPoses[0];
-		else if (pm.Movement.y < 0) sr.sprite = playerPoses[2];
-	}*/
+		else if (pm.Movement.y < 0) sr.sprite = playerPoses[2];*/
+
+		animator.SetFloat("Speed", pm.Movement.sqrMagnitude);
+		if(pm.Movement.sqrMagnitude > .01f)
+		{
+			animator.SetFloat("Horizontal_Moving", pm.Movement.x);
+			animator.SetFloat("Vertical_Moving", pm.Movement.y);
+
+			lastHorizontalMovement = pm.Movement.x;
+			lastVerticalMovement = pm.Movement.y;
+		}
+		else
+		{
+			animator.SetFloat("Horizontal_Idle", lastHorizontalMovement);
+			animator.SetFloat("Vertical_Idle", lastVerticalMovement);
+		}
+	}
 
 	private void FixedUpdate()
 	{
@@ -118,7 +136,7 @@ public class PlayerGraphics : MonoBehaviour
 			playFirstFootstep = true;
 		}
 
-		bool movingVertically = Mathf.Abs(pm.Movement.y) > Mathf.Abs(pm.Movement.x);
+		/*bool movingVertically = Mathf.Abs(pm.Movement.y) > Mathf.Abs(pm.Movement.x);
 		if (movingVertically)
 		{
 			if(pm.Movement.y > changeSpriteThreshold) sr.sprite = playerPoses[0];
@@ -128,7 +146,7 @@ public class PlayerGraphics : MonoBehaviour
 		{
 			if (pm.Movement.x > changeSpriteThreshold) sr.sprite = playerPoses[1];
 			else if (pm.Movement.x < -changeSpriteThreshold) sr.sprite = playerPoses[3];
-		}
+		}*/
 
 		lastPos = transform.position;
 	}

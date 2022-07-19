@@ -91,7 +91,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: lvl_pipedreams_corner
+  - name: lvl_pipedreams_corner_inverted
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -99,6 +99,27 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 44
+      y: 99
+      width: 7
+      height: 7
+    spriteID: f52573ffb77bf2c46a4fdca79cc0da38
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 19, y: -22}
+  - name: lvl_pipedreams_corner_true
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 59
       y: 99
       width: 7
       height: 7
@@ -111,7 +132,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 19, y: 3}
+    uvTransform: {x: 34, y: 3}
   - name: lvl_pipedreams_corner_free
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -119,8 +140,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 59
-      y: 99
+      x: 44
+      y: 114
       width: 7
       height: 7
     spriteID: 85cb8e905abf94549a9b3aa7491bbddf
@@ -132,7 +153,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 59, y: 3}
+    uvTransform: {x: 44, y: 18}
   - name: lvl_pipedreams_wall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -333,13 +354,23 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: lvl_pipedreams_corner
-    spriteName: lvl_pipedreams_corner
+  - name: lvl_pipedreams_corner_inverted
+    spriteName: lvl_pipedreams_corner_inverted
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f52573ffb77bf2c46a4fdca79cc0da38
+    layerID: 38
+    mosaicPosition: {x: 44, y: 99}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_pipedreams_corner_true
+    spriteName: lvl_pipedreams_corner_true
     isGroup: 0
     parentIndex: -1
     spriteID: 027dc4ac48b1f9749b8524e7347b1669
     layerID: 33
-    mosaicPosition: {x: 44, y: 99}
+    mosaicPosition: {x: 59, y: 99}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -349,7 +380,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 85cb8e905abf94549a9b3aa7491bbddf
     layerID: 36
-    mosaicPosition: {x: 59, y: 99}
+    mosaicPosition: {x: 44, y: 114}
     flatten: 0
     isImported: 1
     isVisible: 1

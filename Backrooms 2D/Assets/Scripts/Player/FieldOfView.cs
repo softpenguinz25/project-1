@@ -36,25 +36,30 @@ public class FieldOfView : MonoBehaviour
         int triangleIndex = 0;
         for (int i = 0; i <= rayCount; i++)
         {
+            var old = Physics2D.queriesHitTriggers;
+            Physics2D.queriesHitTriggers = false;
+
             Vector3 vertex;
             Vector3 raycastDir = GetVectorFromAngle(angle);
             RaycastHit2D initalRaycastHit2D = Physics2D.Raycast(origin, raycastDir, viewDistance, tileMask);
             Vector2 pointThroughWall = initalRaycastHit2D.point + .04f * (Vector2)raycastDir;
-            while(Physics2D.OverlapPoint(pointThroughWall, tileMask)/* == initalRaycastHit2D.collider*/)
+			while (Physics2D.OverlapPoint(pointThroughWall, tileMask)/* == initalRaycastHit2D.collider*/)
 			{
-                /*GameObject initialWall = initalRaycastHit2D.collider.gameObject;
-                GameObject wallThroughInitialWall = Physics2D.OverlapPoint(pointThroughWall).gameObject;
+				/*GameObject initialWall = initalRaycastHit2D.collider.gameObject;
+				GameObject wallThroughInitialWall = Physics2D.OverlapPoint(pointThroughWall).gameObject;
 				if (wallThroughInitialWall.gameObject != initialWall)
 				{
-                    float wallRotation = wallThroughInitialWall.transform.eulerAngles.z;
-                    Vector2 wallPosition = wallThroughInitialWall.transform.position;
-                    bool isSandwichWall = (Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) < .1f || (Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) < 180.1f && Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) > 179.9f)) && Vector2.Distance(wallPosition, initialWall.transform.position) < .5f;
-                    if(!isSandwichWall)
-                        break;
+					float wallRotation = wallThroughInitialWall.transform.eulerAngles.z;
+					Vector2 wallPosition = wallThroughInitialWall.transform.position;
+					bool isSandwichWall = (Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) < .1f || (Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) < 180.1f && Mathf.Abs(Mathf.Abs(wallRotation) - Mathf.Abs(initialWall.transform.eulerAngles.z)) > 179.9f)) && Vector2.Distance(wallPosition, initialWall.transform.position) < .5f;
+					if(!isSandwichWall)
+						break;
 				}
-*/
+	*/
 				pointThroughWall += wallAccuracy * (Vector2)raycastDir;
-			}
+		    }
+
+		Physics2D.queriesHitTriggers = old;
 
             //Vector2 extendedPoint = initalRaycastHit2D.point + raycastExtend * (Vector2)raycastDir;
             //RaycastHit2D[] raycastHit2DThroughWallCols = Physics2D.RaycastAll(extendedPoint, -raycastDir, viewDistance, layerMask);

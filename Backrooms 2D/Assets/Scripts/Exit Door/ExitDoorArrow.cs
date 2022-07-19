@@ -22,6 +22,7 @@ public class ExitDoorArrow : MonoBehaviour
 	private GameObject exitDoor;
 
 	private const float angleOffset = 270;
+	private float zPos;
 
 	private void Awake()
 	{
@@ -47,6 +48,7 @@ public class ExitDoorArrow : MonoBehaviour
 
 	private void Start()
 	{
+		zPos = Camera.main.transform.position.z + Camera.main.nearClipPlane + .01f;
 		gameObject.SetActive(false);
 		screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));		
 	}
@@ -138,12 +140,12 @@ public class ExitDoorArrow : MonoBehaviour
 		//Position
 		if (GetComponent<SpriteRenderer>().color.a <= 0.01f)
 		{
-			Vector3 newPos = wayPointPos;
-			Vector3 cameraPos = Camera.main.transform.position;
+			Vector2 newPos = wayPointPos;
+			Vector2 cameraPos = Camera.main.transform.position;
 			newPos.x = Mathf.Clamp(newPos.x, cameraPos.x + (-screenSize.x * .5f + screenBoundsIndent), cameraPos.x + (screenSize.x * .5f - screenBoundsIndent));
 			newPos.y = Mathf.Clamp(newPos.y, cameraPos.y + (-screenSize.y * .5f + screenBoundsIndent), cameraPos.y + (screenSize.y * .5f - screenBoundsIndent));
 
-			transform.position = newPos;
+			transform.position = new Vector3(newPos.x, newPos.y, zPos);
 		}
 
 		//Rotation

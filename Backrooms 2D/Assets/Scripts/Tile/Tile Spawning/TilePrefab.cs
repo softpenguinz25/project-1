@@ -1,5 +1,6 @@
 using MyBox;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [SelectionBase]
@@ -37,6 +38,39 @@ public class TilePrefab : MonoBehaviour
             if (childObj.CompareTag("Connection Point")) connectionPoints.Add(childObj);
 		}
         return connectionPoints.Count + " transforms found in object, cached";
+    }
+
+    [ContextMenu("Detect Overlapping Tiles")]
+    public void DetectOverlappingTiles()
+	{
+        //Thanks Baste! https://forum.unity.com/threads/cant-get-physics2d-overlapbox-to-hit-triggers.1068140/
+        var old = Physics2D.queriesHitTriggers;
+        Physics2D.queriesHitTriggers = true;
+        List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(checkForObstructingTilesPointA.position, checkForObstructingTilesPointB.position, LayerMask.NameToLayer("Tile")).ToList();
+        Physics2D.queriesHitTriggers = old;
+
+        /*List<Collider2D> invalidTiles = new List<Collider2D>();
+        foreach (Collider2D collider in tilesDetectedInArea)
+        {
+            TilePrefab colliderTilePrefab = collider.GetComponent<TilePrefab>();
+            if (colliderTilePrefab == null) { invalidTiles.Add(collider); continue; }
+            else if (colliderTilePrefab.isGroupTile) { invalidTiles.Add(collider); continue; }
+            else if (colliderTilePrefab.transform.IsChildOf(transform)) { invalidTiles.Add(collider); continue; }
+        }
+
+        foreach (Collider2D invalidTile in invalidTiles)
+        {
+            if (tilesDetectedInArea.Contains(invalidTile))
+            {
+                tilesDetectedInArea.Remove(invalidTile);
+                //Debug.Log("Removed: " + invalidTile, invalidTile);
+            }
+        }*/
+
+        foreach (Collider2D collider in tilesDetectedInArea)
+		{
+            Debug.Log(collider.gameObject.name, collider.gameObject);
+		}
     }
     #endif
 }

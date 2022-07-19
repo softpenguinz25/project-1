@@ -63,11 +63,11 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: c1f35fda34011504386cf3abec0a396f, type: 3}
     volume:
-      Min: 0.8
+      Min: 1
       Max: 1
     pitch:
-      Min: 0.9
-      Max: 1.1
+      Min: 1
+      Max: 1
     sources: []
   - name: LVLLobby_Player_Footsteps
     clips:
@@ -128,6 +128,21 @@ MonoBehaviour:
       Min: 0.9
       Max: 1.1
     sources: []
+  - name: LVLRFYL_Player_Footsteps
+    clips:
+    - {fileID: 8300000, guid: 2d758615e0501fb40bec350a9bbe9753, type: 3}
+    - {fileID: 8300000, guid: 5770f0f47ea51874fb468a8ac3e593ec, type: 3}
+    - {fileID: 8300000, guid: d2e326704fab297448ea74551948ae6e, type: 3}
+    - {fileID: 8300000, guid: 4162e459c3e6a6d45a3943f0f2903c36, type: 3}
+    - {fileID: 8300000, guid: 8805edd2b4ee1d543b355f24dd872b4f, type: 3}
+    - {fileID: 8300000, guid: 2fb89337f96954547867510dd2d6691b, type: 3}
+    volume:
+      Min: 0.8
+      Max: 1
+    pitch:
+      Min: 0.9
+      Max: 1.1
+    sources: []
   - name: LVLPoolrooms_Splash
     clips:
     - {fileID: 8300000, guid: 0d699c998f6ed9947b7fa8a32b233b1e, type: 3}
@@ -151,6 +166,26 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    sources: []
+  - name: Monster_Chase_Activated
+    clips:
+    - {fileID: 8300000, guid: 1ddd7f7f3e04a934e8b1058264489e86, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
+  - name: Monster_Chase_Heartbeat
+    clips:
+    - {fileID: 8300000, guid: 04ddaba27a535504ebc412c5f6e41c27, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
     sources: []
 --- !u!1 &4832884539536724277
 GameObject:
@@ -196,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a08699b54558ea42880004f636bb6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumspscareAnimator: {fileID: 0}
   currentScene:
     Scene: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     SceneName: LVL Lobby

@@ -19,13 +19,14 @@ public class MonsterSpawner : MonoBehaviour
 	[ConditionalField(nameof(canReocurringlySpawn))] [SerializeField] [MinMaxRange(0, 60)] private RangedFloat reoccurringMaxSpawnTimeDelay = new RangedFloat(20, 40);
 	private bool hasSpawnedOnce;
 	[ConditionalField(nameof(canReocurringlySpawn))] [SerializeField] private int maxNumMonsters = 3;
-	private List<GameObject> monsters = new List<GameObject>();
+	private List<GameObject> totalMonsters = new List<GameObject>();
 
 	[Header("Spawn")]
-	[SerializeField] private GameObject monster;
+	[SerializeField] private List<GameObject> possibleMonsters = new List<GameObject>();
 	[Space]
 	[SerializeField] private GameObject player;
 	[SerializeField] [MinMaxRange(0, 50)] private RangedFloat spawnRadiusAwayFromPlayer;
+	[SerializeField] private float minDistanceAwayFromPlayer = 7;
 	private bool canSpawnMonster = true;
 	private void Awake()
 	{
@@ -77,8 +78,9 @@ public class MonsterSpawner : MonoBehaviour
 			yield return new WaitForSeconds(UnityEngine.Random.Range(reoccurringMaxSpawnTimeDelay.Min, reoccurringMaxSpawnTimeDelay.Max));
 		SpawnMonster();
 	}
-
-	private void SpawnMonster()
+	
+	[ContextMenu("Spawn Monster")]
+	public void SpawnMonster()
 	{
 		if (!canSpawnMonster) return;
 		hasSpawnedOnce = true;
@@ -98,7 +100,7 @@ public class MonsterSpawner : MonoBehaviour
 		List<TileDistance> tooClose = new List<TileDistance>();
 		foreach(TileDistance tileDistance in tileDistances)
 		{
-			if(Vector2.Distance(tileDistance.tile.transform.position, player.transform.position) < spawnRadiusAwayFromPlayer.Min)
+			if(Vector2.Distance(tileDistance.tile.transform.position, player.transform.position) < minDistanceAwayFromPlayer)
 			{
 				tooClose.Add(tileDistance);
 			}
@@ -109,15 +111,15 @@ public class MonsterSpawner : MonoBehaviour
 			tileDistances.Remove(closeTile);
 		}
 
-		GameObject monsterObj = Instantiate(monster, tileDistances[0].tile.transform.position, Quaternion.identity);
+		GameObject monsterObj = Instantiate(possibleMonsters[UnityEngine.Random.Range(0, possibleMonsters.Count)], tileDistances[0].tile.transform.position, Quaternion.identity);
 
 		canSpawnMonster = false;
-		monsters.Add(monsterObj);
+		totalMonsters.Add(monsterObj);
 
-		if(monsters.Count > maxNumMonsters)
+		if(totalMonsters.Count > maxNumMonsters)
 		{
-			Destroy(monsters[0]);
-			monsters.RemoveAt(0);
+			Destroy(totalMonsters[0]);
+			totalMonsters.RemoveAt(0);
 		}
 
 		StartCoroutine(RestartSystem());

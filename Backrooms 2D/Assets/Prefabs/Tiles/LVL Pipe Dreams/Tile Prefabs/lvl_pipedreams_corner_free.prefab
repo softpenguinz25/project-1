@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5175070436499516243}
   - component: {fileID: 633908390021149478}
   - component: {fileID: 9074057110131257494}
-  - component: {fileID: -5699907973315036156}
+  - component: {fileID: -6337386822294922175}
   m_Layer: 3
   m_Name: lvl_pipedreams_corner_free
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22, y: 0.22}
   m_EdgeRadius: 0
---- !u!114 &-5699907973315036156
+--- !u!114 &-6337386822294922175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 235454110724991021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acba8bfe1ff8caf42a7c16767432b39b, type: 3}
+  m_Script: {fileID: 11500000, guid: 02be1148ddb465b45b5c0b984394a872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBreakable: 1
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 8

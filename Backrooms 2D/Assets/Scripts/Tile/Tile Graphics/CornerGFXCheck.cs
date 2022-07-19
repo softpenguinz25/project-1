@@ -2,16 +2,11 @@ using UnityEngine;
 
 public class CornerGFXCheck : MonoBehaviour
 {
-    [SerializeField] private LayerMask tileMask;
-
-	private void Awake()
-	{
-		tileMask = LayerMask.GetMask("Tile");
-	}
+    [SerializeField] private LayerMask tileMask/* = LayerMask.GetMask("Tile")*/;
 
 	private void OnEnable()
 	{
-		if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileDataManager>().TileAdded += CheckCorner;
+		if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileSpawner>().CanSpawnTiles += CheckCorner;
 		//GetComponentInParent<TilePrefab>().gameObject;
 	}
 
@@ -22,12 +17,14 @@ public class CornerGFXCheck : MonoBehaviour
 
 	private void OnDisable()
 	{
-		if(FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileDataManager>().TileAdded -= CheckCorner;
+		if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileSpawner>().CanSpawnTiles -= CheckCorner;
 	}
 
 	[ContextMenu("Corner Check")]
-	public void CheckCorner(TilePrefab bruh, int e)
+	public void CheckCorner(bool tilesAreSpawning)
 	{
+		if (tilesAreSpawning) return;
+
 		//send out 4 raycasts
 		//if any raycast hit nearby tile --> keep corner
 		//otherwise destroy corner
@@ -48,9 +45,9 @@ public class CornerGFXCheck : MonoBehaviour
 
 		if (!wallIsNearby) Destroy(gameObject);
 
-		Debug.Log("Up: " + upCast.collider);
+		/*Debug.Log("Up: " + upCast.collider);
 		Debug.Log("Right: " + rightCast.collider);
 		Debug.Log("Down: " + downCast.collider);
-		Debug.Log("Left: " + leftCast.collider);
+		Debug.Log("Left: " + leftCast.collider);*/
 	}
 }
