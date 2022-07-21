@@ -83,6 +83,21 @@ MonoBehaviour:
       Min: 0.9
       Max: 1.1
     sources: []
+  - name: LVLHabitableZone_Player_Footsteps
+    clips:
+    - {fileID: 8300000, guid: 7d518e6195da4ef4aa0acb9633473cf4, type: 3}
+    - {fileID: 8300000, guid: 8fc34d4eedfa4914fa2b9d62fc6212ad, type: 3}
+    - {fileID: 8300000, guid: f5210314d8d0bbc499093cd6331125ca, type: 3}
+    - {fileID: 8300000, guid: 9c96354956be3d9468e2808e70c29aca, type: 3}
+    - {fileID: 8300000, guid: 7ccbde9df9aefc141ba198c9d64c9f03, type: 3}
+    - {fileID: 8300000, guid: 524a4cf94350c00469c784261bdd4227, type: 3}
+    volume:
+      Min: 0.7956117
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1.1082056
+    sources: []
   - name: LVLPipeDreams_Player_Footsteps
     clips:
     - {fileID: 8300000, guid: 2edfac2abda139d478db0a05265c853a, type: 3}
@@ -137,7 +152,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8805edd2b4ee1d543b355f24dd872b4f, type: 3}
     - {fileID: 8300000, guid: 2fb89337f96954547867510dd2d6691b, type: 3}
     volume:
-      Min: 0.8
+      Min: 1
       Max: 1
     pitch:
       Min: 0.9
@@ -231,7 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a08699b54558ea42880004f636bb6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumspscareAnimator: {fileID: 0}
   currentScene:
     Scene: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     SceneName: LVL Lobby

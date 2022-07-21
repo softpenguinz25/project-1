@@ -1,4 +1,4 @@
-using System;
+using UnityEditor;
 using UnityEngine;
 
 public class MonsterGraphics : MonoBehaviour
@@ -11,7 +11,7 @@ public class MonsterGraphics : MonoBehaviour
 	[SerializeField] private Sprite[] playerPoses = new Sprite[4];
 	[SerializeField] private float spriteThreshold = .4f;
 
-	[Header("Poolrooms Slow Down")]
+	/*[Header("Poolrooms Slow Down")]
 	[SerializeField] private float slowDownSpeedMultiplier = .25f;
 	private float slowDownSpeed
 	{
@@ -20,7 +20,7 @@ public class MonsterGraphics : MonoBehaviour
 			return originalSpeed * slowDownSpeedMultiplier;
 		}
 	}
-	private float originalSpeed;	
+	private float originalSpeed;	*/
 
 	private void Awake()
 	{
@@ -31,7 +31,7 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void Start()
 	{
-		originalSpeed = mm.CurrentStats.speed;
+		//originalSpeed = mm.CurrentStats.speed;
 		sr.sprite = playerPoses[2];	
 	}
 
@@ -39,23 +39,35 @@ public class MonsterGraphics : MonoBehaviour
 	{
 		LVLPoolroomPoolSpeed.SlowDown += SlowDown;
 		LVLPoolroomPoolSpeed.SpeedUp += SpeedUp;
+
+		/*#if UNITY_EDITOR
+		EditorApplication.playModeStateChanged += SpeedUpEditor;
+		#endif*/
 	}
 
 	private void OnDisable()
 	{
+		//mm.CurrentStats.speed = originalSpeed;
 		LVLPoolroomPoolSpeed.SlowDown -= SlowDown;
 		LVLPoolroomPoolSpeed.SpeedUp -= SpeedUp;
 	}
 
 	private void SlowDown(GameObject objToSlow)
 	{
-		if (objToSlow == gameObject) { mm.CurrentStats.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
+		if (objToSlow == gameObject) { mm.monsterIsInPool = true; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
 	}
 
 	private void SpeedUp(GameObject objToSpeedUp)
 	{
-		if (objToSpeedUp == gameObject) mm.CurrentStats.speed = originalSpeed;
+		if (objToSpeedUp == gameObject) mm.monsterIsInPool = false;
 	}
+
+	/*#if UNITY_EDITOR
+	private void SpeedUpEditor(PlayModeStateChange playModeState)
+	{
+		if(playModeState == PlayModeStateChange.ExitingPlayMode) mm.CurrentStats.speed = originalSpeed;
+	}
+	#endif*/
 
 	private void Update()
 	{

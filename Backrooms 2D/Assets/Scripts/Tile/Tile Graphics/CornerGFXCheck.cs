@@ -4,26 +4,33 @@ public class CornerGFXCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask tileMask/* = LayerMask.GetMask("Tile")*/;
 
-	private void OnEnable()
+	private void Start()
+	{
+		//if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileSpawner>().CanSpawnTiles += CheckCorner;
+		Invoke(nameof(CheckCorner), 1);//delay for more accurate check
+	}
+
+	/*private void OnEnable()
 	{
 		if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileSpawner>().CanSpawnTiles += CheckCorner;
 		//GetComponentInParent<TilePrefab>().gameObject;
 	}
 
+	*/
 	/*private void OnDestroy()
 	{
-		FindObjectOfType<TileDataManager>().TileAdded -= CheckCorner;
+		if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileSpawner>().CanSpawnTiles -= CheckCorner;
 	}*/
 
-	private void OnDisable()
+	/*private void OnDisable()
 	{
 		if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileSpawner>().CanSpawnTiles -= CheckCorner;
-	}
+	}*/
 
-	[ContextMenu("Corner Check")]
-	public void CheckCorner(bool tilesAreSpawning)
+	//[ContextMenu("Corner Check")]
+	public void CheckCorner(/*bool tilesAreSpawning*/)
 	{
-		if (tilesAreSpawning) return;
+		/*if (tilesAreSpawning) return;*/
 
 		//send out 4 raycasts
 		//if any raycast hit nearby tile --> keep corner
@@ -45,6 +52,7 @@ public class CornerGFXCheck : MonoBehaviour
 
 		if (!wallIsNearby) Destroy(gameObject);
 
+		//FindObjectOfType<TileSpawner>().CanSpawnTiles -= CheckCorner;
 		/*Debug.Log("Up: " + upCast.collider);
 		Debug.Log("Right: " + rightCast.collider);
 		Debug.Log("Down: " + downCast.collider);

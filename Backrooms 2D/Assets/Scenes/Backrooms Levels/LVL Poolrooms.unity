@@ -264,7 +264,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2295088065563165929, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAACQn+tXDYmbXQIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GkJCE3lqHkB6SMCGdXHxZrDXWIEsefQRIhv/elWxjl05PLG/f7r79kL+YULbG3GmzMII/aY7s+4gFm30b9c5H3MNGq5X4xI7zLrgrAwki5xWc0ISPQ5jVFToj8h9qIwM5IdArUWhTzfkGU22dJbgAaZFcRrsQrQj6GrE9/VzMQsiBrMltsD7JmiWjI5k5Koemp3bEjtawvMolVDXyILknTzv2tKEpaqZlJJfTkF1LKWyrhblDHXtNobaeOiECF0C9RQHjyxsCShSb0gWlw/CXorDoWlkGDvfC0JCavOynbiZXgd022j5A+lDpLqpqUj79470YR3dhdPXYVR0noYIrRb59hUMO1g0GO4TvB8LjgHYgt7CW+F6ietYLo73i5HTGh1BvcXLf/z01lpaYb3u8kXoG+vr/6wk9HGPv+1SKah0nf90AK6njvOPy0dBufpHgeBq2TUFoUPHb4htshjfUOh6EsY5cbZcqyFtrbwKVzePMQjfepdoojHArukYF0h2WlMadL/DMNyh75nmA8Fra4q2vewRnIRHu+Uly5lrq3WlZttS7J7Tli3dSKOxFB8czzSnVSjX3NZxJF7bypoB8ELbxgv99WuwmuZvdzvJJXiBMJ9Ori2vAYjoeX/HZ3S2siwmLtycU9Qly2Qhtx0NbU31yRXfWfURGCwN1vHVuYLcQn5UejFyoQq9yg6hemgwn4WioCL1LPueCBrRC54SK+2ZfGZM63yLPTomy2Ol87wxkfZaM1eJDu4BkLI1fjYwF+HTLS4MfAneheJfsyI5/AFBLAwQUAAAICAAAkJ/rpOOaX20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kpmBhaW5ZbJRclpqoqmRqbGuSWJqmqmhoXGKpYV5YlKakVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAkJ/rVw2Jm10CAAAUBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAkJ/rpOOaX20AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
+      value: UEsDBBQAAAgIAACQn+t9CduNXgIAABgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjSAiht9YhpAcSJqSTiy9CWmMNsuTRBx/J8N+7km3s0ukJ8d7b3berlb+IULYC5rRZGMGXmgP5PiDhTL4NOvIZjnSr1Vp8Qqv5ENwVQUSj5o06oREfhTCrS3BGsB9qK4M4QdArkWtTzvkWUm2dRTin0gJSRrsQrRD6GpAj/gxnIeSEp/E0nD7xNEsGZzwyUA5MJ22FraxWecUkLSvgwXInvp3eTBp9OEapwoYaVRJZpqUUtvFD3KmK/aa0sh67QQEXFPuLJkY39wgUILaFC2774a95bsE11gw9PQqDg6rzkp+6nl5J7a72t6fSh0oP0VWdcvkPOxxFOje6fG6rjpJQwRWC7d7oiVHresPtw48943FIByp3dCPhowD1ohdGe8WRdMaHUG9h/Nj9vTSWFsB2HV5bvQJ99f8rCj2cY+/HVIpyEyd/VwNrqeO84wKAwbv5hYbjetgmBaLBxW8L73Tb36OGeBLGOqSaLlWwt9HeBCmZx5mFbrxLtVEQ4cZ0BYpKd1phGnd9gVdcr+wV80TDi2mKN1z7EK5CItzpk+SKWunD5bJsoQ9LsMWrd1Io6EwH4gXnlGql6v3qz6QNW3uTU9YL23rB/14tcp88zKYzNmY50Ml4cju8o5BPRqNbPnuY0k0+JnH3hMI+qVzVRpvx4K2pLrnCPWs/JIOFoVXcdW7oYSE+S90buVC5XjMDoF7rDBfjYLAIvks+5wIHtAbnhIr3Tb4yIjXbAc8uibLY6fzoDM26LBmpxF67gGQkjV+OjAT4sssrA3sBh1C8TXYm5z9QSwMEFAAACAgAAJCf66Tjml9tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKZgYWluWWyUXJaaqKpkamxrkliapqpoaFxiqWFeWJSmpFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJCf630J241eAgAAGAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJCf66Tjml9tAAAAeAAAAAkAJAAAAAAAAAAAAAAAqwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABjAwAAAAA=
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: player
@@ -276,11 +276,35 @@ PrefabInstance:
       objectReference: {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: chunksBeforeSpawn
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: maxSpawnTimeDelay.Max
+      value: 42.509937
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: maxSpawnTimeDelay.Min
+      value: 39.99691
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: possibleMonsters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: reoccurringChunksBeforeSpawn
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: possibleMonsters.Array.data[0]
+      value: 
+      objectReference: {fileID: 2358195583797519872, guid: abd71596ba0c0dc49bb5918d334b30e9, type: 3}
+    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: reoccurringMaxSpawnTimeDelay.Min
+      value: 29.690023
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573522, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_RootOrder
@@ -343,6 +367,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1309285726}
     m_Modifications:
+    - target: {fileID: 2836963144834113040, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836963144834113040, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 2836963144834113263, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: near clip plane
       value: 0.01
@@ -653,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427791821919923567, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: tilesUntilDoorSpawns
-      value: 1750
+      value: 1200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}

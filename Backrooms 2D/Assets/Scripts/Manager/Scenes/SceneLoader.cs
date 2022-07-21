@@ -27,6 +27,7 @@ public class SceneLoader : MonoBehaviour
 
 	public void LoadScene(int sceneToLoad)
 	{
+		if (sceneToLoad < 0 || sceneToLoad > SceneManager.sceneCountInBuildSettings - 1) { sceneToLoad = Mathf.Clamp(sceneToLoad, 0, SceneManager.sceneCountInBuildSettings - 1); Debug.LogError("Could not load scene at build index" + sceneToLoad + "!"); }
 		SceneManager.LoadScene(sceneToLoad);
 	}
 

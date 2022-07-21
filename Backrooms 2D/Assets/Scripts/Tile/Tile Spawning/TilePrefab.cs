@@ -19,6 +19,7 @@ public class TilePrefab : MonoBehaviour
     [Header("IF IS GROUP TILE = TRUE")]
     public List<TilePrefab> tileArea;
     [ConditionalField(nameof(isGroupTile))] public Transform checkForObstructingTilesPointA, checkForObstructingTilesPointB;
+    [ConditionalField(nameof(isGroupTile))] public Vector2 tileSize;
     [ConditionalField(nameof(isGroupTile))] public bool canConnectUp, canConnectRight, canConnectDown, canConnectLeft;
     [ConditionalField(nameof(canConnectUp))] public Vector2 positionOffsetValueUp;
     [ConditionalField(nameof(canConnectRight))] public Vector2 positionOffsetValueRight;
@@ -46,7 +47,7 @@ public class TilePrefab : MonoBehaviour
         //Thanks Baste! https://forum.unity.com/threads/cant-get-physics2d-overlapbox-to-hit-triggers.1068140/
         var old = Physics2D.queriesHitTriggers;
         Physics2D.queriesHitTriggers = true;
-        List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(checkForObstructingTilesPointA.position, checkForObstructingTilesPointB.position, LayerMask.NameToLayer("Tile")).ToList();
+        List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(checkForObstructingTilesPointA.position, checkForObstructingTilesPointB.position).ToList();
         Physics2D.queriesHitTriggers = old;
 
         /*List<Collider2D> invalidTiles = new List<Collider2D>();

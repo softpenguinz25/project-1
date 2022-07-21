@@ -42,7 +42,7 @@ public class FieldOfView : MonoBehaviour
             Vector3 vertex;
             Vector3 raycastDir = GetVectorFromAngle(angle);
             RaycastHit2D initalRaycastHit2D = Physics2D.Raycast(origin, raycastDir, viewDistance, tileMask);
-            Vector2 pointThroughWall = initalRaycastHit2D.point + .04f * (Vector2)raycastDir;
+            Vector2 pointThroughWall = initalRaycastHit2D.point + .01f * (Vector2)raycastDir;
 			while (Physics2D.OverlapPoint(pointThroughWall, tileMask)/* == initalRaycastHit2D.collider*/)
 			{
 				/*GameObject initialWall = initalRaycastHit2D.collider.gameObject;

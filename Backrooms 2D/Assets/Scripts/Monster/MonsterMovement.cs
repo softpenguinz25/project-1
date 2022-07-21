@@ -44,6 +44,9 @@ public class MonsterMovement : MonoBehaviour
 	[Header("Far Monster Attributes")]
 	[SerializeField] private MonsterStats farUnobstructing;
 	[SerializeField] private MonsterStats farObstructing;
+	[Header("LVL Poolrooms Monster Attributes")]
+	[SerializeField] private MonsterStats inPoolStats;
+	[HideInInspector] public bool monsterIsInPool;
 	/*[SerializeField] private float closeSpeedMultiplier = 1.5f;
 	*//*[SerializeField] *//*private float closeTimeBeforeGenerateNextPath = 1.5f;
 	*//*[SerializeField] *//*private float closeNextWaypointDistance = 3f;
@@ -53,7 +56,8 @@ public class MonsterMovement : MonoBehaviour
 	{
 		get
 		{
-			if (mc.IsClose) return closeToPlayerStats;
+			if (monsterIsInPool) return inPoolStats;
+			else if (mc.IsClose) return closeToPlayerStats;
 			else if (isSlow) return slowStats;
 			else if (mc.IsFarUnobstructing) return farUnobstructing;
 			else if (mc.IsFarObstructing) return farObstructing;
@@ -129,6 +133,8 @@ public class MonsterMovement : MonoBehaviour
 	{
 		while (true)
 		{
+			if (mc.IsClose) { yield return null; continue; }
+
 			currentTimeBeforeGenerateNextPath = CurrentStats.timeBeforeGenerateNextPath;
 
 			//Documentation - https://arongranberg.com/astar/docs/gridgraph.html#center
@@ -152,6 +158,7 @@ public class MonsterMovement : MonoBehaviour
 				yield return null;
 				if (CurrentStats != oldStat)
 				{
+					//Debug.Log("switching monster mode to " + CurrentStats.name);
 					oldStat = CurrentStats;
 					break;
 				}
@@ -176,21 +183,35 @@ public class MonsterMovement : MonoBehaviour
 
 		rb.drag = CurrentStats.linearDrag;
 
-		if (path == null) return;
-
-		if (currentWaypoint >= path.vectorPath.Count)
+		/*if (path == null) 
+		{ 
+			Debug.Log(gameObject.name + " could not detect a path to follow!", gameObject); 
+			return; 
+		}*/
+		Vector2 targetPoint = new Vector2();
+		if (path != null)
 		{
-			reachedEndOfPath = true;
-			Debug.Log("Reached End of Path!");
-			return;
-		}
-		else
-		{
-			reachedEndOfPath = false;
-		}
+			if (currentWaypoint >= path.vectorPath.Count)
+			{
+				reachedEndOfPath = true;
+				//Debug.Log("Reached End of Path!");
+				return;
+			}
+			else
+			{
+				reachedEndOfPath = false;
+			}
 
-		Vector2 targetPoint = path.vectorPath[currentWaypoint];
-		if(mc.IsClose) targetPoint = player.transform.position;
+			targetPoint = path.vectorPath[currentWaypoint];
+
+			/*MonsterSpawnTiles monsterSpawnTiles = GetComponent<MonsterSpawnTiles>();
+			if(monsterSpawnTiles != null)
+			{
+				Vector2 roundedTargetPoint = ;
+				*//*if(Physics2D.OverlapPoint(targetPoint))*//*
+			}*/
+		}
+		if(mc.IsClose || path == null) targetPoint = player.transform.position;
 		//Debug.Log(currentWaypoint);
 		Vector2 direction = (targetPoint - rb.position).normalized;
 		Vector2 force = direction * CurrentStats.speed * Time.deltaTime * rb.mass;
@@ -198,7 +219,7 @@ public class MonsterMovement : MonoBehaviour
 
 		rb.AddForce(force);
 
-		if (mc.IsClose) return;
+		if (mc.IsClose || path == null) return;
 
 		float distance = Vector2.Distance(rb.position, targetPoint);
 

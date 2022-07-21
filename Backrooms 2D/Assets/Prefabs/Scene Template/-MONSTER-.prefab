@@ -146,6 +146,7 @@ MonoBehaviour:
   spawnRadiusAwayFromPlayer:
     Min: 15.084202
     Max: 21.743149
+  minDistanceAwayFromPlayer: 7
 --- !u!1 &2295088066985573523
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4363c247712274a8158e901a95dd02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeThreshold: 10
+  doChaseGFX: 1
+  closeThreshold: 12
   checkObstructingObjects: 1
   obstructingObstaclesMask:
     serializedVersion: 2

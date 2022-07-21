@@ -24,15 +24,18 @@ public class MonsterChaseGFX : MonoBehaviour
 		foreach(MonsterMovement mm in FindObjectsOfType<MonsterMovement>())
 		{
 			GameObject monster = mm.gameObject;
-			if (!checkObstructingObjects) ActivateMonsterChaseGFX();
-			else
+			if (Vector2.Distance(player.transform.position, mm.transform.position) <= closeThreshold)
 			{
-				var old = Physics2D.queriesHitTriggers;
-				Physics2D.queriesHitTriggers = false;
+				if (!checkObstructingObjects) ActivateMonsterChaseGFX();
+				else
+				{
+					var old = Physics2D.queriesHitTriggers;
+					Physics2D.queriesHitTriggers = false;
 
-				if (!Physics2D.Linecast(player.transform.position, monster.transform.position, obstructingObstaclesMask)) ActivateMonsterChaseGFX();
+					if (!Physics2D.Linecast(player.transform.position, monster.transform.position, obstructingObstaclesMask)) ActivateMonsterChaseGFX();
 
-				Physics2D.queriesHitTriggers = old;
+					Physics2D.queriesHitTriggers = old;
+				}
 			}
 		}
 	}

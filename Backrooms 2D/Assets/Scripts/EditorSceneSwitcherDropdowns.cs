@@ -18,14 +18,14 @@ namespace KingdomOfNight
         public static void LoadLVLPoolrooms() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL Poolrooms.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL RFYL")]
         public static void LoadLVLRFYL() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL RFYL.unity"); }
-        [MenuItem("Scenes/Testing/Jumpscares")]
-        public static void LoadJumpscares() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Jumpscares.unity"); }
         [MenuItem("Scenes/Testing/Mobile Test")]
         public static void LoadMobileTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Mobile Test.unity"); }
         [MenuItem("Scenes/Testing/Shader Test")]
         public static void LoadShaderTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Shader Test.unity"); }
         [MenuItem("Scenes/Testing/Test")]
         public static void LoadTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Test.unity"); }
+        [MenuItem("Scenes/Testing/UI Test")]
+        public static void LoadUITest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/UI Test.unity"); }
         [MenuItem("Scenes/Testing/Video Experiments")]
         public static void LoadVideoExperiments() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Video Experiments.unity"); }
         [MenuItem("Scenes/Thumbnail/Thumbnail")]

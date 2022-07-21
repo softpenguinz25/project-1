@@ -9,5 +9,9 @@ public class LVLRFYLObstacle : MonoBehaviour
 		{
 			Destroy(gameObject, timeUntilDestroy);
 		}
+		else if(collision.gameObject.GetComponentInParent<ExitDoor>() != null)
+		{
+			Destroy(gameObject);
+		}
 	}
 }

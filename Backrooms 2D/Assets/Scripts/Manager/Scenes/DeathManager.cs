@@ -6,7 +6,6 @@ public class DeathManager : MonoBehaviour
 {
 	public static float jumpscareDuration = 1;
 
-	[SerializeField] private Animator jumspscareAnimator;
 	[SerializeField] private SceneReference currentScene;
 
 	/*private void Awake()

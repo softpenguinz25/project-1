@@ -104,14 +104,46 @@ public class MonsterSpawner : MonoBehaviour
 			{
 				tooClose.Add(tileDistance);
 			}
-		}
+		}		
 
 		foreach(TileDistance closeTile in tooClose)
 		{
 			tileDistances.Remove(closeTile);
 		}
 
-		GameObject monsterObj = Instantiate(possibleMonsters[UnityEngine.Random.Range(0, possibleMonsters.Count)], tileDistances[0].tile.transform.position, Quaternion.identity);
+		GameObject chosenMonster = possibleMonsters[UnityEngine.Random.Range(0, possibleMonsters.Count)];
+		MonsterSpawnTiles monsterSpawnTiles = chosenMonster.GetComponent<MonsterSpawnTiles>();
+		if (monsterSpawnTiles != null)
+		{
+			List<string> validSpawnTileNames = new List<string>();
+			foreach(TilePrefab validSpawnTile in monsterSpawnTiles.possibleSpawnTiles)
+			{
+				string validSpawnTileName = validSpawnTile.gameObject.name;
+				validSpawnTileName.Replace("(Clone)", "");
+				//Debug.Log(validSpawnTileName);
+				validSpawnTileNames.Add(validSpawnTile.gameObject.name);
+			}
+			
+			List<TileDistance> invalidSpawnTiles = new List<TileDistance>();
+			foreach (TileDistance td in tileDistances)
+			{
+				string tileName = td.tile.gameObject.name;
+				//tileName.Replace("(Clone)", "");
+				//tileName = tileName.Substring(0, tileName.Length - 7);
+				//Debug.Log(tileName);
+				bool invalidTileName = true;
+				foreach(string validTileName in validSpawnTileNames)
+				{
+					if (tileName.Contains(validTileName)) invalidTileName = false;
+				}
+				if(invalidTileName) invalidSpawnTiles.Add(td);
+				//if (!validSpawnTileNames.Contains(tileName)) invalidSpawnTiles.Add(td);
+			}
+
+			foreach (TileDistance invalidSpawnTile in invalidSpawnTiles) tileDistances.Remove(invalidSpawnTile);
+		}
+		//Debug.Log(tileDistances.Count);
+		GameObject monsterObj = Instantiate(chosenMonster, tileDistances[0].tile.transform.position, Quaternion.identity);
 
 		canSpawnMonster = false;
 		totalMonsters.Add(monsterObj);

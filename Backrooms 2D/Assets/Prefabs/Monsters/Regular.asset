@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da39eecfcc69894e883f1f7d750101c, type: 3}
   m_Name: Regular
   m_EditorClassIdentifier: 
-  speed: 500
-  timeBeforeGenerateNextPath: 0.5
+  speed: 725
+  timeBeforeGenerateNextPath: 1
   nextWaypointDistance: 0.25
   linearDrag: 3

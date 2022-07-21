@@ -1,6 +1,5 @@
 using Pathfinding;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExitDoorArrow : MonoBehaviour
@@ -39,6 +38,7 @@ public class ExitDoorArrow : MonoBehaviour
 		{
 			gameObject.SetActive(true);
 			animator.SetTrigger("StartFlash");
+			GetComponent<AudioSource>().Play();
 			//exitDoor = exitDoorObj;
 		};
 
@@ -96,11 +96,17 @@ public class ExitDoorArrow : MonoBehaviour
 			return;
 		}
 
-		if (path == null) return;
+		//if (path == null) return;
 
 		Vector2 wayPointPos;
-		if (Vector2.Distance(path.vectorPath[path.vectorPath.Count - 1], exitDoor.transform.position) < 2f)
+		if(path == null)
 		{
+			//Debug.Log("Cannot generate path");
+			wayPointPos = exitDoor.transform.position;
+		}
+		else if (Vector2.Distance(path.vectorPath[path.vectorPath.Count - 1], exitDoor.transform.position) < 2f)
+		{
+			//Debug.Log("Door close to player!");
 			int currentWayPoint = 0;
 			wayPointPos = path.vectorPath[currentWayPoint];
 			//Debug.Log(wayPointPos + ": " + WayPointInCameraView(wayPointPos));
@@ -125,6 +131,7 @@ public class ExitDoorArrow : MonoBehaviour
 		}
 		else
 		{
+			//Debug.Log("Door far from player");
 			wayPointPos = exitDoor.transform.position;
 		}
 

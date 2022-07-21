@@ -9,6 +9,7 @@ public class TileLoader : MonoBehaviour
 
 	[SerializeField] private List<GameObject> chunks = new List<GameObject>();
 	public float chunkSize = 16;
+	private float chunkSizeHypotenuse;
 
 	private GameObject newChunk;
 
@@ -35,6 +36,8 @@ public class TileLoader : MonoBehaviour
 
 	private void Start()
 	{
+		chunkSizeHypotenuse = Mathf.Sqrt(chunkSize * chunkSize + chunkSize * chunkSize) + .01f;
+
 		AddChunk(new Vector2(-chunkSize, chunkSize));
 		AddChunk(new Vector2(0, chunkSize));
 		AddChunk(new Vector2(chunkSize, chunkSize));
@@ -81,7 +84,7 @@ public class TileLoader : MonoBehaviour
 			tile.transform.parent = newChunk.transform;
 		}
 
-		LoadChunks();
+		//LoadChunks();
 
 		//if(tile.isGroupTile) Debug.Log("Tile Added to Chunk");
 	}
@@ -91,16 +94,23 @@ public class TileLoader : MonoBehaviour
 		if (currentChunkComparison != CurrentPlayerChunk())
 		{
 			LoadChunks();
+			//Debug.Log(currentChunkComparison + " vs. " + CurrentPlayerChunk());
 			currentChunkComparison = CurrentPlayerChunk();
 		}
 	}
 
 	private void LoadChunks()
 	{
+		/*List<GameObject> chunksToEnable = new List<GameObject>();
+		List<GameObject> chunksToDisable = new List<GameObject>();*/
 		foreach (GameObject chunk in chunks) {
+			//Debug.Log("Checking chunks...");
 			//Pythagorean theorem!
-			if (Vector2.Distance(chunk.transform.position, CurrentPlayerChunk().transform.position) > Mathf.Sqrt(chunkSize * chunkSize + chunkSize * chunkSize) + .01f) chunk.gameObject.SetActive(false);
-			else chunk.gameObject.SetActive(true);
+			if (Vector2.Distance(chunk.transform.position, CurrentPlayerChunk().transform.position) > chunkSizeHypotenuse && chunk.activeSelf)/* chunksToDisable.Add(chunk);*/chunk.gameObject.SetActive(false);
+			else if (Vector2.Distance(chunk.transform.position, CurrentPlayerChunk().transform.position) <= chunkSizeHypotenuse && !chunk.activeSelf)/* chunksToEnable.Add(chunk);*/chunk.gameObject.SetActive(true);
+
+			/*foreach (GameObject chunkToEnable in chunksToEnable) chunkToEnable.SetActive(true);
+			foreach (GameObject chunkToDisable in chunksToDisable) chunkToDisable.SetActive(false);*/
 		}
 	}
 

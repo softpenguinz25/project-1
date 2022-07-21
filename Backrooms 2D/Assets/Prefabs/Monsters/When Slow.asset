@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: When Slow
   m_EditorClassIdentifier: 
   speed: 500
-  timeBeforeGenerateNextPath: 0.75
+  timeBeforeGenerateNextPath: 1
   nextWaypointDistance: 3
   linearDrag: 3

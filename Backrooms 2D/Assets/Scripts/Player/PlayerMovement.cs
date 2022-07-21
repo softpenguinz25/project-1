@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
 	[Header("Player Vars")]
 	public float speed = 5;
 
-	[Header("Mobile Movement")]
-	[SerializeField] private Joystick joystick;
+	//[Header("Mobile Movement")]
+	private Joystick joystick;
 
 	private void Start(){
 		joystick = FindObjectOfType<Joystick>();

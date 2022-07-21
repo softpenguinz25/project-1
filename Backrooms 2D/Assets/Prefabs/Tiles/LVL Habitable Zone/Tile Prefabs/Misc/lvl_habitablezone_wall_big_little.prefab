@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5175070436499516243}
   - component: {fileID: 633908390021149478}
-  - component: {fileID: 9074057110131257494}
-  - component: {fileID: -5699907973315036156}
+  - component: {fileID: 4824909375074067463}
+  - component: {fileID: 2670845282405362591}
   m_Layer: 3
   m_Name: lvl_habitablezone_wall_big_little
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &9074057110131257494
+--- !u!61 &4824909375074067463
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,16 +103,16 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.09375}
+    oldSize: {x: 1, y: 0.125}
     newSize: {x: 8, y: 0.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.09375}
+  m_Size: {x: 1, y: 0.125}
   m_EdgeRadius: 0
---- !u!114 &-5699907973315036156
+--- !u!114 &2670845282405362591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 0

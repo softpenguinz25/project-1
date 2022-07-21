@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da39eecfcc69894e883f1f7d750101c, type: 3}
   m_Name: When Far Obstructing
   m_EditorClassIdentifier: 
-  speed: 2500
-  timeBeforeGenerateNextPath: 0.1
-  nextWaypointDistance: 0.5
-  linearDrag: 1
+  speed: 725
+  timeBeforeGenerateNextPath: 1
+  nextWaypointDistance: 1.5
+  linearDrag: 0.1

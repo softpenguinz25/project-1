@@ -3,18 +3,29 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class WallData : MonoBehaviour
 {
+	private TilePrefab wallParentTile;
     public bool isBreakable = true;
+
+	[SerializeField] private bool checkForDeadEnd = true;
+
+	private void Awake()
+	{
+		wallParentTile = GetComponentInParent<TilePrefab>();
+	}
 
 	private void Start()
 	{
+		//Debug.Log("wall data");
 		InvokeRepeating(nameof(CheckForDeadEnd), 1, 1);
 	}
 
 	private void CheckForDeadEnd()
 	{
-		if (GetComponentInParent<TilePrefab>() == null) return;
+		if (!checkForDeadEnd) return;
 
-		TilePrefab wallParentTile = GetComponentInParent<TilePrefab>();
+		//Debug.Log(wallParentTile);
+		if (wallParentTile == null) return;
+
 		if (wallParentTile.referenceTile == null) return;
 
 		TilePrefab wallParentReferenceTile = wallParentTile.referenceTile.GetComponent<TilePrefab>();
