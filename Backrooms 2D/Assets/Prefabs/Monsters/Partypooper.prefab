@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1473480131879910231, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473480131879910231, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: MaxDistance
       value: 100
       objectReference: {fileID: 0}
@@ -35,6 +39,10 @@ PrefabInstance:
       propertyPath: playerPoses.Array.data[3]
       value: 
       objectReference: {fileID: -5360219671641400113, guid: c9b5b10c1720dae4fa60c44a0aeb376f, type: 3}
+    - target: {fileID: 2932896763359969662, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterName
+      value: partypooper
+      objectReference: {fileID: 0}
     - target: {fileID: 4742552814224836672, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -127,9 +135,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: Partypooper
       objectReference: {fileID: 0}
+    - target: {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439881886016590097, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: mm
+      value: 
+      objectReference: {fileID: 3947860915682389768}
+    - target: {fileID: 8439881886016590097, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 2358195583797519872}
+    - target: {fileID: 8439881886016590097, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterName
+      value: partypooper
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439881886016590097, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterPrefabPath
+      value: Assets/Prefabs/Monsters/Partypooper.prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439881886016590097, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterPrefabChild
+      value: 
+      objectReference: {fileID: 2352323033737736284}
     m_RemovedComponents:
     - {fileID: 7368467659627920317, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+    - {fileID: 6051211600283715042, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+    - {fileID: 8169872300122906294, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+--- !u!1 &2352323033737736284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7376563580031610336, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+  m_PrefabInstance: {fileID: 5114945857677303228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2358195583797519872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7368467659627920316, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
@@ -167,6 +206,32 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.33}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!61 &6133408668365286538
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358195583797519872}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.375, y: 0.90625}
+    newSize: {x: 1, y: 0.96875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6093405, y: 0.90625}
+  m_EdgeRadius: 0
 --- !u!61 &7226363043493473644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -209,3 +274,42 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!114 &-5216481931318964558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358195583797519872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac99b901db0cc1459b10a135aeb06fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partygoerName: partygoer
+--- !u!114 &3947860915682389768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358195583797519872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8757e1c26d435847aaafba6eff1bfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularStats: {fileID: 11400000, guid: 9ee47d22049501145b8178b361430ae7, type: 2}
+  slowThreshold: 0
+  isSlow: 0
+  slowStats: {fileID: 11400000, guid: 38e86a274a668b749a6aa4e99bf4e4cd, type: 2}
+  closeToPlayerStats: {fileID: 11400000, guid: 0c06c7f79a826cf418eecc26e0c7a09b, type: 2}
+  farUnobstructing: {fileID: 11400000, guid: d611e162ddd6e78499f0a949cdb1674d, type: 2}
+  farObstructing: {fileID: 11400000, guid: c918edcf9bcdc5647947125246dbe3bc, type: 2}
+  inPoolStats: {fileID: 11400000, guid: 0cfa5d600956ef7478b7fddf1dcbdf51, type: 2}
+  monsterIsInPool: 0
+  radiusAroundPlayer: 2
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 8
+  partygoerPrefab: {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}

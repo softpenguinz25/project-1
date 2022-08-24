@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3872079868689406772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928198891403850629}
+  - component: {fileID: 4476679368999243181}
+  m_Layer: 0
+  m_Name: Frame Rate Limiter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928198891403850629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872079868689406772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 948940803311843480}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4476679368999243181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872079868689406772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be18fcfb67240174da3cc537b9c162f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFrameRate: 60
 --- !u!1 &4832884539486153771
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +247,26 @@ MonoBehaviour:
       Min: 1
       Max: 1
     sources: []
+  - name: Monster_Partypooper_InstructionText
+    clips:
+    - {fileID: 8300000, guid: 61400f52c4f7ed74fb66f4ffddfa934d, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
+  - name: Monster_Partypooper_Attack
+    clips:
+    - {fileID: 8300000, guid: 484f2653c587a0d48a63887525348b92, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
 --- !u!1 &4832884539536724277
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 948940803311843480}
   - {fileID: 4832884540809905489}
   - {fileID: 4832884540167093104}
   m_Father: {fileID: 0}
@@ -443,7 +509,7 @@ Transform:
   - {fileID: 4832884541376315320}
   - {fileID: 4832884539536724276}
   m_Father: {fileID: 4832884539794707006}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4832884540809905518
 GameObject:
@@ -476,7 +542,7 @@ Transform:
   - {fileID: 4832884539486153770}
   - {fileID: 4832884539990356296}
   m_Father: {fileID: 4832884539794707006}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4832884541376315321
 GameObject:
@@ -524,3 +590,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerObject: {fileID: 0}
   runtimeScenes: []
+--- !u!1 &6365989027869125237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948940803311843480}
+  m_Layer: 0
+  m_Name: -APPLICATION-
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &948940803311843480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365989027869125237}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 928198891403850629}
+  m_Father: {fileID: 4832884539794707006}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

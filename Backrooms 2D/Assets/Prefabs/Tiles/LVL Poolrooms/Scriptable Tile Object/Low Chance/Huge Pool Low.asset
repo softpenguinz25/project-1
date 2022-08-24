@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Huge Pool Low
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6659174551815613922, guid: 3c44605bb8a7ed44e8a71c63cbd34729, type: 3}
-  spawnChance: 0.125
+  spawnChance: 0

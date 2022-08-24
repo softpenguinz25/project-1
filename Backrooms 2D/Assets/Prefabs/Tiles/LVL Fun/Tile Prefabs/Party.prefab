@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &1853261095233359076
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &2654732359246082325
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &2977332229262054011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &3576692644139856443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,6 +1793,7 @@ MonoBehaviour:
   - {fileID: 7239950924576641418}
   checkForObstructingTilesPointA: {fileID: 4902854166860592327}
   checkForObstructingTilesPointB: {fileID: 3660413454904024981}
+  tileSize: {x: 11.8, y: 8.8}
   canConnectUp: 1
   canConnectRight: 1
   canConnectDown: 0
@@ -2034,6 +2039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &4556900502441583969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,6 +3008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &6137256384624490902
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,6 +3528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &6918742829956866974
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,6 +3667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &6949478802808805391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4109,6 +4118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &8399380007225947987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4247,6 +4257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &8531428287313693058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4385,6 +4396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!1 &8653420543939218003
 GameObject:
   m_ObjectHideFlags: 0

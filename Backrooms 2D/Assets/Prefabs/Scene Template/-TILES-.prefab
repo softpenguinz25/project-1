@@ -147,6 +147,7 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 8
+  validCPs: []
 --- !u!114 &3441267525647845288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,4 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunks: []
   chunkSize: 24
+  chunkSizeHypotenuse: 0
+  renderDistance: 1
   player: {fileID: 0}

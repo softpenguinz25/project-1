@@ -35,6 +35,7 @@ public class MonsterSpawner : MonoBehaviour
 
 	private void Start()
 	{
+		canReocurringlySpawn = !!canReocurringlySpawn;//this is not a typo, just wanted unity to stop giving me the "this variable is not in use" warning message lol
 		StartCoroutine(SpawnMonsterAfterDelayCoroutine());
 	}
 
@@ -70,17 +71,17 @@ public class MonsterSpawner : MonoBehaviour
 		};
 	}
 
-	private IEnumerator SpawnMonsterAfterDelayCoroutine()
+	public virtual IEnumerator SpawnMonsterAfterDelayCoroutine(GameObject monsterToSpawn = null)
 	{
 		if(!hasSpawnedOnce)
 			yield return new WaitForSeconds(UnityEngine.Random.Range(maxSpawnTimeDelay.Min, maxSpawnTimeDelay.Max));
 		else
 			yield return new WaitForSeconds(UnityEngine.Random.Range(reoccurringMaxSpawnTimeDelay.Min, reoccurringMaxSpawnTimeDelay.Max));
-		SpawnMonster();
+		SpawnMonster(monsterToSpawn);
 	}
 	
 	[ContextMenu("Spawn Monster")]
-	public void SpawnMonster()
+	public void SpawnMonster(GameObject monsterToSpawn = null)
 	{
 		if (!canSpawnMonster) return;
 		hasSpawnedOnce = true;
@@ -111,7 +112,23 @@ public class MonsterSpawner : MonoBehaviour
 			tileDistances.Remove(closeTile);
 		}
 
-		GameObject chosenMonster = possibleMonsters[UnityEngine.Random.Range(0, possibleMonsters.Count)];
+		GameObject chosenMonster;
+		if(monsterToSpawn != null)
+		{
+			if (possibleMonsters.Contains(monsterToSpawn))
+			{
+				chosenMonster = monsterToSpawn;
+			}
+			else
+			{
+				Debug.LogError("Monster " + monsterToSpawn + " is not in " + nameof(possibleMonsters));
+				chosenMonster = possibleMonsters[UnityEngine.Random.Range(0, possibleMonsters.Count)];
+			}
+		}
+		else
+		{
+			chosenMonster = possibleMonsters[UnityEngine.Random.Range(0, possibleMonsters.Count)];
+		}
 		MonsterSpawnTiles monsterSpawnTiles = chosenMonster.GetComponent<MonsterSpawnTiles>();
 		if (monsterSpawnTiles != null)
 		{

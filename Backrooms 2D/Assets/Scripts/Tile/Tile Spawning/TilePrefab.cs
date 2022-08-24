@@ -30,8 +30,14 @@ public class TilePrefab : MonoBehaviour
     public bool canBeRotated = false;
     public List<Transform> specialCPs;
 
+	private void OnDrawGizmos()
+	{
+        Gizmos.color = new Color(1, 0, 0, 0.2f);
+        Gizmos.DrawCube(transform.position, tileSize);
+    }
+
 #if UNITY_EDITOR // conditional compilation is not mandatory
-    [ButtonMethod]
+	[ButtonMethod]
     private string AutoDetectPoints()
     {
         foreach(Transform childObj in GetComponentsInChildren<Transform>())

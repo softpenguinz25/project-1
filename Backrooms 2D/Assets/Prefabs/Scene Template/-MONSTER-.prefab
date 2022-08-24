@@ -231,6 +231,8 @@ MonoBehaviour:
   obstructingObstaclesMask:
     serializedVersion: 2
     m_Bits: 8
+  excludedMonsterNames:
+  - partypooper
   postProcessingWeightCurve:
     serializedVersion: 2
     m_Curve:

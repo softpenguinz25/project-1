@@ -1,10 +1,10 @@
+using MyBox;
 using System;
+using UnityEditor;
 using UnityEngine;
 
 public class MonsterClose : MonoBehaviour
 {
-	private GameObject player;
-
 	private MonsterMovement mm;
 
 	[Header("Debugging")]
@@ -26,11 +26,11 @@ public class MonsterClose : MonoBehaviour
 			var old = Physics2D.queriesHitTriggers;
 			Physics2D.queriesHitTriggers = false;
 
-			bool obstructingObjectDetected = Physics2D.Linecast(transform.position, player.transform.position, obstacleMask);
+			bool obstructingObjectDetected = Physics2D.Linecast(transform.position, mm.CurrentTarget.transform.position, obstacleMask);
 
 			Physics2D.queriesHitTriggers = old;
 
-			bool playerIsClose = Vector2.Distance(transform.position, player.transform.position) < closeThreshold;
+			bool playerIsClose = Vector2.Distance(transform.position, mm.CurrentTarget.transform.position) < closeThreshold;
 			//Debug.Log("obj detected: " + obstructingObjectDetected + " player is close: " + playerIsClose, this);
 			//obstrucingObjectsTest = obstructingObjectDetected.collider;
 			return !obstructingObjectDetected && playerIsClose;
@@ -44,11 +44,11 @@ public class MonsterClose : MonoBehaviour
 			var old = Physics2D.queriesHitTriggers;
 			Physics2D.queriesHitTriggers = false;
 
-			bool obstructingObjectDetected = Physics2D.Linecast(transform.position, player.transform.position, obstacleMask);
+			bool obstructingObjectDetected = Physics2D.Linecast(transform.position, mm.CurrentTarget.transform.position, obstacleMask);
 
 			Physics2D.queriesHitTriggers = old;
 
-			bool playerIsClose = Vector2.Distance(transform.position, player.transform.position) >= farThreshold;
+			bool playerIsClose = Vector2.Distance(transform.position, mm.CurrentTarget.transform.position) >= farThreshold;
 			//Debug.Log("obj detected: " + obstructingObjectDetected + " player is close: " + playerIsClose, this);
 			//obstrucingObjectsTest = obstructingObjectDetected.collider;
 			return !obstructingObjectDetected && playerIsClose;
@@ -62,21 +62,19 @@ public class MonsterClose : MonoBehaviour
 			var old = Physics2D.queriesHitTriggers;
 			Physics2D.queriesHitTriggers = false;
 
-			bool obstructingObjectDetected = Physics2D.Linecast(transform.position, player.transform.position, obstacleMask);
+			bool obstructingObjectDetected = Physics2D.Linecast(transform.position, mm.CurrentTarget.transform.position, obstacleMask);
 
 			Physics2D.queriesHitTriggers = old;
 
-			bool playerIsClose = Vector2.Distance(transform.position, player.transform.position) >= farThreshold;
+			bool playerIsClose = Vector2.Distance(transform.position, mm.CurrentTarget.transform.position) >= farThreshold;
 			//Debug.Log("obj detected: " + obstructingObjectDetected + " player is close: " + playerIsClose, this);
 			//obstrucingObjectsTest = obstructingObjectDetected.collider;
 			return obstructingObjectDetected && playerIsClose;
 		}
 	}
-
+	
 	private void Awake()
 	{
-		player = FindObjectOfType<PlayerMovement>().gameObject;
-
 		mm = GetComponent<MonsterMovement>();
 	}
 
@@ -85,7 +83,7 @@ public class MonsterClose : MonoBehaviour
 		if (!Application.isPlaying) return;
 		if (visualizeRay)
 		{
-			Vector3 rayDir = player.transform.position - transform.position;
+			Vector3 rayDir = mm.CurrentTarget.transform.position - transform.position;
 			if(IsClose) Debug.DrawRay(transform.position, rayDir, Color.red);
 			else if (GetComponent<MonsterMovement>().isSlow)Debug.DrawRay(transform.position, rayDir, Color.yellow);
 			else if(IsFarUnobstructing) Debug.DrawRay(transform.position, rayDir, Color.white);

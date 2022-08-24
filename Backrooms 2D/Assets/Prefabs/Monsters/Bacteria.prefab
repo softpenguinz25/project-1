@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7368467659627920317}
   - component: {fileID: 606261463975722488}
   - component: {fileID: 1818599094790926827}
+  - component: {fileID: 2932896763359969662}
   - component: {fileID: 8169872300122906294}
   - component: {fileID: 2720332078630763168}
   - component: {fileID: 6051211600283715042}
@@ -159,6 +160,19 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &2932896763359969662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368467659627920316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122d5451a9a48374a907621984c0f3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: bacteria
 --- !u!114 &8169872300122906294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5247684f1af2f4e97cdfa755301aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Force: {x: 0, y: 0}
   regularStats: {fileID: 11400000, guid: 9ee47d22049501145b8178b361430ae7, type: 2}
   slowThreshold: 0
   isSlow: 0
@@ -179,8 +192,8 @@ MonoBehaviour:
   closeToPlayerStats: {fileID: 11400000, guid: 0c06c7f79a826cf418eecc26e0c7a09b, type: 2}
   farUnobstructing: {fileID: 11400000, guid: d611e162ddd6e78499f0a949cdb1674d, type: 2}
   farObstructing: {fileID: 11400000, guid: c918edcf9bcdc5647947125246dbe3bc, type: 2}
-  monsterIsInPool: 0
   inPoolStats: {fileID: 11400000, guid: 0cfa5d600956ef7478b7fddf1dcbdf51, type: 2}
+  monsterIsInPool: 0
 --- !u!114 &2720332078630763168
 MonoBehaviour:
   m_ObjectHideFlags: 0

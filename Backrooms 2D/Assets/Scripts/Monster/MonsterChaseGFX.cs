@@ -1,5 +1,7 @@
 using MyBox;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,10 +9,16 @@ public class MonsterChaseGFX : MonoBehaviour
 {
 	private GameObject player;
 
+	[Header("Chase GFX")]
 	[SerializeField] private bool doChaseGFX = true;
 	[ConditionalField(nameof(doChaseGFX))] [SerializeField] private float closeThreshold = 10f;
 	[ConditionalField(nameof(doChaseGFX))] [SerializeField] private bool checkObstructingObjects = true;
 	[ConditionalField(nameof(doChaseGFX))] [SerializeField] private LayerMask obstructingObstaclesMask;
+
+	[Header("Excluded Enemies")]
+	[SerializeField] private List<string> excludedMonsterNames;
+
+	public event Action<GameObject> MonsterIsClose;
 
 	private void Awake()
 	{
@@ -26,13 +34,13 @@ public class MonsterChaseGFX : MonoBehaviour
 			GameObject monster = mm.gameObject;
 			if (Vector2.Distance(player.transform.position, mm.transform.position) <= closeThreshold)
 			{
-				if (!checkObstructingObjects) ActivateMonsterChaseGFX();
+				if (!checkObstructingObjects) ActivateMonsterChaseGFX(mm.GetComponent<MonsterInfo>());
 				else
 				{
 					var old = Physics2D.queriesHitTriggers;
 					Physics2D.queriesHitTriggers = false;
 
-					if (!Physics2D.Linecast(player.transform.position, monster.transform.position, obstructingObstaclesMask)) ActivateMonsterChaseGFX();
+					if (!Physics2D.Linecast(player.transform.position, monster.transform.position, obstructingObstaclesMask)) ActivateMonsterChaseGFX(mm.GetComponent<MonsterInfo>());
 
 					Physics2D.queriesHitTriggers = old;
 				}
@@ -52,8 +60,17 @@ public class MonsterChaseGFX : MonoBehaviour
 		monsterChasePostProcessing = GameObject.Find("Monster Chase Post Processing").GetComponent<Volume>();
 	}
 
-	private void ActivateMonsterChaseGFX()
+	private void ActivateMonsterChaseGFX(MonsterInfo monsterWhoActivated)
 	{
+		/*Debug.Log(excludedMonsterNames[0]);
+		Debug.Log(monsterWhoActivated.monsterName);*/
+		if (excludedMonsterNames.Contains(monsterWhoActivated.monsterName))
+		{
+			ExcludedMonsterTriggeredGFX(monsterWhoActivated);
+			return;
+		}
+		MonsterIsClose?.Invoke(monsterWhoActivated.gameObject);
+
 		if (chaseSequenceActivated) return;
 		chaseSequenceActivated = true;
 
@@ -79,5 +96,10 @@ public class MonsterChaseGFX : MonoBehaviour
 	private void RestartChaseSequence()
 	{
 		chaseSequenceActivated = false;
+	}
+
+	public virtual void ExcludedMonsterTriggeredGFX(MonsterInfo monsterThatTriggered)
+	{
+
 	}
 }

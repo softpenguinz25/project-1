@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5086174677334118765}
   - component: {fileID: 4820476892390463502}
+  - component: {fileID: -6120055307694177655}
   - component: {fileID: 6819240209769125720}
   m_Layer: 3
   m_Name: Wall
@@ -85,6 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6120055307694177655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680800146677722129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acba8bfe1ff8caf42a7c16767432b39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBreakable: 1
+  checkForDeadEnd: 1
 --- !u!61 &6819240209769125720
 BoxCollider2D:
   m_ObjectHideFlags: 0

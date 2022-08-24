@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: playerPoses.Array.data[3]
       value: 
       objectReference: {fileID: 7757155875256924076, guid: 8c2afd4bf02c1bc44b042b8b63549da7, type: 3}
+    - target: {fileID: 2932896763359969662, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterName
+      value: partygoer
+      objectReference: {fileID: 0}
     - target: {fileID: 4742552814224836672, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -127,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Partygoer
       objectReference: {fileID: 0}
+    - target: {fileID: 8439881886016590097, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterName
+      value: partygoer
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7368467659627920317, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
@@ -135,6 +143,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7368467659627920316, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
   m_PrefabInstance: {fileID: 5114945857677303228}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &764246318707029908
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358195583797519872}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!58 &4440801168489829167
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -193,19 +217,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
   m_Radius: 0.15
---- !u!58 &764246318707029908
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358195583797519872}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3

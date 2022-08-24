@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Big Pools
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 6659174551815613922, guid: 32e1366bc197c6e4290ef9ec1b529b99, type: 3}
-  spawnChance: 5
+  spawnChance: 0.125

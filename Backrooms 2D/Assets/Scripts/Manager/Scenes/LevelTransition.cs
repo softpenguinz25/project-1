@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 public class LevelTransition : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+	[SerializeField] private bool startingFade = true;
 	[SerializeField] private float transitionDelay = 5f;
 
-    public IEnumerator PlayTransitionCoroutine()
+	private void Start()
+	{
+		if (startingFade) animator.SetTrigger("Starting Fade");
+	}
+
+	public IEnumerator PlayTransitionCoroutine()
 	{
 		animator.SetTrigger("Level Transition");
 

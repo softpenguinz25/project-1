@@ -10,34 +10,29 @@ public class MonsterMovement : MonoBehaviour
 	private Seeker seeker;
 
 	private GameObject player;
+	private GameObject currentTarget;
+	public GameObject CurrentTarget
+	{
+		get
+		{
+			return currentTarget;
+		}
+	}
 
 	private MonsterClose mc;
 
 	private AstarPath pathfinding;
 	private Path path;
 	private int currentWaypoint = 0;
-	private bool reachedEndOfPath = false;
-
-	[HideInInspector] public Vector2 Force;
 
 	[Header("Regular Monster Attributes")]
 	[SerializeField] private MonsterStats regularStats;
-	/*[SerializeField] private float timeBeforeGenerateNextPath = 1.5f;
-	public float speed = 200f;
-	private float originalSpeed;
-	//private float currentSpeed;
-	[SerializeField] private float nextWaypointDistance = 3f;
-	[SerializeField] private float linearDrag = 3;*/
 
 	[Header("Slow Monster Attributes")]
 	[SerializeField] private float slowThreshold = 5;
 	[HideInInspector] public bool isSlow;
 	[Space]
 	[SerializeField] private MonsterStats slowStats;
-	/*[SerializeField] private float slowSpeedMultiplier = 1f;
-	[SerializeField] private float slowTimeBeforeGenerateNextPath = 1.5f;
-	[SerializeField] private float slowNextWaypointDistance = 3f;
-	[SerializeField] private float slowLinearDrag = 3;*/
 
 	[Header("Close Monster Attributes")]
 	[SerializeField] private MonsterStats closeToPlayerStats;
@@ -47,10 +42,6 @@ public class MonsterMovement : MonoBehaviour
 	[Header("LVL Poolrooms Monster Attributes")]
 	[SerializeField] private MonsterStats inPoolStats;
 	[HideInInspector] public bool monsterIsInPool;
-	/*[SerializeField] private float closeSpeedMultiplier = 1.5f;
-	*//*[SerializeField] *//*private float closeTimeBeforeGenerateNextPath = 1.5f;
-	*//*[SerializeField] *//*private float closeNextWaypointDistance = 3f;
-	[SerializeField] private float closeLinearDrag = 3;*/
 
 	public MonsterStats CurrentStats
 	{
@@ -67,33 +58,7 @@ public class MonsterMovement : MonoBehaviour
 	private MonsterStats oldStat;
 	float currentTimeBeforeGenerateNextPath;
 
-	//True variables
-	/*private float TrueTimeBeforeGenerateNextPath
-	{
-		get
-		{
-			if (mc.IsClose) return closeTimeBeforeGenerateNextPath;
-			return isSlow ? slowTimeBeforeGenerateNextPath : timeBeforeGenerateNextPath;
-		}
-	}
-	private float TrueSpeed
-	{
-		get
-		{
-			if (mc.IsClose) return speed = originalSpeed * closeSpeedMultiplier;
-			return speed = originalSpeed * (isSlow ? slowSpeedMultiplier : 1);
-		}
-	}
-	private float TrueNextWaypointDistance
-	{
-		get
-		{
-			if (mc.IsClose) return closeNextWaypointDistance;
-			return isSlow ? slowNextWaypointDistance : nextWaypointDistance;
-		}
-	}*/
-
-	private void Awake()
+	public virtual void Awake()
 	{
 		pathfinding = FindObjectOfType<AstarPath>();
 		rb = GetComponent<Rigidbody2D>();
@@ -104,26 +69,10 @@ public class MonsterMovement : MonoBehaviour
 		mc = GetComponent<MonsterClose>();
 	}
 
-	/*private void OnEnable()
-	{
-		mc.MonsterIsClose += () => 
-		{
-			Debug.Log("IS CLOSE");
-			currentSpeed = closeSpeed;
-			GetComponent<SpriteRenderer>().color = Color.cyan;
-		};
-
-		mc.PlayerHasEscaped += () =>
-		{
-			Debug.Log("player has escaped....");
-
-			currentSpeed = roamingSpeed;
-			GetComponent<SpriteRenderer>().color = Color.blue;
-		};
-	}*/
-
 	private void Start()
 	{
+		currentTarget = player;
+
 		oldStat = CurrentStats;		
 
 		StartCoroutine(GeneratePathCoroutine());
@@ -150,7 +99,7 @@ public class MonsterMovement : MonoBehaviour
 
 			pathfinding.Scan();
 
-			seeker.StartPath(rb.position, player.transform.position, OnPathComplete);
+			seeker.StartPath(rb.position, currentTarget.transform.position, OnPathComplete);
 
 			while (currentTimeBeforeGenerateNextPath > 0)
 			{
@@ -158,13 +107,10 @@ public class MonsterMovement : MonoBehaviour
 				yield return null;
 				if (CurrentStats != oldStat)
 				{
-					//Debug.Log("switching monster mode to " + CurrentStats.name);
 					oldStat = CurrentStats;
 					break;
 				}
 			}
-
-			//yield return new WaitForSeconds(CurrentStat.timeBeforeGenerateNextPath);
 		}
 	}
 
@@ -179,53 +125,61 @@ public class MonsterMovement : MonoBehaviour
 
 	private void Update()
 	{
-		isSlow = rb.velocity.sqrMagnitude < slowThreshold ? true : false;
+		SetupVariables();
+		
+		if (Vector2.Distance(new Vector2(float.MaxValue, float.MaxValue), TargetPoint()) < 1) return;
 
-		rb.drag = CurrentStats.linearDrag;
-
-		/*if (path == null) 
-		{ 
-			Debug.Log(gameObject.name + " could not detect a path to follow!", gameObject); 
-			return; 
-		}*/
-		Vector2 targetPoint = new Vector2();
-		if (path != null)
-		{
-			if (currentWaypoint >= path.vectorPath.Count)
-			{
-				reachedEndOfPath = true;
-				//Debug.Log("Reached End of Path!");
-				return;
-			}
-			else
-			{
-				reachedEndOfPath = false;
-			}
-
-			targetPoint = path.vectorPath[currentWaypoint];
-
-			/*MonsterSpawnTiles monsterSpawnTiles = GetComponent<MonsterSpawnTiles>();
-			if(monsterSpawnTiles != null)
-			{
-				Vector2 roundedTargetPoint = ;
-				*//*if(Physics2D.OverlapPoint(targetPoint))*//*
-			}*/
-		}
-		if(mc.IsClose || path == null) targetPoint = player.transform.position;
-		//Debug.Log(currentWaypoint);
-		Vector2 direction = (targetPoint - rb.position).normalized;
-		Vector2 force = direction * CurrentStats.speed * Time.deltaTime * rb.mass;
-		Force = force;
-
-		rb.AddForce(force);
+		MoveToPoint(TargetPoint());
 
 		if (mc.IsClose || path == null) return;
 
-		float distance = Vector2.Distance(rb.position, targetPoint);
+		IncrementWaypoint();
+	}	
+
+	private void SetupVariables()
+	{
+		isSlow = rb.velocity.sqrMagnitude < slowThreshold ? true : false;
+
+		rb.drag = CurrentStats.linearDrag;
+	}
+
+	public virtual Vector2 TargetPoint()
+	{
+		Vector2 targetPoint = new Vector2();
+
+		if (path != null)
+		{
+			//Debug.Log(currentWaypoint + ", " + path.vectorPath.Count);
+			if (currentWaypoint >= path.vectorPath.Count) return new Vector2(float.MaxValue, float.MaxValue);
+
+			targetPoint = path.vectorPath[currentWaypoint];
+			//Debug.Log("Current point " + currentWaypoint + " is at " + targetPoint);
+		}
+		if (mc.IsClose || path == null) targetPoint = currentTarget.transform.position;
+		
+		return targetPoint;
+	}
+
+	private void MoveToPoint(Vector2 targetPoint)
+	{		
+		Vector2 direction = (targetPoint - rb.position).normalized;
+		Vector2 force = direction * CurrentStats.speed * Time.deltaTime * rb.mass;
+
+		rb.AddForce(force);
+	}
+
+	private void IncrementWaypoint()
+	{
+		float distance = Vector2.Distance(rb.position, TargetPoint());
 
 		if (distance < CurrentStats.nextWaypointDistance)
 		{
 			currentWaypoint++;
 		}
+	}
+
+	public void ChangeTarget(GameObject newTarget)
+	{
+		currentTarget = newTarget;
 	}
 }

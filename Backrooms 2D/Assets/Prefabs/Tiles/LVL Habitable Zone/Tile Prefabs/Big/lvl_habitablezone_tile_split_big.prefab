@@ -1189,6 +1189,7 @@ MonoBehaviour:
   - {fileID: 1619719095282377171}
   checkForObstructingTilesPointA: {fileID: 2582274783462372858}
   checkForObstructingTilesPointB: {fileID: 722509810325859463}
+  tileSize: {x: 23.8, y: 23.8}
   canConnectUp: 0
   canConnectRight: 0
   canConnectDown: 0

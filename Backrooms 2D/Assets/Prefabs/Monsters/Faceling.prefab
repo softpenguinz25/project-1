@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: playerPoses.Array.data[3]
       value: 
       objectReference: {fileID: -812176899546643139, guid: 35aecea6618f9f441b599172d83a7541, type: 3}
+    - target: {fileID: 2932896763359969662, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterName
+      value: faceling
+      objectReference: {fileID: 0}
     - target: {fileID: 4742552814224836672, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -126,6 +130,10 @@ PrefabInstance:
     - target: {fileID: 7368467659627920316, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Name
       value: Faceling
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439881886016590097, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: monsterName
+      value: faceling
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7368467659627920317, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}

@@ -7,7 +7,7 @@ public class CornerGFXCheck : MonoBehaviour
 	private void Start()
 	{
 		//if (FindObjectOfType<TileDataManager>() != null) FindObjectOfType<TileSpawner>().CanSpawnTiles += CheckCorner;
-		Invoke(nameof(CheckCorner), 1);//delay for more accurate check
+		Invoke(nameof(CheckCorner), .75f);//delay for more accurate check
 	}
 
 	/*private void OnEnable()

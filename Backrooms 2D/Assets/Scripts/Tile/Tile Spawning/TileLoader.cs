@@ -9,7 +9,8 @@ public class TileLoader : MonoBehaviour
 
 	[SerializeField] private List<GameObject> chunks = new List<GameObject>();
 	public float chunkSize = 16;
-	private float chunkSizeHypotenuse;
+	[HideInInspector] public float chunkSizeHypotenuse;
+	[SerializeField] private float renderDistance = 4;
 
 	private GameObject newChunk;
 
@@ -36,7 +37,7 @@ public class TileLoader : MonoBehaviour
 
 	private void Start()
 	{
-		chunkSizeHypotenuse = Mathf.Sqrt(chunkSize * chunkSize + chunkSize * chunkSize) + .01f;
+		chunkSizeHypotenuse = (Mathf.Sqrt(chunkSize * chunkSize + chunkSize * chunkSize) * renderDistance) + .01f;
 
 		AddChunk(new Vector2(-chunkSize, chunkSize));
 		AddChunk(new Vector2(0, chunkSize));
@@ -117,16 +118,16 @@ public class TileLoader : MonoBehaviour
 	public GameObject CurrentPlayerChunk()
 	{
 		Vector2 playerPos = player.transform.position;
-		Vector2 roundedPlayerPos = new Vector2(Mathf.Round(playerPos.x / chunkSize), Mathf.Round(playerPos.y / chunkSize)) * chunkSize;
+		Vector2 roundedPlayerPos = new Vector2(Mathf.Round(playerPos.x / chunkSize), Mathf.Round(playerPos.y / chunkSize)) * chunkSize;		
 
 		foreach (GameObject chunk in chunks)
 		{
 			if (Vector2.Distance(roundedPlayerPos, chunk.transform.position) < .01f)
 			{
+				//Debug.Log(chunk.name, chunk);
 				return chunk;
 			}
 		}
-
 		AddChunk(roundedPlayerPos);
 		Debug.Log("Player went to undiscovered chunk; creating new chunk.");
 		return null;
