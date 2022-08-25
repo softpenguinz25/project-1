@@ -244,6 +244,7 @@ public class TileSpawner : MonoBehaviour
 				}*/
 				#endregion
 
+				#region Get All GOs in Physics2D.OverlapAreaAll
 				//Thanks Baste! https://forum.unity.com/threads/cant-get-physics2d-overlapbox-to-hit-triggers.1068140/
 				var old = Physics2D.queriesHitTriggers;
 				Physics2D.queriesHitTriggers = true;
@@ -274,6 +275,7 @@ public class TileSpawner : MonoBehaviour
 						//Debug.Log("Removed: " + invalidTile, invalidTile);
 					}
 				}
+				#endregion
 
 				#region Obstruction Test
 				bool obstructingTileDetected = tilesDetectedInArea.Count > 1 ? true : false;

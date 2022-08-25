@@ -267,6 +267,16 @@ MonoBehaviour:
       Min: 1
       Max: 1
     sources: []
+  - name: Item_AlmondWater_Drink
+    clips:
+    - {fileID: 8300000, guid: 590edc3d94d2cf846a78a067d311c3db, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
 --- !u!1 &4832884539536724277
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,7 +21,22 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 	[Header("Player Vars")]
-	public float speed = 5;
+	[SerializeField] float startSpeed = 5;
+	public float StartSpeed
+	{
+		get
+		{
+			return startSpeed;
+		}
+	}
+	float currentSpeed;
+	public float CurrentSpeed
+	{
+		get
+		{
+			return currentSpeed;
+		}
+	}
 
 
 	//[Header("Mobile Movement")]
@@ -32,15 +48,39 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_STANDALONE
 		joystick.gameObject.SetActive(false);
 #endif
-	}
 
+		currentSpeed = startSpeed;
+	}
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 	}
+
 	private void FixedUpdate()
 	{
-		rb.MovePosition(rb.position + Movement * speed * Time.fixedDeltaTime);
+		rb.MovePosition(rb.position + Movement * currentSpeed * Time.fixedDeltaTime);
+	}
+
+	public void ChangeSpeed(float speed)
+	{
+		currentSpeed = speed;
+	}
+	
+	public IEnumerator ChangeSpeedWithCurveCoroutine(AnimationCurve multiplierSpeedCurve)
+	{
+		float currentSpeedBeforeCurve = currentSpeed;
+		float currentTime = 0;
+		//Debug.Log("Last Keyframe Time: " + multiplierSpeedCurve[multiplierSpeedCurve.keys.Length - 1].time);
+		while (currentTime < multiplierSpeedCurve[multiplierSpeedCurve.keys.Length - 1].time)
+		{
+			//Debug.Log(currentSpeedBeforeCurve);
+			currentTime += Time.deltaTime;
+			currentSpeed = currentSpeedBeforeCurve * multiplierSpeedCurve.Evaluate(currentTime);
+
+			yield return null;
+		}
+
+		currentSpeed = startSpeed;
 	}
 }

@@ -58,12 +58,12 @@ public class PlayerGraphics : MonoBehaviour
 
 	private void SlowDown(GameObject objToSlow)
 	{
-		if (objToSlow == gameObject) { pm.speed = slowDownSpeed; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
+		if (objToSlow == gameObject) { pm.ChangeSpeed(slowDownSpeed); FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
 	}
 	
 	private void SpeedUp(GameObject objToSpeedUp)
 	{		
-		if (objToSpeedUp == gameObject) pm.speed = originalSpeed;		
+		if (objToSpeedUp == gameObject) pm.ChangeSpeed(originalSpeed);		
 	}
 
 
@@ -74,7 +74,7 @@ public class PlayerGraphics : MonoBehaviour
 		lastPos = transform.position;
 		timeBtwnFootsteps = Random.Range(startTimeBtwnFootsteps.Min, startTimeBtwnFootsteps.Max);
 
-		originalSpeed = pm.speed;
+		originalSpeed = pm.StartSpeed;
 	}
 
 	private void Update()
