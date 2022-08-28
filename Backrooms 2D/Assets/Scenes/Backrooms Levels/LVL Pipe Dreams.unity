@@ -310,6 +310,10 @@ PrefabInstance:
       propertyPath: reoccurringMaxSpawnTimeDelay.Min
       value: 56.53846
       objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371669, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573522, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_RootOrder
       value: 3

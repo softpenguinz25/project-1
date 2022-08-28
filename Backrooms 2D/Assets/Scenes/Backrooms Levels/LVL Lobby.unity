@@ -1146,6 +1146,10 @@ PrefabInstance:
       propertyPath: reoccurringMaxSpawnTimeDelay.Min
       value: 40.192307
       objectReference: {fileID: 0}
+    - target: {fileID: 2295088066230371669, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573522, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1401,6 +1405,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 217976159}
+    - target: {fileID: 3441267525647845288, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
 --- !u!1001 &6523338969204306345

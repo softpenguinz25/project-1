@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class CornerGFXCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask tileMask/* = LayerMask.GetMask("Tile")*/;

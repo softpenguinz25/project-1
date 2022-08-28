@@ -157,6 +157,20 @@ MonoBehaviour:
       Min: 0.9
       Max: 1.1
     sources: []
+  - name: LVLElectricalStation_Player_Footsteps
+    clips:
+    - {fileID: 8300000, guid: 852ca3cb9bc49924ea9f94bf96e8e301, type: 3}
+    - {fileID: 8300000, guid: fc5c702921e5baf41805ac0f47b987ed, type: 3}
+    - {fileID: 8300000, guid: f31fa6d4e9a3e334ebea8c8004aaee0e, type: 3}
+    - {fileID: 8300000, guid: cf5e7254bddd8064b8420cc69be71ff3, type: 3}
+    - {fileID: 8300000, guid: 7fb0b68f2f460fb4eb1b152174aebaba, type: 3}
+    volume:
+      Min: 0.80241495
+      Max: 1
+    pitch:
+      Min: 0.9121844
+      Max: 1.1317234
+    sources: []
   - name: LVLFun_Player_Footsteps
     clips:
     - {fileID: 8300000, guid: 1615ec79207cbd54f9499e0294e1c101, type: 3}
