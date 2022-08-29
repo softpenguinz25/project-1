@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2db0d7fe56095264ebdbfdf3e62fc5d2
+guid: 35eb1b4138375cb4d9ccf7ea5cd535a3
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -68,7 +68,7 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   spriteImportData:
-  - name: LVL The End_1
+  - name: LVL The End - Side Overhanging Wall_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -77,8 +77,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 512
-      height: 512
+      width: 184
+      height: 73
     spriteID: a6d737c154c1aa14281599397358689c
     spriteBone: []
     spriteOutline: []
