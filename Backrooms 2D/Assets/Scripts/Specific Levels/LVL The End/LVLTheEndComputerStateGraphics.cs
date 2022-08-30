@@ -32,7 +32,7 @@ public class LVLTheEndComputerStateGraphics : MonoBehaviour
 				sr.sprite = regularSprite;
 				instructionsText.SetActive(false);
 				break;
-			case LVLTheEndComputerState.ComputerState.Active:
+			case LVLTheEndComputerState.ComputerState.Highlight:
 				sr.sprite = outlineSprite;
 				instructionsText.SetActive(true);
 				break;
