@@ -11,7 +11,8 @@ public class LVLTheEndComputerStateGraphics : MonoBehaviour
 	[SerializeField] Sprite regularSprite, outlineSprite;
 	[SerializeField] TMP_Text instructionsText;
 	[SerializeField] string pcInstructions = "E To Interact", mobileInstructions = "Tap To Interact";
-	[SerializeField] List<GameObject> uiElementsToEnableDisable = new List<GameObject>();
+	//TouchScreenKeyboard keyboard;
+	[SerializeField] FloatingJoystick joystick;
 
 	private void Awake()
 	{
@@ -20,6 +21,8 @@ public class LVLTheEndComputerStateGraphics : MonoBehaviour
 
 	private void Start()
 	{
+		pcInstructions = pcInstructions.ToString();//to stop giving me the "this variable is not in use" warning in unity lmao
+		mobileInstructions = mobileInstructions.ToString();////to stop giving me the "this variable is not in use" warning in unity lmao
 #if UNITY_STANDALONE
 	instructionsText.text = pcInstructions;
 #elif UNITY_ANDROID || UNITY_IOS
@@ -44,17 +47,27 @@ public class LVLTheEndComputerStateGraphics : MonoBehaviour
 			case LVLTheEndComputerState.ComputerState.Idle:
 				sr.sprite = regularSprite;
 				instructionsText.gameObject.SetActive(false);
-				foreach (GameObject uiElement in uiElementsToEnableDisable) uiElement.SetActive(true);
+
+				//keyboard = null;
+
+				joystick.gameObject.SetActive(true);
 				break;
 			case LVLTheEndComputerState.ComputerState.Highlight:
 				FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_Menu_Highlight");
 				sr.sprite = outlineSprite;
 				instructionsText.gameObject.SetActive(true);
-				foreach (GameObject uiElement in uiElementsToEnableDisable) uiElement.SetActive(true);
+
+				//keyboard = null;
+
+				joystick.gameObject.SetActive(true);
 				break;
 			case LVLTheEndComputerState.ComputerState.Menu:
 				FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_Menu_In");
-				foreach (GameObject uiElement in uiElementsToEnableDisable) uiElement.SetActive(false);
+
+				//keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+
+				joystick.HideJoystick();
+				joystick.gameObject.SetActive(false);
 				break;
 		}
 	}

@@ -5,6 +5,9 @@ using UnityEngine;
 public class LVLTheEndComputerState : MonoBehaviour
 {
 	SpriteRenderer sr;
+	Collider2D col;
+
+	[SerializeField] Joystick joystick;
 
     public enum ComputerState
 	{
@@ -33,6 +36,7 @@ public class LVLTheEndComputerState : MonoBehaviour
 	private void Awake()
 	{
 		sr = GetComponent<SpriteRenderer>();
+		col = GetComponent<Collider2D>();
 	}
 
 	private void Start()
@@ -67,8 +71,34 @@ public class LVLTheEndComputerState : MonoBehaviour
 		switch (currentState)
 		{
 			case (ComputerState.Highlight):
+				if (Mathf.Abs(joystick.Horizontal) > .01f && Mathf.Abs(joystick.Vertical) > .01f) break;
+
 				if (Input.GetKeyDown(KeyCode.E))
 					currentState = ComputerState.Menu;
+				else if (Input.GetMouseButtonDown(0))
+				{
+					//Thanks Kyle Banks! https://kylewbanks.com/blog/unity-2d-detecting-gameobject-clicks-using-raycasts
+					Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+					mousePos.z = 0;
+					Debug.Log("Mouse Pos 2D: " + mousePos);
+
+					if(col.bounds.Contains(mousePos))
+					{
+						currentState = ComputerState.Menu;
+					}					
+				}
+				else if (Input.touchCount > 0)
+				{
+					Touch touch = Input.GetTouch(0);
+					Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+					touchPos.z = 0f;
+
+					if (col.bounds.Contains(touchPos))
+					{
+						currentState = ComputerState.Menu;
+					}
+				}
+
 				break;
 		}
 	}	

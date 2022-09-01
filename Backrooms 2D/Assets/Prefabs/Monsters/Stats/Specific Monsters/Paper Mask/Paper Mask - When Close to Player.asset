@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da39eecfcc69894e883f1f7d750101c, type: 3}
   m_Name: Paper Mask - When Close to Player
   m_EditorClassIdentifier: 
-  speed: 1000
+  speed: 900
   timeBeforeGenerateNextPath: 5
   nextWaypointDistance: 0.25
   linearDrag: 3

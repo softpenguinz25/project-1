@@ -246,6 +246,66 @@ MonoBehaviour:
       Min: 1
       Max: 1
     sources: []
+  - name: LVLTheEnd_Computer_Menu_Select
+    clips:
+    - {fileID: 8300000, guid: a5d3eaac79daa28449acc2cb9479c4c2, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
+  - name: LVLTheEnd_Code_Select
+    clips:
+    - {fileID: 8300000, guid: e223b55d8d318d04f9928bee001f418f, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 0.8073063
+      Max: 1.1926937
+    sources: []
+  - name: LVLTheEnd_Code_Type
+    clips:
+    - {fileID: 8300000, guid: c3b5e04ec21e9dc4a94f0c164bb7a52b, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 0.8073063
+      Max: 1.1926937
+    sources: []
+  - name: LVLTheEnd_Computer_Code_Wrong
+    clips:
+    - {fileID: 8300000, guid: edc7f54795cbe8b43aa7fa4c03754749, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
+  - name: LVLTheEnd_Computer_Code_Correct
+    clips:
+    - {fileID: 8300000, guid: 968b941057117c348a38e86951774602, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
+  - name: LVLTheEnd_Computer_RunH97
+    clips:
+    - {fileID: 8300000, guid: 895050c1d5070da4ba1b3c01e318cca0, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    sources: []
   - name: LVLTheEnd_Note_Seen
     clips:
     - {fileID: 8300000, guid: 4dbfe3b27ef68c94da2d1f04bf22f6c5, type: 3}

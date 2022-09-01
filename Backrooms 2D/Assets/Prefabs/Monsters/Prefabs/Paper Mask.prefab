@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6051211600283715042, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: jumpscareMonsterData.monsterName
-      value: DeathMoth_JUMPSCARE
+      value: PaperMask_JUMPSCARE
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Size.x

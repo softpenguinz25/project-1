@@ -1,6 +1,9 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LVLTheEndComputerMenu : MonoBehaviour
 {
@@ -8,9 +11,14 @@ public class LVLTheEndComputerMenu : MonoBehaviour
     [SerializeField] LVLTheEndComputerState compState;
 
 	[Header("Menu")]
-	[SerializeField] GameObject menu, passwordMenu, h97menu;
+	[SerializeField] GameObject menu, backButton, passwordMenu, h97menu;
 	[SerializeField] List<TMP_InputField> numberInputs = new List<TMP_InputField>();
 	int currentEntry = 9999;
+
+	[Header("Next Level")]
+	[SerializeField] AudioSource nextLevelSFX;
+	[SerializeField] Animator nextLevelAnimator;
+	[SerializeField] AnimationClip nextLevelAnimationClip;
 
 	private void OnEnable()
 	{
@@ -44,25 +52,42 @@ public class LVLTheEndComputerMenu : MonoBehaviour
 		compState.ChangeCurrentState(LVLTheEndComputerState.ComputerState.Highlight);
 	}
 
+	bool autoSelectedInputField;
+	public void InputFieldSelected()
+	{
+		if (autoSelectedInputField)
+		{
+			autoSelectedInputField = false;
+			return;
+		}
+
+		FindObjectOfType<AudioManager>().Play("LVLTheEnd_Code_Select");
+	}
+
 	public void ChangeCurrentEntry(int digitToReplace)
 	{
-		digitToReplace--;
 
 		/*//THANKS V4Vendetta! https://stackoverflow.com/questions/5015593/how-to-replace-part-of-string-by-position
 		string newEntryString = currentEntry.ToString().Remove(digitToReplace, 1).Insert(digitToReplace, numberInputs[digitToReplace].text);
 		currentEntry = int.Parse(newEntryString);*/
+		FindObjectOfType<AudioManager>().PlayOneShot("LVLTheEnd_Code_Type");
 
+		digitToReplace--;
 		if (!string.IsNullOrEmpty(numberInputs[digitToReplace].text))
 		{
 			int nextInputFieldIndex = digitToReplace++ >= numberInputs.Count - 1 ? 0 : digitToReplace++;
 
 			numberInputs[nextInputFieldIndex].ActivateInputField();
 			numberInputs[nextInputFieldIndex].Select();
+
+			autoSelectedInputField = true;
 		}
 	}
 
 	public void SubmitEntry()
 	{
+		FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_Menu_Select");
+
 		string currentEntryString = "";
 		foreach(TMP_InputField inputField in numberInputs)
 		{
@@ -73,10 +98,11 @@ public class LVLTheEndComputerMenu : MonoBehaviour
 		Debug.Log("Entry Submitted: " + currentEntry);
 		if(currentEntry != LVLTheEndPasswordGenerator.password)
 		{
-			Debug.Log("Access Denied.");
+			FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_Code_Wrong");
 		}
 		else
 		{
+			FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_Code_Correct");
 			OpenH97Menu();
 		}
 	}
@@ -89,6 +115,19 @@ public class LVLTheEndComputerMenu : MonoBehaviour
 
 	public void GoToNextLevel()
 	{
-		StartCoroutine(FindObjectOfType<LevelTransition>().PlayTransitionCoroutine());
+		h97menu.SetActive(false);
+		FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_RunH97");
+		backButton.SetActive(false);
+		StartCoroutine(NextLevelCoroutine(nextLevelAnimationClip.length));
+	}
+
+	private IEnumerator NextLevelCoroutine(float transitionDelay)
+	{
+		nextLevelSFX.Play();
+		nextLevelAnimator.SetTrigger("Level Transition");
+
+		yield return new WaitForSeconds(transitionDelay);
+
+		FindObjectOfType<SceneLoader>().LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }
