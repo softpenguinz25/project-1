@@ -40,6 +40,7 @@ public class LVLTheEndComputerMenu : MonoBehaviour
 	public void CloseMenu()
 	{
 		menu.SetActive(false);
+		FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_Menu_Out");
 		compState.ChangeCurrentState(LVLTheEndComputerState.ComputerState.Highlight);
 	}
 

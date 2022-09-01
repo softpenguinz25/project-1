@@ -1,5 +1,6 @@
 //THANKS CODEMONKEY! https://www.youtube.com/watch?v=CSeUMTaNFYk
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
@@ -14,6 +15,9 @@ public class FieldOfView : MonoBehaviour
 
     [Header("Hello darkness my old friend")]
     [SerializeField] private float wallAccuracy = .05f;
+
+    [Header("Exceptions")]
+    List<Collider2D> excludedColliders = new List<Collider2D>();
     private void Start()
     {
         mesh = new Mesh();
@@ -41,8 +45,8 @@ public class FieldOfView : MonoBehaviour
 
             Vector3 vertex;
             Vector3 raycastDir = GetVectorFromAngle(angle);
-            RaycastHit2D initalRaycastHit2D = Physics2D.Raycast(origin, raycastDir, viewDistance, tileMask);
-            Vector2 pointThroughWall = initalRaycastHit2D.point + .01f * (Vector2)raycastDir;
+            RaycastHit2D initialRaycastHit2D = Physics2D.Raycast(origin, raycastDir, viewDistance, tileMask);
+            Vector2 pointThroughWall = initialRaycastHit2D.point + .01f * (Vector2)raycastDir;
 			while (Physics2D.OverlapPoint(pointThroughWall, tileMask)/* == initalRaycastHit2D.collider*/)
 			{
 				/*GameObject initialWall = initalRaycastHit2D.collider.gameObject;
@@ -59,12 +63,12 @@ public class FieldOfView : MonoBehaviour
 				pointThroughWall += wallAccuracy * (Vector2)raycastDir;
 		    }
 
-		Physics2D.queriesHitTriggers = old;
+		    Physics2D.queriesHitTriggers = old;
 
             //Vector2 extendedPoint = initalRaycastHit2D.point + raycastExtend * (Vector2)raycastDir;
             //RaycastHit2D[] raycastHit2DThroughWallCols = Physics2D.RaycastAll(extendedPoint, -raycastDir, viewDistance, layerMask);
 
-            if (initalRaycastHit2D.collider == null)
+            if (initialRaycastHit2D.collider == null)
             {
                 //No hit
                 vertex = origin + GetVectorFromAngle(angle) * viewDistance;

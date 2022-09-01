@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1944720839663114714}
   - component: {fileID: 8787696631436456499}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Note Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9176856014315843396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2180168439324812485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A1
+  m_text: A-1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73ae3a555da055b4ca4655d704e3ca53, type: 2}
   m_sharedMaterial: {fileID: -5024334568981058536, guid: 73ae3a555da055b4ca4655d704e3ca53, type: 2}
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 2.5
+  m_fontSizeBase: 2.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -182,6 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7966188148896344769}
   - component: {fileID: 7966188148896344768}
+  - component: {fileID: 5142959144663894414}
   - component: {fileID: 5437328339648423818}
   m_Layer: 0
   m_Name: Note
@@ -199,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 7966188148896344799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9176856014315843396}
@@ -246,8 +247,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 58
-  m_Sprite: {fileID: 5271888155569117586, guid: edc22e3cf02963144a6f1dc7d9fbb588, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 8055748124072477480, guid: edc22e3cf02963144a6f1dc7d9fbb588, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -258,6 +259,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5142959144663894414
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966188148896344799}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
+    newSize: {x: 0.25, y: 0.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!114 &5437328339648423818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c3194fed8bee141be4d61febb9e2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 7966188148896344768}
   noteNumber: 0
   correspondingLetter: 
   correspondingPasswordCode: 0
+  normalNote: {fileID: 8055748124072477480, guid: edc22e3cf02963144a6f1dc7d9fbb588, type: 3}
+  outlinedNote: {fileID: -8887153100674780151, guid: edc22e3cf02963144a6f1dc7d9fbb588, type: 3}
+  noteText: {fileID: 8787696631436456499}

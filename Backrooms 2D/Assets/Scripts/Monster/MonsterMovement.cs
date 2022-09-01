@@ -10,6 +10,13 @@ public class MonsterMovement : MonoBehaviour
 	private Seeker seeker;
 
 	private GameObject player;
+	public GameObject Player
+	{
+		get
+		{
+			return player;
+		}
+	}
 	private GameObject currentTarget;
 	public GameObject CurrentTarget
 	{
@@ -20,6 +27,13 @@ public class MonsterMovement : MonoBehaviour
 	}
 
 	private MonsterClose mc;
+	public MonsterClose MC
+	{
+		get
+		{
+			return mc;
+		}
+	}
 
 	private AstarPath pathfinding;
 	private Path path;
@@ -69,7 +83,7 @@ public class MonsterMovement : MonoBehaviour
 		mc = GetComponent<MonsterClose>();
 	}
 
-	private void Start()
+	public virtual void Start()
 	{
 		currentTarget = player;
 
@@ -119,21 +133,26 @@ public class MonsterMovement : MonoBehaviour
 		if (!p.error)
 		{
 			path = p;
-			currentWaypoint = 0;
+			ResetCurrentWaypoint();
 		}
 	}
 
-	private void Update()
+	void ResetCurrentWaypoint()
+	{
+		currentWaypoint = 0;
+	}
+
+	public virtual void Update()
 	{
 		SetupVariables();
 		
-		if (Vector2.Distance(new Vector2(float.MaxValue, float.MaxValue), TargetPoint()) < 1) return;
-
+		//if (Vector2.Distance(new Vector2(float.MaxValue, float.MaxValue), TargetPoint()) < 1) return;
+		
 		MoveToPoint(TargetPoint());
 
 		if (mc.IsClose || path == null) return;
 
-		IncrementWaypoint();
+		IncrementWaypointIfCloseEnough();
 	}	
 
 	private void SetupVariables()
@@ -150,7 +169,7 @@ public class MonsterMovement : MonoBehaviour
 		if (path != null)
 		{
 			//Debug.Log(currentWaypoint + ", " + path.vectorPath.Count);
-			if (currentWaypoint >= path.vectorPath.Count) return new Vector2(float.MaxValue, float.MaxValue);
+			if (currentWaypoint >= path.vectorPath.Count) ResetCurrentWaypoint(); //return new Vector2(float.MaxValue, float.MaxValue);
 
 			targetPoint = path.vectorPath[currentWaypoint];
 			//Debug.Log("Current point " + currentWaypoint + " is at " + targetPoint);
@@ -168,7 +187,7 @@ public class MonsterMovement : MonoBehaviour
 		rb.AddForce(force);
 	}
 
-	private void IncrementWaypoint()
+	private void IncrementWaypointIfCloseEnough()
 	{
 		float distance = Vector2.Distance(rb.position, TargetPoint());
 
@@ -176,6 +195,12 @@ public class MonsterMovement : MonoBehaviour
 		{
 			currentWaypoint++;
 		}
+	}
+
+	public bool HasReachedCurrentTarget()
+	{
+		//Debug.Log(CurrentStats.nextWaypointDistance + " vs " + Vector2.Distance(rb.position, currentTarget.transform.position) + " = " + (Vector2.Distance(rb.position, currentTarget.transform.position) < CurrentStats.nextWaypointDistance ? "True" : "False"));
+		return Vector2.Distance(rb.position, currentTarget.transform.position) < CurrentStats.nextWaypointDistance;
 	}
 
 	public void ChangeTarget(GameObject newTarget)

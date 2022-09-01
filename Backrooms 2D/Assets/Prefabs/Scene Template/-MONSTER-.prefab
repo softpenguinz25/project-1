@@ -230,7 +230,7 @@ MonoBehaviour:
   checkObstructingObjects: 1
   obstructingObstaclesMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 8200
   excludedMonsterNames:
   - partypooper
   postProcessingWeightCurve:
