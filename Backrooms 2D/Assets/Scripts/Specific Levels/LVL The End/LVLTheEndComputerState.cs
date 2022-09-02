@@ -80,7 +80,7 @@ public class LVLTheEndComputerState : MonoBehaviour
 					//Thanks Kyle Banks! https://kylewbanks.com/blog/unity-2d-detecting-gameobject-clicks-using-raycasts
 					Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					mousePos.z = 0;
-					Debug.Log("Mouse Pos 2D: " + mousePos);
+					//Debug.Log("Mouse Pos 2D: " + mousePos);
 
 					if(col.bounds.Contains(mousePos))
 					{

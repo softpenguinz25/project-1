@@ -95,7 +95,7 @@ public class LVLTheEndComputerMenu : MonoBehaviour
 		}
 		currentEntry = int.Parse(currentEntryString);
 
-		Debug.Log("Entry Submitted: " + currentEntry);
+		//Debug.Log("Entry Submitted: " + currentEntry);
 		if(currentEntry != LVLTheEndPasswordGenerator.password)
 		{
 			FindObjectOfType<AudioManager>().Play("LVLTheEnd_Computer_Code_Wrong");

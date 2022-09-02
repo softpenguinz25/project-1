@@ -82,18 +82,20 @@ public class ItemSpawner : MonoBehaviour
 		#region Detect Tiles in Spawn Radius
 		var old = Physics2D.queriesHitTriggers;
 		Physics2D.queriesHitTriggers = true;
-		List<Collider2D> tilesDetectedInArea = Physics2D.OverlapCircleAll(player.transform.position, spawnDistanceAwayFromPlayer.Min).ToList();
+		List<Collider2D> tilesDetectedInArea = Physics2D.OverlapCircleAll(player.transform.position, spawnDistanceAwayFromPlayer.Max).ToList();
 		Physics2D.queriesHitTriggers = old;
 
+		//Debug.Log("Before Filtering: TilesDetectedInArea Count: " + tilesDetectedInArea.Count);
+
+		#region Invalid Colliders
 		List<Collider2D> invalidTiles = new List<Collider2D>();
 		foreach (Collider2D collider in tilesDetectedInArea)
 		{
-			TilePrefab colliderTilePrefab = collider.GetComponent<TilePrefab>();
-			WallData colliderWallData = collider.GetComponent<WallData>();
-
-			if(colliderWallData != null) { invalidTiles.Add(collider); continue; }
-			else if (colliderTilePrefab == null) { invalidTiles.Add(collider); continue; }
-			else if (colliderTilePrefab.isGroupTile) { invalidTiles.Add(collider); continue; }
+			TilePrefab colliderTilePrefab = collider.GetComponentInParent<TilePrefab>();
+			//Debug.Log("ColliderTilePrefab: " + colliderTilePrefab);
+			if (invalidTiles.Contains(collider)){ /*Debug.Log("Invalid Tile Already Added");*/ continue; }
+			else if (colliderTilePrefab == null) { /*Debug.Log("No Tile Prefab");*/ invalidTiles.Add(collider); continue; }
+			else if (colliderTilePrefab.isGroupTile) { /*Debug.Log("isGroupTile Tile Prefab Detected");*/ invalidTiles.Add(collider); continue; }
 		}
 
 		foreach (Collider2D invalidTile in invalidTiles)
@@ -103,6 +105,31 @@ public class ItemSpawner : MonoBehaviour
 				tilesDetectedInArea.Remove(invalidTile);
 			}
 		}
+		#endregion
+
+		//Debug.Log("Invalid Colliders Filter: " + tilesDetectedInArea.Count);
+
+		#region Tiles Too Close
+		List<Collider2D> tilesTooClose = new List<Collider2D>();
+		foreach (Collider2D collider in tilesDetectedInArea)
+		{
+			if(Vector2.Distance(collider.transform.position, player.transform.position) < spawnDistanceAwayFromPlayer.Min)
+			{
+				tilesTooClose.Add(collider);
+			}
+		}
+
+		foreach (Collider2D tileTooClose in tilesTooClose)
+		{
+			if (tilesDetectedInArea.Contains(tileTooClose))
+			{
+				tilesDetectedInArea.Remove(tileTooClose);
+			}
+		}
+		#endregion
+
+		//Debug.Log("Tiles Too Close Filter: " + tilesDetectedInArea.Count);
+
 		#endregion
 
 		Vector3 spawnPos = tilesDetectedInArea[Random.Range(0, tilesDetectedInArea.Count)].transform.position;
