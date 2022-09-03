@@ -179,7 +179,7 @@ public class TileSpawner : MonoBehaviour
 				//Debug.Log("Executing Group Tile Logic...");
 
 				//Temporary Rotation Correction
-				if(!tilePrefab.canBeRotated) tilePrefab.transform.eulerAngles = Vector3.zero;
+				if (!tilePrefab.canBeRotated) tilePrefab.transform.eulerAngles = Vector3.zero;
 
 				//Correct Position
 				float epsilon = .01f;
@@ -259,15 +259,16 @@ public class TileSpawner : MonoBehaviour
 
 					if (colliderWallData != null)
 					{
-						if (colliderWallData.transform.IsChildOf(tilePrefab.transform)){ invalidTiles.Add(collider); continue; }
+						if (colliderWallData.transform.IsChildOf(tilePrefab.transform)) { invalidTiles.Add(collider); continue; }
 						else continue;
 					}
-					/*else*/ if (colliderTilePrefab == null/* && colliderWallData == null*/) { invalidTiles.Add(collider); continue; }
-					else if (colliderTilePrefab.isGroupTile){ invalidTiles.Add(collider); continue;}
+					/*else*/
+					if (colliderTilePrefab == null/* && colliderWallData == null*/) { invalidTiles.Add(collider); continue; }
+					else if (colliderTilePrefab.isGroupTile) { invalidTiles.Add(collider); continue; }
 					else if (colliderTilePrefab.transform.IsChildOf(tilePrefab.transform)) { invalidTiles.Add(collider); continue; }
 				}
 
-				foreach(Collider2D invalidTile in invalidTiles)
+				foreach (Collider2D invalidTile in invalidTiles)
 				{
 					if (tilesDetectedInArea.Contains(invalidTile))
 					{
@@ -301,7 +302,7 @@ public class TileSpawner : MonoBehaviour
 					if (tilePrefab.referenceTile.GetComponent<TilePrefab>().isGroupTile)
 					{
 						Transform spawnedGroupTileReference = randomConnectionPoint.GetComponentInParent<TilePrefab>(true).transform;//randomConnectionPoint.root;
-						//Debug.Log("Tile Ref: " + spawnedGroupTileReference, spawnedGroupTileReference);
+																																	 //Debug.Log("Tile Ref: " + spawnedGroupTileReference, spawnedGroupTileReference);
 						bool groupTileHasValidRotation = false;
 						while (!groupTileHasValidRotation)
 						{
@@ -338,7 +339,7 @@ public class TileSpawner : MonoBehaviour
 								}
 							}
 
-							foreach(Transform regularCP in regularCPs)
+							foreach (Transform regularCP in regularCPs)
 							{
 								if (Vector2.Distance(regularCP.position, tilePrefab.referenceTile.transform.position) < .01f)
 								{
@@ -357,7 +358,8 @@ public class TileSpawner : MonoBehaviour
 				}
 
 				//Apply data
-				foreach (Transform scp in tilePrefab.specialCPs) {
+				foreach (Transform scp in tilePrefab.specialCPs)
+				{
 					tm.AddConnectionPoint(scp);
 					//Debug.Log("Adding " + scp.name);
 				}
@@ -403,18 +405,18 @@ public class TileSpawner : MonoBehaviour
 			#region 4. Destroy walls that lead to dead ends
 			List<Transform> otherCPs = tilePrefab.connectionPoints.Count > 0 ? tilePrefab.connectionPoints : tilePrefab.specialCPs;
 			Transform referenceCP = null;
-			foreach(Transform cp in otherCPs)
+			foreach (Transform cp in otherCPs)
 			{
-				if(Vector2.Distance(cp.position, tilePrefab.referenceTile.transform.position) < .1f)
+				if (Vector2.Distance(cp.position, tilePrefab.referenceTile.transform.position) < .1f)
 				{
 					referenceCP = cp;
 					break;
 				}
 			}
 			if (referenceCP == null) Debug.LogError("Could not find reference CP!");
-			otherCPs.Remove(referenceCP);
+			otherCPs.Remove(referenceCP);//remove reference tile cp bc it impossile to destroy ref tile since it's already correct
 
-			foreach(Transform otherCP in otherCPs)
+			foreach (Transform otherCP in otherCPs)
 			{
 				RaycastHit2D[] linecastHitColliders = Physics2D.LinecastAll(tilePrefab.transform.position, otherCP.transform.position, wallMask);
 				if (linecastHitColliders.Count() > 0)
@@ -424,7 +426,10 @@ public class TileSpawner : MonoBehaviour
 						WallData deadEndWall = linecastHitDeadEndWall.collider.GetComponent<WallData>();
 						if (deadEndWall != null)
 							if (deadEndWall.isBreakable)
+							{
+								//Debug.Log("Wall Destroyed!");
 								Destroy(deadEndWall.gameObject);
+							}
 					}
 				}
 			}

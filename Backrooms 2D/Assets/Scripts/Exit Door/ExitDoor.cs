@@ -38,7 +38,7 @@ public class ExitDoor : MonoBehaviour
 		Physics2D.queriesHitTriggers = false;
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, raycastCheckRotationDistance, tileMask);
 		
-		Debug.Log("0 | " + transform.eulerAngles.z);
+		//Debug.Log("0 | " + transform.eulerAngles.z);
 		int i = 1;
 
 		if (hit.collider != null)
@@ -63,11 +63,11 @@ public class ExitDoor : MonoBehaviour
 						Debug.LogError("No Valid Exit Door Rotation Found!");
 						break;
 				}
-				Debug.Log(i + " | " + transform.eulerAngles.z);
+				//Debug.Log(i + " | " + transform.eulerAngles.z);
 
 				if (hit.collider != null)
 				{
-					Debug.Log("Valid Rotation Found!");
+					//Debug.Log("Valid Rotation Found!");
 					break;
 				}
 				if (i >= 4)
