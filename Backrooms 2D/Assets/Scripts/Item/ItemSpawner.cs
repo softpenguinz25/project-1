@@ -91,11 +91,17 @@ public class ItemSpawner : MonoBehaviour
 		List<Collider2D> invalidTiles = new List<Collider2D>();
 		foreach (Collider2D collider in tilesDetectedInArea)
 		{
-			TilePrefab colliderTilePrefab = collider.GetComponentInParent<TilePrefab>();
+			//Debug.Log(collider.gameObject, collider);
+			/*TilePrefab parentTilePrefab = collider.GetComponentInParent<TilePrefab>();
+			Collider2D parentTilePrefabCollider = parentTilePrefab.GetComponent<Collider2D>();*/
+
+			//if (!tilesDetectedInArea.Contains(parentTilePrefabCollider)) tilesDetectedInArea.Add(parentTilePrefabCollider);
+			if (collider.GetComponent<TilePrefab>() == null) { /*Debug.Log("TilePrefab Not Detected");*/ invalidTiles.Add(collider); continue; }
+			else if (collider.GetComponent<TilePrefab>().isGroupTile) { invalidTiles.Add(collider); continue; }
 			//Debug.Log("ColliderTilePrefab: " + colliderTilePrefab);
-			if (invalidTiles.Contains(collider)){ /*Debug.Log("Invalid Tile Already Added");*/ continue; }
-			else if (colliderTilePrefab == null) { /*Debug.Log("No Tile Prefab");*/ invalidTiles.Add(collider); continue; }
-			else if (colliderTilePrefab.isGroupTile) { /*Debug.Log("isGroupTile Tile Prefab Detected");*/ invalidTiles.Add(collider); continue; }
+			/*if (parentTilePrefab == null) { *//*Debug.Log("No Tile Prefab");*//* continue; }
+			else if (invalidTiles.Contains(parentTilePrefabCollider)){ invalidTiles.Add(collider);*//*Debug.Log("Invalid Tile Already Added");*//* continue; }
+			else if (parentTilePrefab.isGroupTile) { *//*Debug.Log("isGroupTile Tile Prefab Detected");*//* invalidTiles.Add(collider); continue; }*/
 		}
 
 		foreach (Collider2D invalidTile in invalidTiles)
@@ -132,7 +138,9 @@ public class ItemSpawner : MonoBehaviour
 
 		#endregion
 
-		Vector3 spawnPos = tilesDetectedInArea[Random.Range(0, tilesDetectedInArea.Count)].transform.position;
+		Transform chosenTransform = tilesDetectedInArea[Random.Range(0, tilesDetectedInArea.Count)].transform;
+		//Debug.Log(chosenTransform, chosenTransform);
+		Vector3 spawnPos = chosenTransform.position;
 
 		Instantiate(possibleItems[Random.Range(0, possibleItems.Count)], spawnPos, Quaternion.Euler(0, 0, Random.Range(0f, 360f)));
 		//Debug.Log("Item Spawned!", );

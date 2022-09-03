@@ -177,6 +177,7 @@ MonoBehaviour:
   tileArea: []
   checkForObstructingTilesPointA: {fileID: 0}
   checkForObstructingTilesPointB: {fileID: 0}
+  tileSize: {x: 0, y: 0}
   canConnectUp: 0
   canConnectRight: 0
   canConnectDown: 0
@@ -200,7 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxSize: {x: 0.6, y: 0.6}
-  maxObstaclesInTile: 3
+  obstaclesInTile:
+    Min: 2
+    Max: 3
   spawnChance: 0.875
 --- !u!1001 &135545822876883825
 PrefabInstance:

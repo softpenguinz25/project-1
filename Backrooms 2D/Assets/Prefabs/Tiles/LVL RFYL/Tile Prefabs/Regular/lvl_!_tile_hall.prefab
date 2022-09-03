@@ -178,6 +178,7 @@ MonoBehaviour:
   tileArea: []
   checkForObstructingTilesPointA: {fileID: 0}
   checkForObstructingTilesPointB: {fileID: 0}
+  tileSize: {x: 0, y: 0}
   canConnectUp: 0
   canConnectRight: 0
   canConnectDown: 0
@@ -201,7 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxSize: {x: 0.6, y: 0.6}
-  maxObstaclesInTile: 3
+  obstaclesInTile:
+    Min: 2
+    Max: 2
   spawnChance: 0.875
 --- !u!1 &8908670855533952985
 GameObject:
@@ -310,6 +313,10 @@ PrefabInstance:
     - target: {fileID: 7771161256605402094, guid: 040180dda96f8d84e8c5372768e8c58e, type: 3}
       propertyPath: m_Intensity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771161256605402094, guid: 040180dda96f8d84e8c5372768e8c58e, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 8745677594986466341, guid: 040180dda96f8d84e8c5372768e8c58e, type: 3}
       propertyPath: m_RootOrder

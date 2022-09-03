@@ -147,8 +147,8 @@ MonoBehaviour:
   canReocurringlySpawn: 1
   reoccurringChunksBeforeSpawn: 50
   reoccurringMaxSpawnTimeDelay:
-    Min: 28.422152
-    Max: 38.599808
+    Min: 28.399858
+    Max: 37.301308
   maxNumMonsters: 5
   possibleMonsters:
   - {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}
@@ -161,7 +161,7 @@ MonoBehaviour:
   initialEnemyOrder:
   - {fileID: 2358195583797519872, guid: 2ce8988649576534d9eab715929a40a6, type: 3}
   - {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}
-  partyPooperDelaySpawn: 3
+  partyPooperSpawnDelay: 3
 --- !u!1 &4013667
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1155866431825499689, guid: 2cd06f2b40511d548bce9cbcdd04288d, type: 3}
+      propertyPath: spawnItemEveryXChunks
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cd06f2b40511d548bce9cbcdd04288d, type: 3}
 --- !u!1 &913130078
@@ -350,7 +354,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913130078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

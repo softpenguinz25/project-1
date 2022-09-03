@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partygoerName: partygoer
+  deathParticles: {fileID: 4150861388721857878, guid: 827b0686f0ab2154682f66c96d377e9e, type: 3}
 --- !u!114 &3947860915682389768
 MonoBehaviour:
   m_ObjectHideFlags: 0

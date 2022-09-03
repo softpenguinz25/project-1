@@ -6,6 +6,8 @@ namespace KingdomOfNight
 #if UNITY_EDITOR
         [MenuItem("Scenes/Backrooms Levels/Escape")]
         public static void LoadEscape() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Escape.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/LVL Electrical Station")]
+        public static void LoadLVLElectricalStation() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL Electrical Station.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL Fun")]
         public static void LoadLVLFun() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL Fun.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL Habitable Zone")]
@@ -18,8 +20,18 @@ namespace KingdomOfNight
         public static void LoadLVLPoolrooms() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL Poolrooms.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL RFYL")]
         public static void LoadLVLRFYL() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL RFYL.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/LVL The End")]
+        public static void LoadLVLTheEnd() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL The End.unity"); }
+        [MenuItem("Scenes/Testing/Electrical Station Gate Test")]
+        public static void LoadElectricalStationGateTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Electrical Station Gate Test.unity"); }
+        [MenuItem("Scenes/Testing/Input Field Test")]
+        public static void LoadInputFieldTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Input Field Test.unity"); }
+        [MenuItem("Scenes/Testing/Instantiating Performance Test")]
+        public static void LoadInstantiatingPerformanceTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Instantiating Performance Test.unity"); }
         [MenuItem("Scenes/Testing/Mobile Test")]
         public static void LoadMobileTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Mobile Test.unity"); }
+        [MenuItem("Scenes/Testing/OverlapBoxText")]
+        public static void LoadOverlapBoxText() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/OverlapBoxText.unity"); }
         [MenuItem("Scenes/Testing/Shader Test")]
         public static void LoadShaderTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Shader Test.unity"); }
         [MenuItem("Scenes/Testing/Test")]
@@ -28,8 +40,14 @@ namespace KingdomOfNight
         public static void LoadUITest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/UI Test.unity"); }
         [MenuItem("Scenes/Testing/Video Experiments")]
         public static void LoadVideoExperiments() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Video Experiments.unity"); }
-        [MenuItem("Scenes/Thumbnail/Thumbnail")]
-        public static void LoadThumbnail() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail.unity"); }
+        [MenuItem("Scenes/Thumbnail/Thumbnail 1")]
+        public static void LoadThumbnail1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail 1.unity"); }
+        [MenuItem("Scenes/Thumbnail/Thumbnail 2 Remake 2")]
+        public static void LoadThumbnail2Remake2() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail 2 Remake 2.unity"); }
+        [MenuItem("Scenes/Thumbnail/Thumbnail 2 Remake")]
+        public static void LoadThumbnail2Remake() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail 2 Remake.unity"); }
+        [MenuItem("Scenes/Thumbnail/Thumbnail 2")]
+        public static void LoadThumbnail2() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail 2.unity"); }
 #endif
     }
 }

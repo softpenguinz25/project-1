@@ -36,6 +36,7 @@ public class MonsterSpawner : MonoBehaviour
 	private void Start()
 	{
 		canReocurringlySpawn = !!canReocurringlySpawn;//this is not a typo, just wanted unity to stop giving me the "this variable is not in use" warning message lol
+		//Debug.Log("SpawnMonster - Start");
 		StartCoroutine(SpawnMonsterAfterDelayCoroutine());
 	}
 
@@ -56,6 +57,7 @@ public class MonsterSpawner : MonoBehaviour
 			{
 				if (numChunks % chunksBeforeSpawn == 0)
 				{
+					//Debug.Log("SpawnMonster - First Chunk Threshold Met");
 					StopCoroutine(SpawnMonsterAfterDelayCoroutine());
 					SpawnMonster();
 				}
@@ -64,6 +66,7 @@ public class MonsterSpawner : MonoBehaviour
 			{
 				if ((numChunks + chunksBeforeSpawn) % reoccurringChunksBeforeSpawn == 0)
 				{
+					//Debug.Log("SpawnMonster - Reoccuring Chunks Threshold Met");
 					StopCoroutine(SpawnMonsterAfterDelayCoroutine());
 					SpawnMonster();
 				}
@@ -71,13 +74,16 @@ public class MonsterSpawner : MonoBehaviour
 		};
 	}
 
-	public virtual IEnumerator SpawnMonsterAfterDelayCoroutine(GameObject monsterToSpawn = null)
+	public virtual IEnumerator SpawnMonsterAfterDelayCoroutine(GameObject monsterToSpawn = null, bool spawnInstantly = false)
 	{
-		if(!hasSpawnedOnce)
-			yield return new WaitForSeconds(UnityEngine.Random.Range(maxSpawnTimeDelay.Min, maxSpawnTimeDelay.Max));
-		else
-			yield return new WaitForSeconds(UnityEngine.Random.Range(reoccurringMaxSpawnTimeDelay.Min, reoccurringMaxSpawnTimeDelay.Max));
-		SpawnMonster(monsterToSpawn);
+		if (!spawnInstantly)
+		{
+			if (!hasSpawnedOnce)
+				yield return new WaitForSeconds(UnityEngine.Random.Range(maxSpawnTimeDelay.Min, maxSpawnTimeDelay.Max));
+			else
+				yield return new WaitForSeconds(UnityEngine.Random.Range(reoccurringMaxSpawnTimeDelay.Min, reoccurringMaxSpawnTimeDelay.Max));
+		}
+			SpawnMonster(monsterToSpawn);
 	}
 	
 	[ContextMenu("Spawn Monster")]
@@ -177,7 +183,7 @@ public class MonsterSpawner : MonoBehaviour
 	private IEnumerator RestartSystem()
 	{
 		yield return new WaitForSeconds(reoccurringMaxSpawnTimeDelay.Min * .01f);
-
+		//Debug.Log("SpawnMonster - Restart System");
 		canSpawnMonster = true;
 		StartCoroutine(SpawnMonsterAfterDelayCoroutine());
 	}

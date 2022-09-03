@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeathManager : MonoBehaviour
 {
 	public static float jumpscareDuration = 1;
+	static bool jumpscareIsPlaying;
 
 	[SerializeField] private SceneReference currentScene;
 
@@ -17,12 +18,17 @@ public class DeathManager : MonoBehaviour
 	{
 		//jumspscareAnimator.Play(jumpscareClip.name);
 		//jumpscareSFX.Play();
+		if (jumpscareIsPlaying) { Debug.LogWarning("Jumpscare already playing!"); yield break; }
+
+		jumpscareIsPlaying = true;
 
 		FindObjectOfType<JumpscareManager>().PlayJumpscare(jumpscareMonsterType);
 
 		yield return new WaitForSeconds(jumpscareDuration)/*new WaitForSeconds(jumpscareClip.length)*/;
 
 		FindObjectOfType<SceneLoader>().LoadScene(currentScene);
+
+		jumpscareIsPlaying = false;
 	}
 
 #if UNITY_EDITOR
