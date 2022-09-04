@@ -361,3 +361,27 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   particles: {fileID: 4150861388721857878, guid: 84b76616d1653ec44849c4505e0f3d6a, type: 3}
+  audioFadeInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.1789954
+      outSlope: 0.1789954
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.15144765
+    - serializedVersion: 3
+      time: 2
+      value: 1
+      inSlope: 0.9767397
+      outSlope: 0.9767397
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12026733
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

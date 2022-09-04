@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ExitDoor : MonoBehaviour
 {
@@ -10,9 +14,15 @@ public class ExitDoor : MonoBehaviour
 	[Header("Player In Door")]
 	[SerializeField] private GameObject fourthWall;
 
+	[Header("GFX")]
+	[SerializeField] AudioSource elevatorSFX;
+	[SerializeField] AudioMixer mainMixer;
+	[SerializeField] float targetLowpassCutoffFrequency = 1125f;
+	[SerializeField] AnimationCurve lowpassCurve;
+
 	private const float angleOffset = 90;
 	private void Start()
-	{
+	{		
 		fourthWall.SetActive(false);
 		InvokeRepeating(nameof(CorrectRotation), 0, 1f);
 	}
@@ -102,8 +112,32 @@ public class ExitDoor : MonoBehaviour
 	private void ExecuteEndingSequence()
 	{
 		fourthWall.SetActive(true);
-		FindObjectOfType<AudioManager>().Play("Elevator_Transition");
+
+		elevatorSFX.Play();
+		StartCoroutine(MuffleSounds());
 		StartCoroutine(FindObjectOfType<LevelTransition>().PlayTransitionCoroutine());
+	}
+
+	private IEnumerator MuffleSounds()
+	{			
+		float t = 0;
+		while(t < lowpassCurve.keys[lowpassCurve.keys.Length - 1].time)
+		{
+			t += Time.deltaTime;
+
+			for (int i = 0; i < AudioDataResetter.lowpassParams.Count; i++)
+			{
+				//Debug.Log("Evalutaintg Curve");
+				mainMixer.SetFloat(AudioDataResetter.lowpassParams[i], Mathf.Lerp(targetLowpassCutoffFrequency, AudioDataResetter.startingLowpassFrequencies[i], lowpassCurve.Evaluate(t)));
+			}				
+
+			yield return null;
+		}
+
+		for (int i = 0; i < AudioDataResetter.lowpassParams.Count; i++)
+		{
+			mainMixer.SetFloat(AudioDataResetter.lowpassParams[i], targetLowpassCutoffFrequency);
+		}
 	}
 
 	private void Update()

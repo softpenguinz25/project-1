@@ -16,7 +16,7 @@ public class PlayerGraphics : MonoBehaviour
 	//[SerializeField] private Sprite[] playerPoses = new Sprite[4];
 	//[SerializeField] private float changeSpriteThreshold = .1f;
 
-	[Header("Footsteps")]
+	[Header("Footstep SFX")]
 	[SerializeField] private float velocityThreshold = .4f;
 	[SerializeField] [MinMaxRange(0, 1.5f)] private RangedFloat startTimeBtwnFootsteps = new RangedFloat(0.4f, 0.7f);
 	[SerializeField] [MinMaxRange(0, 1.5f)] private RangedFloat maxTimeBtwnFootsteps = new RangedFloat(0.1f, 0.25f);
@@ -25,8 +25,12 @@ public class PlayerGraphics : MonoBehaviour
 	private bool playFirstFootstep;
 	private bool canPlayFootstep = true;
 
+	[Header("Footstep Particles")]
+	[SerializeField] ParticleSystem footstepParticles;
+
 	[Header("Poolrooms Slow Down")]
 	[SerializeField] private float slowDownSpeedMultiplier = .5f;
+	[SerializeField] GameObject splashParticles;
 	private float slowDownSpeed
 	{
 		get
@@ -35,6 +39,9 @@ public class PlayerGraphics : MonoBehaviour
 		}
 	}
 	private float originalSpeed;
+
+	[Header("Pushable Obstacle Particles")]
+	[SerializeField] GameObject pushableObstacleParticle;
 
 	private void Awake()
 	{
@@ -58,7 +65,7 @@ public class PlayerGraphics : MonoBehaviour
 
 	private void SlowDown(GameObject objToSlow)
 	{
-		if (objToSlow == gameObject) { pm.ChangeSpeed(slowDownSpeed); FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
+		if (objToSlow == gameObject) { pm.ChangeSpeed(slowDownSpeed); FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); Instantiate(splashParticles, transform.position, Quaternion.Euler(0, 0, -90)); }
 	}
 	
 	private void SpeedUp(GameObject objToSpeedUp)
@@ -79,6 +86,7 @@ public class PlayerGraphics : MonoBehaviour
 
 	private void Update()
 	{
+		#region Animations
 		/*if (pm.Movement.x > 0) sr.sprite = playerPoses[1];
 		else if (pm.Movement.x < 0) sr.sprite = playerPoses[3];
 		else if (pm.Movement.y > 0) sr.sprite = playerPoses[0];
@@ -98,11 +106,27 @@ public class PlayerGraphics : MonoBehaviour
 			animator.SetFloat("Horizontal_Idle", lastHorizontalMovement);
 			animator.SetFloat("Vertical_Idle", lastVerticalMovement);
 		}
+		#endregion
+
+		#region Footstep Particles
+		/*bool isMovingUp = pm.Movement.x*/
+		if(pm.Movement.sqrMagnitude > .01f)
+		{
+			if(!footstepParticles.isPlaying)
+				footstepParticles.Play();
+		}
+		else
+		{
+			if (footstepParticles.isPlaying)
+				footstepParticles.Stop();
+		}
+		#endregion
 	}
 
 	private void FixedUpdate()
 	{
-		if(pm.Movement.sqrMagnitude > velocityThreshold && Vector2.Distance(transform.position, lastPos) > velocityThreshold)
+		#region Footstep SFX
+		if (pm.Movement.sqrMagnitude > velocityThreshold && Vector2.Distance(transform.position, lastPos) > velocityThreshold)
 		{
 			if (playFirstFootstep)
 			{
@@ -149,6 +173,7 @@ public class PlayerGraphics : MonoBehaviour
 		}*/
 
 		lastPos = transform.position;
+		#endregion
 	}
 
 	private IEnumerator CanPlayFootstep()
@@ -158,5 +183,14 @@ public class PlayerGraphics : MonoBehaviour
 		yield return new WaitForSeconds(Random.Range(maxTimeBtwnFootsteps.Min, maxTimeBtwnFootsteps.Max));
 
 		canPlayFootstep = true;
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.CompareTag("Pushable Obstacle"))
+		{
+			FindObjectOfType<AudioManager>().Play("LVLRFYL_Obstacle_Collision_Player");
+			Instantiate(pushableObstacleParticle, collision.GetContact(0).point, Quaternion.Euler(-90, 0, 0));
+		}
 	}
 }

@@ -14,6 +14,7 @@ public class MonsterChaseGFX : MonoBehaviour
 	[ConditionalField(nameof(doChaseGFX))] [SerializeField] private float closeThreshold = 10f;
 	[ConditionalField(nameof(doChaseGFX))] [SerializeField] private bool checkObstructingObjects = true;
 	[ConditionalField(nameof(doChaseGFX))] [SerializeField] private LayerMask obstructingObstaclesMask;
+	[MustBeAssigned] [ConditionalField(nameof(doChaseGFX))] [SerializeField] float screenShakeIntensity, screenShakeTime;
 
 	[Header("Excluded Enemies")]
 	[SerializeField] private List<string> excludedMonsterNames;
@@ -77,6 +78,8 @@ public class MonsterChaseGFX : MonoBehaviour
 		FindObjectOfType<AudioManager>().PlayOneShot("Monster_Chase_Activated");
 		FindObjectOfType<AudioManager>().PlayOneShot("Monster_Chase_Heartbeat");
 		StartCoroutine(PostProcessingCurve());
+
+		FindObjectOfType<CinemachineShake>().ShakeCamera(screenShakeIntensity, screenShakeTime);
 
 		Invoke(nameof(RestartChaseSequence), timeUntilRestartSequence);
 	}

@@ -50,7 +50,7 @@ public class PartypooperInstructionsText : MonoBehaviour
 	private IEnumerator DisplayInstructionsText(GameObject monster)
 	{
 		GetComponent<RectTransform>().SetParent(monster.transform);
-		GetComponent<RectTransform>().localPosition = positionOffsetValue;
+		GetComponent<RectTransform>().localPosition = new Vector3(positionOffsetValue.x, positionOffsetValue.y, GetComponent<RectTransform>().localPosition.z);
 
 		displayingInstructionsText = true;
 		instructionsTextAnimator.SetTrigger("Display Text");

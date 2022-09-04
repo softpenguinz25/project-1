@@ -6,6 +6,7 @@ public class LVLPoolroomPoolSpeed : MonoBehaviour
 {
 	public static event Action<GameObject> SlowDown;
 	public static event Action<GameObject> SpeedUp;
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		SlowDown?.Invoke(collision.gameObject);

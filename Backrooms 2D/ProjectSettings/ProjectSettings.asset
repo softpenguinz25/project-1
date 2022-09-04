@@ -159,11 +159,12 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.JujuProdGames.Backrooms2D
     Standalone: com.DefaultCompany.Backrooms-2D
+    iPhone: com.JujuProdGames.Backrooms2D
   buildNumber:
     Standalone: 0
     iPhone: 0
     tvOS: 0
-  overrideDefaultApplicationIdentifier: 0
+  overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0

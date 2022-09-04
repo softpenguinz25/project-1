@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] AudioMixerGroup sfxMixerGroup;
     public Sound[] sounds;
     private void Awake()
     {
@@ -14,6 +16,7 @@ public class AudioManager : MonoBehaviour
                 s.sources[i].clip = s.clips[i];
                 s.sources[i].volume = (s.volume.Min + s.volume.Max) * .5f;
                 s.sources[i].pitch = (s.pitch.Min + s.pitch.Max) * .5f;
+                s.sources[i].outputAudioMixerGroup = sfxMixerGroup;
             }
         }
     }

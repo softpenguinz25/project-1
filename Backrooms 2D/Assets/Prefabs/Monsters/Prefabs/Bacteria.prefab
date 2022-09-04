@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8439881886016590097}
   - component: {fileID: 1473480131879910231}
   - component: {fileID: 4742552814224836672}
+  - component: {fileID: 1261276159012262394}
   m_Layer: 8
   m_Name: Bacteria
   m_TagString: Untagged
@@ -81,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 600948199
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 2330408890453820594, guid: b9131726bd12db342977d1196c905a56, type: 3}
   m_Color: {r: 0.3584906, g: 0.09722324, b: 0, a: 255}
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterName: bacteria
+  isDeadly: 1
 --- !u!114 &8169872300122906294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +214,33 @@ MonoBehaviour:
   - {fileID: 2330408890453820594, guid: b9131726bd12db342977d1196c905a56, type: 3}
   - {fileID: 7834785790638510443, guid: b9131726bd12db342977d1196c905a56, type: 3}
   spriteThreshold: 1.5
+  ambienceFadeInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  splashParticles: {fileID: 3410875123847766864, guid: 76cd75f6fded24a4a808ebf2a951bdb1, type: 3}
+  pushableObstacleParticle: {fileID: 469578196186756029, guid: d5df5e4057398b24fb22da6fda057b16, type: 3}
+  collidedWithPushableObstacleSFX: {fileID: 1261276159012262394}
 --- !u!114 &6051211600283715042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +283,7 @@ AudioSource:
   m_GameObject: {fileID: 7368467659627920316}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 781274183952673627, guid: 1bbd6242ec14d4d4ea435ab7d5adc914, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9e7fc9c69a553c644aea981afde403b1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -350,7 +379,7 @@ AudioSource:
   m_GameObject: {fileID: 7368467659627920316}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 781274183952673627, guid: 1bbd6242ec14d4d4ea435ab7d5adc914, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9c16788b6f12c6145bb7c71ce9086bf9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -398,6 +427,102 @@ AudioSource:
     - serializedVersion: 3
       time: 0
       value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1261276159012262394
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368467659627920316}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 314b9582dc37faa46848be8decddac4a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 7
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -489,7 +614,7 @@ MonoBehaviour:
   m_Intensity: 0.75
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: d791f22600000000
+  m_ApplyToSortingLayers: d791f22600000000e7bdd123edf0e5dabbf5a79521c65385931d6e13e17ac563
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

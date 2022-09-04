@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -10,6 +11,9 @@ public class ItemAlmondWater : ItemInLevel
 
 	[Header("GFX")]
 	[SerializeField] GameObject particles;
+	[SerializeField] AnimationCurve audioFadeInCurve;
+	float startingAudioLevel;
+	[SerializeField] float screenShakeIntensity = 1.5f, screenShakeTime = .5f;
 	public override void EquipItem(GameObject player)
 	{
 		if (itemUsed) return;
@@ -18,10 +22,30 @@ public class ItemAlmondWater : ItemInLevel
 		DisableItem();
 	}
 
+	private void Awake()
+	{
+		startingAudioLevel = GetComponent<AudioSource>().volume;
+	}
+
+	private IEnumerator Start()
+	{
+		float t = 0;
+		while(t < audioFadeInCurve.keys[audioFadeInCurve.keys.Length - 1].time)
+		{
+			t += Time.deltaTime;
+
+			GetComponent<AudioSource>().volume = audioFadeInCurve.Evaluate(t) * startingAudioLevel;
+			yield return null;
+		}
+
+		GetComponent<AudioSource>().volume = startingAudioLevel;
+	}
+
 	void PlayGFX()
 	{
 		Instantiate(particles, transform.position, Quaternion.Euler(-90, 0, 0));
 		FindObjectOfType<AudioManager>().Play("Item_AlmondWater_Drink");
+		FindObjectOfType<CinemachineShake>().ShakeCamera(screenShakeIntensity, screenShakeTime);
 	}
 
 	void DisableItem()

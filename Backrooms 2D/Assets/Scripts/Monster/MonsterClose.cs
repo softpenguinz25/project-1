@@ -23,6 +23,12 @@ public class MonsterClose : MonoBehaviour
 	{
 		get
 		{
+			if(mm.CurrentTarget == null)
+			{
+				//Debug.LogError("CURRENT TARGET = NULL lllllllllll");
+				return false;
+			}
+
 			var old = Physics2D.queriesHitTriggers;
 			Physics2D.queriesHitTriggers = false;
 
@@ -41,6 +47,12 @@ public class MonsterClose : MonoBehaviour
 	{
 		get
 		{
+			if (mm.CurrentTarget == null)
+			{
+				//Debug.LogError("CURRENT TARGET = NULL lllllllllll");
+				return false;
+			}
+
 			var old = Physics2D.queriesHitTriggers;
 			Physics2D.queriesHitTriggers = false;
 
@@ -59,6 +71,12 @@ public class MonsterClose : MonoBehaviour
 	{
 		get
 		{
+			if (mm.CurrentTarget == null)
+			{
+				//Debug.LogError("CURRENT TARGET = NULL lllllllllll");
+				return false;
+			}
+
 			var old = Physics2D.queriesHitTriggers;
 			Physics2D.queriesHitTriggers = false;
 

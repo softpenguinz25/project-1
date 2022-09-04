@@ -57,7 +57,7 @@ public class MonsterMovement : MonoBehaviour
 	[SerializeField] private MonsterStats inPoolStats;
 	[HideInInspector] public bool monsterIsInPool;
 
-	public MonsterStats CurrentStats
+	public virtual MonsterStats CurrentStats
 	{
 		get
 		{
@@ -96,7 +96,7 @@ public class MonsterMovement : MonoBehaviour
 	{
 		while (true)
 		{
-			if (mc.IsClose) { yield return null; continue; }
+			if (mc.IsClose /*|| mc.IsFarUnobstructing*/) { yield return null; continue; }
 
 			currentTimeBeforeGenerateNextPath = CurrentStats.timeBeforeGenerateNextPath;
 
@@ -144,6 +144,12 @@ public class MonsterMovement : MonoBehaviour
 
 	public virtual void Update()
 	{
+		if (DeathManager.jumpscareIsPlaying)
+		{
+			rb.velocity = Vector2.zero;
+			return;
+		}
+
 		SetupVariables();
 		
 		//if (Vector2.Distance(new Vector2(float.MaxValue, float.MaxValue), TargetPoint()) < 1) return;
@@ -160,6 +166,8 @@ public class MonsterMovement : MonoBehaviour
 		isSlow = rb.velocity.sqrMagnitude < slowThreshold ? true : false;
 
 		rb.drag = CurrentStats.linearDrag;
+
+		if (currentTarget == null) currentTarget = player;
 	}
 
 	public virtual Vector2 TargetPoint()

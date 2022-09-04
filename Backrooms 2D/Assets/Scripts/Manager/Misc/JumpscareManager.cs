@@ -25,6 +25,7 @@ public class JumpscareManager : MonoBehaviour
 		monsterImage.color = new Color(monsterImage.color.r, monsterImage.color.g, monsterImage.color.b, 1);
 
 		animator.SetTrigger("Jumpscare Template");
+		
 		jumpscareMonsterData.jumpscareSFX.PlayOneShot(jumpscareMonsterData.jumpscareSFX.clip);
 	}
 }

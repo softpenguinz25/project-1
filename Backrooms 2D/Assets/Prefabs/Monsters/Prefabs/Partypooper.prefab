@@ -40,6 +40,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5360219671641400113, guid: c9b5b10c1720dae4fa60c44a0aeb376f, type: 3}
     - target: {fileID: 2932896763359969662, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: isDeadly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932896763359969662, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: monsterName
       value: partypooper
       objectReference: {fileID: 0}

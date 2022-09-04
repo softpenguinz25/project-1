@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2058107359
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 3862268651811156481, guid: 13b2d5abfdb4577499ad812a75e88d7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,6 +129,14 @@ PrefabInstance:
     - target: {fileID: 235454110724991021, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder
@@ -192,6 +200,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -253,6 +269,14 @@ PrefabInstance:
     - target: {fileID: 235454110724991021, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder
@@ -316,6 +340,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -377,6 +409,14 @@ PrefabInstance:
     - target: {fileID: 235454110724991021, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder
@@ -440,6 +480,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -502,6 +550,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little
       objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -563,6 +619,14 @@ PrefabInstance:
     - target: {fileID: 235454110724991021, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_Name
       value: lvl_habitablezone_wall_little (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633908390021149478, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5175070436499516243, guid: ed87143857f8fc34bb0c53e3f306592a, type: 3}
       propertyPath: m_RootOrder

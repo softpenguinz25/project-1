@@ -1,4 +1,4 @@
-using UnityEditor;
+using System.Collections;
 using UnityEngine;
 
 public class MonsterGraphics : MonoBehaviour
@@ -10,6 +10,14 @@ public class MonsterGraphics : MonoBehaviour
 	[Header("Sprite")]
 	[SerializeField] private Sprite[] playerPoses = new Sprite[4];
 	[SerializeField] private float spriteThreshold = .4f;
+
+	[Header("Sound")]
+	[SerializeField] AnimationCurve ambienceFadeInCurve;
+	float startingAudioLevel;
+
+	[Header("Other GFX")]
+	[SerializeField] GameObject splashParticles;
+	[SerializeField] GameObject pushableObstacleParticle;
 
 	/*[Header("Poolrooms Slow Down")]
 	[SerializeField] private float slowDownSpeedMultiplier = .25f;
@@ -27,12 +35,25 @@ public class MonsterGraphics : MonoBehaviour
 		mm = GetComponent<MonsterMovement>();
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
+
+		startingAudioLevel = GetComponent<AudioSource>().volume;
 	}
 
-	private void Start()
+	private IEnumerator Start()
 	{
 		//originalSpeed = mm.CurrentStats.speed;
-		sr.sprite = playerPoses[2];	
+		sr.sprite = playerPoses[2];
+
+		float t = 0;
+		while (t < ambienceFadeInCurve.keys[ambienceFadeInCurve.keys.Length - 1].time)
+		{
+			t += Time.deltaTime;
+
+			GetComponent<AudioSource>().volume = ambienceFadeInCurve.Evaluate(t) * startingAudioLevel;
+			yield return null;
+		}
+
+		GetComponent<AudioSource>().volume = startingAudioLevel;
 	}
 
 	private void OnEnable()
@@ -54,7 +75,7 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void SlowDown(GameObject objToSlow)
 	{
-		if (objToSlow == gameObject) { mm.monsterIsInPool = true; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); }
+		if (objToSlow == gameObject) { mm.monsterIsInPool = true; FindObjectOfType<AudioManager>().PlayOneShot("LVLPoolrooms_Splash"); Instantiate(splashParticles, transform.position, Quaternion.Euler(0, 0, -90)); }
 	}
 
 	private void SpeedUp(GameObject objToSpeedUp)
@@ -82,5 +103,15 @@ public class MonsterGraphics : MonoBehaviour
 		else if (roundedForce.y < 0 && Mathf.Abs(roundedForce.x) < 0) sr.sprite = playerPoses[2];
 		else if (Mathf.Abs(roundedForce.y) < 0 && roundedForce.x > 0) sr.sprite = playerPoses[1];
 		else if (Mathf.Abs(roundedForce.y) < 0 && roundedForce.x < 0) sr.sprite = playerPoses[3];*/
+	}
+
+	[SerializeField] AudioSource collidedWithPushableObstacleSFX;
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.CompareTag("Pushable Obstacle"))
+		{
+			collidedWithPushableObstacleSFX.Play();
+			Instantiate(pushableObstacleParticle, collision.transform.position, Quaternion.Euler(-90, 0, 0));
+		}
 	}
 }

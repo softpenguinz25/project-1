@@ -231,6 +231,8 @@ MonoBehaviour:
   obstructingObstaclesMask:
     serializedVersion: 2
     m_Bits: 8200
+  screenShakeIntensity: 2
+  screenShakeTime: 0.5
   excludedMonsterNames:
   - partypooper
   postProcessingWeightCurve:

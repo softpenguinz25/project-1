@@ -58,8 +58,8 @@ public class MonsterSpawner : MonoBehaviour
 				if (numChunks % chunksBeforeSpawn == 0)
 				{
 					//Debug.Log("SpawnMonster - First Chunk Threshold Met");
-					StopCoroutine(SpawnMonsterAfterDelayCoroutine());
-					SpawnMonster();
+					StopCoroutine(SpawnMonsterAfterDelayCoroutine());//*IMPORTANT* THIS MAY NOT STOP THE COROUTINE, COULD CAUSE FUTURE ERRORS
+					StartCoroutine(SpawnMonsterAfterDelayCoroutine(spawnInstantly : true));
 				}
 			}
 			else
@@ -67,8 +67,8 @@ public class MonsterSpawner : MonoBehaviour
 				if ((numChunks + chunksBeforeSpawn) % reoccurringChunksBeforeSpawn == 0)
 				{
 					//Debug.Log("SpawnMonster - Reoccuring Chunks Threshold Met");
-					StopCoroutine(SpawnMonsterAfterDelayCoroutine());
-					SpawnMonster();
+					StopCoroutine(SpawnMonsterAfterDelayCoroutine());//*IMPORTANT* THIS MAY NOT STOP THE COROUTINE, COULD CAUSE FUTURE ERRORS
+					StartCoroutine(SpawnMonsterAfterDelayCoroutine(spawnInstantly : true));
 				}
 			}
 		};
@@ -76,19 +76,43 @@ public class MonsterSpawner : MonoBehaviour
 
 	public virtual IEnumerator SpawnMonsterAfterDelayCoroutine(GameObject monsterToSpawn = null, bool spawnInstantly = false)
 	{
+		//Debug.Log("Monster Passed as Parameter (Base Coroutine): " + monsterToSpawn);
+		//Debug.Log(monsterToSpawn);
 		if (!spawnInstantly)
 		{
-			if (!hasSpawnedOnce)
-				yield return new WaitForSeconds(UnityEngine.Random.Range(maxSpawnTimeDelay.Min, maxSpawnTimeDelay.Max));
-			else
-				yield return new WaitForSeconds(UnityEngine.Random.Range(reoccurringMaxSpawnTimeDelay.Min, reoccurringMaxSpawnTimeDelay.Max));
+			float spawnDelay = !hasSpawnedOnce ? UnityEngine.Random.Range(maxSpawnTimeDelay.Min, maxSpawnTimeDelay.Max) : UnityEngine.Random.Range(reoccurringMaxSpawnTimeDelay.Min, reoccurringMaxSpawnTimeDelay.Max);
+			//Debug.Log(spawnDelay);
+			yield return new WaitForSeconds(spawnDelay);
+			//Debug.Log("Spawn Delay: " + spawnDelay);
+			/*while(spawnDelay > 0)
+			{
+				spawnDelay -= Time.deltaTime;
+				yield return null;
+			}*/
 		}
+
+		//Debug.Log("Spawning Monster (Base Coroutine): " + monsterToSpawn);
 			SpawnMonster(monsterToSpawn);
+	}
+
+	public bool IsMonsterChasingPlayer()
+	{
+		foreach(MonsterClose mc in FindObjectsOfType<MonsterClose>())
+		{
+			if (mc.IsClose && mc.GetComponent<MonsterInfo>().isDeadly)
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 	
 	[ContextMenu("Spawn Monster")]
 	public void SpawnMonster(GameObject monsterToSpawn = null)
 	{
+		//Debug.Log("Monster Passed as Parameter (Function): " + monsterToSpawn);
+
 		if (!canSpawnMonster) return;
 		hasSpawnedOnce = true;
 
@@ -166,6 +190,7 @@ public class MonsterSpawner : MonoBehaviour
 			foreach (TileDistance invalidSpawnTile in invalidSpawnTiles) tileDistances.Remove(invalidSpawnTile);
 		}
 		//Debug.Log(tileDistances.Count);
+		//Debug.Log("Spawning monster: " + chosenMonster);
 		GameObject monsterObj = Instantiate(chosenMonster, tileDistances[0].tile.transform.position, Quaternion.identity);
 
 		canSpawnMonster = false;
@@ -180,9 +205,9 @@ public class MonsterSpawner : MonoBehaviour
 		StartCoroutine(RestartSystem());
 	}
 
-	private IEnumerator RestartSystem()
+	public IEnumerator RestartSystem()
 	{
-		yield return new WaitForSeconds(reoccurringMaxSpawnTimeDelay.Min * .01f);
+		yield return new WaitUntil(() => !IsMonsterChasingPlayer());
 		//Debug.Log("SpawnMonster - Restart System");
 		canSpawnMonster = true;
 		StartCoroutine(SpawnMonsterAfterDelayCoroutine());

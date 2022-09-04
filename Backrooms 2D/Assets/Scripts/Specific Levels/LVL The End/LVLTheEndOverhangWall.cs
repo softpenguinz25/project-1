@@ -28,15 +28,28 @@ public class LVLTheEndOverhangWall : MonoBehaviour
 		}
 	}
 
+	bool hasPlayedSFX;
 	private void ChangeTransparencyState(bool isOpaque)
 	{
 		switch (isOpaque)
 		{
 			case true:
 				sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+
+				if (hasPlayedSFX)
+				{
+					FindObjectOfType<AudioManager>().Play("LVLTheEnd_Overhang_Opaque");
+					hasPlayedSFX = false;
+				}				
 				break;
 			case false:
 				sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, transparentOpacity);
+
+				if (!hasPlayedSFX)
+				{
+					FindObjectOfType<AudioManager>().Play("LVLTheEnd_Overhang_Transparent");
+					hasPlayedSFX = true;
+				}
 				break;
 		}
 	}

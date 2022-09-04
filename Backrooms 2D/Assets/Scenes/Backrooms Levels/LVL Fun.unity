@@ -148,7 +148,7 @@ MonoBehaviour:
   reoccurringChunksBeforeSpawn: 50
   reoccurringMaxSpawnTimeDelay:
     Min: 28.399858
-    Max: 37.301308
+    Max: 37.57633
   maxNumMonsters: 5
   possibleMonsters:
   - {fileID: 2358195583797519872, guid: 2260581cbf96af9479dddde3fe5224c5, type: 3}
@@ -354,7 +354,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913130078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

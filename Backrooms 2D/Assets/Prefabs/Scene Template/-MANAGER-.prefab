@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1012872810186837401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4043246045851108501}
+  - component: {fileID: 7870977175417952190}
+  m_Layer: 0
+  m_Name: AudioDataResetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4043246045851108501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012872810186837401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4832884540809905489}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7870977175417952190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012872810186837401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0522c5e1ac8759646a2e29f495cf7b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMixer: {fileID: 24100000, guid: 1bbd6242ec14d4d4ea435ab7d5adc914, type: 2}
 --- !u!1 &3872079868689406772
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6abb2c7dd098484da22071dd2b0e8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxMixerGroup: {fileID: 8415912748507971970, guid: 1bbd6242ec14d4d4ea435ab7d5adc914, type: 2}
   sounds:
   - name: glitched placeholder
     clips:
@@ -103,16 +149,6 @@ MonoBehaviour:
     pitch:
       Min: 0
       Max: 0
-    sources: []
-  - name: Elevator_Transition
-    clips:
-    - {fileID: 8300000, guid: c1f35fda34011504386cf3abec0a396f, type: 3}
-    volume:
-      Min: 1
-      Max: 1
-    pitch:
-      Min: 1
-      Max: 1
     sources: []
   - name: LVLLobby_Player_Footsteps
     clips:
@@ -316,12 +352,22 @@ MonoBehaviour:
       Min: 1
       Max: 1
     sources: []
-  - name: Item_AlmondWater_Drink
+  - name: LVLTheEnd_Overhang_Transparent
     clips:
-    - {fileID: 8300000, guid: 590edc3d94d2cf846a78a067d311c3db, type: 3}
+    - {fileID: 8300000, guid: 4d455280ff8f1c241b93de26768d5739, type: 3}
     volume:
+      Min: 0.5034081
+      Max: 0.5034081
+    pitch:
       Min: 1
       Max: 1
+    sources: []
+  - name: LVLTheEnd_Overhang_Opaque
+    clips:
+    - {fileID: 8300000, guid: efa3b2ffecef45040b7d84465e6dfece, type: 3}
+    volume:
+      Min: 0.4985395
+      Max: 0.4985395
     pitch:
       Min: 1
       Max: 1
@@ -350,6 +396,16 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    sources: []
+  - name: LVLRFYL_Obstacle_Collision_Player
+    clips:
+    - {fileID: 8300000, guid: bb203e4b215e4bd42b37a144071565a1, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
     sources: []
   - name: LVLPoolrooms_Splash
     clips:
@@ -538,7 +594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4832884540809905489}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4832884539990356299
 AudioSource:
@@ -549,7 +605,7 @@ AudioSource:
   m_GameObject: {fileID: 4832884539990356297}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4629408393774505650, guid: 1bbd6242ec14d4d4ea435ab7d5adc914, type: 2}
   m_audioClip: {fileID: 8300000, guid: b89124f3e4e67b34f91cb0cdb43ebc89, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
@@ -698,6 +754,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4832884539486153770}
+  - {fileID: 4043246045851108501}
   - {fileID: 4832884539990356296}
   m_Father: {fileID: 4832884539794707006}
   m_RootOrder: 1

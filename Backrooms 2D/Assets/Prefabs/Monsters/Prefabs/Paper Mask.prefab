@@ -186,3 +186,5 @@ MonoBehaviour:
   monsterIsInPool: 0
   roamingPoints: []
   startDelayUntilRoam: 3
+  computerUI: {fileID: 0}
+  playerInComputerUIStats: {fileID: 11400000, guid: 3effac9d450a83f46a74fc644660df41, type: 2}

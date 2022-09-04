@@ -32,6 +32,26 @@ public class PaperMaskMovement : MonsterMovement
 		}
 	}
 
+	[Header("Paper Mask Player In Computer Behaviour")]
+	[SerializeField] GameObject computerUI;
+	bool playerInComputerUI
+	{
+		get
+		{
+			return computerUI.activeSelf;
+		}
+	}
+	[SerializeField] MonsterStats playerInComputerUIStats;
+	public override MonsterStats CurrentStats
+	{
+		get
+		{
+			if (playerInComputerUI && CurrentTarget == Player && MC.IsClose) return playerInComputerUIStats;
+
+			return base.CurrentStats;
+		}
+	}
+
 	public override void Awake()
 	{
 		base.Awake();
@@ -71,8 +91,12 @@ public class PaperMaskMovement : MonsterMovement
 
 	public override void Update()
 	{
+		#region Variable Setting
+		if (playerInComputerUI) ChangeTarget(Player);
+		#endregion
+
 		#region State Switching
-		if(lastMonsterState != currentMonsterState)
+		if (lastMonsterState != currentMonsterState)
 		{
 			switch (currentMonsterState)
 			{

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeathManager : MonoBehaviour
 {
 	public static float jumpscareDuration = 1;
-	static bool jumpscareIsPlaying;
+	public static bool jumpscareIsPlaying;
 
 	[SerializeField] private SceneReference currentScene;
 

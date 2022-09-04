@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Exit
   - Connection Point
+  - Pushable Obstacle
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,18 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Entity
+    uniqueID: 600948199
+    locked: 0
+  - name: Player
+    uniqueID: 3672502509
+    locked: 0
+  - name: Exit
+    uniqueID: 2510812603
+    locked: 0
+  - name: Tile Wall
+    uniqueID: 2236859937
     locked: 0
   - name: FOV
     uniqueID: 325983635
