@@ -39,6 +39,18 @@ PrefabInstance:
       propertyPath: monsterName
       value: paper mask
       objectReference: {fileID: 0}
+    - target: {fileID: 3102600820047649927, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102600820047649927, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102600820047649927, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4742552814224836672, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_audioClip
       value: 

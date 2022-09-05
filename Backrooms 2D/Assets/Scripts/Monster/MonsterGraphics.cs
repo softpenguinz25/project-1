@@ -15,6 +15,9 @@ public class MonsterGraphics : MonoBehaviour
 	[SerializeField] AnimationCurve ambienceFadeInCurve;
 	float startingAudioLevel;
 
+	[Header("Footsteps")]
+	[SerializeField] ParticleSystem footstepParticles;
+
 	[Header("Other GFX")]
 	[SerializeField] GameObject splashParticles;
 	[SerializeField] GameObject pushableObstacleParticle;
@@ -97,6 +100,19 @@ public class MonsterGraphics : MonoBehaviour
 		else if (rb.velocity.x > spriteThreshold) sr.sprite = playerPoses[1];
 		else if (rb.velocity.x < -spriteThreshold) sr.sprite = playerPoses[3];
 
+		#region Footstep Particles
+		/*bool isMovingUp = pm.Movement.x*/
+		if (rb.velocity.sqrMagnitude > .8f)
+		{
+			if (!footstepParticles.isPlaying)
+				footstepParticles.Play();
+		}
+		else
+		{
+			if (footstepParticles.isPlaying)
+				footstepParticles.Stop();
+		}
+		#endregion
 		/*Vector2 roundedForce = new Vector2(Math.Sign(mm.Force.x), Math.Sign(mm.Force.y));
 		Debug.Log(roundedForce);
 		if (roundedForce.y > 0 && Mathf.Abs(roundedForce.x) < 0) sr.sprite = playerPoses[0];

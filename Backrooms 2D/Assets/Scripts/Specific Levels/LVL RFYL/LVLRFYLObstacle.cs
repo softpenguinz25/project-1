@@ -13,7 +13,7 @@ public class LVLRFYLObstacle : MonoBehaviour
 	[Header("GFX")]
 	[SerializeField] Color tintColor = new Color(1, 1, 1, 0);
 	[SerializeField] GameObject destroyParticles;
-	[SerializeField] AudioSource destroySFX;
+	[SerializeField] SeparatedSFX destroySFX;
 
 	private void Awake()
 	{
@@ -38,11 +38,7 @@ public class LVLRFYLObstacle : MonoBehaviour
 	{
 		sequenceTriggered = true;
 
-		#region SFX
-		destroySFX.transform.parent = null;
 		destroySFX.Play();
-		Destroy(destroySFX.gameObject, destroySFX.clip.length);
-		#endregion
 
 		#region Shader (White Tint)
 		float t = 0;

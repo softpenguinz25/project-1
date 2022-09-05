@@ -12,9 +12,12 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_STANDALONE
 			moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 #elif UNITY_ANDROID || UNITY_IOS
+			if (!joystick.gameObject.activeSelf) return Vector2.zero;
+
 			moveVector = new Vector2(joystick.Horizontal, joystick.Vertical);
 #elif UNITY_WEBGL
-			if(Mathf.Abs(joystick.Horizontal) < .01f && Mathf.Abs(joystick.Vertical) < .01f) moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
+			if(Mathf.Abs(joystick.Horizontal) < .01f && Mathf.Abs(joystick.Vertical) < .01f || !joystick.gameObject.activeSelf) moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 			else moveVector = new Vector2(joystick.Horizontal, joystick.Vertical);			
 #endif
 			return moveVector;
@@ -46,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
 		joystick = FindObjectOfType<Joystick>();
 		joystick.gameObject.SetActive(true);
 #if UNITY_STANDALONE
-		joystick.gameObject.SetActive(false);
+		joystick.enabled = false;
+		joystick.transform.GetChild(0).gameObject.SetActive(false);
 #endif
 
 		currentSpeed = startSpeed;

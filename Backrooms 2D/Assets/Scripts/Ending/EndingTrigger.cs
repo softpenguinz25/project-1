@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EndingTrigger : MonoBehaviour
@@ -6,6 +8,9 @@ public class EndingTrigger : MonoBehaviour
 	[SerializeField] private string triggerName = "Ending Triggered";
     private static bool hasActivatedTrigger;
 	public static bool HasActivatedTrigger { get { return hasActivatedTrigger; } }
+
+	//[SerializeField] Animator animatorToDisable;
+	[SerializeField] List<GameObject> gosToDisable = new List<GameObject>();
 
 	private void Start()
 	{
@@ -18,6 +23,17 @@ public class EndingTrigger : MonoBehaviour
 		{
 			endingAnimator.SetTrigger(triggerName);
 			hasActivatedTrigger = true;
+
+			DisableOtherUI();
+		}
+	}
+
+	private void DisableOtherUI()
+	{
+		//animatorToDisable.enabled = false;
+		foreach(GameObject go in gosToDisable)
+		{
+			go.SetActive(false);
 		}
 	}
 }

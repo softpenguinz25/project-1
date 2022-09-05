@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2636653405312778006}
+  - component: {fileID: 7532596268630202013}
   - component: {fileID: 3599136981276550238}
   m_Layer: 0
   m_Name: Destroy SFX
@@ -32,6 +33,18 @@ Transform:
   m_Father: {fileID: 5863628800110921453}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7532596268630202013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233686993157603523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f239136f6464b549840bfa6f9df2f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &3599136981276550238
 AudioSource:
   m_ObjectHideFlags: 0
@@ -301,4 +314,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   tintColor: {r: 1, g: 1, b: 1, a: 0}
   destroyParticles: {fileID: 4150861388721857878, guid: ae987d6e9fa10194488a9a44e25d4498, type: 3}
-  destroySFX: {fileID: 3599136981276550238}
+  destroySFX: {fileID: 7532596268630202013}
