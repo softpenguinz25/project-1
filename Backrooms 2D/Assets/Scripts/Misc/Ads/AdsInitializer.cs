@@ -9,7 +9,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 	[SerializeField] bool _testMode = true;
 	private string _gameId;
 
-	static bool adsInitialized;
+	public static bool adsInitialized;
 
 	void Awake()
 	{
@@ -45,6 +45,8 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 		{
 			var old = rewardedAdMenuManager.gameObject.activeSelf;
 			rewardedAdMenuManager.gameObject.SetActive(true);
+
+			//Debug.Log("Loading Ad Attached to this GameObject: " + rewardedAdMenuManager.gameObject, rewardedAdMenuManager);
 
 			rewardedAdMenuManager.LoadAd();
 

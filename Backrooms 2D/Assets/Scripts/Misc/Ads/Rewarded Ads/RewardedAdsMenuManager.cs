@@ -23,8 +23,10 @@ public class RewardedAdsMenuManager : MonoBehaviour, IUnityAdsLoadListener, IUni
 		// Get the Ad Unit ID for the current platform:
 #if UNITY_IOS
         _adUnitId = _iOSAdUnitId;
+        Debug.Log("is iOS! Game Id: " + _adUnitId);
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
+        Debug.Log("is Android! Game Id " + _adUnitId);
 #endif
 
 		//Disable the button until the ad is ready to show:
@@ -35,7 +37,8 @@ public class RewardedAdsMenuManager : MonoBehaviour, IUnityAdsLoadListener, IUni
     public void LoadAd()
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        //Debug.Log("Loading Ad: " + _adUnitId);        
+        //Debug.Log("Ads Initialized: " + AdsInitializer.adsInitialized);
+        //Debug.Log("Loading Ad: " + _adUnitId/* + "which has the value of " + Convert.ToInt32(_adUnitId)*/);        
         Advertisement.Load(_adUnitId, this);
     }
 
@@ -43,6 +46,7 @@ public class RewardedAdsMenuManager : MonoBehaviour, IUnityAdsLoadListener, IUni
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
         //Debug.Log("Ad Loaded: " + adUnitId);
+        //Debug.Log("Target Ad Unity Id: " + _adUnitId);
 
 		if (adUnitId.Equals(_adUnitId))
 		{
