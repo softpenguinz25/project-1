@@ -23,10 +23,10 @@ public class RewardedAdsMenuManager : MonoBehaviour, IUnityAdsLoadListener, IUni
 		// Get the Ad Unit ID for the current platform:
 #if UNITY_IOS
         _adUnitId = _iOSAdUnitId;
-        Debug.Log("is iOS! Game Id: " + _adUnitId);
+        //Debug.Log("is iOS! Game Id: " + _adUnitId);
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
-        Debug.Log("is Android! Game Id " + _adUnitId);
+        //Debug.Log("is Android! Game Id " + _adUnitId);
 #endif
 
 		//Disable the button until the ad is ready to show:

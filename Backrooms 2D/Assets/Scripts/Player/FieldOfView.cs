@@ -49,6 +49,7 @@ public class FieldOfView : MonoBehaviour
             Vector2 pointThroughWall = initialRaycastHit2D.point + .01f * (Vector2)raycastDir;
 			while (Physics2D.OverlapPoint(pointThroughWall, tileMask)/* == initalRaycastHit2D.collider*/)
 			{
+				#region Old Code
 				/*GameObject initialWall = initalRaycastHit2D.collider.gameObject;
 				GameObject wallThroughInitialWall = Physics2D.OverlapPoint(pointThroughWall).gameObject;
 				if (wallThroughInitialWall.gameObject != initialWall)
@@ -60,6 +61,7 @@ public class FieldOfView : MonoBehaviour
 						break;
 				}
 	*/
+				#endregion
 				pointThroughWall += wallAccuracy * (Vector2)raycastDir;
 		    }
 
@@ -76,6 +78,7 @@ public class FieldOfView : MonoBehaviour
             }
             else
 			{
+				#region Old Code
 				//Hit object
 				#region Calculate Collider Offset
 				//initalRaycastHit2D = CalculateColliderOffset(initalRaycastHit2D);
@@ -99,6 +102,7 @@ public class FieldOfView : MonoBehaviour
                         break;
                     }
 				}*/
+				#endregion
 
 				vertex = pointThroughWall;
 			}

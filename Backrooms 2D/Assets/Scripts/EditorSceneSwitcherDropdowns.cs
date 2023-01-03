@@ -4,6 +4,8 @@ namespace KingdomOfNight
     public partial class EditorSceneSwitcher
     {
 #if UNITY_EDITOR
+        [MenuItem("Scenes/Backrooms Levels/Epilepsy Warning")]
+        public static void LoadEpilepsyWarning() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Epilepsy Warning.unity"); }
         [MenuItem("Scenes/Backrooms Levels/Escape")]
         public static void LoadEscape() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Escape.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL Electrical Station")]
@@ -48,6 +50,8 @@ namespace KingdomOfNight
         public static void LoadThumbnail2Remake() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail 2 Remake.unity"); }
         [MenuItem("Scenes/Thumbnail/Thumbnail 2")]
         public static void LoadThumbnail2() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail 2.unity"); }
+        [MenuItem("Scenes/Videos/Part 3/Part 3 Intro")]
+        public static void LoadPart3Intro() { EditorSceneSwitcher.OpenScene("Assets/scenes/Videos/Part 3/Part 3 Intro.unity"); }
 #endif
     }
 }
