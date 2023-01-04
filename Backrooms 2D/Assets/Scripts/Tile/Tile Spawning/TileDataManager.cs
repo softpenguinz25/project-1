@@ -32,13 +32,29 @@ public class TileDataManager : MonoBehaviour
 		TileAdded?.Invoke(tileToAdd, tiles.Count);
 	}
 
-	public void AddConnectionPoint(Transform connectionPointToAdd)
+	public void AddConnectionPoint(Transform connectionPointToAdd) => connectionPoints.Add(connectionPointToAdd);
+	public void DestroyConnectionPoint(Transform connectionPointToRemove)
 	{
-		connectionPoints.Add(connectionPointToAdd);
+		for(int i = 0; i < connectionPoints.Count; i++)
+		{
+			if (connectionPoints[i] == connectionPointToRemove)
+			{
+				connectionPoints.Remove(connectionPointToRemove);//destroy duplicates as well
+				i = 0;
+			}
+		}
+		Destroy(connectionPointToRemove.gameObject);
 	}
 
 	public void CheckConnectionPoints()
 	{
+		for (int i = connectionPoints.Count - 1; i >= 0; i--)
+		{
+			if (connectionPoints[i] == null)
+			{
+				connectionPoints.RemoveAt(i);
+			}
+		}
 		//Debug.Log("Checking " + connectionPoints.Count + " CPs in " + tiles.Count + " tiles...");
 		List<Transform> impossibleConnectionPoints = new List<Transform>();
 		foreach (TilePrefab tile in tiles)

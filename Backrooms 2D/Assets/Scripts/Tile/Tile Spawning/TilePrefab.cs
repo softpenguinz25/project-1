@@ -6,12 +6,21 @@ using UnityEngine;
 [SelectionBase]
 public class TilePrefab : MonoBehaviour
 {
+    TileDataManager tdm;
+
     public GameObject referenceTile;
+    [Tooltip("Uses normal tile generation system but the tiles are scaled up and not neccesarily square")]
+    public bool isBigTile;
     public bool isGroupTile;
 
     [Header("IF IS GROUP TILE = FALSE")]
     [Space]
     public List<Transform> connectionPoints;
+    public void AddCP(Transform cp)
+    {
+        connectionPoints.Add(cp);
+        tdm.AddConnectionPoint(cp);
+    }
 
     [Space]
     [Space]
@@ -29,6 +38,11 @@ public class TilePrefab : MonoBehaviour
     [Space]
     public bool canBeRotated = false;
     public List<Transform> specialCPs;
+
+	private void Awake()
+	{
+        tdm = FindObjectOfType<TileDataManager>();
+	}
 
 	private void OnDrawGizmos()
 	{

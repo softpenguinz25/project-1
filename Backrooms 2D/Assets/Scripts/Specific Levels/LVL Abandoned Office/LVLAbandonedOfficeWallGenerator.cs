@@ -10,7 +10,7 @@ public class LVLAbandonedOfficeWallGenerator : MonoBehaviour
     [Tooltip("inclusive, inclusive")]
     [SerializeField] RangedInt numWallOpeningsRange = new RangedInt(1, 2);
 
-	private void Start()
+	private void Awake()
 	{
         currentWallSpots = wallSpots;
 

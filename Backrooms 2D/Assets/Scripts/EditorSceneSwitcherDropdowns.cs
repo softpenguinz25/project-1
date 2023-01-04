@@ -8,6 +8,8 @@ namespace KingdomOfNight
         public static void LoadEpilepsyWarning() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Epilepsy Warning.unity"); }
         [MenuItem("Scenes/Backrooms Levels/Escape")]
         public static void LoadEscape() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Escape.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/LVL Abandoned Office")]
+        public static void LoadLVLAbandonedOffice() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL Abandoned Office.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL Electrical Station")]
         public static void LoadLVLElectricalStation() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL Electrical Station.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL Fun")]
@@ -24,6 +26,8 @@ namespace KingdomOfNight
         public static void LoadLVLRFYL() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL RFYL.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL The End")]
         public static void LoadLVLTheEnd() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL The End.unity"); }
+        [MenuItem("Scenes/Testing/Abandoned Office Wall Test")]
+        public static void LoadAbandonedOfficeWallTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Abandoned Office Wall Test.unity"); }
         [MenuItem("Scenes/Testing/Electrical Station Gate Test")]
         public static void LoadElectricalStationGateTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Electrical Station Gate Test.unity"); }
         [MenuItem("Scenes/Testing/Input Field Test")]

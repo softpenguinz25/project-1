@@ -40,7 +40,7 @@ public class TileSpawner : MonoBehaviour
 	private void SpawnFirstTile()
 	{
 		TilePrefab firstTile = Instantiate(tileCollection.firstTile.tilePrefab, Vector3.zero, Quaternion.identity);
-		if (!firstTile.isGroupTile)
+		if (!firstTile.isGroupTile && !firstTile.isBigTile)
 		{
 			tm.AddTile(firstTile);
 			foreach (Transform connectionPoint in firstTile.connectionPoints) tm.AddConnectionPoint(connectionPoint);
@@ -80,6 +80,7 @@ public class TileSpawner : MonoBehaviour
 					//Debug.Log("(Spawn Tile) TileManager Connection Points Count: " + tm.connectionPoints.Count);
 					foreach (Transform connectionPoint in tm.connectionPoints)
 					{
+						if (connectionPoint == null) continue;
 						Vector2 roundedConnectionPointPos = new Vector2(Mathf.Round(connectionPoint.transform.position.x / tl.chunkSize), Mathf.Round(connectionPoint.transform.position.y / tl.chunkSize)) * tl.chunkSize;
 						//Debug.Log("(Spawn Tile) Rounded Connection Pos: " + roundedConnectionPointPos);
 						//Debug.Log("(Spawn Tile) Current Player Chunk: " + tl.CurrentPlayerChunk());
@@ -173,8 +174,92 @@ public class TileSpawner : MonoBehaviour
 			if(tilePrefab.referenceTile.GetComponent<TilePrefab>() == null) tilePrefab.referenceTile = randomConnectionPoint.root.gameObject;*/
 			#endregion
 
-			#region 2.5. Apply Group Tile Settings (If Applicable)
-			if (tilePrefab.isGroupTile)
+			#region 2.5. Apply Special Tile Settings (If Applicable)
+			if(tilePrefab.isBigTile && !tilePrefab.isGroupTile)
+			{
+				if (tilePrefab.GetComponent<TileGraphics>() != null) tilePrefab.GetComponent<TileGraphics>().ToggleGraphics(false);
+
+				yield return null;
+				Transform spawnedTileCP = tilePrefab.connectionPoints[UnityEngine.Random.Range(0, tilePrefab.connectionPoints.Count)];				
+				//correct rotation before moving
+				//this while condition took a lot of testing. the angle diff needs to be -90 for this to work, idk why lol
+				while (Mathf.Abs(HelperMethods.GetPositiveAngle(Mathf.DeltaAngle(randomConnectionPoint.eulerAngles.z, spawnedTileCP.eulerAngles.z)) - 180) > 1)
+				{
+					tilePrefab.transform.eulerAngles = new Vector3(0, 0, tilePrefab.transform.eulerAngles.z + 90);
+				}
+
+				Vector3 diffToMove = randomConnectionPoint.parent.parent.position - spawnedTileCP.position;
+				tilePrefab.transform.position += diffToMove;
+
+				yield return null;
+
+				#region Obstruction
+				#region Get All Overlapping GOs
+				//Thanks Baste! https://forum.unity.com/threads/cant-get-physics2d-overlapbox-to-hit-triggers.1068140/
+				var old = Physics2D.queriesHitTriggers;
+				Physics2D.queriesHitTriggers = true;
+				ContactFilter2D contactFilter = new ContactFilter2D();
+				List<Collider2D> tilesDetectedInArea = new List<Collider2D>();
+				Physics2D.OverlapCollider(tilePrefab.GetComponent<CompositeCollider2D>(), contactFilter, tilesDetectedInArea);
+				Physics2D.queriesHitTriggers = old;
+
+				List<Collider2D> invalidTiles = new List<Collider2D>();
+				foreach (Collider2D collider in tilesDetectedInArea)
+				{
+					TilePrefab colliderTilePrefab = collider.GetComponent<TilePrefab>();
+					WallData colliderWallData = collider.GetComponent<WallData>();
+
+					if (colliderWallData != null)
+					{
+						if (colliderWallData.transform.IsChildOf(tilePrefab.transform)) { invalidTiles.Add(collider); continue; }
+						else continue;
+					}
+
+					if (colliderTilePrefab == null || colliderTilePrefab.isGroupTile || colliderTilePrefab.transform.IsChildOf(tilePrefab.transform)) 
+					{ 
+						invalidTiles.Add(collider); 
+						continue; 
+					}
+				}
+
+				foreach (Collider2D invalidTile in invalidTiles)
+				{
+					if (tilesDetectedInArea.Contains(invalidTile))
+					{
+						tilesDetectedInArea.Remove(invalidTile);
+					}
+				}
+				#endregion
+
+				#region Obstruction Test
+				bool obstructingTileDetected = tilesDetectedInArea.Count > 1 ? true : false;
+				if (obstructingTileDetected)
+				{
+					foreach (Transform cp in tilePrefab.connectionPoints) tm.DestroyConnectionPoint(cp);
+					tm.DestroyConnectionPoint(randomConnectionPoint);
+					Destroy(tilePrefab.gameObject);
+					continue;
+				}
+				#endregion
+				#endregion
+
+				//Apply Data
+				AddTile(tilePrefab);
+
+				int currentAreaTile = 0;				
+				foreach (TilePrefab areaTile in tilePrefab.tileArea)
+				{
+					AddTile(areaTile);
+					currentAreaTile++;
+					if (currentAreaTile % 3 == 0)
+						yield return null;//Stop lagspikes
+				}
+
+				if(tilePrefab.GetComponent<TileGraphics>() != null) tilePrefab.GetComponent<TileGraphics>().ToggleGraphics(true);
+
+				continue;
+			}
+			else if (!tilePrefab.isBigTile && tilePrefab.isGroupTile)
 			{
 				//Debug.Log("Executing Group Tile Logic...");
 

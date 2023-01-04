@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5090ff7e52b2d134ba08f71466ef3c45, type: 3}
+  m_Name: LVL Abandoned Office Tile Collection
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 0b855c12d296f9c40964a5883b99e555, type: 2}
+  - {fileID: 11400000, guid: 4072520dad6dade41933568afec894ed, type: 2}
+  - {fileID: 11400000, guid: b264c2d22e30d5e4284791d753f00418, type: 2}
+  - {fileID: 11400000, guid: 930bcae84d58123429afe44dd6e1216f, type: 2}
+  firstTile: {fileID: 11400000, guid: 0b855c12d296f9c40964a5883b99e555, type: 2}
+  tileSize: 3

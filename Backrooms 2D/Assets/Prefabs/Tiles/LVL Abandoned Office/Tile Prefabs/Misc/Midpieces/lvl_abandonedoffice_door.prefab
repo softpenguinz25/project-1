@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8135065294932391074}
   - component: {fileID: 2268351378648020078}
-  - component: {fileID: 6752315898629646339}
+  - component: {fileID: 2431727660582190911}
   m_Layer: 3
   m_Name: lvl_abandonedoffice_door
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2938556181262031255, guid: c7f8b8d11f0054a499530a602ded195c, type: 3}
+  m_Sprite: {fileID: 3949615398868337160, guid: c7f8b8d11f0054a499530a602ded195c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6752315898629646339
+--- !u!61 &2431727660582190911
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,12 +102,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15625, y: 0.03125}
+    oldSize: {x: 0.25, y: 0.03125}
     newSize: {x: 0.15625, y: 0.03125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.625, y: 0.125}
+  m_Size: {x: 0.25, y: 0.03125}
   m_EdgeRadius: 0
