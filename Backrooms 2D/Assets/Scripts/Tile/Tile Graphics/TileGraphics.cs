@@ -1,11 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class TileGraphics : MonoBehaviour
 {
-	[SerializeField] List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
+	List<Transform> childrenObjects = new List<Transform>();
+	[SerializeField] string invisibleToFOV, tileLayer;
 
 /*	private IEnumerator Start()
 	{
@@ -15,10 +15,14 @@ public class TileGraphics : MonoBehaviour
 
 	public void ToggleGraphics(bool toggle)
 	{
-		if(!toggle) spriteRenderers = GetComponentsInChildren<SpriteRenderer>().ToList();
-		foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+		if (!toggle) childrenObjects = transform.GetComponentsInChildren<Transform>().ToList();
+
+		foreach (Transform child in childrenObjects)
 		{
-			spriteRenderer.enabled = toggle;
+			if (child == null) continue;
+			SpriteRenderer childSpriteRenderer = child.GetComponent<SpriteRenderer>();
+			if (childSpriteRenderer != null) childSpriteRenderer.enabled = toggle;
+			child.gameObject.layer = toggle ? LayerMask.NameToLayer(tileLayer) : LayerMask.NameToLayer(invisibleToFOV);
 		}
 	}
 }

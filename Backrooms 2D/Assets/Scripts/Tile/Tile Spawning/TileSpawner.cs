@@ -69,7 +69,7 @@ public class TileSpawner : MonoBehaviour
 			if (doWaitTime) yield return new WaitForSeconds(timeBtwnSpawns);
 			else doWaitTime = true;
 
-			Transform randomConnectionPoint = null;
+			Transform randomReferenceCP = null;
 			#region 1. Pick Connection Point
 			if (tl != null)
 			{
@@ -108,35 +108,35 @@ public class TileSpawner : MonoBehaviour
 				}
 				//yield return new WaitUntil(() => validConnectionPoints.Count > 0);
 				validCPs = validConnectionPoints;
-				randomConnectionPoint = validConnectionPoints[UnityEngine.Random.Range(0, validConnectionPoints.Count)];
+				randomReferenceCP = validConnectionPoints[UnityEngine.Random.Range(0, validConnectionPoints.Count)];
 				//Debug.Log("Random Connection Point Found: " + randomConnectionPoint);
 			}
 			else
 			{
 				if (tm.connectionPoints.Count <= 0) FindObjectOfType<TileRestarter>().RestartTileGeneration();
-				else randomConnectionPoint = tm.connectionPoints[UnityEngine.Random.Range(0, tm.connectionPoints.Count)];
+				else randomReferenceCP = tm.connectionPoints[UnityEngine.Random.Range(0, tm.connectionPoints.Count)];
 			}
 			#endregion
 
 			#region 2. Spawn Tile
 			TileTemplate randomTileTemplate;
-			CPData cpData = randomConnectionPoint.GetComponent<CPData>();
+			CPData cpData = randomReferenceCP.GetComponent<CPData>();
 
 			if (cpData == null || !cpData.enabled || !cpData.gameObject.activeSelf) randomTileTemplate = RandomSpawnChanceTile(tileCollection);
 			else randomTileTemplate = RandomSpawnChanceTile(cpData.tileCollection);
-			TilePrefab tilePrefab;
+			TilePrefab newlySpawnedtilePrefab;
 			if (!randomTileTemplate.tilePrefab.isGroupTile)
 			{
 				//Debug.Log("Overlapping tiles detected");
-				tilePrefab = Instantiate(randomTileTemplate.tilePrefab, randomConnectionPoint.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
+				newlySpawnedtilePrefab = Instantiate(randomTileTemplate.tilePrefab, randomReferenceCP.position, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
 			}
 			else
 			{
-				Vector2 checkPos = randomConnectionPoint.position;
+				Vector2 checkPos = randomReferenceCP.position;
 
 				//Correct Position
 				float epsilon = .01f;
-				Vector2 diffBetweenConnectionAndTile = randomConnectionPoint.position - randomConnectionPoint.parent.position;
+				Vector2 diffBetweenConnectionAndTile = randomReferenceCP.position - randomReferenceCP.parent.position;
 
 				bool connectionPointIsUp = Mathf.Abs(diffBetweenConnectionAndTile.x) < epsilon && diffBetweenConnectionAndTile.y > epsilon;
 				bool connectionPointIsRight = diffBetweenConnectionAndTile.x > epsilon && Mathf.Abs(diffBetweenConnectionAndTile.y) < epsilon;
@@ -162,7 +162,7 @@ public class TileSpawner : MonoBehaviour
 				if (Physics2D.OverlapBoxAll(checkPos, randomTileTemplate.tilePrefab.tileSize, 0, tileMask).Length <= 0)
 				{
 					//Debug.Log("Smart Instiating " + randomTileTemplate.tilePrefab.gameObject.name);
-					tilePrefab = Instantiate(randomTileTemplate.tilePrefab, randomConnectionPoint.position/*checkPos*/, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
+					newlySpawnedtilePrefab = Instantiate(randomTileTemplate.tilePrefab, randomReferenceCP.position/*checkPos*/, Quaternion.Euler(0, 0, UnityEngine.Random.Range(0, 4) * 90));
 				}
 				else
 				{
@@ -170,26 +170,26 @@ public class TileSpawner : MonoBehaviour
 				}
 			}
 			//Debug.Log("Tile Instantiated: " + tilePrefab.name, tilePrefab);
-			tilePrefab.referenceTile = randomConnectionPoint.gameObject.GetComponentInParent<TilePrefab>(true).gameObject;/*randomConnectionPoint.parent.gameObject;
+			newlySpawnedtilePrefab.referenceTile = randomReferenceCP.gameObject.GetComponentInParent<TilePrefab>(true).gameObject;/*randomConnectionPoint.parent.gameObject;
 			if(tilePrefab.referenceTile.GetComponent<TilePrefab>() == null) tilePrefab.referenceTile = randomConnectionPoint.root.gameObject;*/
 			#endregion
 
 			#region 2.5. Apply Special Tile Settings (If Applicable)
-			if(tilePrefab.isBigTile && !tilePrefab.isGroupTile)
+			if(newlySpawnedtilePrefab.isBigTile && !newlySpawnedtilePrefab.isGroupTile)
 			{
-				if (tilePrefab.GetComponent<TileGraphics>() != null) tilePrefab.GetComponent<TileGraphics>().ToggleGraphics(false);
+				if (newlySpawnedtilePrefab.GetComponent<TileGraphics>() != null) newlySpawnedtilePrefab.GetComponent<TileGraphics>().ToggleGraphics(false);
 
 				yield return null;
-				Transform spawnedTileCP = tilePrefab.connectionPoints[UnityEngine.Random.Range(0, tilePrefab.connectionPoints.Count)];				
+				Transform newlySpawnedTileCP = newlySpawnedtilePrefab.connectionPoints[UnityEngine.Random.Range(0, newlySpawnedtilePrefab.connectionPoints.Count)];				
 				//correct rotation before moving
 				//this while condition took a lot of testing. the angle diff needs to be -90 for this to work, idk why lol
-				while (Mathf.Abs(HelperMethods.GetPositiveAngle(Mathf.DeltaAngle(randomConnectionPoint.eulerAngles.z, spawnedTileCP.eulerAngles.z)) - 180) > 1)
+				while (Mathf.Abs(HelperMethods.GetPositiveAngle(Mathf.DeltaAngle(randomReferenceCP.eulerAngles.z, newlySpawnedTileCP.eulerAngles.z)) - 180) > 1)
 				{
-					tilePrefab.transform.eulerAngles = new Vector3(0, 0, tilePrefab.transform.eulerAngles.z + 90);
+					newlySpawnedtilePrefab.transform.eulerAngles = new Vector3(0, 0, newlySpawnedtilePrefab.transform.eulerAngles.z + 90);
 				}
 
-				Vector3 diffToMove = randomConnectionPoint.parent.parent.position - spawnedTileCP.position;
-				tilePrefab.transform.position += diffToMove;
+				Vector3 diffToMove = randomReferenceCP.parent.parent.position - newlySpawnedTileCP.position;
+				newlySpawnedtilePrefab.transform.position += diffToMove;
 
 				yield return null;
 
@@ -200,7 +200,7 @@ public class TileSpawner : MonoBehaviour
 				Physics2D.queriesHitTriggers = true;
 				ContactFilter2D contactFilter = new ContactFilter2D();
 				List<Collider2D> tilesDetectedInArea = new List<Collider2D>();
-				Physics2D.OverlapCollider(tilePrefab.GetComponent<CompositeCollider2D>(), contactFilter, tilesDetectedInArea);
+				Physics2D.OverlapCollider(newlySpawnedtilePrefab.GetComponent<CompositeCollider2D>(), contactFilter, tilesDetectedInArea);
 				Physics2D.queriesHitTriggers = old;
 
 				List<Collider2D> invalidTiles = new List<Collider2D>();
@@ -211,11 +211,11 @@ public class TileSpawner : MonoBehaviour
 
 					if (colliderWallData != null)
 					{
-						if (colliderWallData.transform.IsChildOf(tilePrefab.transform)) { invalidTiles.Add(collider); continue; }
+						if (colliderWallData.transform.IsChildOf(newlySpawnedtilePrefab.transform)) { invalidTiles.Add(collider); continue; }
 						else continue;
 					}
 
-					if (colliderTilePrefab == null || colliderTilePrefab.isGroupTile || colliderTilePrefab.transform.IsChildOf(tilePrefab.transform)) 
+					if (colliderTilePrefab == null || colliderTilePrefab.isGroupTile || colliderTilePrefab.transform.IsChildOf(newlySpawnedtilePrefab.transform)) 
 					{ 
 						invalidTiles.Add(collider); 
 						continue; 
@@ -235,19 +235,23 @@ public class TileSpawner : MonoBehaviour
 				bool obstructingTileDetected = tilesDetectedInArea.Count > 1 ? true : false;
 				if (obstructingTileDetected)
 				{
-					foreach (Transform cp in tilePrefab.connectionPoints) tm.DestroyConnectionPoint(cp);
-					tm.DestroyConnectionPoint(randomConnectionPoint);
-					Destroy(tilePrefab.gameObject);
+					foreach (Transform cp in newlySpawnedtilePrefab.connectionPoints) tm.DestroyConnectionPoint(cp);
+					tm.DestroyConnectionPoint(randomReferenceCP);
+					Destroy(newlySpawnedtilePrefab.gameObject);
 					continue;
 				}
 				#endregion
 				#endregion
 
 				//Apply Data
-				AddTile(tilePrefab);
+				//TODO: Make this if statement work
+				/*if (newlySpawnedtilePrefab.GetComponentInChildren<IBigTile>() != null)*/ randomReferenceCP.parent.GetComponent<IBigTile>().BigTilePlaced(randomReferenceCP, newlySpawnedTileCP, false);//REFERENCE TILE
+				/*if (randomConnectionPoint.transform.parent.GetComponent<IBigTile>() != null)*/ newlySpawnedTileCP.parent.GetComponent<IBigTile>().BigTilePlaced(randomReferenceCP, newlySpawnedTileCP, true);//NEWLY SPAWNED TILE
+
+				AddTile(newlySpawnedtilePrefab);
 
 				int currentAreaTile = 0;				
-				foreach (TilePrefab areaTile in tilePrefab.tileArea)
+				foreach (TilePrefab areaTile in newlySpawnedtilePrefab.tileArea)
 				{
 					AddTile(areaTile);
 					currentAreaTile++;
@@ -255,20 +259,20 @@ public class TileSpawner : MonoBehaviour
 						yield return null;//Stop lagspikes
 				}
 
-				if(tilePrefab.GetComponent<TileGraphics>() != null) tilePrefab.GetComponent<TileGraphics>().ToggleGraphics(true);
+				if(newlySpawnedtilePrefab.GetComponent<TileGraphics>() != null) newlySpawnedtilePrefab.GetComponent<TileGraphics>().ToggleGraphics(true);
 
 				continue;
 			}
-			else if (!tilePrefab.isBigTile && tilePrefab.isGroupTile)
+			else if (!newlySpawnedtilePrefab.isBigTile && newlySpawnedtilePrefab.isGroupTile)
 			{
 				//Debug.Log("Executing Group Tile Logic...");
 
 				//Temporary Rotation Correction
-				if (!tilePrefab.canBeRotated) tilePrefab.transform.eulerAngles = Vector3.zero;
+				if (!newlySpawnedtilePrefab.canBeRotated) newlySpawnedtilePrefab.transform.eulerAngles = Vector3.zero;
 
 				//Correct Position
 				float epsilon = .01f;
-				Vector2 diffBetweenConnectionAndTile = randomConnectionPoint.position - randomConnectionPoint.parent.position;
+				Vector2 diffBetweenConnectionAndTile = randomReferenceCP.position - randomReferenceCP.parent.position;
 
 				bool connectionPointIsUp = Mathf.Abs(diffBetweenConnectionAndTile.x) < epsilon && diffBetweenConnectionAndTile.y > epsilon;
 				bool connectionPointIsRight = diffBetweenConnectionAndTile.x > epsilon && Mathf.Abs(diffBetweenConnectionAndTile.y) < epsilon;
@@ -280,25 +284,25 @@ public class TileSpawner : MonoBehaviour
 				//Debug.Log("CP Down: " + connectionPointIsDown + "Can Connect Down: " + tilePrefab.canConnectDown);
 				//Debug.Log("CP Left: " + connectionPointIsLeft + "Can Connect Left: " + tilePrefab.canConnectLeft);
 
-				if (!((connectionPointIsUp && tilePrefab.canConnectDown) || (connectionPointIsRight && tilePrefab.canConnectLeft) || (connectionPointIsDown && tilePrefab.canConnectUp) || (connectionPointIsLeft && tilePrefab.canConnectRight)) && tilePrefab.specialCPs.Count <= 0)
+				if (!((connectionPointIsUp && newlySpawnedtilePrefab.canConnectDown) || (connectionPointIsRight && newlySpawnedtilePrefab.canConnectLeft) || (connectionPointIsDown && newlySpawnedtilePrefab.canConnectUp) || (connectionPointIsLeft && newlySpawnedtilePrefab.canConnectRight)) && newlySpawnedtilePrefab.specialCPs.Count <= 0)
 				{
-					Debug.Log("Destroyed " + tilePrefab.name);
-					Destroy(tilePrefab.gameObject);
+					Debug.Log("Destroyed " + newlySpawnedtilePrefab.name);
+					Destroy(newlySpawnedtilePrefab.gameObject);
 					doWaitTime = false;
 					continue;
 				}
-				else if (tilePrefab.referenceTile.GetComponent<TilePrefab>().isGroupTile) {/*do noting lol*/ }
-				else if (connectionPointIsUp && tilePrefab.canConnectDown) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueDown; tilePrefab.transform.position = newPos; }
-				else if (connectionPointIsRight && tilePrefab.canConnectLeft) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueLeft; tilePrefab.transform.position = newPos; }
-				else if (connectionPointIsDown && tilePrefab.canConnectUp) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueUp; tilePrefab.transform.position = newPos; }
-				else if (connectionPointIsLeft && tilePrefab.canConnectRight) { Vector2 newPos = (Vector2)tilePrefab.transform.position + tilePrefab.positionOffsetValueRight; tilePrefab.transform.position = newPos; }
+				else if (newlySpawnedtilePrefab.referenceTile.GetComponent<TilePrefab>().isGroupTile) {/*do noting lol*/ }
+				else if (connectionPointIsUp && newlySpawnedtilePrefab.canConnectDown) { Vector2 newPos = (Vector2)newlySpawnedtilePrefab.transform.position + newlySpawnedtilePrefab.positionOffsetValueDown; newlySpawnedtilePrefab.transform.position = newPos; }
+				else if (connectionPointIsRight && newlySpawnedtilePrefab.canConnectLeft) { Vector2 newPos = (Vector2)newlySpawnedtilePrefab.transform.position + newlySpawnedtilePrefab.positionOffsetValueLeft; newlySpawnedtilePrefab.transform.position = newPos; }
+				else if (connectionPointIsDown && newlySpawnedtilePrefab.canConnectUp) { Vector2 newPos = (Vector2)newlySpawnedtilePrefab.transform.position + newlySpawnedtilePrefab.positionOffsetValueUp; newlySpawnedtilePrefab.transform.position = newPos; }
+				else if (connectionPointIsLeft && newlySpawnedtilePrefab.canConnectRight) { Vector2 newPos = (Vector2)newlySpawnedtilePrefab.transform.position + newlySpawnedtilePrefab.positionOffsetValueRight; newlySpawnedtilePrefab.transform.position = newPos; }
 
 				//Check if tiles are obstructing
 
 				//Debug.Log("Doing obstruction test...");
 
-				List<TilePrefab> areaTiles = tilePrefab.GetComponentsInChildren<TilePrefab>().ToList();
-				areaTiles.Remove(tilePrefab);
+				List<TilePrefab> areaTiles = newlySpawnedtilePrefab.GetComponentsInChildren<TilePrefab>().ToList();
+				areaTiles.Remove(newlySpawnedtilePrefab);
 
 				#region Old (Laggy) (CHECKS LIKE 50000 TILES LOL)
 				/*bool groupTileInIllegalPosition = false;
@@ -333,7 +337,7 @@ public class TileSpawner : MonoBehaviour
 				//Thanks Baste! https://forum.unity.com/threads/cant-get-physics2d-overlapbox-to-hit-triggers.1068140/
 				var old = Physics2D.queriesHitTriggers;
 				Physics2D.queriesHitTriggers = true;
-				List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(tilePrefab.checkForObstructingTilesPointA.position, tilePrefab.checkForObstructingTilesPointB.position/*, tileMask*/).ToList();
+				List<Collider2D> tilesDetectedInArea = Physics2D.OverlapAreaAll(newlySpawnedtilePrefab.checkForObstructingTilesPointA.position, newlySpawnedtilePrefab.checkForObstructingTilesPointB.position/*, tileMask*/).ToList();
 				Physics2D.queriesHitTriggers = old;
 
 				List<Collider2D> invalidTiles = new List<Collider2D>();
@@ -344,13 +348,13 @@ public class TileSpawner : MonoBehaviour
 
 					if (colliderWallData != null)
 					{
-						if (colliderWallData.transform.IsChildOf(tilePrefab.transform)) { invalidTiles.Add(collider); continue; }
+						if (colliderWallData.transform.IsChildOf(newlySpawnedtilePrefab.transform)) { invalidTiles.Add(collider); continue; }
 						else continue;
 					}
 					/*else*/
 					if (colliderTilePrefab == null/* && colliderWallData == null*/) { invalidTiles.Add(collider); continue; }
 					else if (colliderTilePrefab.isGroupTile) { invalidTiles.Add(collider); continue; }
-					else if (colliderTilePrefab.transform.IsChildOf(tilePrefab.transform)) { invalidTiles.Add(collider); continue; }
+					else if (colliderTilePrefab.transform.IsChildOf(newlySpawnedtilePrefab.transform)) { invalidTiles.Add(collider); continue; }
 				}
 
 				foreach (Collider2D invalidTile in invalidTiles)
@@ -372,7 +376,7 @@ public class TileSpawner : MonoBehaviour
 					{
 						Debug.Log("Deleting " + tilePrefab.name + " at pos " + tilePrefab.transform.position + "(" + tileDetectedInArea.gameObject.name + ")", tileDetectedInArea.gameObject);
 					}*/
-					Destroy(tilePrefab.gameObject);
+					Destroy(newlySpawnedtilePrefab.gameObject);
 					//doWaitTime = false;
 					continue;
 				}
@@ -382,16 +386,16 @@ public class TileSpawner : MonoBehaviour
 
 				//Correct rotation
 				//Debug.Log(tilePrefab.canBeRotated);
-				if (tilePrefab.canBeRotated)
+				if (newlySpawnedtilePrefab.canBeRotated)
 				{
-					if (tilePrefab.referenceTile.GetComponent<TilePrefab>().isGroupTile)
+					if (newlySpawnedtilePrefab.referenceTile.GetComponent<TilePrefab>().isGroupTile)
 					{
-						Transform spawnedGroupTileReference = randomConnectionPoint.GetComponentInParent<TilePrefab>(true).transform;//randomConnectionPoint.root;
+						Transform spawnedGroupTileReference = randomReferenceCP.GetComponentInParent<TilePrefab>(true).transform;//randomConnectionPoint.root;
 																																	 //Debug.Log("Tile Ref: " + spawnedGroupTileReference, spawnedGroupTileReference);
 						bool groupTileHasValidRotation = false;
 						while (!groupTileHasValidRotation)
 						{
-							foreach (Transform connectionPoint in tilePrefab.specialCPs)
+							foreach (Transform connectionPoint in newlySpawnedtilePrefab.specialCPs)
 							{
 								if (Vector3.Distance(connectionPoint.position, spawnedGroupTileReference.position) < .01f)
 								{
@@ -404,7 +408,7 @@ public class TileSpawner : MonoBehaviour
 
 							if (groupTileHasValidRotation) break;
 
-							tilePrefab.transform.eulerAngles = new Vector3(0, 0, tilePrefab.transform.eulerAngles.z + 90);
+							newlySpawnedtilePrefab.transform.eulerAngles = new Vector3(0, 0, newlySpawnedtilePrefab.transform.eulerAngles.z + 90);
 
 							yield return null;
 						}
@@ -416,7 +420,7 @@ public class TileSpawner : MonoBehaviour
 						while (!groupTileHasValidRotation)
 						{
 							List<Transform> regularCPs = new List<Transform>();
-							foreach (TilePrefab areaTile in tilePrefab.tileArea)
+							foreach (TilePrefab areaTile in newlySpawnedtilePrefab.tileArea)
 							{
 								foreach (Transform regularCP in areaTile.connectionPoints)
 								{
@@ -426,7 +430,7 @@ public class TileSpawner : MonoBehaviour
 
 							foreach (Transform regularCP in regularCPs)
 							{
-								if (Vector2.Distance(regularCP.position, tilePrefab.referenceTile.transform.position) < .01f)
+								if (Vector2.Distance(regularCP.position, newlySpawnedtilePrefab.referenceTile.transform.position) < .01f)
 								{
 									groupTileHasValidRotation = true;
 									break;
@@ -435,7 +439,7 @@ public class TileSpawner : MonoBehaviour
 
 							if (groupTileHasValidRotation) break;
 
-							tilePrefab.transform.eulerAngles = new Vector3(0, 0, tilePrefab.transform.eulerAngles.z + 90);
+							newlySpawnedtilePrefab.transform.eulerAngles = new Vector3(0, 0, newlySpawnedtilePrefab.transform.eulerAngles.z + 90);
 
 							yield return null;
 						}
@@ -443,13 +447,13 @@ public class TileSpawner : MonoBehaviour
 				}
 
 				//Apply data
-				foreach (Transform scp in tilePrefab.specialCPs)
+				foreach (Transform scp in newlySpawnedtilePrefab.specialCPs)
 				{
 					tm.AddConnectionPoint(scp);
 					//Debug.Log("Adding " + scp.name);
 				}
 
-				AddTile(tilePrefab);
+				AddTile(newlySpawnedtilePrefab);
 
 				int currentAreaTile = 0;
 				foreach (TilePrefab areaTile in areaTiles)
@@ -466,12 +470,12 @@ public class TileSpawner : MonoBehaviour
 			#endregion
 
 			#region 3. Rotate Tile
-			Transform spawnedTileReference = randomConnectionPoint.parent;
+			Transform spawnedTileReference = randomReferenceCP.parent;
 			bool tileHasValidRotation = false;
 			Transform connectedPoint;
 			while (!tileHasValidRotation)
 			{
-				foreach (Transform connectionPoint in tilePrefab.connectionPoints)
+				foreach (Transform connectionPoint in newlySpawnedtilePrefab.connectionPoints)
 				{
 					if (Vector3.Distance(connectionPoint.position, spawnedTileReference.position) < .01f)
 					{
@@ -482,17 +486,17 @@ public class TileSpawner : MonoBehaviour
 
 				if (tileHasValidRotation) break;
 
-				tilePrefab.transform.eulerAngles = new Vector3(0, 0, tilePrefab.transform.eulerAngles.z + 90);
+				newlySpawnedtilePrefab.transform.eulerAngles = new Vector3(0, 0, newlySpawnedtilePrefab.transform.eulerAngles.z + 90);
 				yield return null;
 			}
 			#endregion
 
 			#region 4. Destroy walls that lead to dead ends
-			List<Transform> otherCPs = tilePrefab.connectionPoints.Count > 0 ? tilePrefab.connectionPoints : tilePrefab.specialCPs;
+			List<Transform> otherCPs = newlySpawnedtilePrefab.connectionPoints.Count > 0 ? newlySpawnedtilePrefab.connectionPoints : newlySpawnedtilePrefab.specialCPs;
 			Transform referenceCP = null;
 			foreach (Transform cp in otherCPs)
 			{
-				if (Vector2.Distance(cp.position, tilePrefab.referenceTile.transform.position) < .1f)
+				if (Vector2.Distance(cp.position, newlySpawnedtilePrefab.referenceTile.transform.position) < .1f)
 				{
 					referenceCP = cp;
 					break;
@@ -503,7 +507,7 @@ public class TileSpawner : MonoBehaviour
 
 			foreach (Transform otherCP in otherCPs)
 			{
-				RaycastHit2D[] linecastHitColliders = Physics2D.LinecastAll(tilePrefab.transform.position, otherCP.transform.position, wallMask);
+				RaycastHit2D[] linecastHitColliders = Physics2D.LinecastAll(newlySpawnedtilePrefab.transform.position, otherCP.transform.position, wallMask);
 				if (linecastHitColliders.Count() > 0)
 				{
 					foreach (RaycastHit2D linecastHitDeadEndWall in linecastHitColliders)
@@ -521,7 +525,7 @@ public class TileSpawner : MonoBehaviour
 			#endregion
 
 			#region 5. Update Manager Lists + Check Connection Points
-			AddTile(tilePrefab);
+			AddTile(newlySpawnedtilePrefab);
 			#endregion
 		}
 	}

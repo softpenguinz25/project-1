@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_1
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -31,37 +31,6 @@ Transform:
   m_Father: {fileID: 4717600631423821605}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &184879808828101286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4902854166860592327}
-  m_Layer: 0
-  m_Name: Point A
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4902854166860592327
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184879808828101286}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7073746, y: 3.0135832, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4551467883505163592}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &314606610003266313
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +43,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_21
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -105,7 +74,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_22
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -242,7 +211,7 @@ Transform:
   - {fileID: 7829279549279783612}
   - {fileID: 3527691537123799492}
   m_Father: {fileID: 6837335661449690022}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003666259920703015
 GameObject:
@@ -274,7 +243,7 @@ Transform:
   m_Children:
   - {fileID: 8136722199732926616}
   m_Father: {fileID: 6837335661449690022}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042320289772381216
 GameObject:
@@ -320,7 +289,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_24
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -404,7 +373,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_3
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -422,37 +391,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4717600631423821605}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3576692644139856443
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3660413454904024981}
-  m_Layer: 0
-  m_Name: Point B
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3660413454904024981
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3576692644139856443}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2847915, y: -2.9754162, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4551467883505163592}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3667456231057033349
 GameObject:
@@ -519,7 +457,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_5
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -571,7 +509,6 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 4551467883505163592}
   - {fileID: 6697323639596206855}
   - {fileID: 5758093155845622690}
   - {fileID: 93696512622388707}
@@ -656,6 +593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1d3cdd39691b748a130a7e8d90dec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invisibleToFOV: Invisible Tile
+  tileLayer: Tile
 --- !u!66 &6103615102008708346
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -666,30 +605,30 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
   - m_Collider: {fileID: 3838643021425414069}
     m_ColliderPaths:
-    - - X: 86250000
-        Y: 86250000
-      - X: -86250000
-        Y: 86250000
-      - X: -86250000
-        Y: -86250000
-      - X: 86250000
-        Y: -86250000
+    - - X: 63750000
+        Y: 63750000
+      - X: -63750000
+        Y: 63750000
+      - X: -63750000
+        Y: -63750000
+      - X: 63750000
+        Y: -63750000
   m_CompositePaths:
     m_Paths:
-    - - {x: 8.62497, y: -8.625}
-      - {x: 8.62497, y: 8.625}
-      - {x: -8.625, y: 8.62497}
-      - {x: -8.62497, y: -8.625}
+    - - {x: 6.374971, y: -6.375}
+      - {x: 6.374971, y: 6.375}
+      - {x: -6.375, y: 6.374971}
+      - {x: -6.374971, y: -6.375}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!61 &3838643021425414069
@@ -751,7 +690,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_4
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -835,7 +774,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_10
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -866,7 +805,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_14
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -897,7 +836,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_11
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -928,7 +867,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_9
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -959,7 +898,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_17
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -990,7 +929,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_8
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1042,7 +981,7 @@ Transform:
   - {fileID: 6412415188077391750}
   - {fileID: 5659979367977072739}
   m_Father: {fileID: 6837335661449690022}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6705034961050063427
 GameObject:
@@ -1056,7 +995,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_20
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1075,39 +1014,6 @@ Transform:
   m_Father: {fileID: 4717600631423821605}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
---- !u!1 &6949478802808805391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4551467883505163592}
-  m_Layer: 0
-  m_Name: -CHECK OBSTRUCTING TILES-
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4551467883505163592
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6949478802808805391}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.71026325, y: -0.019086918, z: -0.016987827}
-  m_LocalScale: {x: 1, y: 1, z: 2}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4902854166860592327}
-  - {fileID: 3660413454904024981}
-  m_Father: {fileID: 6837335661449690022}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7095540771292188285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1026,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_2
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1151,7 +1057,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_15
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1182,7 +1088,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_19
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1213,7 +1119,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_18
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1244,7 +1150,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_7
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1275,7 +1181,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_6
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1306,7 +1212,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_23
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1337,7 +1243,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_16
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1368,7 +1274,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_13
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1502,7 +1408,7 @@ GameObject:
   m_Layer: 3
   m_Name: Wall Point_12
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

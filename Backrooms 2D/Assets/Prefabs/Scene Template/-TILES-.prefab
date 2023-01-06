@@ -143,10 +143,10 @@ MonoBehaviour:
   timeBtwnSpawns: 0.001
   tileMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 65544
   wallMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 65544
   validCPs: []
 --- !u!114 &3441267525647845288
 MonoBehaviour:

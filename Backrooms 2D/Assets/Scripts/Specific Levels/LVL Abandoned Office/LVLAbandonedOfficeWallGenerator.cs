@@ -31,17 +31,18 @@ public class LVLAbandonedOfficeWallGenerator : MonoBehaviour
         }
 	}
 
-    public void SpawnWall(GameObject wallPrefab, GameObject wallSpot)
+    public void SpawnWall(GameObject wallPrefab, GameObject wallSpot, bool debug = false)
 	{
-        currentWallSpots.Remove(wallSpot);
+        if(currentWallSpots.Contains(wallSpot)) currentWallSpots.Remove(wallSpot);
 		GameObject wall = Instantiate(wallPrefab, wallSpot.transform.position, wallSpot.transform.rotation, wallSpot.transform);
         wall.transform.localScale = Vector3.one;
+		//if(debug) Debug.Log("Wall Spawned: " + wall.name, wall);
 	}
 
-    private List<LVLAbandonedOfficeWallPrefabs> GetWallTypes(bool wallIsOpening)
+    public List<LVLAbandonedOfficeWallPrefabs> GetWallTypes(bool wallIsOpen)
 	{
         List<LVLAbandonedOfficeWallPrefabs> result = new List<LVLAbandonedOfficeWallPrefabs>();
-        foreach (LVLAbandonedOfficeWallPrefabs wallType in wallPrefabs) if (wallType.isOpening == wallIsOpening) result.Add(wallType);
+        foreach (LVLAbandonedOfficeWallPrefabs wallType in wallPrefabs) if (wallType.isOpening == wallIsOpen) result.Add(wallType);
         return result;
 	}
 }
