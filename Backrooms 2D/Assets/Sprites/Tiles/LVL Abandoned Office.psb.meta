@@ -91,18 +91,18 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: LVL Abandoned Office_0
+  - name: lvl_abandonedoffice_pillar
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 114
       y: 44
-      width: 32
-      height: 3
-    spriteID: e287966ba698c7c4685798fd0ada801f
+      width: 2
+      height: 2
+    spriteID: d164850113f7d104b99c213d62fde69a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -111,8 +111,260 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 44}
-  - name: LVL Abandoned Office_1
+    uvTransform: {x: 111, y: -70}
+  - name: lvl_abandonedoffice_box
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 94
+      y: 33
+      width: 3
+      height: 3
+    spriteID: 308e03692e6755c4597ed609f7280d5c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 91, y: -83}
+  - name: lvl_abandonedoffice_door
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 55
+      width: 20
+      height: 1
+    spriteID: 9fe8db26316e76e429b8fa08f8e96fa9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 40, y: -72}
+  - name: lvl_abandonedoffice_computer_side copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 44
+      width: 15
+      height: 12
+    spriteID: 69b9a035f9c41334ab0af3b512802e4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -77, y: -61}
+  - name: lvl_abandonedoffice_chair_arm_front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 94
+      y: 4
+      width: 12
+      height: 21
+    spriteID: e2f0a06afb20038418f6568a02bf054d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 28, y: -96}
+  - name: lvl_abandonedoffice_computer_back
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 44
+      width: 11
+      height: 9
+    spriteID: 7e0e3a84f1969ef428197dc2a89141a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -15, y: -52}
+  - name: lvl_abandonedoffice_chair_front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 17
+      height: 19
+    spriteID: 9c336aed884e4a54fbbfde7513bc27de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5, y: -103}
+  - name: lvl_abandonedoffice_chair_back
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 4
+      width: 17
+      height: 19
+    spriteID: 24225153bf117d040a8963365089ae49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 61, y: -92}
+  - name: lvl_abandonedoffice_computer_front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 64
+      width: 11
+      height: 13
+    spriteID: cdb1d118ef876994bb48d78de42f8d3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -7, y: -49}
+  - name: lvl_abandonedoffice_window
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 86
+      y: 54
+      width: 20
+      height: 1
+    spriteID: 45ae65adf719d7f47b3052628a28f93e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 80, y: -73}
+  - name: lvl_abandonedoffice_wall_mid
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 86
+      y: 44
+      width: 20
+      height: 2
+    spriteID: 9e0456008b4c6a14cb7a61edce89a074
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 80, y: -82}
+  - name: lvl_abandonedoffice_wall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 44
+      width: 32
+      height: 3
+    spriteID: 0c11842a4eaa6b44e942ecfd98a2cd92
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 46, y: -81}
+  - name: lvl_abandonedoffice_divider
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 4
+      width: 2
+      height: 32
+    spriteID: a4de1825a9b37a14880dfd8ef907f4b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 84, y: -92}
+  - name: lvl_abandonedoffice_tile
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -123,7 +375,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: 98756c814211c2b4e92aa3068259ee26
+    spriteID: cd771f7f1c9157d4facb46c9161dc10b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -132,238 +384,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
-  - name: LVL Abandoned Office_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 140
-      y: 4
-      width: 20
-      height: 8
-    spriteID: 49c8a5058ad15174193d943149094fd2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 140, y: 4}
-  - name: LVL Abandoned Office_4
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 168
-      y: 4
-      width: 12
-      height: 12
-    spriteID: 512907dc1e14ac9409a3f29c49d514a4
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 168, y: 4}
-  - name: LVL Abandoned Office_5
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 188
-      y: 4
-      width: 20
-      height: 4
-    spriteID: 7dee3a30d4116184b8819bc7016ef292
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 188, y: 4}
-  - name: LVL Abandoned Office_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 216
-      y: 4
-      width: 20
-      height: 4
-    spriteID: 6ea49eefdb9645648a30891858b27bff
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 216, y: 4}
-  - name: LVL Abandoned Office_7
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 244
-      y: 4
-      width: 8
-      height: 8
-    spriteID: 893acfa8a667caf439a78fa21173d960
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 244, y: 4}
-  - name: LVL Abandoned Office_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 44
-      width: 12
-      height: 2
-    spriteID: 0562dbe2932bef3479605937bf816da6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 44}
-  - name: LVL Abandoned Office_8
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 44
-      width: 8
-      height: 2
-    spriteID: 873ed90d2e1a1634e8305e7aff86ccc3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 44}
-  - name: LVL Abandoned Office_9
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 22
-      width: 3
-      height: 3
-    spriteID: f2dae9bff8c912a4c8053917f4e798da
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 22}
-  - name: LVL Abandoned Office_10
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 13
-      width: 12
-      height: 1
-    spriteID: 15e8fd0c1c1f18b4ea9481f6c51746c3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 13}
-  - name: LVL Abandoned Office_11
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 4
-      width: 12
-      height: 1
-    spriteID: d63094eeced2e5c43accb81b3378c60f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 4}
-  - name: LVL Abandoned Office_12
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 55
-      y: 22
-      width: 2
-      height: 2
-    spriteID: 5fbec02388c93c34098ca4b59a91c169
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 55, y: 22}
+    uvTransform: {x: 4, y: -92}
   characterData:
     bones: []
     parts: []
@@ -466,7 +487,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: d164850113f7d104b99c213d62fde69a
     layerID: 155
-    mosaicPosition: {x: 60, y: 18}
+    mosaicPosition: {x: 114, y: 44}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -476,7 +497,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 308e03692e6755c4597ed609f7280d5c
     layerID: 163
-    mosaicPosition: {x: 116, y: 4}
+    mosaicPosition: {x: 94, y: 33}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -486,17 +507,157 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 9fe8db26316e76e429b8fa08f8e96fa9
     layerID: 156
-    mosaicPosition: {x: 72, y: 18}
+    mosaicPosition: {x: 46, y: 55}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: lvl_abandonedoffice_computer_side copy
+    spriteName: lvl_abandonedoffice_computer_side copy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 69b9a035f9c41334ab0af3b512802e4e
+    layerID: 209
+    mosaicPosition: {x: 4, y: 44}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_chair_arm_front
+    spriteName: lvl_abandonedoffice_chair_arm_front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e2f0a06afb20038418f6568a02bf054d
+    layerID: 212
+    mosaicPosition: {x: 94, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_computer_side
+    spriteName: lvl_abandonedoffice_computer_side
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 46e285d3891afe54a905fce4ea308bd7
+    layerID: 196
+    mosaicPosition: {x: 4, y: 163}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_chair_side
+    spriteName: lvl_abandonedoffice_chair_side
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 74bcc4452cda563419bc78f645818acf
+    layerID: 195
+    mosaicPosition: {x: 4, y: 124}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_chair_side
+    spriteName: lvl_abandonedoffice_chair_side
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 999f90abfc8eb404d8c1c69ef1b86e8a
+    layerID: 187
+    mosaicPosition: {x: 4, y: 124}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_chair_side (REF)
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 332c350480b4f2949b347cfecade7001
+    layerID: 185
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_computer_back
+    spriteName: lvl_abandonedoffice_computer_back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7e0e3a84f1969ef428197dc2a89141a0
+    layerID: 205
+    mosaicPosition: {x: 27, y: 44}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_chair_front
+    spriteName: lvl_abandonedoffice_chair_front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9c336aed884e4a54fbbfde7513bc27de
+    layerID: 204
+    mosaicPosition: {x: 44, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_computer_back
+    spriteName: lvl_abandonedoffice_computer_back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 91c4689c20932444dae881150e5e6ca9
+    layerID: 172
+    mosaicPosition: {x: 4, y: 221}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_chair_front
+    spriteName: lvl_abandonedoffice_chair_front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a9a85ac91b6521147af9e54d1ae3fbcd
+    layerID: 173
+    mosaicPosition: {x: 4, y: 44}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_chair_back
+    spriteName: lvl_abandonedoffice_chair_back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 24225153bf117d040a8963365089ae49
+    layerID: 200
+    mosaicPosition: {x: 69, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_computer_front
+    spriteName: lvl_abandonedoffice_computer_front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cdb1d118ef876994bb48d78de42f8d3c
+    layerID: 199
+    mosaicPosition: {x: 4, y: 64}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_chair_back
+    spriteName: lvl_abandonedoffice_chair_back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 31b2c19059f74944fb7173e71ec7220e
+    layerID: 167
+    mosaicPosition: {x: 4, y: 84}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_computer_front
+    spriteName: lvl_abandonedoffice_computer_front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8f4b40b4de0178f448e491661280bdc4
+    layerID: 166
+    mosaicPosition: {x: 4, y: 189}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: lvl_abandonedoffice_window
     spriteName: lvl_abandonedoffice_window
     isGroup: 0
     parentIndex: -1
     spriteID: 45ae65adf719d7f47b3052628a28f93e
     layerID: 153
-    mosaicPosition: {x: 88, y: 18}
+    mosaicPosition: {x: 86, y: 54}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -506,20 +667,160 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 9e0456008b4c6a14cb7a61edce89a074
     layerID: 154
-    mosaicPosition: {x: 44, y: 18}
+    mosaicPosition: {x: 86, y: 44}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: lvl_abandonedoffice_wall copy 2
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 88037f15534673a4abc4662a9c2e52f0
+    layerID: 214
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_wall copy
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4856c2435f48f2f448a3b10d76cb4d9b
+    layerID: 206
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: lvl_abandonedoffice_wall
     spriteName: lvl_abandonedoffice_wall
     isGroup: 0
     parentIndex: -1
     spriteID: 0c11842a4eaa6b44e942ecfd98a2cd92
     layerID: 142
-    mosaicPosition: {x: 44, y: 4}
+    mosaicPosition: {x: 46, y: 44}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: lvl_abandonedoffice_divider copy 3
+    spriteName: lvl_abandonedoffice_divider copy 3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e4e860e33614425499e3253e0cd314e9
+    layerID: 184
+    mosaicPosition: {x: 44, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_divider copy 5
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a47b126f5d4ab644e99f823a711ff59d
+    layerID: 189
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_divider copy 4
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ebc4a95eaf4f8ae41acf8f8f327ef906
+    layerID: 188
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_divider copy
+    spriteName: lvl_abandonedoffice_divider copy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a68b43f4d9984f545bfe4ec071d79348
+    layerID: 182
+    mosaicPosition: {x: 44, y: 76}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_divider copy 2
+    spriteName: lvl_abandonedoffice_divider copy 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 880b57bda12626349b1cc79de89ec9db
+    layerID: 183
+    mosaicPosition: {x: 44, y: 148}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_divider copy 6
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8f2cea1747ff80e4e9206c146e191e1e
+    layerID: 215
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_divider
+    spriteName: lvl_abandonedoffice_divider
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a4de1825a9b37a14880dfd8ef907f4b9
+    layerID: 203
+    mosaicPosition: {x: 114, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_divider
+    spriteName: lvl_abandonedoffice_divider
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4a8b3dcb5ed7f894a9f1bc2b37f09972
+    layerID: 168
+    mosaicPosition: {x: 44, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_tile copy 2
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e74c846ed8cdff549a9100001503bbaa
+    layerID: 198
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_tile copy
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7ba1c7d902a9bb34f8149cad68810e82
+    layerID: 197
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_tile copy 4
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3990f7ded4980e44facb1349f65df90b
+    layerID: 213
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lvl_abandonedoffice_tile copy 3
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1f7f4f284676c5e4a9a6393addbd8e09
+    layerID: 207
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: lvl_abandonedoffice_tile
     spriteName: lvl_abandonedoffice_tile
     isGroup: 0

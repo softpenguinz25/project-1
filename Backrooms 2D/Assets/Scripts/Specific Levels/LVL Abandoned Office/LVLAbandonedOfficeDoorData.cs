@@ -1,3 +1,4 @@
+using MyBox;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ public class LVLAbandonedOfficeDoorData : MonoBehaviour, IBigTile
 	[SerializeField] Transform cp;
 	[SerializeField] LayerMask tileMask;
 	[SerializeField] SpriteRenderer midPiece;
-	[SerializeField] Sprite defaultSprite;
-	[SerializeField] Sprite doorSprite;
+	[MustBeAssigned] [SerializeField] Sprite defaultSprite;
+	[MustBeAssigned] [SerializeField] Sprite doorSprite;
 	bool isSkinned;
 	public bool IsSkinned => isSkinned;
 
@@ -83,7 +84,7 @@ public class LVLAbandonedOfficeDoorData : MonoBehaviour, IBigTile
 
 		LVLAbandonedOfficeDoorData otherDoor = spawnedCP.parent.GetComponent<LVLAbandonedOfficeDoorData>();
 
-		GameObject doorParentObject = Instantiate(doorParentPrefab, doorParentPivot.position, Quaternion.identity, transform.parent);
+		GameObject doorParentObject = Instantiate(doorParentPrefab, doorParentPivot.position, Quaternion.Euler(transform.eulerAngles), transform.parent);
 		midPiece.transform.parent = doorParentObject.transform;
 		otherDoor.midPiece.transform.parent = doorParentObject.transform;
 	}

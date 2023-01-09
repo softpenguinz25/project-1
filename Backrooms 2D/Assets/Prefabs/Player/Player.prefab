@@ -393,8 +393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactLayer:
     serializedVersion: 2
-    m_Bits: 8
-  reachRadius: 2
+    m_Bits: 131080
+  reachRadius: 1.5
 --- !u!114 &5296896411924109689
 MonoBehaviour:
   m_ObjectHideFlags: 0

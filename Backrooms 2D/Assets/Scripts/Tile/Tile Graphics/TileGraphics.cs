@@ -5,7 +5,8 @@ using UnityEngine;
 public class TileGraphics : MonoBehaviour
 {
 	List<Transform> childrenObjects = new List<Transform>();
-	[SerializeField] string invisibleToFOV, tileLayer;
+	Dictionary<GameObject, int> startingChildLayers = new Dictionary<GameObject, int>();
+	[SerializeField] string invisibleToFOV;
 
 /*	private IEnumerator Start()
 	{
@@ -15,14 +16,24 @@ public class TileGraphics : MonoBehaviour
 
 	public void ToggleGraphics(bool toggle)
 	{
-		if (!toggle) childrenObjects = transform.GetComponentsInChildren<Transform>().ToList();
+		if (!toggle)
+		{
+			childrenObjects = transform.GetComponentsInChildren<Transform>().ToList();
+			foreach(Transform child in childrenObjects)
+			{
+				startingChildLayers.Add(child.gameObject, child.gameObject.layer);
+			}
+		}
 
+		int i = 0;
 		foreach (Transform child in childrenObjects)
 		{
 			if (child == null) continue;
 			SpriteRenderer childSpriteRenderer = child.GetComponent<SpriteRenderer>();
 			if (childSpriteRenderer != null) childSpriteRenderer.enabled = toggle;
-			child.gameObject.layer = toggle ? LayerMask.NameToLayer(tileLayer) : LayerMask.NameToLayer(invisibleToFOV);
+			child.gameObject.layer = toggle ? startingChildLayers[child.gameObject] : LayerMask.NameToLayer(invisibleToFOV);
+
+			i++;
 		}
 	}
 }

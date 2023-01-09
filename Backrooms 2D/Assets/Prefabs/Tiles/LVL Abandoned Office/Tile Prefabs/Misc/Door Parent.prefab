@@ -45,8 +45,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27e99c4ae0c8274e94cc069bf3a2318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAngle: 0
-  activationRadius: 1
+  doorLayer: Tile Entity Transparent
+  activationRadius: 0.1
+  doorAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!58 &4242079269159452375
 CircleCollider2D:
   m_ObjectHideFlags: 0

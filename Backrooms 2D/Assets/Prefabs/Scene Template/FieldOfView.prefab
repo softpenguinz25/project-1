@@ -51,7 +51,7 @@ MonoBehaviour:
   fovAngle: 0
   tileMask:
     serializedVersion: 2
-    m_Bits: 32776
+    m_Bits: 163848
   rayCount: 400
   wallAccuracy: 0.03
 --- !u!33 &6990890845940740620

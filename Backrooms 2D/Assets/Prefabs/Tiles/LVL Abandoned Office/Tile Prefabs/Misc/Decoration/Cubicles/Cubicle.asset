@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf5ff108050c9f4ca36a789cba6e9e4, type: 3}
+  m_Name: Cubicle
+  m_EditorClassIdentifier: 
+  forwardObj: {fileID: 8293490952698058742, guid: 9a38ee4d07d2e394895eb130e255325d, type: 3}
+  rightObj: {fileID: 8293490952698058742, guid: 9860a210878903d46ad123ef1b9878fe, type: 3}
+  backwardObj: {fileID: 8293490952698058742, guid: b0fb7ba10393d604fad92514724c9b2b, type: 3}
+  leftObj: {fileID: 8293490952698058742, guid: d2f83ee75dea2df41989903137d03d25, type: 3}
