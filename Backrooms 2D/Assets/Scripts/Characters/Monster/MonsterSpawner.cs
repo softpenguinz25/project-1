@@ -35,7 +35,7 @@ public class MonsterSpawner : MonoBehaviour
 
 	private void Start()
 	{
-		canReocurringlySpawn = !!canReocurringlySpawn;//this is not a typo, just wanted unity to stop giving me the "this variable is not in use" warning message lol
+		//canReocurringlySpawn = !!canReocurringlySpawn;//this is not a typo, just wanted unity to stop giving me the "this variable is not in use" warning message lol
 		//Debug.Log("SpawnMonster - Start");
 		StartCoroutine(SpawnMonsterAfterDelayCoroutine());
 	}
@@ -62,7 +62,7 @@ public class MonsterSpawner : MonoBehaviour
 					StartCoroutine(SpawnMonsterAfterDelayCoroutine(spawnInstantly : true));
 				}
 			}
-			else
+			else if(canReocurringlySpawn)
 			{
 				if ((numChunks + chunksBeforeSpawn) % reoccurringChunksBeforeSpawn == 0)
 				{
@@ -186,6 +186,8 @@ public class MonsterSpawner : MonoBehaviour
 				if(invalidTileName) invalidSpawnTiles.Add(td);
 				//if (!validSpawnTileNames.Contains(tileName)) invalidSpawnTiles.Add(td);
 			}
+
+			//Check if there's a "rogue go" on the tile
 
 			foreach (TileDistance invalidSpawnTile in invalidSpawnTiles) tileDistances.Remove(invalidSpawnTile);
 		}

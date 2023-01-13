@@ -22,11 +22,11 @@ public class LVLTheEndComputerStateGraphics : MonoBehaviour
 	private void Start()
 	{
 		pcInstructions = pcInstructions.ToString();//to stop giving me the "this variable is not in use" warning in unity lmao
-		mobileInstructions = mobileInstructions.ToString();////to stop giving me the "this variable is not in use" warning in unity lmao
-#if UNITY_STANDALONE
-	instructionsText.text = pcInstructions;
-#elif UNITY_ANDROID || UNITY_IOS
+		mobileInstructions = mobileInstructions.ToString();////to stop giving me the "this variable is not in use" warning in unity lmao	
+#if UNITY_ANDROID || UNITY_IOS
 		instructionsText.text = mobileInstructions;
+#else
+		instructionsText.text = pcInstructions;
 #endif
 	}
 

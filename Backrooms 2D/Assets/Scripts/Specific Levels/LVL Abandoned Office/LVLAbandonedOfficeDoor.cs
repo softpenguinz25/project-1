@@ -1,5 +1,7 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 {
@@ -24,6 +26,7 @@ public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 			return result / i;
 		}
 	}
+	[Header("Functionality")]
 	[SerializeField] string doorLayer = "Tile Entity Transparent";
     [SerializeField] float activationRadius;
 
@@ -34,6 +37,11 @@ public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 
 	[SerializeField] float health = 20, entityDamageAmount = 10;
 
+	[Header("Graphics")]
+	[SerializeField] AudioSource doorClose;
+	[SerializeField] AudioSource doorOpen;
+	[SerializeField] AudioSource doorCrack;
+	[SerializeField] GameObject doorShatter;
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.yellow;
@@ -51,7 +59,8 @@ public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 
 		yield return new WaitForSeconds(.5f);
 
-		foreach(Transform child in GetComponentsInChildren<Transform>())
+
+		foreach (Transform child in GetComponentsInChildren<Transform>())
 		{
 			//Debug.Log(child.gameObject.name, child);
 			child.gameObject.layer = LayerMask.NameToLayer(doorLayer);
@@ -73,6 +82,9 @@ public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 			//Debug.Log(currentEulerAngles + " | " + targetEulerAngleRotation, gameObject);
 
 			StartCoroutine(DoorAnimation(targetEulerAngleRotation, doorAnimation));
+			doorOpen.Play();
+
+			//if (instructionsText.activeSelf) instructionsText.SetActive(false);
 
 			isOpen = true;
 		}
@@ -84,6 +96,7 @@ public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 			//Debug.Log(currentEulerAngles + " | " + targetEulerAngleRotation, gameObject);
 
 			StartCoroutine(DoorAnimation(targetEulerAngleRotation, doorAnimation));
+			doorClose.Play();
 
 			isOpen = false;
 		}
@@ -92,6 +105,7 @@ public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 	public void EntityInteract(GameObject entity)
 	{
 		health -= entityDamageAmount;
+		doorCrack.Play();
 		//Debug.Log("Hit Taken! Current Health: " + health);
 
 		if (health <= 0) BreakDoor();
@@ -133,6 +147,9 @@ public class LVLAbandonedOfficeDoor : MonoBehaviour, IInteract
 
 	void BreakDoor()
 	{
+		GameObject doorShatterGO = Instantiate(doorShatter, transform.position, Quaternion.identity);
+		Destroy(doorShatterGO, doorShatterGO.GetComponent<AudioSource>().clip.length);
+		
 		Destroy(gameObject);
 	}
 }

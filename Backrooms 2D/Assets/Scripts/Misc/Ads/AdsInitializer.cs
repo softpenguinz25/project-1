@@ -29,12 +29,13 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 			? _iOSGameId
 			: _androidGameId;
 		Advertisement.Initialize(_gameId, _testMode, this);
+		//Debug.Log("Initializing Ads With Game Id: " + _gameId, gameObject);
 		adsInitialized = true;
 	}
 
 	public void OnInitializationComplete()
 	{
-		//Debug.Log("Unity Ads initialization complete.");
+		Debug.Log("Unity Ads initialization complete.");
 
 		LoadAds();
 	}

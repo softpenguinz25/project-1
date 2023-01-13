@@ -161,7 +161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &120275301666195464
 Transform:
   m_ObjectHideFlags: 0
@@ -294,6 +294,20 @@ MonoBehaviour:
     pitch:
       Min: 0.9121844
       Max: 1.1317234
+    sources: []
+  - name: LVLAbandonedOffice_Player_Footsteps
+    clips:
+    - {fileID: 8300000, guid: 996707848265526438748d2aa502b05d, type: 3}
+    - {fileID: 8300000, guid: 844d70be9120e5d4aac4520f06195e4c, type: 3}
+    - {fileID: 8300000, guid: 5d444d33eb466ea429511a45bcccafa0, type: 3}
+    - {fileID: 8300000, guid: f749142e4bec3464eb3f90d51bfb73f6, type: 3}
+    - {fileID: 8300000, guid: 3ba0c7f686a69da4fb1ad9d60850435c, type: 3}
+    volume:
+      Min: 0.8
+      Max: 1
+    pitch:
+      Min: 0.9
+      Max: 1.1
     sources: []
   - name: LVLFun_Player_Footsteps
     clips:
@@ -1026,6 +1040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d280950cc09fd47bb89ca546974dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _androidGameId: 4914750
+  _androidGameId: 4914751
   _iOSGameId: 4914750
-  _testMode: 1
+  _testMode: 0

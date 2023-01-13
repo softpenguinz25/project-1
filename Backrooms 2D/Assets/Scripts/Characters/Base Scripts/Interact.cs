@@ -15,7 +15,33 @@ public class Interact : MonoBehaviour
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawWireSphere(transform.position, reachRadius);
 	}
+	public void InteractWithEnvironment(InteractType interactType, Vector3 interactPos)
+	{
+		var old = Physics2D.queriesHitTriggers;
+		Physics2D.queriesHitTriggers = true;
 
+		interactPos.z = 0f;
+
+		foreach (Collider2D col in Physics2D.OverlapPointAll(interactPos))
+		{
+			//Debug.Log(col.gameObject.name, col);
+			IInteract interactObject = col.GetComponent<IInteract>();
+			if (interactObject != null)
+			{
+				switch (interactType)
+				{
+					case InteractType.Player:
+						interactObject.PlayerInteract(gameObject);
+						break;
+					case InteractType.Entity:
+						interactObject.EntityInteract(gameObject);
+						break;
+				}
+			}
+		}
+
+		Physics2D.queriesHitTriggers = old;
+	}
 	public void InteractWithEnvironment(InteractType interactType)
 	{
 		var old = Physics2D.queriesHitTriggers;

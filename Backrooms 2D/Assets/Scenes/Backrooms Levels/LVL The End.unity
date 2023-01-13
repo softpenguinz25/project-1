@@ -2076,7 +2076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shoot to Shoot the Pew-Pew Device.
+  m_text: E To Interact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73ae3a555da055b4ca4655d704e3ca53, type: 2}
   m_sharedMaterial: {fileID: -5024334568981058536, guid: 73ae3a555da055b4ca4655d704e3ca53, type: 2}

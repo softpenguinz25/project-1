@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5482678813597779393}
   - component: {fileID: 3185394312716953113}
   - component: {fileID: 6987583751940510709}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 4709186605316199613}
   - component: {fileID: 3426066191358131486}
   - component: {fileID: 1876400165583957058}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Table (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 6609011446136081266}
   - component: {fileID: 2563702412302709766}
   - component: {fileID: 3398371972315568833}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 5206646768598238720}
   - component: {fileID: 5481098756488461044}
   - component: {fileID: 2458247626267667124}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 7225705741548725152}
   - component: {fileID: 3878222934539148181}
   - component: {fileID: 5045819878039744306}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Table (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 722631917393262850}
   - component: {fileID: 1443996955034077452}
   - component: {fileID: 5284221710618770983}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1163,7 +1163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9208357983238121627}
   - component: {fileID: 4958074495082714041}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1418,7 +1418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7707314965722096946}
   - component: {fileID: 2673371633270375342}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1503,7 +1503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7037686249001965260}
   - component: {fileID: 2670614699466659258}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 6188926705176590111}
   - component: {fileID: 3817184819151993799}
   - component: {fileID: 3304631287448428622}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1776,6 +1776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 1
   connectionPoints: []
   tileArea:
@@ -1815,7 +1816,7 @@ GameObject:
   - component: {fileID: 9088303956710808599}
   - component: {fileID: 4113363374542040694}
   - component: {fileID: 7805672963141913933}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2051,7 +2052,7 @@ GameObject:
   - component: {fileID: 6014831944773279717}
   - component: {fileID: 261098367444592883}
   - component: {fileID: 2847092387345006530}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2147,7 +2148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8939202815882080742}
   - component: {fileID: 1820192948547320604}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2232,7 +2233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5941678978493926515}
   - component: {fileID: 1351985023304270865}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2318,7 +2319,7 @@ GameObject:
   - component: {fileID: 7697182131769556783}
   - component: {fileID: 5360355281132880520}
   - component: {fileID: 3780307888552475288}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Table (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2431,7 +2432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8721325752352123}
   - component: {fileID: 7053487328034523773}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2517,7 +2518,7 @@ GameObject:
   - component: {fileID: 3664785975007187608}
   - component: {fileID: 242568073846321486}
   - component: {fileID: 3366668092137389655}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2614,7 +2615,7 @@ GameObject:
   - component: {fileID: 4413096274084961407}
   - component: {fileID: 5357161811893248920}
   - component: {fileID: 2045475857125250659}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2710,7 +2711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7041951571412777891}
   - component: {fileID: 1450664025866730314}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2795,7 +2796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7467275492983907526}
   - component: {fileID: 4334450091485167550}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3020,7 +3021,7 @@ GameObject:
   - component: {fileID: 5527715750256608116}
   - component: {fileID: 5333762868643293735}
   - component: {fileID: 5656605246703043339}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3133,7 +3134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7400382908274795072}
   - component: {fileID: 90033724267992780}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3219,7 +3220,7 @@ GameObject:
   - component: {fileID: 2945574492150805061}
   - component: {fileID: 4785986898937055191}
   - component: {fileID: 2043589699643791445}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3315,7 +3316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9201040540139383702}
   - component: {fileID: 4396346959455961324}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3711,7 +3712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8775954546859273487}
   - component: {fileID: 4052473693384855492}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3797,7 +3798,7 @@ GameObject:
   - component: {fileID: 6987209571478613277}
   - component: {fileID: 1572791362331704095}
   - component: {fileID: 7300015167792827759}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3894,7 +3895,7 @@ GameObject:
   - component: {fileID: 3447525603099109863}
   - component: {fileID: 7457119471239581288}
   - component: {fileID: 2722205296106988613}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Plate (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4407,7 +4408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4183173577034203152}
   - component: {fileID: 3871864873930487392}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: Cake (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

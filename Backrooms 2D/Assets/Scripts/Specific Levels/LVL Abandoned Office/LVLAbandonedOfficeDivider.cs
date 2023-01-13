@@ -13,7 +13,7 @@ public class LVLAbandonedOfficeDivider : MonoBehaviour
 
 	private IEnumerator Start()
 	{
-		yield return new WaitForSeconds(.5f);
+		yield return new WaitForSeconds(2.5f);
 
 		CheckOverlappingObjects();
 	}

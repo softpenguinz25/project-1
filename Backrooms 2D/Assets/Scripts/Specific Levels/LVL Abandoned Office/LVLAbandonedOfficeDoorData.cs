@@ -2,12 +2,37 @@ using MyBox;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class LVLAbandonedOfficeDoorData : MonoBehaviour, IBigTile
 {
 	TilePrefab parentTile;
-	#region Door CP
+	#region Instructions
+	[SerializeField] TextMeshPro instructionsText;
+	[SerializeField] string PCInstructions = "'E' to \nOpen", mobileInstructions = "Tap to \noOpen";
+	static bool instructionsShown = false;
+
+	IEnumerator Start()
+	{
+#if UNITY_IOS || UNITY_ANDROID
+		instructionsText.text = mobileInstructions;
+#else
+		instructionsText.text = PCInstructions;
+#endif
+
+		yield return new WaitForSeconds(1f);
+
+		if (instructionsShown || !isFunctioning) yield break;
+
+		instructionsText.gameObject.SetActive(true);
+		instructionsText.transform.eulerAngles = Vector3.zero;
+		
+		instructionsShown = true;
+	}
+#endregion
+
+#region Door CP
 	[Header("Door CP")]
 	[SerializeField] Transform cp;
 	[SerializeField] LayerMask tileMask;
@@ -52,9 +77,9 @@ public class LVLAbandonedOfficeDoorData : MonoBehaviour, IBigTile
 		
 		if(!isNewTile) ConnectDoors(spawnedCP);
 	}
-	#endregion
+#endregion
 
-	#region Door Functionality Detection
+#region Door Functionality Detection
 	[Header("Door Functionality Detection")]
 	[SerializeField] GameObject doorParentPrefab;
 	[SerializeField] Transform doorParentPivot;
@@ -87,6 +112,8 @@ public class LVLAbandonedOfficeDoorData : MonoBehaviour, IBigTile
 		GameObject doorParentObject = Instantiate(doorParentPrefab, doorParentPivot.position, Quaternion.Euler(transform.eulerAngles), transform.parent);
 		midPiece.transform.parent = doorParentObject.transform;
 		otherDoor.midPiece.transform.parent = doorParentObject.transform;
+
+		isFunctioning = true;
 	}
 
 	/*private IEnumerator Start()
@@ -131,7 +158,7 @@ public class LVLAbandonedOfficeDoorData : MonoBehaviour, IBigTile
 		midPiece.transform.parent = doorParentObject.transform;
 		otherDoor.midPiece.transform.parent = doorParentObject.transform;
 	}*/
-	#endregion
+#endregion
 
 	/*[ContextMenu("Print Other Door Data")]
 	public void PrintOtherDoorData()
