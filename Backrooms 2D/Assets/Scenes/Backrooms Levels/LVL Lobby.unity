@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -283,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -511,6 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -625,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -739,6 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -853,6 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -967,6 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1042,6 +1050,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
+      propertyPath: currentScene.sceneIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832884539794707007, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4832884539990356299, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: m_Volume
       value: 0.35
@@ -1094,6 +1110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1275,6 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1389,6 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1503,6 +1522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1617,6 +1637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1731,6 +1752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1845,6 +1867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -1959,6 +1982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2073,6 +2097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2187,6 +2212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2301,6 +2327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2415,6 +2442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2529,6 +2557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2715,6 +2744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2829,6 +2859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -2943,6 +2974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3057,6 +3089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3171,6 +3204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3285,6 +3319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3401,6 +3436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3586,6 +3622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3700,6 +3737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3814,6 +3852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -3928,6 +3967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4042,6 +4082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4156,6 +4197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4270,6 +4312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4384,6 +4427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4498,6 +4542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4612,6 +4657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4726,6 +4772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4840,6 +4887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -4954,6 +5002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5068,6 +5117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5182,6 +5232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5296,6 +5347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5410,6 +5462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5526,6 +5579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5640,6 +5694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5754,6 +5809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5870,6 +5926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -5984,6 +6041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -6098,6 +6156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -6296,6 +6355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -6410,6 +6470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -6524,6 +6585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -6699,6 +6761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -6813,6 +6876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -6958,6 +7022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -7103,6 +7168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -7171,6 +7237,103 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &388750716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388750720}
+  - component: {fileID: 388750719}
+  - component: {fileID: 388750718}
+  - component: {fileID: 388750717}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &388750717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388750716}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &388750718
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388750716}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3a1d9073708cb114b96779c5f5ccb30f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &388750719
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388750716}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &388750720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388750716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.91, y: 0.31226483, z: 15.558925}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &388873866
 GameObject:
   m_ObjectHideFlags: 0
@@ -7217,6 +7380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -7331,6 +7495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -7476,6 +7641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -7682,6 +7848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -7796,6 +7963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -8162,6 +8330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -8276,6 +8445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -8518,6 +8688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -8632,6 +8803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -8746,6 +8918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -8860,6 +9033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -8974,6 +9148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -9088,6 +9263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -9156,6 +9332,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &527818873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2836963144834113260, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+  m_PrefabInstance: {fileID: 2836963145061492368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &528803318
 GameObject:
   m_ObjectHideFlags: 0
@@ -9204,6 +9385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -9444,6 +9626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -9558,6 +9741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -9672,6 +9856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -9786,6 +9971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -9900,6 +10086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10016,6 +10203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10130,6 +10318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10244,6 +10433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10484,6 +10674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10598,6 +10789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10712,6 +10904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10826,6 +11019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -10940,6 +11134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -11056,6 +11251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -11170,6 +11366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -11286,6 +11483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -11400,6 +11598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -11514,6 +11713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -11628,6 +11828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -11930,6 +12131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12044,6 +12246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12158,6 +12361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12272,6 +12476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12386,6 +12591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12500,6 +12706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12614,6 +12821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12728,6 +12936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -12908,6 +13117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13022,6 +13232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13167,6 +13378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13281,6 +13493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13436,6 +13649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13550,6 +13764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13664,6 +13879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13778,6 +13994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -13892,6 +14109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14006,6 +14224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14120,6 +14339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14318,6 +14538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14432,6 +14653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14551,6 +14773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14665,6 +14888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14786,6 +15010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -14854,6 +15079,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!224 &851870145 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5780620868146510972, guid: 2dfd51a2f75a96a46a8e9d10aacafc9d, type: 3}
+  m_PrefabInstance: {fileID: 6523338969204306345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &857485040
 GameObject:
   m_ObjectHideFlags: 0
@@ -14900,6 +15130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15014,6 +15245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15128,6 +15360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15242,6 +15475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15356,6 +15590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15470,6 +15705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15584,6 +15820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15698,6 +15935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15814,6 +16052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -15928,6 +16167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16042,6 +16282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16156,6 +16397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16272,6 +16514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16386,6 +16629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16502,6 +16746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16616,6 +16861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16730,6 +16976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16844,6 +17091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -16958,6 +17206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -17103,6 +17352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -17217,6 +17467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -17331,6 +17582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -17445,6 +17697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -17628,6 +17881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -17868,6 +18122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18108,6 +18363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18222,6 +18478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18336,6 +18593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18452,6 +18710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18566,6 +18825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18680,6 +18940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18794,6 +19055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -18908,6 +19170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -19022,6 +19285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -19136,6 +19400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -19250,6 +19515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -19490,6 +19756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -19604,6 +19871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -19877,6 +20145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -19991,6 +20260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -20262,6 +20532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -20376,6 +20647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -20490,6 +20762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -20604,6 +20877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -20718,6 +20992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -20832,6 +21107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -20946,6 +21222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21060,6 +21337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21235,6 +21513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21349,6 +21628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21463,6 +21743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21577,6 +21858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21691,6 +21973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21805,6 +22088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -21919,6 +22203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22033,6 +22318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22147,6 +22433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22263,6 +22550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22382,6 +22670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22496,6 +22785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22610,6 +22900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22850,6 +23141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -22964,6 +23256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -23078,6 +23371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -23192,6 +23486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -23306,6 +23601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -23546,6 +23842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -23660,6 +23957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -23774,6 +24072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -23888,6 +24187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -24002,6 +24302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -24116,6 +24417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -24230,6 +24532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -24344,6 +24647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -24584,6 +24888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25018,6 +25323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25134,6 +25440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25248,6 +25555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25488,6 +25796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25602,6 +25911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25718,6 +26028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25834,6 +26145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -25950,6 +26262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26069,6 +26382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26183,6 +26497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26297,6 +26612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26411,6 +26727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26525,6 +26842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26639,6 +26957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26753,6 +27072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26867,6 +27187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -26981,6 +27302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27095,6 +27417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27209,6 +27532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27323,6 +27647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27437,6 +27762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27551,6 +27877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27665,6 +27992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27781,6 +28109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -27880,6 +28209,90 @@ Transform:
   m_Father: {fileID: 1675164900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1441818681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441818683}
+  - component: {fileID: 1441818682}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!212 &1441818682
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441818681}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.2688679, g: 0.6583507, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1441818683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441818681}
+  m_LocalRotation: {x: 0, y: 0, z: 0.21192181, w: 0.97728664}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 24.47}
 --- !u!1001 &1451829729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27987,6 +28400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -28101,6 +28515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -28215,6 +28630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -28329,6 +28745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -28569,6 +28986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -28997,6 +29415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -29111,6 +29530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -29353,6 +29773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -29467,6 +29888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -29581,6 +30003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -29695,6 +30118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -29809,6 +30233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -29923,6 +30348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -30098,6 +30524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -30212,6 +30639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -30326,6 +30754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -30566,6 +30995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -30691,6 +31121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -30805,6 +31236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -30919,6 +31351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31033,6 +31466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31147,6 +31581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31261,6 +31696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31375,6 +31811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31591,6 +32028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31705,6 +32143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31819,6 +32258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -31933,6 +32373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32047,6 +32488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32161,6 +32603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32275,6 +32718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32450,6 +32894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32564,6 +33009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32678,6 +33124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32792,6 +33239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -32906,6 +33354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33020,6 +33469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33134,6 +33584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33248,6 +33699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33362,6 +33814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33476,6 +33929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33592,6 +34046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33737,6 +34192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33851,6 +34307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -33965,6 +34422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -34236,6 +34694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -34350,6 +34809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -34621,6 +35081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -34735,6 +35196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -34849,6 +35311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -34963,6 +35426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -35077,6 +35541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -35222,6 +35687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -35367,6 +35833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -35435,6 +35902,155 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1805539380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805539381}
+  - component: {fileID: 1805539384}
+  - component: {fileID: 1805539383}
+  - component: {fileID: 1805539382}
+  m_Layer: 5
+  m_Name: Test Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1805539381
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805539380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 851870145}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 500, y: -25}
+  m_SizeDelta: {x: 1000, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1805539382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805539380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcb949fcf1ed5b408a8ca4c105e32d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugObj: {fileID: 527818873}
+--- !u!114 &1805539383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805539380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Camera Pos: '
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1805539384
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805539380}
+  m_CullTransparentMesh: 1
 --- !u!1 &1825696069
 GameObject:
   m_ObjectHideFlags: 0
@@ -35831,6 +36447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -36071,6 +36688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -36185,6 +36803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -36299,6 +36918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -36413,6 +37033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -36529,6 +37150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -36774,6 +37396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37045,6 +37668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37159,6 +37783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37273,6 +37898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37387,6 +38013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37501,6 +38128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37615,6 +38243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37729,6 +38358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37843,6 +38473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -37957,6 +38588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38104,6 +38736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38218,6 +38851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38332,6 +38966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38446,6 +39081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38562,6 +39198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38676,6 +39313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38792,6 +39430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -38906,6 +39545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39020,6 +39660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39134,6 +39775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39279,6 +39921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39393,6 +40036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39507,6 +40151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39733,6 +40378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39847,6 +40493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -39961,6 +40608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40075,6 +40723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40189,6 +40838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40303,6 +40953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40417,6 +41068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40531,6 +41183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40645,6 +41298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40759,6 +41413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -40934,6 +41589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -41048,6 +41704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -41162,6 +41819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -41276,6 +41934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -41390,6 +42049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -41661,6 +42321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -41775,6 +42436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -41889,6 +42551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -42003,6 +42666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTile: {fileID: 0}
+  isBigTile: 0
   isGroupTile: 0
   connectionPoints: []
   tileArea: []
@@ -42302,6 +42966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: -MONSTER-
       objectReference: {fileID: 0}
+    - target: {fileID: 2295088066985573523, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
 --- !u!1001 &2836963145061492368
@@ -42313,15 +42981,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2836963144834113040, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.36
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2836963144834113040, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836963144834113040, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2836963144834113040, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -42330,6 +42994,10 @@ PrefabInstance:
     - target: {fileID: 2836963144834113263, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836963144834113263, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+      propertyPath: orthographic size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2836963145136597967, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_Name
@@ -42387,13 +43055,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2836963145688518531, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836963145688518532, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 2836963145688518533, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.0555556
+      value: 1.7775
       objectReference: {fileID: 0}
-    - target: {fileID: 7584377820429836190, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 2836963146482843261, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8490276446382682191, guid: f9fa432556dc00a4c8eb569346b5f0a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -42445,6 +43121,10 @@ PrefabInstance:
     - target: {fileID: 2996293481528234709, guid: b734279ed171cb14fbbcc707ce4ecdf0, type: 3}
       propertyPath: m_Name
       value: -GFX-
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996293481528234709, guid: b734279ed171cb14fbbcc707ce4ecdf0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2996293481528234710, guid: b734279ed171cb14fbbcc707ce4ecdf0, type: 3}
       propertyPath: m_RootOrder
@@ -42604,6 +43284,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 166.05405
       objectReference: {fileID: 0}
+    - target: {fileID: 4532487707214553112, guid: 2dfd51a2f75a96a46a8e9d10aacafc9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5643188745615442377, guid: 2dfd51a2f75a96a46a8e9d10aacafc9d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -42752,6 +43436,10 @@ PrefabInstance:
     - target: {fileID: 6990890845940740722, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
       propertyPath: m_Name
       value: FieldOfView
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990890845940740722, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b05a78c80f3ff349b9e4631d05e8176, type: 3}
