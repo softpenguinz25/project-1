@@ -1,28 +1,27 @@
+using com.spacepuppy.Utils;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-//[RequireComponent(typeof(GhostTileGizmo))]
-//[ExtensionOfNativeClass]
 [Serializable]
 public class TileV2
 {
 	[Header("Position")]
-	public Vector3 tilePosition;
+	public Vector2Int tilePosition;
 
 	[Header("Walls")]
 	public bool[] walls = new bool[4];
 	int numWalls => GetNumWalls();
 
 	[Header("Walls")]
-	public List<Vector3> cps;
+	public List<Vector2Int> cps;
 
 	//Tile Type
 	public enum TileType { Open, Split, Hall, Corner, End, Closed }
 	[SerializeField] TileType tileType => GetTileType();
 
-	public TileV2(Vector3 pos, TileType tileType)
+	public TileV2(Vector2Int pos, TileType tileType)
 	{
 		if (walls.Length != 4)
 		{
@@ -99,9 +98,9 @@ public class TileV2
 		return new bool[] { true, true, true, true };
 	}
 
-	public List<Vector3> InitialCPs()
+	public List<Vector2Int> InitialCPs()
 	{
-		List<Vector3> result = new List<Vector3>();
+		List<Vector2Int> result = new List<Vector2Int>();
 
 		for (int i = 0; i < walls.Length; i++)
 		{
@@ -109,15 +108,21 @@ public class TileV2
 			{
 				switch (i)
 				{
-					case 0: result.Add(new Vector3(0, 1)); break;
-					case 1: result.Add(new Vector3(1, 0)); break;
-					case 2: result.Add(new Vector3(0, -1)); break;
-					case 3: result.Add(new Vector3(-1, 0)); break;
+					case 0: result.Add(new Vector2Int(0, 1) + tilePosition); break;
+					case 1: result.Add(new Vector2Int(1, 0) + tilePosition); break;
+					case 2: result.Add(new Vector2Int(0, -1) + tilePosition); break;
+					case 3: result.Add(new Vector2Int(-1, 0) + tilePosition); break;
 				}
 			}
 		}
 
 		return result;
+	}
+
+	public void MoveTile(Vector2Int dir)
+	{
+		tilePosition += dir;
+		for (int i = 0; i < cps.Count; i++) cps[i] += dir;
 	}
 
 	public void Rotate(int degrees)
@@ -130,6 +135,7 @@ public class TileV2
 
 		int rotations = degrees / 90;
 
+		//Rotate Walls
 		bool[] rotatedWalls = new bool[walls.Length];
 
 		for (int i = 0; i < walls.Length; i++)
@@ -139,33 +145,58 @@ public class TileV2
 		}
 
 		walls = rotatedWalls;
+
+		//Rotate CPs
+		//Debug.Log("Num Rotations: " + rotations);
+		for (int i = 0; i < cps.Count; i++)
+		{
+			Vector2Int localCPPos = ConvertCPToLocalSpace(cps[i]);
+
+			cps[i] = Vector2Int.RoundToInt(VectorUtil.RotateBy(localCPPos, -degrees)) + tilePosition;
+		}
 	}
 
 	[Header("Debugging")]
 	float testingSphereWidth = .1f;
 	Color tileColor = Color.blue, cpColor = Color.cyan;
 
-	//[DrawGizmo(GizmoType.Selected | GizmoType.NonSelected)]
-	public void DrawTile()
+	public void DrawTile(Color tileColor = new Color(), Color cpColor = new Color(), float sphereWidth = 0)
 	{
-		Gizmos.color = tileColor;
+		float testingSphereWidth = sphereWidth == 0 ? this.testingSphereWidth : sphereWidth;
 
-		Gizmos.DrawSphere(tilePosition, testingSphereWidth);
+		Gizmos.color = tileColor == Color.clear ? this.tileColor : tileColor;
+		Gizmos.DrawSphere((Vector3Int)tilePosition, testingSphereWidth);
 
 		for (int i = 0; i < walls.Length; i++)
 		{
 			switch (i)
 			{
-				case 0: if (walls[i]) { Gizmos.color = tileColor; Gizmos.DrawLine(tilePosition + new Vector3(-.5f, .5f), tilePosition + new Vector3(.5f, .5f)); } else { Gizmos.color = cpColor; Gizmos.DrawSphere(tilePosition + new Vector3(0, 1), testingSphereWidth); } break;
-				case 1: if (walls[i]) { Gizmos.color = tileColor; Gizmos.DrawLine(tilePosition + new Vector3(.5f, .5f), tilePosition + new Vector3(.5f, -.5f)); } else { Gizmos.color = cpColor; Gizmos.DrawSphere(tilePosition + new Vector3(1, 0), testingSphereWidth); } break;
-				case 2: if (walls[i]) { Gizmos.color = tileColor; Gizmos.DrawLine(tilePosition + new Vector3(.5f, -.5f), tilePosition + new Vector3(-.5f, -.5f)); } else { Gizmos.color = cpColor; Gizmos.DrawSphere(tilePosition + new Vector3(0, -1), testingSphereWidth); } break;
-				case 3: if (walls[i]) { Gizmos.color = tileColor; Gizmos.DrawLine(tilePosition + new Vector3(-.5f, -.5f), tilePosition + new Vector3(-.5f, .5f)); } else { Gizmos.color = cpColor; Gizmos.DrawSphere(tilePosition + new Vector3(-1, 0), testingSphereWidth); } break;
+				case 0: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(-.5f, .5f), tilePosition + new Vector2(.5f, .5f)); break;
+				case 1: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(.5f, .5f), tilePosition + new Vector2(.5f, -.5f)); break;
+				case 2: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(.5f, -.5f), tilePosition + new Vector2(-.5f, -.5f)); break;
+				case 3: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(-.5f, -.5f), tilePosition + new Vector2(-.5f, .5f)); break;
 			}
+		}
+
+		Gizmos.color = cpColor == Color.clear ? this.cpColor : cpColor;
+		foreach(Vector2Int cp in cps)
+		{
+			Gizmos.DrawSphere((Vector3Int)cp, testingSphereWidth);
 		}
 	}
 
-	public void RemoveCP(Vector3 cpPos)
+	public void RemoveCP(Vector2Int cpPos)
 	{
 		if (cps.Contains(cpPos)) cps.Remove(cpPos);
+	}
+
+	Vector2Int ConvertCPToLocalSpace(Vector2Int cp)
+	{
+		return cp - tilePosition;
+	}
+
+	public string toString()
+	{
+		return tilePosition.ToString();
 	}
 }

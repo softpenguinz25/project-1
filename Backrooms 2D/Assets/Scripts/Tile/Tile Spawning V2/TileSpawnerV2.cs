@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -14,6 +14,8 @@ public class TileSpawnerV2 : MonoBehaviour
 	[SerializeField] TileCollectionV2 tc;
 
 	bool playerChunkChanged;
+	[Header("Dead Ends")]
+	[Tooltip("Automatically Detects and Removes Dead Ends")] [SerializeField] bool reduceDeadEnds;
 
 	private void Awake()
 	{
@@ -21,19 +23,19 @@ public class TileSpawnerV2 : MonoBehaviour
 		tl = GetComponent<TileLoaderV2>();
 	}
 
-	void Start()
-    {
-        CreateInitialGhostTile();
-    }
-
 	private void OnEnable()
 	{
 		tl.PlayerChunkChanged += () => { playerChunkChanged = true; };
 	}
 
+	void Start()
+    {
+        CreateInitialGhostTile();
+    }
+
 	void CreateInitialGhostTile()
 	{
-        TileV2 initialGhostTile = new(Vector3.one, tc.initialTile);
+        TileV2 initialGhostTile = new(Vector2Int.zero, tc.initialTile);
 		tdm.AddTile(initialGhostTile);
 
 		StartCoroutine(SpawnTileLoop());
@@ -43,13 +45,14 @@ public class TileSpawnerV2 : MonoBehaviour
 	{
 		while (true)
 		{
+			//Delay a frame (FOR TESTING)
 			yield return null;
 
 			//Check # of Load CPs
-			if (tl.loadCPs.Count < 0)
+			if (tl.loadCPs.Count <= 0)
 			{
 				//Check # of CPs
-				if (tdm.cpDict.Count < 0)
+				if (tdm.cpDict.Count <= 0)
 				{
 					//Restart generation if no CPs found
 					Debug.LogError("No More CPs! Terminating Spawn Tile Loop.");
@@ -65,37 +68,110 @@ public class TileSpawnerV2 : MonoBehaviour
 				continue;
 			}
 
-			TileV2 newTile = new(Vector3.one, tc.GetRandomTile());
+			/*-----SPAWN TILE-----*/
+			//No tiles exist in this pos - Valid!
+			TileV2 newTile = new(Vector2Int.zero, tc.GetRandomTile());
+			newTileGizmo = newTile;
 
-			//Pick a Random Connection Point in Chunk 
-			Vector3 referenceCP = tl.chunkCPs[Random.Range(0, tl.chunkCPs.Count)];
+			//Pick a Random Tile Based on CP in Chunk 
+			TileV2 referenceCPTile = tl.loadCPs.Keys.ElementAt(Random.Range(0, tl.loadCPs.Count));
+			referenceTileGizmo = referenceCPTile;
 
-			SpawnTile(newTile, referenceCP);
+			//Pick a Random Connection Point in New Tile
+			int connectingCPIndex = Random.Range(0, newTile.cps.Count);
+
+			//Position ghost tile where it's connecting CP matches with tile of reference CP
+			newTile.MoveTile(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
+
+			yield return null;
+
+			//Check if any existing tiles are obstructing this tile
+			int obstructionCheckIndex = 0;
+			while (tdm.tileDict.ContainsKey(newTile.tilePosition) || !referenceCPTile.cps.Contains(newTile.tilePosition))
+			{
+				if (obstructionCheckIndex >= 4)
+				{
+					Debug.LogError("NO VALID TILE ROTATION FOUND!");
+					break;
+				}
+
+				//Obstruction detected: Rotate 90 Degrees, Repeat
+				newTile.Rotate(90);
+				newTile.MoveTile(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
+
+				obstructionCheckIndex++;
+
+				yield return null;
+			}
+			if (obstructionCheckIndex >= 4) continue;
+
+			//No tiles exist in this pos - Valid!
+			tdm.AddTile(newTile);
+			newTileGizmo = null;
+			referenceTileGizmo = null;
+
+			//Delete reference CP of old tile + connecting CP of new tile
+			tdm.RemoveCP(referenceCPTile, newTile.tilePosition);
+			tdm.RemoveCP(newTile, newTile.cps[connectingCPIndex]);
+
+			//Remove CPs in newTile overlapping with other tiles
+			Dictionary<Vector2Int, TileV2> surroundingTiles = tdm.GetSurroundingTiles(newTile.tilePosition);
+			for (int i = newTile.cps.Count - 1; i >= 0; i--)
+			{
+				if (surroundingTiles.ContainsKey(newTile.cps[i]))
+				{
+					tdm.RemoveCP(newTile, newTile.cps[i]);
+				}
+			}
+
+			//Remove CPs in surrounding tiles overlapping with newTile pos
+			for (int i = surroundingTiles.Count - 1; i >= 0; i--)
+			{
+				TileV2 surroundingTile = surroundingTiles[surroundingTiles.Keys.ElementAt(i)];
+				for (int j = surroundingTile.cps.Count - 1; j >= 0; j--)
+				{
+					if (surroundingTile.cps[j] == newTile.tilePosition)
+					{
+						tdm.RemoveCP(surroundingTile, surroundingTile.cps[j]);
+					}
+				}
+			}
 		}
 	}
 
-	private void SpawnTile(TileV2 newTile, Vector3 referenceCP)
+	TileV2 newTileGizmo;
+	Color newTileGizmoColor = new(1, 0, 1), newCPGizmoColor = new Color(1, .5f, 1);
+	float newTileGizmoTestingSphereRadius = .25f;
+	
+	TileV2 referenceTileGizmo;
+	Color referenceTileGizmoColor = Color.yellow;
+	Vector3 referenceTileGizmoTestingCubeSize = new Vector3(.25f, .25f, .25f);
+	private void OnDrawGizmos()
 	{
-		FindValidTileRotation(newTile, referenceCP);
+		if (newTileGizmo != null) newTileGizmo.DrawTile(newTileGizmoColor, newCPGizmoColor, newTileGizmoTestingSphereRadius);
 
-		//Delete reference CP of old tile + reference CP of new tile
-
+		if (referenceTileGizmo != null)
+		{
+			Gizmos.color = referenceTileGizmoColor;
+			Gizmos.DrawCube((Vector3Int)referenceTileGizmo.tilePosition, referenceTileGizmoTestingCubeSize);
+		}
 	}
 
-	//ONLY GROUP TILES
-	private bool FindValidTileRotation(TileV2 newTile, Vector3 referenceCP)
+	/*private bool FindValidTileRotation(TileV2 newTile, Vector2Int referenceCP, Vector2Int connectingCP)
 	{
 		//No tiles exist in this pos - Valid!
-		if (tdm.tileDict[newTile.tilePosition] == null) return true;
-
-		Vector3 connectingCP = newTile.cps[Random.Range(0, newTile.cps.Count)];
+		if (tdm.tileDict[newTile.tilePosition] == null)
+		{
+			tdm.AddTile(newTile);
+			return true;
+		}
 
 		//Position ghost tile where it's connecting CP matches with tile of reference CP
 		newTile.tilePosition += referenceCP - connectingCP;
 
 		//Check if any existing tiles are obstructing this tile
 		int obstructionCheckIndex = 0;
-		while (tdm.tileDict[newTile.tilePosition] != null)
+		while (tdm.tileDict.ContainsKey(newTile.tilePosition))
 		{
 			//Obstruction detected: Rotate 90 Degrees, Repeat
 			newTile.Rotate(90);
@@ -106,6 +182,7 @@ public class TileSpawnerV2 : MonoBehaviour
 		}
 
 		//No tiles exist in this pos - Valid!
+		tdm.AddTile(newTile);
 		return true;
-	}
+	}*/
 }

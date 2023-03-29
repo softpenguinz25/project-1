@@ -152,13 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c80ee053ff91af4fb476ab82317a22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePosition: {x: 0, y: 0, z: 0}
-  walls: "\x01\x01\x01\x01"
-  gizmoColor:
-    r: 0
-    g: 0
-    b: 1
-    a: 1
 --- !u!4 &52082519
 Transform:
   m_ObjectHideFlags: 0
@@ -337,10 +330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostTiles:
-  - tilePosition: {x: 0, y: 0, z: 0}
+  - tilePosition: {x: 0, y: 0}
     walls: 
     cps: []
-  - tilePosition: {x: 0, y: 0, z: 0}
+  - tilePosition: {x: 0, y: 0}
     walls: 
     cps: []
   overallColor: {r: 0, g: 0, b: 0, a: 0}
@@ -355,6 +348,7 @@ GameObject:
   - component: {fileID: 1824903718}
   - component: {fileID: 1824903717}
   - component: {fileID: 1824903719}
+  - component: {fileID: 1824903720}
   m_Layer: 0
   m_Name: Tile Spawner
   m_TagString: Untagged
@@ -375,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tc: {fileID: 11400000, guid: dd5de98aa8e0ee745837302e4b47b214, type: 2}
+  reduceDeadEnds: 0
 --- !u!4 &1824903718
 Transform:
   m_ObjectHideFlags: 0
@@ -402,4 +397,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72507aed4c7041447b7486a3a0921dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles: []
+  tilePos: []
+  cps: []
+--- !u!114 &1824903720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824903716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13d85759f4943646a3a71ef7ddf0c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkSize: 4
+  loadCPs:
+    keys: []
+  chunkCPs:
+    keys: []

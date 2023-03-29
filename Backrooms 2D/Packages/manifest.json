@@ -2,6 +2,7 @@
   "dependencies": {
     "com.domybest.mybox": "https://github.com/Deadcows/MyBox.git",
     "com.siccity.gltfutility": "https://github.com/siccity/gltfutility.git",
+    "com.spacepuppy.core": "https://github.com/lordofduct/spacepuppy-unity-framework-4.0.git?path=Framework/com.spacepuppy.core",
     "com.unity.2d.psdimporter": "6.0.4",
     "com.unity.ads": "4.4.1",
     "com.unity.cinemachine": "2.8.6",

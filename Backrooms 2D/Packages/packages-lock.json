@@ -18,6 +18,15 @@
       },
       "hash": "ac70aeb91915ccb157eedca167b7de8a4b55fd31"
     },
+    "com.spacepuppy.core": {
+      "version": "https://github.com/lordofduct/spacepuppy-unity-framework-4.0.git?path=Framework/com.spacepuppy.core",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.editorcoroutines": "1.0.0"
+      },
+      "hash": "0167799b51ef39a7075b4c88a52712a2d07e99c2"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.6",
       "depth": 1,
@@ -135,6 +144,13 @@
       "dependencies": {
         "com.unity.services.core": "1.0.1"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.editorcoroutines": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {

@@ -20,10 +20,10 @@ public class GhostTileGizmoV2 : MonoBehaviour
 			{
 				switch (i)
 				{
-					case 0: Gizmos.DrawLine(gt.tilePosition + new Vector3(-.5f, .5f), gt.tilePosition + new Vector3(.5f, .5f)); break;
-					case 1: Gizmos.DrawLine(gt.tilePosition + new Vector3(.5f, .5f), gt.tilePosition + new Vector3(.5f, -.5f)); break;
-					case 2: Gizmos.DrawLine(gt.tilePosition + new Vector3(.5f, -.5f), gt.tilePosition + new Vector3(-.5f, -.5f)); break;
-					case 3: Gizmos.DrawLine(gt.tilePosition + new Vector3(-.5f, -.5f), gt.tilePosition + new Vector3(-.5f, .5f)); break;
+					case 0: Gizmos.DrawLine(gt.tilePosition + new Vector2(-.5f, .5f), gt.tilePosition + new Vector2(.5f, .5f)); break;
+					case 1: Gizmos.DrawLine(gt.tilePosition + new Vector2(.5f, .5f), gt.tilePosition + new Vector2(.5f, -.5f)); break;
+					case 2: Gizmos.DrawLine(gt.tilePosition + new Vector2(.5f, -.5f), gt.tilePosition + new Vector2(-.5f, -.5f)); break;
+					case 3: Gizmos.DrawLine(gt.tilePosition + new Vector2(-.5f, -.5f), gt.tilePosition + new Vector2(-.5f, .5f)); break;
 				}
 			}
 		}

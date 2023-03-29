@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e880d33f6de662941a14fb1fb3249396, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
+  initialTile: 0
   tileSpawnChances:
   - tileType: 0
     spawnChance: 1
