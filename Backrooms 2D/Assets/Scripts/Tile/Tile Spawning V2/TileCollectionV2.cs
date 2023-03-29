@@ -4,8 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Tile Collection", menuName = "V2/Tile/Tile Collection", order = 1)]
 public class TileCollectionV2 : ScriptableObject
 {
+	[Header("Tile Types")]
 	public TileV2.TileType initialTile;
     public List<TileSpawnChance> tileSpawnChances;
+
+	[Header("Dead Ends")]
+	[Tooltip("Probability for dead end between two adjacent non-connecting tiles stays a dead end")][Range(0, 1)] public float deadEndProbability = .8f;
 
 	public TileV2.TileType GetRandomTile()
 	{

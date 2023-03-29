@@ -14,8 +14,9 @@ public class TileSpawnerV2 : MonoBehaviour
 	[SerializeField] TileCollectionV2 tc;
 
 	bool playerChunkChanged;
-	[Header("Dead Ends")]
-	[Tooltip("Automatically Detects and Removes Dead Ends")] [SerializeField] bool reduceDeadEnds;
+
+	[Header("Debugging")]
+	[SerializeField] bool applyFrameDelays;
 
 	private void Awake()
 	{
@@ -46,7 +47,7 @@ public class TileSpawnerV2 : MonoBehaviour
 		while (true)
 		{
 			//Delay a frame (FOR TESTING)
-			yield return null;
+			if(applyFrameDelays) yield return null;
 
 			//Check # of Load CPs
 			if (tl.loadCPs.Count <= 0)
@@ -83,7 +84,7 @@ public class TileSpawnerV2 : MonoBehaviour
 			//Position ghost tile where it's connecting CP matches with tile of reference CP
 			newTile.MoveTile(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
 
-			yield return null;
+			if (applyFrameDelays) yield return null;
 
 			//Check if any existing tiles are obstructing this tile
 			int obstructionCheckIndex = 0;
@@ -101,7 +102,7 @@ public class TileSpawnerV2 : MonoBehaviour
 
 				obstructionCheckIndex++;
 
-				yield return null;
+				if (applyFrameDelays) yield return null;
 			}
 			if (obstructionCheckIndex >= 4) continue;
 
@@ -120,6 +121,11 @@ public class TileSpawnerV2 : MonoBehaviour
 			{
 				if (surroundingTiles.ContainsKey(newTile.cps[i]))
 				{
+					//Remove Dead Ends
+					if (Random.value > tc.deadEndProbability)
+						if (newTile.NumWallsBetweenTiles(surroundingTiles[newTile.cps[i]]) > 0)
+							newTile.RemoveWalls(surroundingTiles[newTile.cps[i]]);
+
 					tdm.RemoveCP(newTile, newTile.cps[i]);
 				}
 			}
@@ -132,6 +138,11 @@ public class TileSpawnerV2 : MonoBehaviour
 				{
 					if (surroundingTile.cps[j] == newTile.tilePosition)
 					{
+						//Remove Dead Ends
+						if (Random.value > tc.deadEndProbability)
+							if (surroundingTile.NumWallsBetweenTiles(newTile) > 0)
+								surroundingTile.RemoveWalls(newTile);
+
 						tdm.RemoveCP(surroundingTile, surroundingTile.cps[j]);
 					}
 				}
@@ -156,33 +167,4 @@ public class TileSpawnerV2 : MonoBehaviour
 			Gizmos.DrawCube((Vector3Int)referenceTileGizmo.tilePosition, referenceTileGizmoTestingCubeSize);
 		}
 	}
-
-	/*private bool FindValidTileRotation(TileV2 newTile, Vector2Int referenceCP, Vector2Int connectingCP)
-	{
-		//No tiles exist in this pos - Valid!
-		if (tdm.tileDict[newTile.tilePosition] == null)
-		{
-			tdm.AddTile(newTile);
-			return true;
-		}
-
-		//Position ghost tile where it's connecting CP matches with tile of reference CP
-		newTile.tilePosition += referenceCP - connectingCP;
-
-		//Check if any existing tiles are obstructing this tile
-		int obstructionCheckIndex = 0;
-		while (tdm.tileDict.ContainsKey(newTile.tilePosition))
-		{
-			//Obstruction detected: Rotate 90 Degrees, Repeat
-			newTile.Rotate(90);
-			newTile.tilePosition += referenceCP - connectingCP;
-
-			obstructionCheckIndex++;
-			if (obstructionCheckIndex >= 3) return false;
-		}
-
-		//No tiles exist in this pos - Valid!
-		tdm.AddTile(newTile);
-		return true;
-	}*/
 }

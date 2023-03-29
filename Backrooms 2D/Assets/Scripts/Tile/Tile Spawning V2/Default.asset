@@ -24,3 +24,4 @@ MonoBehaviour:
     spawnChance: 0.5
   - tileType: 4
     spawnChance: 0.25
+  removeDeadEndChance: 1

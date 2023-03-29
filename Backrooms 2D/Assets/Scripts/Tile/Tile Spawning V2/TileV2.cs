@@ -159,6 +159,7 @@ public class TileV2
 	[Header("Debugging")]
 	float testingSphereWidth = .1f;
 	Color tileColor = Color.blue, cpColor = Color.cyan;
+	float wallDistFromTile = .45f;
 
 	public void DrawTile(Color tileColor = new Color(), Color cpColor = new Color(), float sphereWidth = 0)
 	{
@@ -171,10 +172,10 @@ public class TileV2
 		{
 			switch (i)
 			{
-				case 0: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(-.5f, .5f), tilePosition + new Vector2(.5f, .5f)); break;
-				case 1: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(.5f, .5f), tilePosition + new Vector2(.5f, -.5f)); break;
-				case 2: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(.5f, -.5f), tilePosition + new Vector2(-.5f, -.5f)); break;
-				case 3: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(-.5f, -.5f), tilePosition + new Vector2(-.5f, .5f)); break;
+				case 0: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(-wallDistFromTile, wallDistFromTile), tilePosition + new Vector2(wallDistFromTile, wallDistFromTile)); break;
+				case 1: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(wallDistFromTile, wallDistFromTile), tilePosition + new Vector2(wallDistFromTile, -wallDistFromTile)); break;
+				case 2: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(wallDistFromTile, -wallDistFromTile), tilePosition + new Vector2(-wallDistFromTile, -wallDistFromTile)); break;
+				case 3: if (walls[i]) Gizmos.DrawLine(tilePosition + new Vector2(-wallDistFromTile, -wallDistFromTile), tilePosition + new Vector2(-wallDistFromTile, wallDistFromTile)); break;
 			}
 		}
 
@@ -193,6 +194,69 @@ public class TileV2
 	Vector2Int ConvertCPToLocalSpace(Vector2Int cp)
 	{
 		return cp - tilePosition;
+	}
+
+	public int DirBetweenTiles(TileV2 otherTile)
+	{
+		Vector2Int aPos = tilePosition, bPos = otherTile.tilePosition;
+
+		if (Vector2Int.Distance(aPos, bPos) != 1)
+		{
+			Debug.Log("Tiles are not adjacent!");
+			return -1;
+		}
+
+		if (bPos.y > aPos.y) return 0;
+		if (bPos.x > aPos.x) return 1;
+		if (bPos.y < aPos.y) return 2;
+		if (bPos.x < aPos.x) return 3;
+
+		Debug.LogError("Direction Calculation Between " + aPos + " and " + bPos + " messed up.");
+		return -1;
+	}
+
+	public int NumWallsBetweenTiles(TileV2 otherTile)
+	{
+		int numWalls = 0;
+
+		//Determine dir btwn tiles
+		int dir = DirBetweenTiles(otherTile);
+		
+		if(dir == -1)
+		{
+			return -1;
+		}
+
+		//Increment numWalls
+		switch (dir)
+		{
+			case 0: numWalls += (walls[0] ? 1 : 0) + (otherTile.walls[2] ? 1 : 0); break;
+			case 1: numWalls += (walls[1] ? 1 : 0) + (otherTile.walls[3] ? 1 : 0); break;
+			case 2: numWalls += (walls[2] ? 1 : 0) + (otherTile.walls[0] ? 1 : 0); break;
+			case 3: numWalls += (walls[3] ? 1 : 0) + (otherTile.walls[1] ? 1 : 0); break;
+		}
+
+		return numWalls;
+	}
+
+	public void RemoveWalls(TileV2 otherTile)
+	{
+		//Determine dir btwn tiles
+		int dir = DirBetweenTiles(otherTile);
+
+		if (dir == -1)
+		{
+			return;
+		}
+
+		//Increment numWalls
+		switch (dir)
+		{
+			case 0: walls[0] = false; otherTile.walls[2] = false; break;
+			case 1: walls[1] = false; otherTile.walls[3] = false; break;
+			case 2: walls[2] = false; otherTile.walls[0] = false; break;
+			case 3: walls[3] = false; otherTile.walls[1] = false; break;
+		}
 	}
 
 	public string toString()

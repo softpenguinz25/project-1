@@ -14,6 +14,12 @@ public class TileLoaderV2 : MonoBehaviour
     
 	public Chunk playerChunk;
 
+	//Sort CPs by ChunkPos => Tile => CPs
+	//public SerializableDictionary<Vector2Int, SerializableDictionary<TileV2, List<Vector2Int>>> chunkTiles;
+	public SerializableDictionary<TileV2, List<Vector2Int>> loadCPs = new(); 
+    public SerializableDictionary<TileV2, List<Vector2Int>> chunkCPs = new(); 
+
+	public event Action PlayerChunkChanged;
 	private void OnDrawGizmos()
 	{
 		if (!UnityEditor.EditorApplication.isPlaying) return;
@@ -37,7 +43,6 @@ public class TileLoaderV2 : MonoBehaviour
 		PlayerChunkChanged?.Invoke();
 	}
 
-	public event Action PlayerChunkChanged;
 	private void Awake()
 	{
 		tdm = GetComponent<TileDataManagerV2>();
@@ -58,8 +63,8 @@ public class TileLoaderV2 : MonoBehaviour
 		tdm.CPRemoved -= RemoveCP;
 	}
 	#endregion
-	public SerializableDictionary<TileV2, List<Vector2Int>> loadCPs = new(); public void AddLoadCP(TileV2 owner, Vector2Int loadCP) { if (loadCPs.Keys.Contains(owner)) loadCPs[owner].Add(loadCP); else loadCPs.Add(owner, new List<Vector2Int> { loadCP }); }
-    public SerializableDictionary<TileV2, List<Vector2Int>> chunkCPs = new(); public void AddChunkCP(TileV2 owner, Vector2Int chunkCP) { if (chunkCPs.Keys.Contains(owner)) chunkCPs[owner].Add(chunkCP); else chunkCPs.Add(owner, new List<Vector2Int> { chunkCP }); }
+	public void AddLoadCP(TileV2 owner, Vector2Int loadCP) { if (loadCPs.Keys.Contains(owner)) loadCPs[owner].Add(loadCP); else loadCPs.Add(owner, new List<Vector2Int> { loadCP }); }
+	public void AddChunkCP(TileV2 owner, Vector2Int chunkCP) { if (chunkCPs.Keys.Contains(owner)) chunkCPs[owner].Add(chunkCP); else chunkCPs.Add(owner, new List<Vector2Int> { chunkCP }); }
 
 	private void Start()
 	{
@@ -68,8 +73,17 @@ public class TileLoaderV2 : MonoBehaviour
 
 	void AddCP(TileV2 cpOwner, Vector2Int cp)
 	{
-		if (cp.x > playerChunk.pos.x - chunkSize * .5f * 3 && cp.x < playerChunk.pos.x + chunkSize * .5f * 3 && cp.y > playerChunk.pos.y - chunkSize * .5f * 3 && cp.y < playerChunk.pos.y + chunkSize * .5f * 3) AddLoadCP(cpOwner, cp);
+		if (cp.x > playerChunk.pos.x - chunkSize * 1.5f && cp.x < playerChunk.pos.x + chunkSize * 1.5f && cp.y > playerChunk.pos.y - chunkSize * 1.5f && cp.y < playerChunk.pos.y + chunkSize * 1.5f) AddLoadCP(cpOwner, cp);
 		if (cp.x > playerChunk.pos.x - chunkSize * .5f && cp.x < playerChunk.pos.x + chunkSize * .5f && cp.y > playerChunk.pos.y - chunkSize * .5f && cp.y < playerChunk.pos.y + chunkSize * .5f) AddChunkCP(cpOwner, cp);
+
+		/*Vector2Int chunkPos = new Vector2Int(Mathf.RoundToInt(cp.x / chunkSize), Mathf.RoundToInt(cp.y / chunkSize)) * chunkSize;
+		if (chunkTiles.Keys.Contains(chunkPos))
+		{
+			if (chunkTiles[chunkPos].Contains(cpOwner))
+			{
+				chunkCPs.Add();
+			}
+		}*/
     }
 
 	private void MoveTile(TileV2 tile, Vector2Int dir)
