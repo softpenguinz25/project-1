@@ -1,39 +1,126 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
-[Serializable]
-public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
+public abstract class SerializableDictionaryBase<TKey, TValue, TValueStorage> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
-    [SerializeField]
-    private List<TKey> keys = new List<TKey>();
-    [SerializeField]
-    private List<TValue> values = new List<TValue>();
+	[SerializeField]
+	TKey[] m_keys;
+	[SerializeField]
+	TValueStorage[] m_values;
 
-    public void OnBeforeSerialize()
-    {
-        keys.Clear();
-        values.Clear();
+	public SerializableDictionaryBase()
+	{
+	}
 
-        foreach (KeyValuePair<TKey, TValue> pair in this)
-        {
-            keys.Add(pair.Key);
-            values.Add(pair.Value);
-        }
-    }
+	public SerializableDictionaryBase(IDictionary<TKey, TValue> dict) : base(dict.Count)
+	{
+		foreach (var kvp in dict)
+		{
+			this[kvp.Key] = kvp.Value;
+		}
+	}
+	
+	protected SerializableDictionaryBase(SerializationInfo info, StreamingContext context) : base(info,context){}
 
-    public void OnAfterDeserialize()
-    {
-        this.Clear();
+	protected abstract void SetValue(TValueStorage[] storage, int i, TValue value);
+	protected abstract TValue GetValue(TValueStorage[] storage, int i);
 
-        if (keys.Count != values.Count)
-        {
-            throw new Exception(string.Format("Number of keys ({0}) does not match number of values ({1})", keys.Count, values.Count));
-        }
+	public void CopyFrom(IDictionary<TKey, TValue> dict)
+	{
+		this.Clear();
+		foreach (var kvp in dict)
+		{
+			this[kvp.Key] = kvp.Value;
+		}
+	}
 
-        for (int i = 0; i < keys.Count; i++)
-        {
-            this.Add(keys[i], values[i]);
-        }
-    }
+	public void OnAfterDeserialize()
+	{
+		if(m_keys != null && m_values != null && m_keys.Length == m_values.Length)
+		{
+			this.Clear();
+			int n = m_keys.Length;
+			for(int i = 0; i < n; ++i)
+			{
+				this[m_keys[i]] = GetValue(m_values, i);
+			}
+
+			m_keys = null;
+			m_values = null;
+		}
+
+	}
+
+	public void OnBeforeSerialize()
+	{
+		int n = this.Count;
+		m_keys = new TKey[n];
+		m_values = new TValueStorage[n];
+
+		int i = 0;
+		foreach(var kvp in this)
+		{
+			m_keys[i] = kvp.Key;
+			SetValue(m_values, i, kvp.Value);
+			++i;
+		}
+	}
+}
+
+public class SerializableDictionary<TKey, TValue> : SerializableDictionaryBase<TKey, TValue, TValue>
+{
+	public SerializableDictionary()
+	{
+	}
+
+	public SerializableDictionary(IDictionary<TKey, TValue> dict) : base(dict)
+	{
+	}
+
+	protected SerializableDictionary(SerializationInfo info, StreamingContext context) : base(info,context){}
+
+	protected override TValue GetValue(TValue[] storage, int i)
+	{
+		return storage[i];
+	}
+
+	protected override void SetValue(TValue[] storage, int i, TValue value)
+	{
+		storage[i] = value;
+	}
+}
+
+public static class SerializableDictionary
+{
+	public class Storage<T>
+	{
+		public T data;
+	}
+}
+
+public class SerializableDictionary<TKey, TValue, TValueStorage> : SerializableDictionaryBase<TKey, TValue, TValueStorage> where TValueStorage : SerializableDictionary.Storage<TValue>, new()
+{
+	public SerializableDictionary()
+	{
+	}
+
+	public SerializableDictionary(IDictionary<TKey, TValue> dict) : base(dict)
+	{
+	}
+
+	protected SerializableDictionary(SerializationInfo info, StreamingContext context) : base(info,context){}
+
+	protected override TValue GetValue(TValueStorage[] storage, int i)
+	{
+		return storage[i].data;
+	}
+
+	protected override void SetValue(TValueStorage[] storage, int i, TValue value)
+	{
+		storage[i] = new TValueStorage();
+		storage[i].data = value;
+	}
 }

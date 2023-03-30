@@ -9,11 +9,14 @@ public class StringStringDictionary : SerializableDictionary<string, string> {}
 [Serializable]
 public class ObjectColorDictionary : SerializableDictionary<UnityEngine.Object, Color> {}
 
-/*[Serializable]
+[Serializable]
 public class ColorArrayStorage : SerializableDictionary.Storage<Color[]> {}
 
 [Serializable]
-public class StringColorArrayDictionary : SerializableDictionary<string, Color[], ColorArrayStorage> {}*/
+public class StringColorArrayDictionary : SerializableDictionary<string, Color[], ColorArrayStorage> {}
+
+[Serializable]
+public class TileTypeGameObjectDictionary : SerializableDictionary<TileV2.TileType, GameObject> { }
 
 [Serializable]
 public class MyClass

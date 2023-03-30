@@ -11,6 +11,8 @@ public class TileCollectionV2 : ScriptableObject
 	[Header("Dead Ends")]
 	[Tooltip("Probability for dead end between two adjacent non-connecting tiles stays a dead end")][Range(0, 1)] public float deadEndProbability = .8f;
 
+	[Header("Real Tiles")]
+	public TileTypeGameObjectDictionary realTiles;
 	public TileV2.TileType GetRandomTile()
 	{
 		float totalDenomination = 0;

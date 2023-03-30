@@ -19,7 +19,6 @@ public class TileDataManagerV2 : MonoBehaviour
 	public List<CPDataV2> cps = new();
 
 	public event Action<TileV2, Vector2Int> CPAdded;
-	public event Action<TileV2, Vector2Int> TileMoved;
 	public event Action<TileV2, Vector2Int> CPRemoved;
 	private void Awake()
 	{
@@ -38,21 +37,6 @@ public class TileDataManagerV2 : MonoBehaviour
 	{
 		tileDict.Add(tile.tilePosition, tile);
 		AddCP(tile);
-	}
-
-	public void MoveTile(TileV2 tile, Vector2Int dir)
-	{
-		tileDict.Remove(tile.tilePosition);
-		tile.tilePosition += dir;
-		tileDict.Add(tile.tilePosition, tile);
-
-		for (int i = 0; i < cpDict[tile].Count; i++)
-		{
-			tile.cps[i] += dir;
-			cpDict[tile][i] += dir;
-		}
-
-		TileMoved?.Invoke(tile, dir);
 	}
 
 	void AddCP(TileV2 cpOwner, Vector2Int cp)

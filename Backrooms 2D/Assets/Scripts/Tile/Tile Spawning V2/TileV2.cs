@@ -21,6 +21,10 @@ public class TileV2
 	public enum TileType { Open, Split, Hall, Corner, End, Closed }
 	[SerializeField] TileType tileType => GetTileType();
 
+	[Header("Spawn")]
+	public bool hasSpawned;
+	public GameObject tileGO;
+
 	public TileV2(Vector2Int pos, TileType tileType)
 	{
 		if (walls.Length != 4)
@@ -65,14 +69,15 @@ public class TileV2
 		return TileType.Corner;
 	}
 
-	public bool[] GetWallsFromTileType(TileType tileType)
+	bool[] GetWallsFromTileType(TileType tileType)
 	{
 		switch (tileType)
 		{
 			case TileType.Open: return new bool[] { false, false, false, false };
 			case TileType.Split:
 				bool[] split = new bool[] { false, false, false, false };
-				split[Random.Range(0, split.Length)] = true;
+				int splitIndex = Random.Range(0, split.Length);
+				split[splitIndex] = true;
 				return split;
 			case TileType.Hall:
 				if (Random.value < .5f) return new bool[] { true, false, true, false };
@@ -89,7 +94,8 @@ public class TileV2
 				return new bool[] { true, true, false, false };
 			case TileType.End:
 				bool[] end = new bool[] { true, true, true, true };
-				end[Random.Range(0, end.Length)] = false;
+				int endIndex = Random.Range(0, end.Length);
+				end[endIndex] = false;
 				return end;
 			case TileType.Closed: return new bool[] { true, true, true, true };
 		}
@@ -98,7 +104,7 @@ public class TileV2
 		return new bool[] { true, true, true, true };
 	}
 
-	public List<Vector2Int> InitialCPs()
+	List<Vector2Int> InitialCPs()
 	{
 		List<Vector2Int> result = new List<Vector2Int>();
 
@@ -156,6 +162,39 @@ public class TileV2
 		}
 	}
 
+	int GetTileRotation()
+	{
+		switch (GetTileType())
+		{
+			case TileType.Open: return Random.Range(0, 4) * -90;
+			case TileType.Split:
+				int splitIndex = 0;
+				for (int splitWallIndex = 1; splitWallIndex < walls.Length; splitWallIndex++) 
+					if (walls[splitWallIndex]) { splitIndex = splitWallIndex; break; }
+				return splitIndex * -90;
+			case TileType.Hall: return walls[0] ? Random.Range(0, 2) * -180 : Random.Range(0, 2) * -180 - 90;
+			case TileType.Corner:
+				int totalCornerIndex = 0;
+				for (int i = 0; i < walls.Length; i++) if (walls[i]) totalCornerIndex += i;
+				switch (totalCornerIndex)
+				{
+					case 1: return 0;
+					case 3: return walls[1] ? -90 : -270;
+					case 5: return 180;
+					default: Debug.LogError("Corner rotation calculation didn't work"); return 45;
+				}
+			case TileType.End:
+				int endIndex = 0;
+				for (int endWallIndex = 1; endWallIndex < walls.Length; endWallIndex++)
+					if (!walls[endWallIndex]) { endIndex = endWallIndex; break; }
+				return endIndex * -90;
+			case TileType.Closed: return Random.Range(0, 4) * -90;
+		}
+
+		Debug.LogError("Tile rotation calculation didn't work");
+		return 45;
+	}
+
 	[Header("Debugging")]
 	float testingSphereWidth = .1f;
 	Color tileColor = Color.blue, cpColor = Color.cyan;
@@ -196,7 +235,7 @@ public class TileV2
 		return cp - tilePosition;
 	}
 
-	public int DirBetweenTiles(TileV2 otherTile)
+	int DirBetweenTiles(TileV2 otherTile)
 	{
 		Vector2Int aPos = tilePosition, bPos = otherTile.tilePosition;
 
@@ -257,6 +296,18 @@ public class TileV2
 			case 2: walls[2] = false; otherTile.walls[0] = false; break;
 			case 3: walls[3] = false; otherTile.walls[1] = false; break;
 		}
+	}
+
+	public void Spawn(TileCollectionV2 tc)
+	{
+		hasSpawned = true;
+
+		tileGO = UnityEngine.Object.Instantiate(tc.realTiles[tileType], (Vector3Int)tilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
+	}
+
+	public void ChangeLoadState(bool loadState)
+	{
+		tileGO.SetActive(loadState);
 	}
 
 	public string toString()

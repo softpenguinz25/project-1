@@ -16,7 +16,8 @@ public class TileSpawnerV2 : MonoBehaviour
 	bool playerChunkChanged;
 
 	[Header("Debugging")]
-	[SerializeField] bool applyFrameDelays;
+	[SerializeField] bool applyGhostTileFrameDelays;
+	[SerializeField] bool applyRealTileFrameDelays = true;
 
 	private void Awake()
 	{
@@ -47,10 +48,10 @@ public class TileSpawnerV2 : MonoBehaviour
 		while (true)
 		{
 			//Delay a frame (FOR TESTING)
-			if(applyFrameDelays) yield return null;
+			if(applyGhostTileFrameDelays) yield return null;
 
 			//Check # of Load CPs
-			if (tl.loadCPs.Count <= 0)
+			if (tl.LoadCPs.Count <= 0)
 			{
 				//Check # of CPs
 				if (tdm.cpDict.Count <= 0)
@@ -61,6 +62,20 @@ public class TileSpawnerV2 : MonoBehaviour
 				}
 				else
 				{
+					/*-----SPAWN REAL TILES-----*/
+					foreach (Vector2Int chunk in tl.GetSurroundingChunks(tl.PlayerChunk))
+					{
+						foreach (KeyValuePair<TileV2, List<Vector2Int>> tileCP in tl.sortedCPs[chunk])
+						{
+							//Debug.Log("Key Value Pair: " + tileCP);
+							if (!tileCP.Key.hasSpawned)
+							{
+								tileCP.Key.Spawn(tc);
+								if (applyRealTileFrameDelays) yield return null;
+							}
+						}
+					}
+					
 					//Check if player has entered a new chunk
 					yield return new WaitUntil(() => playerChunkChanged);
 					playerChunkChanged = false;
@@ -69,13 +84,13 @@ public class TileSpawnerV2 : MonoBehaviour
 				continue;
 			}
 
-			/*-----SPAWN TILE-----*/
+			/*-----SPAWN GHOST TILE-----*/
 			//No tiles exist in this pos - Valid!
 			TileV2 newTile = new(Vector2Int.zero, tc.GetRandomTile());
 			newTileGizmo = newTile;
 
 			//Pick a Random Tile Based on CP in Chunk 
-			TileV2 referenceCPTile = tl.loadCPs.Keys.ElementAt(Random.Range(0, tl.loadCPs.Count));
+			TileV2 referenceCPTile = tl.LoadCPs.Keys.ElementAt(Random.Range(0, tl.LoadCPs.Count));
 			referenceTileGizmo = referenceCPTile;
 
 			//Pick a Random Connection Point in New Tile
@@ -84,7 +99,7 @@ public class TileSpawnerV2 : MonoBehaviour
 			//Position ghost tile where it's connecting CP matches with tile of reference CP
 			newTile.MoveTile(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
 
-			if (applyFrameDelays) yield return null;
+			if (applyGhostTileFrameDelays) yield return null;
 
 			//Check if any existing tiles are obstructing this tile
 			int obstructionCheckIndex = 0;
@@ -102,7 +117,7 @@ public class TileSpawnerV2 : MonoBehaviour
 
 				obstructionCheckIndex++;
 
-				if (applyFrameDelays) yield return null;
+				if (applyGhostTileFrameDelays) yield return null;
 			}
 			if (obstructionCheckIndex >= 4) continue;
 
