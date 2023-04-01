@@ -67,7 +67,6 @@ public class TileSpawnerV2 : MonoBehaviour
 					{
 						foreach (KeyValuePair<TileV2, List<Vector2Int>> tileCP in tl.sortedCPs[chunk])
 						{
-							//Debug.Log("Key Value Pair: " + tileCP);
 							if (!tileCP.Key.hasSpawned)
 							{
 								tileCP.Key.Spawn(tc);
@@ -124,12 +123,10 @@ public class TileSpawnerV2 : MonoBehaviour
 
 				//Obstruction detected: Rotate 90 Degrees, Repeat
 				newTile.Rotate(90);
-				Debug.Log(newTile + " Rotated");
 
 				if (applyGhostTileFrameDelays) yield return null;
 
 				newTile.MoveTileByDir(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
-				Debug.Log(newTile + " Moved");
 
 				obstructionCheckIndex++;
 
@@ -147,34 +144,34 @@ public class TileSpawnerV2 : MonoBehaviour
 			newTile.RemoveCP(tdm, newTile.cps[connectingCPIndex]);
 
 			//Remove CPs in newTile overlapping with other tiles
-			Dictionary<Vector2Int, TileV2> surroundingTiles = tdm.GetSurroundingTiles(newTile.tilePosition);
+			Dictionary<Vector2Int, TileV2> surroundingTiles = newTile.GetSurroundingTiles(tdm);
 			for (int i = newTile.cps.Count - 1; i >= 0; i--)
 			{
 				if (surroundingTiles.ContainsKey(newTile.cps[i]))
 				{
 					//Remove Dead Ends
 					if (Random.value > tc.deadEndProbability)
-						if (newTile.NumWallsBetweenTiles(surroundingTiles[newTile.cps[i]]) > 0)
-							newTile.RemoveWalls(surroundingTiles[newTile.cps[i]]);
+						if (newTile.NumWallsBetweenTiles(newTile, surroundingTiles[newTile.cps[i]]) > 0)
+							newTile.RemoveWalls(newTile, surroundingTiles[newTile.cps[i]]);
 
 					newTile.RemoveCP(tdm, newTile.cps[i]);
 				}
 			}
 
 			//Remove CPs in surrounding tiles overlapping with newTile pos
-			for (int i = surroundingTiles.Count - 1; i >= 0; i--)
+			for (int surroundingTileIndex = surroundingTiles.Count - 1; surroundingTileIndex >= 0; surroundingTileIndex--)
 			{
-				TileV2 surroundingTile = surroundingTiles[surroundingTiles.Keys.ElementAt(i)];
-				for (int j = surroundingTile.cps.Count - 1; j >= 0; j--)
+				TileV2 surroundingTile = surroundingTiles[surroundingTiles.Keys.ElementAt(surroundingTileIndex)];
+				for (int surroundingTileCPIndex = surroundingTile.cps.Count - 1; surroundingTileCPIndex >= 0; surroundingTileCPIndex--)
 				{
-					if (surroundingTile.cps[j] == newTile.tilePosition)
+					if (surroundingTile.cps[surroundingTileCPIndex] == newTile.tilePosition)
 					{
 						//Remove Dead Ends
 						if (Random.value > tc.deadEndProbability)
-							if (surroundingTile.NumWallsBetweenTiles(newTile) > 0)
-								surroundingTile.RemoveWalls(newTile);
+							if (surroundingTile.NumWallsBetweenTiles(surroundingTile, newTile) > 0)
+								surroundingTile.RemoveWalls(surroundingTile, newTile);
 
-						tdm.RemoveCP(surroundingTile, surroundingTile.cps[j]);
+						surroundingTile.RemoveCP(tdm, surroundingTile.cps[surroundingTileCPIndex]);
 					}
 				}
 			}

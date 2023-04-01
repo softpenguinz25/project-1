@@ -1,6 +1,7 @@
 using com.spacepuppy.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,14 +16,9 @@ public class TileV2
 	int numWalls => GetNumWalls();
 
 	//CPs
-	public List<Vector2Int> cps;
+	virtual public List<Vector2Int> cps { get; set; }
 
 	//Tile Type
-	protected virtual TileV2 Tile(TileV2 closestTile)
-	{
-		return this;
-	}
-
 	public enum TileType { Open, Split, Hall, Corner, End, Closed,
 		GroupTile1,
 		GroupTile2,
@@ -285,13 +281,18 @@ public class TileV2
 			return;
 		}
 			
-		tdm.RemoveCP(this, cp);
+		if(tdm != null) tdm.RemoveCP(this, cp);
 		cps.Remove(cp);
 	}
 
 	protected virtual Vector2Int ConvertCPToLocalSpace(TileV2 cpOwner, Vector2Int cp)
 	{
 		return cp - cpOwner.tilePosition;
+	}
+
+	public virtual Dictionary<Vector2Int, TileV2> GetSurroundingTiles(TileDataManagerV2 tdm)
+	{
+		return tdm.GetSurroundingTiles(tilePosition);
 	}
 
 	protected virtual int DirBetweenTiles(TileV2 tile, TileV2 otherTile)
@@ -313,17 +314,17 @@ public class TileV2
 		return -1;
 	}
 
-	public int NumWallsBetweenTiles(TileV2 otherTile)
+	public virtual int NumWallsBetweenTiles(TileV2 thisTile, TileV2 otherTile)
 	{
 		int numWalls = 0;
 
 		//Determine dir btwn tiles
-		int dir = DirBetweenTiles(Tile(otherTile), otherTile);
+		int dir = DirBetweenTiles(thisTile, otherTile);
 		
 		if(dir == -1) return -1;
 
 		//Increment numWalls
-		int tileWalls = Tile(otherTile).walls[dir] ? 1 : 0;
+		int tileWalls = thisTile.walls[dir] ? 1 : 0;
 		int otherTileWalls = otherTile.walls[(dir + 2) % 4] ? 1 : 0;
 
 		numWalls += tileWalls + otherTileWalls;
@@ -331,10 +332,10 @@ public class TileV2
 		return numWalls;
 	}
 
-	public void RemoveWalls(TileV2 otherTile)
+	public virtual void RemoveWalls(TileV2 thisTile, TileV2 otherTile)
 	{
 		//Determine dir btwn tiles
-		int dir = DirBetweenTiles(Tile(otherTile), otherTile);
+		int dir = DirBetweenTiles(thisTile, otherTile);
 		int otherDir = (dir + 2) % 4;
 
 		if (dir == -1)
@@ -343,12 +344,12 @@ public class TileV2
 		}
 
 		//Alter wall gizmos
-		Tile(otherTile).walls[dir] = false;
+		thisTile.walls[dir] = false;
 		otherTile.walls[otherDir] = false;
 
 		//Destroy GO walls if GO has spawned
-		if (Tile(otherTile).hasSpawned) 
-			foreach (TileWallV2 tileWall in Tile(otherTile).tileGO.GetComponentsInChildren<TileWallV2>()) 
+		if (thisTile.hasSpawned) 
+			foreach (TileWallV2 tileWall in thisTile.tileGO.GetComponentsInChildren<TileWallV2>()) 
 				if (tileWall.wallIndex == dir) 
 					UnityEngine.Object.Destroy(tileWall.gameObject);
 

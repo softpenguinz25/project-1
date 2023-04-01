@@ -1,8 +1,6 @@
 using Array2DEditor;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,40 +11,39 @@ public class GroupTileV2 : TileV2
 
 	//Tiles
 	List<TileV2> childTiles = new();
-	TileV2 childTileOfConnectingCP;
+	TileV2 connectingCPTile;
 	TileType groupTileType;
 
 	//CPs
-	Dictionary<TileV2, List<Vector2Int>> groupCPsSorted = new();
+	List<TileV2> childTilesWithCPs = new();
+	public override List<Vector2Int> cps { get {
+			List<Vector2Int> cpResult = new();
+			foreach (TileV2 childTileWithCP in childTilesWithCPs)
+				foreach (Vector2Int childCP in childTileWithCP.cps) cpResult.Add(childCP);
 
+			return cpResult;
+		}
+		set => base.cps = value; }
 
 	//Debugging
 	float testingSphereWidth = .15f;
-	Color tileColor = new Color(1, .5f, 0), cpColor = Color.red;
+	Color tileColor = new Color(1, .5f, 0), cpColor = Color.red, groupCPColor = Color.yellow;
 	float wallDistFromTile = .45f;
 
 	//Events
 	event Action<TileV2> ChildTileAdded;
-	void AddGroupCP(TileV2 cpOwner, Vector2Int cp)
-	{
-		cps.Add(cp);
-
-		if (groupCPsSorted.Keys.Contains(cpOwner)) groupCPsSorted[cpOwner].Add(cp);
-		else groupCPsSorted.Add(cpOwner, new List<Vector2Int> { cp });
-	}
-
-	protected override TileV2 Tile(TileV2 closestTile)
-	{
-		return GetClosestTile(closestTile);
-	}
+	event Action<int> ConnectingCPGenerated;
 
 	public GroupTileV2(TileType tileType, GroupTileV2Data groupTileData) : base(tileType)
 	{
-		cps = new();
 		groupTileType = tileType;
 		this.groupTileData = groupTileData;
 
 		ChildTileAdded += AddGroupCPFromTile;
+		ConnectingCPGenerated += (int connectingCPTileIndex) => {
+			connectingCPTile = childTilesWithCPs[connectingCPTileIndex];
+			tilePosition = connectingCPTile.tilePosition;
+		};
 
 		childTiles = DecodeGroupTileData(groupTileData);
 	}
@@ -120,20 +117,15 @@ public class GroupTileV2 : TileV2
 	{
 		if (childTile.cps.Count <= 0) return;
 
-		foreach (Vector2Int tileCP in childTile.cps)
-		{
-			AddGroupCP(childTile, tileCP);
-		}
+		childTilesWithCPs.Add(childTile);
 	}
 
 	public override int GetConnectingCPIndex()
 	{
-		int tileIndex = Random.Range(0, groupCPsSorted.Keys.Count);
-		int cpIndex = Random.Range(0, groupCPsSorted.ElementAt(tileIndex).Value.Count);
-		childTileOfConnectingCP = groupCPsSorted.ElementAt(tileIndex).Key;
-
-		tilePosition = groupCPsSorted.ElementAt(tileIndex).Key.tilePosition;
-		return cps.IndexOf(groupCPsSorted.ElementAt(tileIndex).Value[cpIndex]);
+		int tileIndex = Random.Range(0, childTilesWithCPs.Count);
+		int cpIndex = Random.Range(0, childTilesWithCPs[tileIndex].cps.Count);
+		ConnectingCPGenerated?.Invoke(tileIndex);
+		return cps.IndexOf(childTilesWithCPs[tileIndex].cps[cpIndex]);
 	}
 
 	protected override TileType GetTileType()
@@ -161,21 +153,9 @@ public class GroupTileV2 : TileV2
 		{
 			childTile.MoveTileByDir(dir);
 
-			if (childTile == childTileOfConnectingCP)
+			if (childTile == connectingCPTile)
 				tilePosition = childTile.tilePosition;
-
-			//Overall Group Tile
-			TryMoveSortedCPs(childTile, dir);
 		}
-
-		for (int cpIndex = 0; cpIndex < cps.Count; cpIndex++) cps[cpIndex] += dir;
-	}
-
-	private void TryMoveSortedCPs(TileV2 childTile, Vector2Int dir)
-	{
-		if (groupCPsSorted.ContainsKey(childTile))
-			for (int groupCPIndex = 0; groupCPIndex < groupCPsSorted[childTile].Count; groupCPIndex++)
-				groupCPsSorted[childTile][groupCPIndex] += dir;
 	}
 
 	public override void Rotate(int degrees)
@@ -201,40 +181,61 @@ public class GroupTileV2 : TileV2
 
 			childTile.MoveTileByDir(rotateMoveDir);
 
-			//Overall Group Tile
-			TryMoveSortedCPs(childTile, rotateMoveDir);
 		}
 	}
 
 	public override void DrawTile(Color tileColor = default, Color cpColor = default, float sphereWidth = 0)
 	{
-		float testingSphereWidth = /*sphereWidth == 0 ? */this.testingSphereWidth/* : sphereWidth*/;
-		Color testingTileColor = /*tileColor == Color.clear ? */this.tileColor/* : tileColor*/;
-		Color testingCPColor = /*cpColor == Color.clear ? */this.cpColor/* : cpColor*/;
+		float testingSphereWidth = sphereWidth == 0 ? this.testingSphereWidth : sphereWidth;
+		Color testingTileColor = tileColor == Color.clear ? this.tileColor : tileColor;
+		Color testingCPColor = cpColor == Color.clear ? this.cpColor : cpColor;
+		//Group Data
+		Gizmos.color = groupCPColor;
+		foreach (Vector2Int cp in cps) Gizmos.DrawSphere((Vector3Int)cp, testingSphereWidth + .15f);
 
-		foreach (TileV2 childTile in childTiles) 
+		//Individual Tiles
+		foreach (TileV2 childTile in childTiles)
 			childTile.DrawTile(testingTileColor, testingCPColor, testingSphereWidth);
 	}
 
 	public override void RemoveCP(TileDataManagerV2 tdm, Vector2Int cp)
 	{
+		//Overall Tiles
 		foreach (TileV2 cpOwner in GetCPOwnersFromCP(cp))
 		{
-			tdm.RemoveCP(cpOwner, cp);
-			cps.Remove(cp);
+			childTilesWithCPs.Remove(cpOwner);
+			//tdm.RemoveCP(cpOwner, cp);
+			cpOwner.RemoveCP(tdm, cp);
 		}
 	}
+
 	private List<TileV2> GetCPOwnersFromCP(Vector2Int cp)
 	{
 		List<TileV2> possibleCPOwners = new(4);
 
-		foreach (KeyValuePair<TileV2, List<Vector2Int>> groupCPSorted in groupCPsSorted)
+		foreach (TileV2 childTileWithCP in childTilesWithCPs)
 		{
-			if (groupCPsSorted[groupCPSorted.Key].Contains(cp))
-				possibleCPOwners.Add(groupCPSorted.Key);
+			if (childTileWithCP.cps.Contains(cp))
+				possibleCPOwners.Add(childTileWithCP);
 		}
 
 		return possibleCPOwners;
+	}
+
+	public override Dictionary<Vector2Int, TileV2> GetSurroundingTiles(TileDataManagerV2 tdm)
+	{
+		Dictionary<Vector2Int, TileV2> surroundingTiles = new();
+		foreach (TileV2 childTile in childTiles)
+		{
+			Dictionary<Vector2Int, TileV2> childSurroundingTiles = tdm.GetSurroundingTiles(childTile.tilePosition);
+			foreach(KeyValuePair<Vector2Int, TileV2> childSurroundingPair in childSurroundingTiles)
+			{
+				if (!childTiles.Contains(childSurroundingPair.Value))
+					surroundingTiles.Add(childSurroundingPair.Key, childSurroundingPair.Value);
+			}
+		}
+
+		return surroundingTiles;
 	}
 
 	protected override int DirBetweenTiles(TileV2 tile, TileV2 otherTile)
@@ -267,6 +268,18 @@ public class GroupTileV2 : TileV2
 		}
 
 		return closestTile;
+	}
+
+	public override int NumWallsBetweenTiles(TileV2 thisTile, TileV2 otherTile)
+	{
+		TileV2 closestTile = GetClosestTile(otherTile);
+		return base.NumWallsBetweenTiles(closestTile, otherTile);
+	}
+
+	public override void RemoveWalls(TileV2 thisTile, TileV2 otherTile)
+	{
+		TileV2 closestTile = GetClosestTile(otherTile);
+		base.RemoveWalls(closestTile, otherTile);
 	}
 
 	public override void Spawn(TileCollectionV2 tc)
