@@ -49,13 +49,14 @@ public class TileDataManagerV2 : MonoBehaviour
 
 	void AddCP(TileV2 cpOwner)
 	{
+		if (cpOwner.cps.Count <= 0) return;
+
 		if (!cpDict.ContainsKey(cpOwner)) cpDict.Add(cpOwner, new List<Vector2Int>());
 		foreach (Vector2Int cp in cpOwner.cps)
 		{
 			cpDict[cpOwner].Add(cp);
 
 			CPAdded?.Invoke(cpOwner, cp);
-			//Debug.Log("Adding CP...");
 		}
 	}
 
@@ -63,16 +64,13 @@ public class TileDataManagerV2 : MonoBehaviour
 	{
 		if (!cpOwner.cps.Contains(cp))
 		{
-			Debug.LogError("Cannot Remove Tile bc parent tile does not contain cp!");
+			Debug.LogError("Cannot Remove CP bc parent tile does not contain cp! (TDM)");
 			return;
 		}
 
 		//Remove CP from cpDict
 		cpDict[cpOwner].Remove(cp);
 		if (cpDict[cpOwner].Count <= 0) cpDict.Remove(cpOwner);
-
-		//Remove CP from the tile itself
-		cpOwner.RemoveCP(cp);
 
 		CPRemoved?.Invoke(cpOwner, cp);
 	}

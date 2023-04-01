@@ -10,11 +10,15 @@ public class TileLoaderV2 : MonoBehaviour
 	TileDataManagerV2 tdm;
 
 	[Header("Chunk")]
-    [Tooltip("HAS TO BE EVEN | Unit: Tiles")] public int chunkSize = 16;
+	[Tooltip("HAS TO BE EVEN | Unit: Tiles")] public int chunkSize = 16;
+	public static int ChunkSize;
 
 	[Header("Player")]
 	[SerializeField] GameObject player;
 	Vector2Int playerChunk;
+
+	[Header("Debugging")]
+	[SerializeField] bool unloadChunks = true;
 	public Vector2Int PlayerChunk
 	{
 		get
@@ -37,6 +41,7 @@ public class TileLoaderV2 : MonoBehaviour
 	//Sort CPs by Chunk => Tile => CPs
 	public Dictionary<Vector2Int, Dictionary<TileV2, List<Vector2Int>>> sortedCPs = new();
 	public Dictionary<Vector2Int, bool> chunkLoadStates = new();
+	public static Dictionary<Vector2Int, GameObject> chunkGOs = new();
 	public Dictionary<TileV2, List<Vector2Int>> LoadCPs = new();
 
 	public event Action PlayerChunkChanged;
@@ -84,28 +89,42 @@ public class TileLoaderV2 : MonoBehaviour
 	void AddCP(TileV2 cpOwner, Vector2Int cp)
 	{
 		//Add CP to sortedCPs Dictionary Based On What Data is Already There
-		if (sortedCPs.Keys.Contains(GetChunkFromPos(cpOwner.tilePosition)))
-			if (sortedCPs[GetChunkFromPos(cpOwner.tilePosition)].Keys.Contains(cpOwner))
-				sortedCPs[GetChunkFromPos(cpOwner.tilePosition)][cpOwner].Add(cp);
+		if (sortedCPs.Keys.Contains(GetChunkFromPos(cpOwner.tilePosition, chunkSize)))
+			if (sortedCPs[GetChunkFromPos(cpOwner.tilePosition, chunkSize)].Keys.Contains(cpOwner))
+				sortedCPs[GetChunkFromPos(cpOwner.tilePosition, chunkSize)][cpOwner].Add(cp);
 			else
-				sortedCPs[GetChunkFromPos(cpOwner.tilePosition)].Add(cpOwner, new List<Vector2Int> { cp });
+				sortedCPs[GetChunkFromPos(cpOwner.tilePosition, chunkSize)].Add(cpOwner, new List<Vector2Int> { cp });
 		else
 		{
-			sortedCPs.Add(GetChunkFromPos(cpOwner.tilePosition), new Dictionary<TileV2, List<Vector2Int>> { [cpOwner] = new List<Vector2Int> { cp } });
-			chunkLoadStates.Add(GetChunkFromPos(cpOwner.tilePosition), true);
+			sortedCPs.Add(GetChunkFromPos(cpOwner.tilePosition, chunkSize), new Dictionary<TileV2, List<Vector2Int>> { [cpOwner] = new List<Vector2Int> { cp } });
+			
+			//Other data aside from sortedCPs
+			chunkLoadStates.Add(GetChunkFromPos(cpOwner.tilePosition, chunkSize), true);
+			CreateChunkGO(cpOwner);
 		}
 
 		//Add Load CPs Based On Surrounding Chunks
-		if (GetSurroundingChunks(playerChunk).Contains(GetChunkFromPos(cpOwner.tilePosition)))
+		if (GetSurroundingChunks(playerChunk).Contains(GetChunkFromPos(cpOwner.tilePosition, chunkSize)))
 			if (LoadCPs.ContainsKey(cpOwner)) LoadCPs[cpOwner].Add(cp);
 			else LoadCPs.Add(cpOwner, new List<Vector2Int> {cp});
 	}
 
+	private void CreateChunkGO(TileV2 cpOwner)
+	{
+		GameObject chunk = new(GetChunkFromPos(cpOwner.tilePosition, chunkSize).ToString());
+		chunk.transform.parent = transform;
+
+		if (chunkGOs.ContainsKey(GetChunkFromPos(cpOwner.tilePosition, chunkSize)))
+			chunkGOs.Remove(GetChunkFromPos(cpOwner.tilePosition, chunkSize));
+
+		chunkGOs.Add(GetChunkFromPos(cpOwner.tilePosition, chunkSize), chunk);
+	}
+
 	private void RemoveCP(TileV2 cpOwner, Vector2Int cp)
 	{
-		sortedCPs[GetChunkFromPos(cpOwner.tilePosition)][cpOwner].Remove(cp);
+		sortedCPs[GetChunkFromPos(cpOwner.tilePosition, chunkSize)][cpOwner].Remove(cp);
 
-		if (GetSurroundingChunks(playerChunk).Contains(GetChunkFromPos(cpOwner.tilePosition)))
+		if (GetSurroundingChunks(playerChunk).Contains(GetChunkFromPos(cpOwner.tilePosition, chunkSize)))
 		{
 			LoadCPs[cpOwner].Remove(cp);
 			if (LoadCPs[cpOwner].Count <= 0)
@@ -113,8 +132,8 @@ public class TileLoaderV2 : MonoBehaviour
 		}
 	}
 
-	Vector2Int GetChunkFromPos(Vector2Int pos) { return new Vector2Int(Mathf.RoundToInt((float)pos.x / chunkSize), Mathf.RoundToInt((float)pos.y / chunkSize)) * chunkSize; }
-	Vector2Int GetChunkFromPos(Vector3 pos) { return new Vector2Int(Mathf.RoundToInt(pos.x / chunkSize), Mathf.RoundToInt(pos.y / chunkSize)) * chunkSize; }
+	public static Vector2Int GetChunkFromPos(Vector2Int pos, int chunkSize) { return new Vector2Int(Mathf.RoundToInt((float)pos.x / chunkSize), Mathf.RoundToInt((float)pos.y / chunkSize)) * chunkSize; }
+	public static Vector2Int GetChunkFromPos(Vector3 pos, int chunkSize) { return new Vector2Int(Mathf.RoundToInt(pos.x / chunkSize), Mathf.RoundToInt(pos.y / chunkSize)) * chunkSize; }
 
 	public List<Vector2Int> GetSurroundingChunks(Vector2Int middleChunk)
 	{
@@ -135,15 +154,15 @@ public class TileLoaderV2 : MonoBehaviour
 	void PlayerChunkChange(Vector2Int oldPlayerChunk)
 	{
 		ChunkChangeLoadCPs();
-		UnloadTiles(oldPlayerChunk);
-		LoadTiles();
+		UnloadChunks(oldPlayerChunk);
+		LoadChunks();
 	}
 
 	void ChunkChangeLoadCPs()
 	{
 		//1. Remove Load CPs Outside of Surrounding Chunk
 		foreach (TileV2 loadTile in LoadCPs.Keys)
-			if (!GetSurroundingChunks(playerChunk).Contains(GetChunkFromPos(loadTile.tilePosition)))
+			if (!GetSurroundingChunks(playerChunk).Contains(GetChunkFromPos(loadTile.tilePosition, chunkSize)))
 				LoadCPs.Remove(loadTile);
 
 		//2. Add Load CPs in Surrounding Chunks Not Already in Load CPs Dictionary
@@ -159,8 +178,10 @@ public class TileLoaderV2 : MonoBehaviour
 		}
 	}
 
-	void UnloadTiles(Vector2Int oldPlayerChunk)
+	void UnloadChunks(Vector2Int oldPlayerChunk)
 	{
+		if (!unloadChunks) return;
+
 		List<Vector2Int> chunksToUnload = new();
 
 		foreach (Vector2Int oldSurroundingPlayerChunk in GetSurroundingChunks(oldPlayerChunk))
@@ -170,21 +191,20 @@ public class TileLoaderV2 : MonoBehaviour
 		foreach (Vector2Int chunkToUnload in chunksToUnload)
 		{
 			chunkLoadStates[chunkToUnload] = false;
-			foreach (KeyValuePair<TileV2, List<Vector2Int>> tileCPs in sortedCPs[chunkToUnload])
-				tileCPs.Key.ChangeLoadState(false);
+			chunkGOs[chunkToUnload].SetActive(false);
 		}
 	}
 
-	void LoadTiles()
+	void LoadChunks()
 	{
 		foreach(Vector2Int surroundingChunk in GetSurroundingChunks(playerChunk))
 			if(!chunkLoadStates[surroundingChunk])
-				foreach (KeyValuePair<TileV2, List<Vector2Int>> tileCPs in sortedCPs[surroundingChunk])
-					tileCPs.Key.ChangeLoadState(true);
+				chunkGOs[surroundingChunk].SetActive(true);
 	}
 
 	private void Update()
 	{
-		PlayerChunk = GetChunkFromPos(player.transform.position);
+		PlayerChunk = GetChunkFromPos(player.transform.position, chunkSize);
+		ChunkSize = chunkSize;
 	}
 }

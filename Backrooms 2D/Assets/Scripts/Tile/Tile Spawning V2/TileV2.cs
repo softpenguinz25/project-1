@@ -7,25 +7,53 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class TileV2
 {
-	[Header("Position")]
-	public Vector2Int tilePosition;
+	//Position
+	[HideInInspector] public Vector2Int tilePosition;
 
-	[Header("Walls")]
-	public bool[] walls = new bool[4];
+	//Walls
+	[SerializeField] protected bool[] walls = new bool[4];
 	int numWalls => GetNumWalls();
 
-	[Header("Walls")]
+	//CPs
 	public List<Vector2Int> cps;
 
 	//Tile Type
-	public enum TileType { Open, Split, Hall, Corner, End, Closed }
+	protected virtual TileV2 Tile(TileV2 closestTile)
+	{
+		return this;
+	}
+
+	public enum TileType { Open, Split, Hall, Corner, End, Closed,
+		GroupTile1,
+		GroupTile2,
+		GroupTile3,
+		GroupTile4,
+		GroupTile5,
+		GroupTile6,
+		GroupTile7,
+		GroupTile8,
+		GroupTile9,
+		GroupTile10,
+		GroupTile11,
+		GroupTile12,
+		GroupTile13,
+		GroupTile14,
+		GroupTile15,
+		GroupTile16,
+	}
 	[SerializeField] TileType tileType => GetTileType();
 
-	[Header("Spawn")]
-	public bool hasSpawned;
-	public GameObject tileGO;
+	//Spawn
+	[HideInInspector] public bool hasSpawned;
+	GameObject goToSpawn;
+	GameObject tileGO;
 
-	public TileV2(Vector2Int pos, TileType tileType)
+	//Debugging
+	float testingSphereWidth = .1f;
+	Color tileColor = Color.blue, cpColor = Color.cyan;
+	float wallDistFromTile = .45f;
+
+	public TileV2(TileType tileType)
 	{
 		if (walls.Length != 4)
 		{
@@ -33,9 +61,39 @@ public class TileV2
 			return;
 		}
 
-		tilePosition = pos;
 		walls = GetWallsFromTileType(tileType);
 		cps = InitialCPs();
+	}
+
+	public TileV2(bool[] walls)
+	{
+		if (walls.Length != 4)
+		{
+			Debug.LogError("GhostTile Created With walls[] Length Not 4!");
+			return;
+		}
+
+		this.walls = walls;
+		cps = InitialCPs();
+	}
+
+	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps, GameObject goToSpawn)
+	{
+		if (walls.Length != 4)
+		{
+			Debug.LogError("GhostTile Created With walls[] Length Not 4!");
+			return;
+		}
+
+		this.tilePosition = tilePosition;
+		this.walls = walls;
+		this.cps = cps;
+		this.goToSpawn = goToSpawn;
+	}
+
+	public virtual int GetConnectingCPIndex()
+	{
+		return Random.Range(0, cps.Count);
 	}
 
 	int GetNumWalls()
@@ -47,7 +105,7 @@ public class TileV2
 		}
 		return numWalls;
 	}
-	public TileType GetTileType()
+	protected virtual TileType GetTileType()
 	{
 		if (numWalls == 0) return TileType.Open;
 		if (numWalls == 1) return TileType.Split;
@@ -98,13 +156,11 @@ public class TileV2
 				end[endIndex] = false;
 				return end;
 			case TileType.Closed: return new bool[] { true, true, true, true };
+			default: return null;
 		}
-
-		Debug.LogError("TileType to bool[] Conversion Didn't Work!");
-		return new bool[] { true, true, true, true };
 	}
 
-	List<Vector2Int> InitialCPs()
+	protected virtual List<Vector2Int> InitialCPs()
 	{
 		List<Vector2Int> result = new List<Vector2Int>();
 
@@ -112,26 +168,28 @@ public class TileV2
 		{
 			if (!walls[i])
 			{
-				switch (i)
-				{
-					case 0: result.Add(new Vector2Int(0, 1) + tilePosition); break;
-					case 1: result.Add(new Vector2Int(1, 0) + tilePosition); break;
-					case 2: result.Add(new Vector2Int(0, -1) + tilePosition); break;
-					case 3: result.Add(new Vector2Int(-1, 0) + tilePosition); break;
-				}
+				result.Add(new Vector2Int(
+					Mathf.RoundToInt(Mathf.Sin(i * Mathf.PI * .5f)), 
+					Mathf.RoundToInt(Mathf.Cos(i * Mathf.PI * .5f))) 
+					+ tilePosition);
 			}
 		}
 
 		return result;
 	}
 
-	public void MoveTile(Vector2Int dir)
+	public virtual bool IsOverlappingWithPosList(List<Vector2Int> posList)
+	{
+		return posList.Contains(tilePosition);
+	}
+
+	public virtual void MoveTileByDir(Vector2Int dir)
 	{
 		tilePosition += dir;
 		for (int i = 0; i < cps.Count; i++) cps[i] += dir;
 	}
 
-	public void Rotate(int degrees)
+	public virtual void Rotate(int degrees)
 	{
 		if (degrees % 90 != 0)
 		{
@@ -153,10 +211,9 @@ public class TileV2
 		walls = rotatedWalls;
 
 		//Rotate CPs
-		//Debug.Log("Num Rotations: " + rotations);
 		for (int i = 0; i < cps.Count; i++)
 		{
-			Vector2Int localCPPos = ConvertCPToLocalSpace(cps[i]);
+			Vector2Int localCPPos = ConvertCPToLocalSpace(this, cps[i]);
 
 			cps[i] = Vector2Int.RoundToInt(VectorUtil.RotateBy(localCPPos, -degrees)) + tilePosition;
 		}
@@ -194,13 +251,8 @@ public class TileV2
 		Debug.LogError("Tile rotation calculation didn't work");
 		return 45;
 	}
-
-	[Header("Debugging")]
-	float testingSphereWidth = .1f;
-	Color tileColor = Color.blue, cpColor = Color.cyan;
-	float wallDistFromTile = .45f;
-
-	public void DrawTile(Color tileColor = new Color(), Color cpColor = new Color(), float sphereWidth = 0)
+	
+	public virtual void DrawTile(Color tileColor = new Color(), Color cpColor = new Color(), float sphereWidth = 0)
 	{
 		float testingSphereWidth = sphereWidth == 0 ? this.testingSphereWidth : sphereWidth;
 
@@ -225,19 +277,26 @@ public class TileV2
 		}
 	}
 
-	public void RemoveCP(Vector2Int cpPos)
+	public virtual void RemoveCP(TileDataManagerV2 tdm, Vector2Int cp)
 	{
-		if (cps.Contains(cpPos)) cps.Remove(cpPos);
+		if (!cps.Contains(cp))
+		{
+			Debug.LogError("Cannot Remove CP bc parent tile does not contain cp! (TileV2)");
+			return;
+		}
+			
+		tdm.RemoveCP(this, cp);
+		cps.Remove(cp);
 	}
 
-	Vector2Int ConvertCPToLocalSpace(Vector2Int cp)
+	protected virtual Vector2Int ConvertCPToLocalSpace(TileV2 cpOwner, Vector2Int cp)
 	{
-		return cp - tilePosition;
+		return cp - cpOwner.tilePosition;
 	}
 
-	int DirBetweenTiles(TileV2 otherTile)
+	protected virtual int DirBetweenTiles(TileV2 tile, TileV2 otherTile)
 	{
-		Vector2Int aPos = tilePosition, bPos = otherTile.tilePosition;
+		Vector2Int aPos = tile.tilePosition, bPos = otherTile.tilePosition;
 
 		if (Vector2Int.Distance(aPos, bPos) != 1)
 		{
@@ -259,21 +318,15 @@ public class TileV2
 		int numWalls = 0;
 
 		//Determine dir btwn tiles
-		int dir = DirBetweenTiles(otherTile);
+		int dir = DirBetweenTiles(Tile(otherTile), otherTile);
 		
-		if(dir == -1)
-		{
-			return -1;
-		}
+		if(dir == -1) return -1;
 
 		//Increment numWalls
-		switch (dir)
-		{
-			case 0: numWalls += (walls[0] ? 1 : 0) + (otherTile.walls[2] ? 1 : 0); break;
-			case 1: numWalls += (walls[1] ? 1 : 0) + (otherTile.walls[3] ? 1 : 0); break;
-			case 2: numWalls += (walls[2] ? 1 : 0) + (otherTile.walls[0] ? 1 : 0); break;
-			case 3: numWalls += (walls[3] ? 1 : 0) + (otherTile.walls[1] ? 1 : 0); break;
-		}
+		int tileWalls = Tile(otherTile).walls[dir] ? 1 : 0;
+		int otherTileWalls = otherTile.walls[(dir + 2) % 4] ? 1 : 0;
+
+		numWalls += tileWalls + otherTileWalls;
 
 		return numWalls;
 	}
@@ -281,37 +334,54 @@ public class TileV2
 	public void RemoveWalls(TileV2 otherTile)
 	{
 		//Determine dir btwn tiles
-		int dir = DirBetweenTiles(otherTile);
+		int dir = DirBetweenTiles(Tile(otherTile), otherTile);
+		int otherDir = (dir + 2) % 4;
 
 		if (dir == -1)
 		{
 			return;
 		}
 
-		//Increment numWalls
-		switch (dir)
-		{
-			case 0: walls[0] = false; otherTile.walls[2] = false; break;
-			case 1: walls[1] = false; otherTile.walls[3] = false; break;
-			case 2: walls[2] = false; otherTile.walls[0] = false; break;
-			case 3: walls[3] = false; otherTile.walls[1] = false; break;
-		}
+		//Alter wall gizmos
+		Tile(otherTile).walls[dir] = false;
+		otherTile.walls[otherDir] = false;
+
+		//Destroy GO walls if GO has spawned
+		if (Tile(otherTile).hasSpawned) 
+			foreach (TileWallV2 tileWall in Tile(otherTile).tileGO.GetComponentsInChildren<TileWallV2>()) 
+				if (tileWall.wallIndex == dir) 
+					UnityEngine.Object.Destroy(tileWall.gameObject);
+
+		if (otherTile.hasSpawned) 
+			foreach (TileWallV2 otherTileWall in otherTile.tileGO.GetComponentsInChildren<TileWallV2>()) 
+				if (otherTileWall.wallIndex == otherDir) 
+					UnityEngine.Object.Destroy(otherTileWall.gameObject);
 	}
 
-	public void Spawn(TileCollectionV2 tc)
+	public virtual void Spawn(TileCollectionV2 tc)
 	{
 		hasSpawned = true;
 
-		tileGO = UnityEngine.Object.Instantiate(tc.realTiles[tileType], (Vector3Int)tilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
+		GameObject goToSpawn = this.goToSpawn == null ? (GameObject)tc.tileSpawnChances[tileType].tileGO : this.goToSpawn;
+		tileGO = UnityEngine.Object.Instantiate(goToSpawn, (Vector3Int)tilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
+
+		Vector2Int chunk = TileLoaderV2.GetChunkFromPos(tilePosition, TileLoaderV2.ChunkSize);
+		if (TileLoaderV2.chunkGOs.ContainsKey(chunk))
+			tileGO.transform.parent = TileLoaderV2.chunkGOs[chunk].transform;
 	}
 
-	public void ChangeLoadState(bool loadState)
+	public virtual void ChangeLoadState(bool loadState)
 	{
 		tileGO.SetActive(loadState);
+	} 
+
+	public virtual void AddTile(TileDataManagerV2 tdm)
+	{
+		tdm.AddTile(this);
 	}
 
-	public string toString()
+	public override string ToString()
 	{
-		return tilePosition.ToString();
+		return tilePosition.ToString() + " (" + tileType.ToString() +")";
 	}
 }

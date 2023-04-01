@@ -37,8 +37,8 @@ public class TileSpawnerV2 : MonoBehaviour
 
 	void CreateInitialGhostTile()
 	{
-        TileV2 initialGhostTile = new(Vector2Int.zero, tc.initialTile);
-		tdm.AddTile(initialGhostTile);
+        TileV2 initialGhostTile = new(tc.initialTile);
+		initialGhostTile.AddTile(tdm);
 
 		StartCoroutine(SpawnTileLoop());
 	}
@@ -86,7 +86,10 @@ public class TileSpawnerV2 : MonoBehaviour
 
 			/*-----SPAWN GHOST TILE-----*/
 			//No tiles exist in this pos - Valid!
-			TileV2 newTile = new(Vector2Int.zero, tc.GetRandomTile());
+			TileV2.TileType randomTileType = tc.GetRandomTileType();
+			bool isGroupTile = tc.IsGroupTile(randomTileType);
+			//TileV2 newTile = new(randomTileType);
+			TileV2 newTile = !isGroupTile ? new TileV2(randomTileType) : new GroupTileV2(randomTileType, tc.tileSpawnChances[randomTileType].tileGO as GroupTileV2Data);
 			newTileGizmo = newTile;
 
 			//Pick a Random Tile Based on CP in Chunk 
@@ -94,16 +97,24 @@ public class TileSpawnerV2 : MonoBehaviour
 			referenceTileGizmo = referenceCPTile;
 
 			//Pick a Random Connection Point in New Tile
-			int connectingCPIndex = Random.Range(0, newTile.cps.Count);
+			int connectingCPIndex = newTile.GetConnectingCPIndex();
 
 			//Position ghost tile where it's connecting CP matches with tile of reference CP
-			newTile.MoveTile(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
+			if(newTile.cps.Count <= 0)
+			{
+				Debug.LogError(newTile.ToString() + " has no CPs!");
+				yield break;
+			}
+			
+			if (applyGhostTileFrameDelays) yield return null;
+
+			newTile.MoveTileByDir(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
 
 			if (applyGhostTileFrameDelays) yield return null;
 
-			//Check if any existing tiles are obstructing this tile
+			//Check if any existing tiles are obstructing this tile OR if newTile is placed in a position a referenceTile CP is not at
 			int obstructionCheckIndex = 0;
-			while (tdm.tileDict.ContainsKey(newTile.tilePosition) || !referenceCPTile.cps.Contains(newTile.tilePosition))
+			while (newTile.IsOverlappingWithPosList(tdm.tileDict.Keys.ToList()) || !newTile.IsOverlappingWithPosList(referenceCPTile.cps))
 			{
 				if (obstructionCheckIndex >= 4)
 				{
@@ -113,7 +124,12 @@ public class TileSpawnerV2 : MonoBehaviour
 
 				//Obstruction detected: Rotate 90 Degrees, Repeat
 				newTile.Rotate(90);
-				newTile.MoveTile(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
+				Debug.Log(newTile + " Rotated");
+
+				if (applyGhostTileFrameDelays) yield return null;
+
+				newTile.MoveTileByDir(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
+				Debug.Log(newTile + " Moved");
 
 				obstructionCheckIndex++;
 
@@ -122,13 +138,13 @@ public class TileSpawnerV2 : MonoBehaviour
 			if (obstructionCheckIndex >= 4) continue;
 
 			//No tiles exist in this pos - Valid!
-			tdm.AddTile(newTile);
+			newTile.AddTile(tdm);
 			newTileGizmo = null;
 			referenceTileGizmo = null;
 
 			//Delete reference CP of old tile + connecting CP of new tile
-			tdm.RemoveCP(referenceCPTile, newTile.tilePosition);
-			tdm.RemoveCP(newTile, newTile.cps[connectingCPIndex]);
+			referenceCPTile.RemoveCP(tdm, newTile.tilePosition);
+			newTile.RemoveCP(tdm, newTile.cps[connectingCPIndex]);
 
 			//Remove CPs in newTile overlapping with other tiles
 			Dictionary<Vector2Int, TileV2> surroundingTiles = tdm.GetSurroundingTiles(newTile.tilePosition);
@@ -141,7 +157,7 @@ public class TileSpawnerV2 : MonoBehaviour
 						if (newTile.NumWallsBetweenTiles(surroundingTiles[newTile.cps[i]]) > 0)
 							newTile.RemoveWalls(surroundingTiles[newTile.cps[i]]);
 
-					tdm.RemoveCP(newTile, newTile.cps[i]);
+					newTile.RemoveCP(tdm, newTile.cps[i]);
 				}
 			}
 

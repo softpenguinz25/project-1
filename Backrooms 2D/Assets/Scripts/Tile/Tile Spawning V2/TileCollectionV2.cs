@@ -1,49 +1,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Tile Collection", menuName = "V2/Tile/Tile Collection", order = 1)]
+[CreateAssetMenu(fileName = "New Tile Collection", menuName = "Tile/Tile Collection", order = 1)]
 public class TileCollectionV2 : ScriptableObject
 {
+	[Header("Level")]
+	public string levelName;
+
 	[Header("Tile Types")]
 	public TileV2.TileType initialTile;
-    public List<TileSpawnChance> tileSpawnChances;
+	public TileTypeSpawnChanceDictionary tileSpawnChances;
 
 	[Header("Dead Ends")]
 	[Tooltip("Probability for dead end between two adjacent non-connecting tiles stays a dead end")][Range(0, 1)] public float deadEndProbability = .8f;
-
-	[Header("Real Tiles")]
-	public TileTypeGameObjectDictionary realTiles;
-	public TileV2.TileType GetRandomTile()
+	public TileV2.TileType GetRandomTileType()
 	{
 		float totalDenomination = 0;
 
-		foreach (TileSpawnChance tileSpawnChance in tileSpawnChances)
+		foreach (KeyValuePair<TileV2.TileType, TileSpawnChance> tileSpawnChance in tileSpawnChances)
 		{
-			totalDenomination += tileSpawnChance.spawnChance;
+			totalDenomination += tileSpawnChance.Value.spawnChance;
 		}
 
 		float randomNumber = Random.Range(0, totalDenomination);
 
-		foreach (TileSpawnChance tsp in tileSpawnChances)
+		foreach (KeyValuePair<TileV2.TileType, TileSpawnChance> tsp in tileSpawnChances)
 		{
-			if (tsp.spawnChance >= randomNumber)
+			if (tsp.Value.spawnChance >= randomNumber)
 			{
-				return tsp.tileType;
+				return tsp.Key;
 			}
 
-			randomNumber -= tsp.spawnChance;
+			randomNumber -= tsp.Value.spawnChance;
 		}
 
-		Debug.LogError("Random Tile Generation Failed!");
+		Debug.LogError("Could not choose tile!");
 		return TileV2.TileType.Closed;
 	}
 
-	//TODO: List<GroupTile>
+	public bool IsGroupTile(TileV2.TileType tileType)
+	{
+		return
+			!(tileType == TileV2.TileType.Open ||
+			tileType == TileV2.TileType.Hall ||
+			tileType == TileV2.TileType.Split ||
+			tileType == TileV2.TileType.Corner ||
+			tileType == TileV2.TileType.End ||
+			tileType == TileV2.TileType.Closed);
+	}
 }
 
 [System.Serializable]
 public class TileSpawnChance
 {
-    public TileV2.TileType tileType;
     public float spawnChance;
+	public Object tileGO;
 }

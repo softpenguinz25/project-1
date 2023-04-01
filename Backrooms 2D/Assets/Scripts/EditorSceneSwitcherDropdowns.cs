@@ -38,6 +38,10 @@ namespace KingdomOfNight
         public static void LoadMobileTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Mobile Test.unity"); }
         [MenuItem("Scenes/Testing/OverlapBoxText")]
         public static void LoadOverlapBoxText() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/OverlapBoxText.unity"); }
+        [MenuItem("Scenes/Testing/Render Test")]
+        public static void LoadRenderTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Render Test.unity"); }
+        [MenuItem("Scenes/Testing/Revamped Terrain Generation")]
+        public static void LoadRevampedTerrainGeneration() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Revamped Terrain Generation.unity"); }
         [MenuItem("Scenes/Testing/Shader Test")]
         public static void LoadShaderTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Shader Test.unity"); }
         [MenuItem("Scenes/Testing/Test")]
@@ -56,6 +60,8 @@ namespace KingdomOfNight
         public static void LoadThumbnail2() { EditorSceneSwitcher.OpenScene("Assets/scenes/Thumbnail/Thumbnail 2.unity"); }
         [MenuItem("Scenes/Videos/Part 3/Part 3 Intro")]
         public static void LoadPart3Intro() { EditorSceneSwitcher.OpenScene("Assets/scenes/Videos/Part 3/Part 3 Intro.unity"); }
+        [MenuItem("Scenes/Videos/Part 4/Part 4 Hook")]
+        public static void LoadPart4Hook() { EditorSceneSwitcher.OpenScene("Assets/scenes/Videos/Part 4/Part 4 Hook.unity"); }
 #endif
     }
 }

@@ -12,25 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e880d33f6de662941a14fb1fb3249396, type: 3}
   m_Name: lvl_lobby
   m_EditorClassIdentifier: 
+  levelName: Lobby
   initialTile: 0
   tileSpawnChances:
-  - tileType: 0
-    spawnChance: 1
-  - tileType: 1
-    spawnChance: 1
-  - tileType: 2
-    spawnChance: 0.5
-  - tileType: 3
-    spawnChance: 0.5
-  - tileType: 4
-    spawnChance: 0.25
-  deadEndProbability: 0.8
-  realTiles:
-    m_keys: 000000000100000002000000030000000400000005000000
+    m_keys: 000000000100000002000000030000000400000006000000
     m_values:
-    - {fileID: 10204227434682703, guid: 2286eb951a615c148a17abdb79c254da, type: 3}
-    - {fileID: 8568275225654426712, guid: 18d3d04cecc63ac41ae47c7733f6ae55, type: 3}
-    - {fileID: 797890368167240986, guid: 30b2ab7b10ba153489e3c9c9f9ec2921, type: 3}
-    - {fileID: 3943107583903681853, guid: 00666682bcedcfe4f8b057a92f121a61, type: 3}
-    - {fileID: 4234171344896388432, guid: 00539a65f9454014baf819cc038d77a8, type: 3}
-    - {fileID: 3228999647600353696, guid: dbeb2fc24d966f247b3b8a077a53ec6b, type: 3}
+    - spawnChance: 1
+      tileGO: {fileID: 10204227434682703, guid: 2286eb951a615c148a17abdb79c254da, type: 3}
+    - spawnChance: 1
+      tileGO: {fileID: 8568275225654426712, guid: 18d3d04cecc63ac41ae47c7733f6ae55, type: 3}
+    - spawnChance: 1
+      tileGO: {fileID: 797890368167240986, guid: 30b2ab7b10ba153489e3c9c9f9ec2921, type: 3}
+    - spawnChance: 1
+      tileGO: {fileID: 3943107583903681853, guid: 00666682bcedcfe4f8b057a92f121a61, type: 3}
+    - spawnChance: 1
+      tileGO: {fileID: 4234171344896388432, guid: 00539a65f9454014baf819cc038d77a8, type: 3}
+    - spawnChance: 100000
+      tileGO: {fileID: 11400000, guid: cabe172c77c0ee840b6a8e3b7b27d9fb, type: 2}
+  deadEndProbability: 0

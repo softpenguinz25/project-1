@@ -1,7 +1,7 @@
 using MyBox;
 using UnityEditor;
 using UnityEngine;
-[CreateAssetMenu(fileName = "New Tile Template", menuName = "Tile/Tile Template", order = 1)]
+//[CreateAssetMenu(fileName = "New Tile Template", menuName = "Tile/Tile Template", order = 1)]
 public class TileTemplate : ScriptableObject
 {
     public TilePrefab tilePrefab;
