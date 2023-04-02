@@ -14,6 +14,7 @@ public class TileV2
 	//Walls
 	[SerializeField] protected bool[] walls = new bool[4];
 	int numWalls => GetNumWalls();
+	[HideInInspector] bool canBeUnended => goToSpawn == null;
 
 	//CPs
 	virtual public List<Vector2Int> cps { get; set; }
@@ -44,7 +45,6 @@ public class TileV2
 	[HideInInspector] public bool hasSpawned;
 	GameObject goToSpawn;
 
-	//TODO: REFACTOR THIS TO WORK lol
 	GameObject tileGO;
 
 	//Debugging
@@ -78,7 +78,7 @@ public class TileV2
 		cps = InitialCPs();
 	}
 
-	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps/*, GameObject goToSpawn*/)
+	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps, GameObject goToSpawn)
 	{
 		if (walls.Length != 4)
 		{
@@ -89,7 +89,7 @@ public class TileV2
 		this.tilePosition = tilePosition;
 		this.walls = walls;
 		this.cps = cps;
-		//this.goToSpawn = goToSpawn;
+		this.goToSpawn = goToSpawn;
 	}
 
 	public virtual int GetConnectingCPIndex()
@@ -278,7 +278,7 @@ public class TileV2
 		}
 	}
 
-	public virtual void RemoveCP(TileDataManagerV2 tdm, Vector2Int cp)
+	public virtual void RemoveCP(TileCollectionV2 tc, TileDataManagerV2 tdm, Vector2Int cp, bool replaceWithWall = false)
 	{
 		if (!cps.Contains(cp))
 		{
@@ -288,6 +288,8 @@ public class TileV2
 			
 		if(tdm != null) tdm.RemoveCP(this, cp);
 		cps.Remove(cp);
+
+		if(replaceWithWall) AddWall(tc, ConvertCPToLocalSpace(this, cp));
 	}
 
 	protected virtual Vector2Int ConvertCPToLocalSpace(TileV2 cpOwner, Vector2Int cp)
@@ -337,31 +339,59 @@ public class TileV2
 		return numWalls;
 	}
 
-	public virtual void RemoveWalls(TileV2 thisTile, TileV2 otherTile)
+	public virtual void RemoveWallsBetweenTiles(TileV2 thisTile, TileV2 otherTile)
 	{
 		//Determine dir btwn tiles
 		int dir = DirBetweenTiles(thisTile, otherTile);
 		int otherDir = (dir + 2) % 4;
 
 		if (dir == -1)
+			return;
+	
+		RemoveWall(thisTile, dir);
+		otherTile.RemoveWall(otherTile, otherDir);
+	}
+
+	private void AddWall(TileCollectionV2 tc, Vector2Int dir)
+	{
+		if(dir.magnitude != 1)
 		{
+			Debug.LogError("Cannot Add Wall bc Dir Magnitude is " + dir.magnitude + " which != 1");
 			return;
 		}
 
+		int wallIndex = 0;
+
+		//Figure out wall index from dir
+		switch (dir)
+		{
+			//REFACTOR: idk the math for this lol
+			case Vector2Int v when v == Vector2Int.up: wallIndex = 0; break; 
+			case Vector2Int v when v == Vector2Int.right: wallIndex = 1; break; 
+			case Vector2Int v when v == Vector2Int.down: wallIndex = 2; break; 
+			case Vector2Int v when v == Vector2Int.left: wallIndex = 3; break; 
+		}
+
+		//Alter wall gizmos
+		walls[wallIndex] = true;
+
+		//Instantiate GO walls if GO has spawned
+		if (hasSpawned)
+			UnityEngine.Object.Instantiate(tc.wallGO, new Vector2(dir.x * .5f, dir.y * .5f) + tilePosition, Quaternion.Euler(0, 0, wallIndex * 90), tileGO.transform);
+	}
+
+	private void RemoveWall(TileV2 thisTile, int dir)
+	{
+		if(!canBeUnended) return;
+
 		//Alter wall gizmos
 		thisTile.walls[dir] = false;
-		otherTile.walls[otherDir] = false;
 
 		//Destroy GO walls if GO has spawned
 		if (thisTile.hasSpawned)
 			foreach (TileWallV2 tileWall in thisTile.tileGO.GetComponentsInChildren<TileWallV2>())
 				if (tileWall.wallIndex == dir)
 					UnityEngine.Object.Destroy(tileWall.gameObject);
-
-		if (otherTile.hasSpawned)
-			foreach (TileWallV2 otherTileWall in otherTile.tileGO.GetComponentsInChildren<TileWallV2>())
-				if (otherTileWall.wallIndex == otherDir)
-					UnityEngine.Object.Destroy(otherTileWall.gameObject);
 	}
 
 	public virtual bool PosOverlaps(Vector2Int pos)
@@ -373,12 +403,12 @@ public class TileV2
 	{
 		hasSpawned = true;
 
-		//TODO: Use GO specified in GroupTileV2Data
-		GameObject goToSpawn = (GameObject)tc.tileSpawnChances[tileType].tileGO/*this.goToSpawn == null ? (GameObject)tc.tileSpawnChances[tileType].tileGO : this.goToSpawn*/;
+		GameObject goToSpawn = this.goToSpawn == null  ? (GameObject)tc.tileSpawnChances[tileType].tileGO : this.goToSpawn;
 		tileGO = UnityEngine.Object.Instantiate(goToSpawn, (Vector3Int)tilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
 
 		Vector2Int chunk = TileLoaderV2.GetChunkFromPos(tilePosition, TileLoaderV2.ChunkSize);
-		if (TileLoaderV2.chunkGOs.ContainsKey(chunk)) tileGO.transform.parent = TileLoaderV2.chunkGOs[chunk].transform;//TODO: Sometimes chunk gets destroyed???
+		if (TileLoaderV2.chunkGOs.ContainsKey(chunk)) 
+			tileGO.transform.parent = TileLoaderV2.chunkGOs[chunk].transform;
 	}
 
 	public virtual void ChangeLoadState(bool loadState)

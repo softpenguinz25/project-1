@@ -250,9 +250,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824903718}
+  - component: {fileID: 1824903720}
   - component: {fileID: 1824903721}
   - component: {fileID: 1824903719}
-  - component: {fileID: 1824903720}
   m_Layer: 0
   m_Name: Tile Spawner
   m_TagString: Untagged

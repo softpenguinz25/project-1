@@ -11,7 +11,7 @@ public class TileLoaderV2 : MonoBehaviour
 
 	[Header("Chunk")]
 	[Tooltip("HAS TO BE EVEN | Unit: Tiles")] public int chunkSize = 16;
-	public static int ChunkSize;
+	public static int ChunkSize = 8;
 
 	[Header("Player")]
 	[SerializeField] GameObject player;
@@ -118,13 +118,9 @@ public class TileLoaderV2 : MonoBehaviour
 
 	private void AddLoadLists(TileV2 cpOwner, Vector2Int cp)
 	{
-		//Add Load Tiles Based On Surrounding Chunks
-		//TODO: REFACTOR THIS IDK WHY THIS BREAKS STUFF haha
-		//if (GetSurroundingChunks(playerChunk).Contains(GetChunkFromPos(cpOwner.tilePosition, chunkSize)))
+		//Add Load Tiles, Will Always Be In Surrounding Chunks bc Load CPs Are Only In Surrounding Chunks
 		if (!loadTiles.Contains(cpOwner))
-		{
 			loadTiles.Add(cpOwner);
-		}
 
 		if (cp != NULL_CP)
 		{

@@ -8,7 +8,7 @@ public class GroupTileV2Data : ScriptableObject
 	[ShowOnly]
 	[SerializeField]
 	private string documentation =
-		"<i><color=grey>Documentation V1.0</color></i>" +
+		"<i><color=grey>Documentation V1.1</color></i>" +
 		"\n" +
 		"1010 0001 hall = Hall tile w/ top and bottom walls with a CP on the open left side.\n" +
 		"\n" +
@@ -32,7 +32,9 @@ public class GroupTileV2Data : ScriptableObject
 		"\t\t-Bottom: No CP\n" +
 		"\t\t-Left: CP\n" +
 		"\n" +
-		"Last Word = GameObject To Be Spawned\n" +
+		"Last Word = Specific GameObject To Be Spawned\n" +
+		"\t-<b>NOT NECCESARY</b>, only use if tile walls <b>WILL NOT</b> change\n" +
+		"\t\t-Tile collection specified will be used if no last word is used\n" +
 		"\t-GameObject MUST be in the <color=cyan><b>same folder or subfolder</b></color> of the scriptable object\n" +
 		"\t-Only <b>part</b> of the GameObject only needs to contain the word\n" +
 		"\t-If multiple GameObjects contain the word, theoretically the first GameObject will be used";

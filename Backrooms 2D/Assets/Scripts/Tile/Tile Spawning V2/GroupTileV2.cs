@@ -92,19 +92,23 @@ public class GroupTileV2 : TileV2
 							Mathf.RoundToInt(Mathf.Cos(cpCharIndex * Mathf.PI * .5f)) - y));
 
 				//GameObject
-				string goString = tileString.Substring(10);
-				string goPath = "lvl_" + groupTileData.tileCollection.levelName + "_" + goString;
-
-				GameObject tileGO = Resources.Load<GameObject>(goPath);
-
-				if (tileGO == null)
+				GameObject tileGO = null;
+				if (tileString.Length > 10)
 				{
-					Debug.LogError("Tile " + tileString + " at (" + x + ", " + y + ") could not find " + goPath + " in a Resources folder.");
-					break;
+					string goString = tileString.Substring(10);
+					string goPath = "lvl_" + groupTileData.tileCollection.levelName + "_" + goString;
+
+					tileGO = Resources.Load<GameObject>(goPath);
+
+					if (tileGO == null)
+					{
+						Debug.LogError("Tile " + tileString + " at (" + x + ", " + y + ") could not find " + goPath + " in a Resources folder.");
+						break;
+					}
 				}
 
 				//Add to childTiles list
-				TileV2 childTile = new(new Vector2Int(x, -y), tileWalls, tileCPs);
+				TileV2 childTile = new(new Vector2Int(x, -y), tileWalls, tileCPs, tileGO);
 				childTiles.Add(childTile);
 
 				//Set other data
@@ -197,14 +201,13 @@ public class GroupTileV2 : TileV2
 			childTile.DrawTile(testingTileColor, testingCPColor, testingSphereWidth);
 	}
 
-	public override void RemoveCP(TileDataManagerV2 tdm, Vector2Int cp)
+	public override void RemoveCP(TileCollectionV2 tc, TileDataManagerV2 tdm, Vector2Int cp, bool replaceWithWall = false)
 	{
 		//Overall Tiles
 		foreach (TileV2 cpOwner in GetCPOwnersFromCP(cp))
 		{
 			childTilesWithCPs.Remove(cpOwner);
-			//tdm.RemoveCP(cpOwner, cp);
-			cpOwner.RemoveCP(tdm, cp);
+			cpOwner.RemoveCP(tc, tdm, cp);
 		}
 	}
 
@@ -275,10 +278,10 @@ public class GroupTileV2 : TileV2
 		return base.NumWallsBetweenTiles(closestTile, otherTile);
 	}
 
-	public override void RemoveWalls(TileV2 thisTile, TileV2 otherTile)
+	public override void RemoveWallsBetweenTiles(TileV2 thisTile, TileV2 otherTile)
 	{
 		TileV2 closestTile = GetClosestTile(otherTile);
-		base.RemoveWalls(closestTile, otherTile);
+		base.RemoveWallsBetweenTiles(closestTile, otherTile);
 	}
 
 	public override bool PosOverlaps(Vector2Int pos)

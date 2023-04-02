@@ -8,17 +8,20 @@ public class TileCollectionV2 : ScriptableObject
 	public string levelName;
 
 	[Header("Tile Types")]
+	public GameObject wallGO;
 	public TileV2.TileType initialTile;
 	public TileTypeSpawnChanceDictionary tileSpawnChances;
 
 	[Header("Dead Ends")]
 	[Tooltip("Probability for dead end between two adjacent non-connecting tiles stays a dead end")][Range(0, 1)] public float deadEndProbability = .8f;
-	public TileV2.TileType GetRandomTileType()
+	public TileV2.TileType GetRandomTileType(bool mustBeRegularTile = false)
 	{
 		float totalDenomination = 0;
 
 		foreach (KeyValuePair<TileV2.TileType, TileSpawnChance> tileSpawnChance in tileSpawnChances)
 		{
+			if (IsGroupTile(tileSpawnChance.Key) && mustBeRegularTile) continue;
+
 			totalDenomination += tileSpawnChance.Value.spawnChance;
 		}
 
@@ -26,6 +29,8 @@ public class TileCollectionV2 : ScriptableObject
 
 		foreach (KeyValuePair<TileV2.TileType, TileSpawnChance> tsp in tileSpawnChances)
 		{
+			if (IsGroupTile(tsp.Key) && mustBeRegularTile) continue;
+
 			if (tsp.Value.spawnChance >= randomNumber)
 			{
 				return tsp.Key;
@@ -47,6 +52,15 @@ public class TileCollectionV2 : ScriptableObject
 			tileType == TileV2.TileType.Corner ||
 			tileType == TileV2.TileType.End ||
 			tileType == TileV2.TileType.Closed);
+	}
+
+	public bool HasRegTiles()
+	{
+		foreach (KeyValuePair<TileV2.TileType, TileSpawnChance> tileTypePairs in tileSpawnChances)
+			if (!IsGroupTile(tileTypePairs.Key) && tileSpawnChances[tileTypePairs.Key].spawnChance > 0)
+				return true;
+
+		return false;
 	}
 }
 

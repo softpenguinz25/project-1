@@ -12,34 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f587d48c51bda1046b6497a67aa13e3a, type: 3}
   m_Name: lvl_lobby_pitfalls
   m_EditorClassIdentifier: 
-  documentation: "<i><color=grey>Documentation V1.0</color></i>\n1010 0001 hall =
+  documentation: "<i><color=grey>Documentation V1.1</color></i>\n1010 0001 hall =
     Hall tile w/ top and bottom walls with a CP on the open left side.\n\nTile connections
     are:\n\t-Anything connected to a tile\n\t\t-Walls\n\t\t-CPs\n\t-Are written in
     this order: <color=yellow><b>TOP, RIGHT, BOTTOM, LEFT</b></color>\n\nFirst 4
     Digits = Walls\n\t-1010 Means:\n\t\t-Top: Wall\n\t\t-Right: No Wall\n\t\t-Bottom:
     Wall\n\t\t-Left: No Wall\n\nSecond 4 Digits = CPs\n\t-0001 Means:\n\t\t-Top:
-    No CP\n\t\t-Right: No CP\n\t\t-Bottom: No CP\n\t\t-Left: CP\n\nLast Word = GameObject
-    To Be Spawned\n\t-GameObject MUST be in the <color=cyan><b>same folder or subfolder</b></color>
-    of the scriptable object\n\t-Only <b>part</b> of the GameObject only needs to
-    contain the word\n\t-If multiple GameObjects contain the word, theoretically
-    the first GameObject will be used"
+    No CP\n\t\t-Right: No CP\n\t\t-Bottom: No CP\n\t\t-Left: CP\n\nLast Word = Specific
+    GameObject To Be Spawned\n\t<b>NOT NECCESARY</b>, only use if tile walls <b>WILL
+    NOT</b> change\n\t\t-Tile collection specified will be used if last word is null\n\t-GameObject
+    MUST be in the <color=cyan><b>same folder or subfolder</b></color> of the scriptable
+    object\n\t-Only <b>part</b> of the GameObject only needs to contain the word\n\t-If
+    multiple GameObjects contain the word, theoretically the first GameObject will
+    be used"
   tileCollection: {fileID: 11400000, guid: dd5de98aa8e0ee745837302e4b47b214, type: 2}
   tileLayout:
     gridSize: {x: 4, y: 3}
     cellSize: {x: 128, y: 16}
     cells:
     - row:
-      - 1001 0000 corner
-      - 0000 1000 split
-      - 1000 0000 split
-      - 1100 0000 corner
+      - '1001 0000 '
+      - '0000 1000 '
+      - '1000 0000 '
+      - '1100 0000 '
     - row:
-      - 0001 0000 split
-      - 0000 0000 open
-      - 0000 0000 open
-      - 0000 0100 split
+      - '0001 0000 '
+      - '0000 0000 '
+      - '0000 0000 '
+      - '0000 0100 '
     - row:
-      - 0011 0000 corner
-      - 0010 0000 split
-      - 0010 0000 split
-      - 0110 0000 corner
+      - '0011 0000 '
+      - '0010 0000 '
+      - '0010 0000 '
+      - '0110 0000 '

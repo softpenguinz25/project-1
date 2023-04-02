@@ -12,7 +12,6 @@ public class TileDataManagerV2 : MonoBehaviour
 	TileSpawnerV2 ts;
 	TileLoaderV2 tl;
 
-	//TODO: Refactor this into one big dictionary
 	public Dictionary<Vector2Int, TileV2> tileDict = new();
 	public Dictionary<TileV2, List<Vector2Int>> cpDict = new();
 
