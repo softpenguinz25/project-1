@@ -12,14 +12,12 @@ public class TileDataManagerV2 : MonoBehaviour
 	TileSpawnerV2 ts;
 	TileLoaderV2 tl;
 
+	//TODO: Refactor this into one big dictionary
 	public Dictionary<Vector2Int, TileV2> tileDict = new();
 	public Dictionary<TileV2, List<Vector2Int>> cpDict = new();
-	
-	public List<Vector2Int> tilePos = new();
-	public List<CPDataV2> cps = new();
 
-	public event Action<TileV2, Vector2Int> CPAdded;
-	public event Action<TileV2, Vector2Int> CPRemoved;
+	public event Action<TileV2, Vector2Int> TileCPAdded;
+	public event Action<TileV2, Vector2Int> TileCPRemoved;
 	private void Awake()
 	{
 		ts = GetComponent<TileSpawnerV2>();
@@ -36,6 +34,7 @@ public class TileDataManagerV2 : MonoBehaviour
 	public void AddTile(TileV2 tile)
 	{
 		tileDict.Add(tile.tilePosition, tile);
+
 		AddCP(tile);
 	}
 
@@ -44,19 +43,24 @@ public class TileDataManagerV2 : MonoBehaviour
 		if (cpDict.ContainsKey(cpOwner)) cpDict[cpOwner].Add(cp);
 		else cpDict.Add(cpOwner, new List<Vector2Int> { cp});
 
-		CPAdded?.Invoke(cpOwner, cp);
+		TileCPAdded?.Invoke(cpOwner, cp);
 	}
 
 	void AddCP(TileV2 cpOwner)
 	{
-		if (cpOwner.cps.Count <= 0) return;
+		if (cpOwner.cps.Count <= 0)
+		{
+			TileCPAdded?.Invoke(cpOwner, TileLoaderV2.NULL_CP);
+			return;
+		}
 
 		if (!cpDict.ContainsKey(cpOwner)) cpDict.Add(cpOwner, new List<Vector2Int>());
+
 		foreach (Vector2Int cp in cpOwner.cps)
 		{
 			cpDict[cpOwner].Add(cp);
 
-			CPAdded?.Invoke(cpOwner, cp);
+			TileCPAdded?.Invoke(cpOwner, cp);
 		}
 	}
 
@@ -72,7 +76,7 @@ public class TileDataManagerV2 : MonoBehaviour
 		cpDict[cpOwner].Remove(cp);
 		if (cpDict[cpOwner].Count <= 0) cpDict.Remove(cpOwner);
 
-		CPRemoved?.Invoke(cpOwner, cp);
+		TileCPRemoved?.Invoke(cpOwner, cp);
 	}
 
 	public Dictionary<Vector2Int, TileV2> GetSurroundingTiles(Vector2Int tilePos)
@@ -90,6 +94,10 @@ public class TileDataManagerV2 : MonoBehaviour
 		return surroundingTiles;
 	}
 
+#if UNITY_EDITOR
+	public List<Vector2Int> tilePos = new();
+	public List<CPDataV2> cps = new();
+
 	private void Update()
 	{
 		tilePos.Clear();
@@ -102,6 +110,7 @@ public class TileDataManagerV2 : MonoBehaviour
 		}
 	}
 }
+#endif
 
 [Serializable]
 public class CPDataV2

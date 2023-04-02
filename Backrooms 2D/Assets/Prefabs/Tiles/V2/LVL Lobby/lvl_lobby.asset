@@ -27,6 +27,6 @@ MonoBehaviour:
       tileGO: {fileID: 3943107583903681853, guid: 00666682bcedcfe4f8b057a92f121a61, type: 3}
     - spawnChance: 1
       tileGO: {fileID: 4234171344896388432, guid: 00539a65f9454014baf819cc038d77a8, type: 3}
-    - spawnChance: 100000
+    - spawnChance: 1
       tileGO: {fileID: 11400000, guid: cabe172c77c0ee840b6a8e3b7b27d9fb, type: 2}
   deadEndProbability: 0

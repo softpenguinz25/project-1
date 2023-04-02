@@ -31,13 +31,13 @@ public class TileSpawnerV2 : MonoBehaviour
 	}
 
 	void Start()
-    {
-        CreateInitialGhostTile();
-    }
+	{
+		CreateInitialGhostTile();
+	}
 
 	void CreateInitialGhostTile()
 	{
-        TileV2 initialGhostTile = new(tc.initialTile);
+		TileV2 initialGhostTile = new(tc.initialTile);
 		initialGhostTile.AddTile(tdm);
 
 		StartCoroutine(SpawnTileLoop());
@@ -48,36 +48,33 @@ public class TileSpawnerV2 : MonoBehaviour
 		while (true)
 		{
 			//Delay a frame (FOR TESTING)
-			if(applyGhostTileFrameDelays) yield return null;
+			if (applyGhostTileFrameDelays) yield return null;
 
 			//Check # of Load CPs
-			if (tl.LoadCPs.Count <= 0)
+			if (tl.loadCPs.Count <= 0)
 			{
+				/*-----SPAWN REAL TILES-----*/
+				//TODO: tl.loadTiles changes when player moves too fast
+				List<TileV2> loadTiles = tl.loadTiles;
+				foreach (TileV2 loadTile in loadTiles)
+				{
+					if (!loadTile.hasSpawned)
+					{
+						loadTile.Spawn(tc);
+						if (applyRealTileFrameDelays) yield return null;
+					}
+				}
+
+				//Check if player has entered a new chunk
+				yield return new WaitUntil(() => playerChunkChanged);
+				playerChunkChanged = false;
+
 				//Check # of CPs
 				if (tdm.cpDict.Count <= 0)
 				{
 					//Restart generation if no CPs found
 					Debug.LogError("No More CPs! Terminating Spawn Tile Loop.");
 					yield break;
-				}
-				else
-				{
-					/*-----SPAWN REAL TILES-----*/
-					foreach (Vector2Int chunk in tl.GetSurroundingChunks(tl.PlayerChunk))
-					{
-						foreach (KeyValuePair<TileV2, List<Vector2Int>> tileCP in tl.sortedCPs[chunk])
-						{
-							if (!tileCP.Key.hasSpawned)
-							{
-								tileCP.Key.Spawn(tc);
-								if (applyRealTileFrameDelays) yield return null;
-							}
-						}
-					}
-					
-					//Check if player has entered a new chunk
-					yield return new WaitUntil(() => playerChunkChanged);
-					playerChunkChanged = false;
 				}
 
 				continue;
@@ -92,19 +89,19 @@ public class TileSpawnerV2 : MonoBehaviour
 			newTileGizmo = newTile;
 
 			//Pick a Random Tile Based on CP in Chunk 
-			TileV2 referenceCPTile = tl.LoadCPs.Keys.ElementAt(Random.Range(0, tl.LoadCPs.Count));
+			TileV2 referenceCPTile = tl.loadCPs.Keys.ElementAt(Random.Range(0, tl.loadCPs.Count));
 			referenceTileGizmo = referenceCPTile;
 
 			//Pick a Random Connection Point in New Tile
 			int connectingCPIndex = newTile.GetConnectingCPIndex();
 
 			//Position ghost tile where it's connecting CP matches with tile of reference CP
-			if(newTile.cps.Count <= 0)
+			if (newTile.cps.Count <= 0)
 			{
 				Debug.LogError(newTile.ToString() + " has no CPs!");
 				yield break;
 			}
-			
+
 			if (applyGhostTileFrameDelays) yield return null;
 
 			newTile.MoveTileByDir(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
@@ -113,7 +110,7 @@ public class TileSpawnerV2 : MonoBehaviour
 
 			//Check if any existing tiles are obstructing this tile OR if newTile is placed in a position a referenceTile CP is not at
 			int obstructionCheckIndex = 0;
-			while (newTile.IsOverlappingWithPosList(tdm.tileDict.Keys.ToList()) || !newTile.IsOverlappingWithPosList(referenceCPTile.cps))
+			while (newTile.IsOverlappingWithPosList(tdm.tileDict.Keys.ToHashSet()) || !newTile.IsOverlappingWithPosList(referenceCPTile.cps.ToHashSet()))
 			{
 				if (obstructionCheckIndex >= 4)
 				{
@@ -164,7 +161,7 @@ public class TileSpawnerV2 : MonoBehaviour
 				TileV2 surroundingTile = surroundingTiles[surroundingTiles.Keys.ElementAt(surroundingTileIndex)];
 				for (int surroundingTileCPIndex = surroundingTile.cps.Count - 1; surroundingTileCPIndex >= 0; surroundingTileCPIndex--)
 				{
-					if (surroundingTile.cps[surroundingTileCPIndex] == newTile.tilePosition)
+					if (newTile.PosOverlaps(surroundingTile.cps[surroundingTileCPIndex]))
 					{
 						//Remove Dead Ends
 						if (Random.value > tc.deadEndProbability)
@@ -178,10 +175,11 @@ public class TileSpawnerV2 : MonoBehaviour
 		}
 	}
 
+#if UNITY_EDITOR
 	TileV2 newTileGizmo;
 	Color newTileGizmoColor = new(1, 0, 1), newCPGizmoColor = new Color(1, .5f, 1);
 	float newTileGizmoTestingSphereRadius = .25f;
-	
+
 	TileV2 referenceTileGizmo;
 	Color referenceTileGizmoColor = Color.yellow;
 	Vector3 referenceTileGizmoTestingCubeSize = new Vector3(.25f, .25f, .25f);
@@ -195,4 +193,5 @@ public class TileSpawnerV2 : MonoBehaviour
 			Gizmos.DrawCube((Vector3Int)referenceTileGizmo.tilePosition, referenceTileGizmoTestingCubeSize);
 		}
 	}
+#endif
 }

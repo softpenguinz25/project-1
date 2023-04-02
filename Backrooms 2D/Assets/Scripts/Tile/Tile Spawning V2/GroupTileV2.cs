@@ -27,7 +27,7 @@ public class GroupTileV2 : TileV2
 
 	//Debugging
 	float testingSphereWidth = .15f;
-	Color tileColor = new Color(1, .5f, 0), cpColor = Color.red, groupCPColor = Color.yellow;
+	Color tileColor = new Color(1, .5f, 0), cpColor = Color.red;
 	float wallDistFromTile = .45f;
 
 	//Events
@@ -46,6 +46,8 @@ public class GroupTileV2 : TileV2
 		};
 
 		childTiles = DecodeGroupTileData(groupTileData);
+
+		foreach (TileV2 childTile in childTiles) childTile.isPartOfGroupTile = true;
 	}
 
 	List<TileV2> DecodeGroupTileData(GroupTileV2Data groupTileData)
@@ -102,7 +104,7 @@ public class GroupTileV2 : TileV2
 				}
 
 				//Add to childTiles list
-				TileV2 childTile = new(new Vector2Int(x, -y), tileWalls, tileCPs, tileGO);
+				TileV2 childTile = new(new Vector2Int(x, -y), tileWalls, tileCPs);
 				childTiles.Add(childTile);
 
 				//Set other data
@@ -138,7 +140,7 @@ public class GroupTileV2 : TileV2
 		return cps;
 	}
 
-	public override bool IsOverlappingWithPosList(List<Vector2Int> posList)
+	public override bool IsOverlappingWithPosList(HashSet<Vector2Int> posList)
 	{
 		foreach (TileV2 childTile in childTiles)
 			if (posList.Contains(childTile.tilePosition)) return true;
@@ -189,9 +191,6 @@ public class GroupTileV2 : TileV2
 		float testingSphereWidth = sphereWidth == 0 ? this.testingSphereWidth : sphereWidth;
 		Color testingTileColor = tileColor == Color.clear ? this.tileColor : tileColor;
 		Color testingCPColor = cpColor == Color.clear ? this.cpColor : cpColor;
-		//Group Data
-		Gizmos.color = groupCPColor;
-		foreach (Vector2Int cp in cps) Gizmos.DrawSphere((Vector3Int)cp, testingSphereWidth + .15f);
 
 		//Individual Tiles
 		foreach (TileV2 childTile in childTiles)
@@ -282,8 +281,16 @@ public class GroupTileV2 : TileV2
 		base.RemoveWalls(closestTile, otherTile);
 	}
 
+	public override bool PosOverlaps(Vector2Int pos)
+	{
+		List<Vector2Int> childTilePos = new();
+		foreach (TileV2 childTile in childTiles) childTilePos.Add(childTile.tilePosition);
+		return childTilePos.Contains(pos);
+	}
+
 	public override void Spawn(TileCollectionV2 tc)
 	{
+		Debug.Log("Group Tile Spawn, Spawning " + childTiles.Count + " tiles.");
 		foreach (TileV2 childTile in childTiles) childTile.Spawn(tc);
 	}
 
@@ -294,6 +301,9 @@ public class GroupTileV2 : TileV2
 
 	public override void AddTile(TileDataManagerV2 tdm)
 	{
-		foreach (TileV2 childTile in childTiles) childTile.AddTile(tdm);
+		foreach (TileV2 childTile in childTiles)
+		{
+			childTile.AddTile(tdm);
+		}
 	}
 }

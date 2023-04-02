@@ -38,15 +38,20 @@ public class TileV2
 		GroupTile16,
 	}
 	[SerializeField] TileType tileType => GetTileType();
+	public TileType TileType_ => tileType;
 
 	//Spawn
 	[HideInInspector] public bool hasSpawned;
 	GameObject goToSpawn;
+
+	//TODO: REFACTOR THIS TO WORK lol
 	GameObject tileGO;
 
 	//Debugging
-	float testingSphereWidth = .1f;
-	Color tileColor = Color.blue, cpColor = Color.cyan;
+	public bool isPartOfGroupTile;
+	float testingSphereWidth = .1f, groupTestingSphereWidth = .15f;
+	Color tileColor = Color.blue, cpColor = Color.cyan,
+		groupTileColor = new Color(1, .5f, 0), groupCpColor = Color.red;
 	float wallDistFromTile = .45f;
 
 	public TileV2(TileType tileType)
@@ -73,7 +78,7 @@ public class TileV2
 		cps = InitialCPs();
 	}
 
-	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps, GameObject goToSpawn)
+	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps/*, GameObject goToSpawn*/)
 	{
 		if (walls.Length != 4)
 		{
@@ -84,7 +89,7 @@ public class TileV2
 		this.tilePosition = tilePosition;
 		this.walls = walls;
 		this.cps = cps;
-		this.goToSpawn = goToSpawn;
+		//this.goToSpawn = goToSpawn;
 	}
 
 	public virtual int GetConnectingCPIndex()
@@ -174,7 +179,7 @@ public class TileV2
 		return result;
 	}
 
-	public virtual bool IsOverlappingWithPosList(List<Vector2Int> posList)
+	public virtual bool IsOverlappingWithPosList(HashSet<Vector2Int> posList)
 	{
 		return posList.Contains(tilePosition);
 	}
@@ -250,9 +255,9 @@ public class TileV2
 	
 	public virtual void DrawTile(Color tileColor = new Color(), Color cpColor = new Color(), float sphereWidth = 0)
 	{
-		float testingSphereWidth = sphereWidth == 0 ? this.testingSphereWidth : sphereWidth;
+		float testingSphereWidth = !isPartOfGroupTile ? sphereWidth == 0 ? this.testingSphereWidth : sphereWidth : groupTestingSphereWidth;
 
-		Gizmos.color = tileColor == Color.clear ? this.tileColor : tileColor;
+		Gizmos.color = !isPartOfGroupTile ? tileColor == Color.clear ? this.tileColor : tileColor : groupTileColor;
 		Gizmos.DrawSphere((Vector3Int)tilePosition, testingSphereWidth);
 
 		for (int i = 0; i < walls.Length; i++)
@@ -266,8 +271,8 @@ public class TileV2
 			}
 		}
 
-		Gizmos.color = cpColor == Color.clear ? this.cpColor : cpColor;
-		foreach(Vector2Int cp in cps)
+		Gizmos.color = !isPartOfGroupTile ? cpColor == Color.clear ? this.cpColor : cpColor : groupCpColor;
+		foreach (Vector2Int cp in cps)
 		{
 			Gizmos.DrawSphere((Vector3Int)cp, testingSphereWidth);
 		}
@@ -348,27 +353,32 @@ public class TileV2
 		otherTile.walls[otherDir] = false;
 
 		//Destroy GO walls if GO has spawned
-		if (thisTile.hasSpawned) 
-			foreach (TileWallV2 tileWall in thisTile.tileGO.GetComponentsInChildren<TileWallV2>()) 
-				if (tileWall.wallIndex == dir) 
+		if (thisTile.hasSpawned)
+			foreach (TileWallV2 tileWall in thisTile.tileGO.GetComponentsInChildren<TileWallV2>())
+				if (tileWall.wallIndex == dir)
 					UnityEngine.Object.Destroy(tileWall.gameObject);
 
-		if (otherTile.hasSpawned) 
-			foreach (TileWallV2 otherTileWall in otherTile.tileGO.GetComponentsInChildren<TileWallV2>()) 
-				if (otherTileWall.wallIndex == otherDir) 
+		if (otherTile.hasSpawned)
+			foreach (TileWallV2 otherTileWall in otherTile.tileGO.GetComponentsInChildren<TileWallV2>())
+				if (otherTileWall.wallIndex == otherDir)
 					UnityEngine.Object.Destroy(otherTileWall.gameObject);
+	}
+
+	public virtual bool PosOverlaps(Vector2Int pos)
+	{
+		return tilePosition == pos;
 	}
 
 	public virtual void Spawn(TileCollectionV2 tc)
 	{
 		hasSpawned = true;
 
-		GameObject goToSpawn = this.goToSpawn == null ? (GameObject)tc.tileSpawnChances[tileType].tileGO : this.goToSpawn;
+		//TODO: Use GO specified in GroupTileV2Data
+		GameObject goToSpawn = (GameObject)tc.tileSpawnChances[tileType].tileGO/*this.goToSpawn == null ? (GameObject)tc.tileSpawnChances[tileType].tileGO : this.goToSpawn*/;
 		tileGO = UnityEngine.Object.Instantiate(goToSpawn, (Vector3Int)tilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
 
 		Vector2Int chunk = TileLoaderV2.GetChunkFromPos(tilePosition, TileLoaderV2.ChunkSize);
-		if (TileLoaderV2.chunkGOs.ContainsKey(chunk))
-			tileGO.transform.parent = TileLoaderV2.chunkGOs[chunk].transform;
+		if (TileLoaderV2.chunkGOs.ContainsKey(chunk)) tileGO.transform.parent = TileLoaderV2.chunkGOs[chunk].transform;//TODO: Sometimes chunk gets destroyed???
 	}
 
 	public virtual void ChangeLoadState(bool loadState)
