@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death Moth
+  m_Controller: {fileID: 9100000, guid: e98bf54555052d94a81e900da016d75c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 460fed919e265894799f3fd1afb1fe05, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 782ddde68be8afc4ea384ec1322360c8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d67fea3b53fec774a8a6ac45beb19fce, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c800e56d01051ed44a927b8d9364d616, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b6ba4b4a9269db4bac033c612358643, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e86406d9795b3a54a8f00afc25bcbec4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3db2e23a09cf9264e9ed1933283942e0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 34032f7b808183e418506d8c7d472259, type: 2}

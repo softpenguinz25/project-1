@@ -187,10 +187,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6447168233457347472}
-  timeBtwnGateActivationBounds:
-    Min: 5
+  gateOpenState:
+    Min: 10
     Max: 15
-  isGateOpen: 1
+  gateCloseState:
+    Min: 4.5
+    Max: 9
   openSFX: {fileID: 8422989582531614239}
   closeSFX: {fileID: 8821293676890062650}
 --- !u!60 &8662808222081409050

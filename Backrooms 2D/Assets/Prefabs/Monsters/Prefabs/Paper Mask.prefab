@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2441064262011289578, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 606261463975722488, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Mass
       value: 100
@@ -22,19 +26,19 @@ PrefabInstance:
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[0]
       value: 
-      objectReference: {fileID: -1145195420606669874, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
+      objectReference: {fileID: 6204172267036275562, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[1]
       value: 
-      objectReference: {fileID: 8274487821185503325, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
+      objectReference: {fileID: 4143688016616932899, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[2]
       value: 
-      objectReference: {fileID: -2724154965977658222, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
+      objectReference: {fileID: 2330408890453820594, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[3]
       value: 
-      objectReference: {fileID: -3407299752326624399, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
+      objectReference: {fileID: -338965791326246939, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
     - target: {fileID: 2932896763359969662, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: monsterName
       value: paper mask
@@ -74,7 +78,7 @@ PrefabInstance:
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2724154965977658222, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
+      objectReference: {fileID: 2330408890453820594, guid: d2753576e3e0b0d44ac44113cf126304, type: 3}
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -187,14 +191,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd5a94d95e22304387d67a3af174e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regularStats: {fileID: 11400000, guid: 9ee47d22049501145b8178b361430ae7, type: 2}
+  regularStats: {fileID: 11400000, guid: 78a55361d3d681640a8ead1d06676ee8, type: 2}
   slowThreshold: 5
   isSlow: 0
-  slowStats: {fileID: 11400000, guid: 38e86a274a668b749a6aa4e99bf4e4cd, type: 2}
-  closeToPlayerStats: {fileID: 11400000, guid: 0c06c7f79a826cf418eecc26e0c7a09b, type: 2}
-  farUnobstructing: {fileID: 11400000, guid: d611e162ddd6e78499f0a949cdb1674d, type: 2}
-  farObstructing: {fileID: 11400000, guid: c918edcf9bcdc5647947125246dbe3bc, type: 2}
-  inPoolStats: {fileID: 11400000, guid: 0cfa5d600956ef7478b7fddf1dcbdf51, type: 2}
+  slowStats: {fileID: 11400000, guid: fa72fefde40f128488aae501ff3254ec, type: 2}
+  closeToPlayerStats: {fileID: 11400000, guid: a4d23f6ec4029d0439a6a3bacf39689c, type: 2}
+  farUnobstructing: {fileID: 11400000, guid: 159ef974af23c43449a752293f76fb9f, type: 2}
+  farObstructing: {fileID: 11400000, guid: e38cd4d37d759444fabb00eb984382c6, type: 2}
+  inPoolStats: {fileID: 11400000, guid: 283213533b93cf244b9061132d427d3d, type: 2}
   monsterIsInPool: 0
   roamingPoints: []
   startDelayUntilRoam: 3

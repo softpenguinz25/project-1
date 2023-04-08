@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: lvl_electricalstation_gate_open
@@ -99,7 +101,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 70
+      y: 72
       width: 18
       height: 17
     spriteID: 94d7a1542e4fd7247b85f3fd5be8f18f
@@ -111,7 +113,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -35, y: -33}
+    uvTransform: {x: 4, y: 72}
+    spritePosition: {x: 39, y: 103}
   - name: lvl_electricalstation_gate_animation_2
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -120,7 +123,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 44
+      y: 46
       width: 18
       height: 18
     spriteID: c0de1b12cd54c7c46bc46c5f43594774
@@ -132,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -35, y: -59}
+    uvTransform: {x: 4, y: 46}
+    spritePosition: {x: 39, y: 103}
   - name: lvl_electricalstation_gate_animation_1
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -141,7 +145,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 95
+      y: 97
       width: 18
       height: 14
     spriteID: dc59b784034fa7c44b73b6b5a8c5a9f9
@@ -153,7 +157,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -35, y: -8}
+    uvTransform: {x: 4, y: 97}
+    spritePosition: {x: 39, y: 103}
   - name: lvl_electricalstation_gate_closed
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -162,7 +167,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 30
-      y: 44
+      y: 46
       width: 18
       height: 10
     spriteID: 475f799749453594bb9ace253e680d26
@@ -174,7 +179,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -9, y: -59}
+    uvTransform: {x: 30, y: 46}
+    spritePosition: {x: 39, y: 103}
   - name: lvl_electricalstation_corner_inverted
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -183,7 +189,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 30
-      y: 62
+      y: 79
       width: 7
       height: 7
     spriteID: f52573ffb77bf2c46a4fdca79cc0da38
@@ -195,7 +201,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -27, y: -59}
+    uvTransform: {x: 30, y: 79}
+    spritePosition: {x: 57, y: 121}
   - name: lvl_electricalstation_corner_true
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -204,7 +211,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 44
-      y: 4
+      y: 19
       width: 8
       height: 8
     spriteID: 027dc4ac48b1f9749b8524e7347b1669
@@ -216,7 +223,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -12, y: -92}
+    uvTransform: {x: 44, y: 19}
+    spritePosition: {x: 56, y: 96}
   - name: lvl_electricalstation_corner_side
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -224,8 +232,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
-      y: 20
+      x: 30
+      y: 64
       width: 8
       height: 7
     spriteID: 85cb8e905abf94549a9b3aa7491bbddf
@@ -237,7 +245,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 12, y: -76}
+    uvTransform: {x: 30, y: 64}
+    spritePosition: {x: 32, y: 96}
   - name: lvl_electricalstation_wall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -245,8 +254,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 117
+      x: 44
+      y: 4
       width: 16
       height: 7
     spriteID: b4f011a26ea64d945bb019461db64b1e
@@ -258,7 +267,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -36, y: 21}
+    uvTransform: {x: 44, y: 4}
+    spritePosition: {x: 40, y: 96}
   - name: lvl_electricalstation_open
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +289,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -28, y: -92}
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 32, y: 96}
   characterData:
     bones: []
     parts: []
@@ -370,7 +381,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: 94d7a1542e4fd7247b85f3fd5be8f18f
     layerID: 123
-    mosaicPosition: {x: 4, y: 70}
+    mosaicPosition: {x: 4, y: 72}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -380,7 +391,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: c0de1b12cd54c7c46bc46c5f43594774
     layerID: 122
-    mosaicPosition: {x: 4, y: 44}
+    mosaicPosition: {x: 4, y: 46}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -390,7 +401,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: dc59b784034fa7c44b73b6b5a8c5a9f9
     layerID: 121
-    mosaicPosition: {x: 4, y: 95}
+    mosaicPosition: {x: 4, y: 97}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -400,7 +411,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: 475f799749453594bb9ace253e680d26
     layerID: 120
-    mosaicPosition: {x: 30, y: 44}
+    mosaicPosition: {x: 30, y: 46}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -510,7 +521,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: f52573ffb77bf2c46a4fdca79cc0da38
     layerID: 38
-    mosaicPosition: {x: 30, y: 62}
+    mosaicPosition: {x: 30, y: 79}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -520,7 +531,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 027dc4ac48b1f9749b8524e7347b1669
     layerID: 33
-    mosaicPosition: {x: 44, y: 4}
+    mosaicPosition: {x: 44, y: 19}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -530,7 +541,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 85cb8e905abf94549a9b3aa7491bbddf
     layerID: 36
-    mosaicPosition: {x: 44, y: 20}
+    mosaicPosition: {x: 30, y: 64}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -540,7 +551,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: b4f011a26ea64d945bb019461db64b1e
     layerID: 28
-    mosaicPosition: {x: 4, y: 117}
+    mosaicPosition: {x: 44, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1

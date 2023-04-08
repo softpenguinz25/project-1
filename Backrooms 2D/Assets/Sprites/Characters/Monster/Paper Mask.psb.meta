@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -89,51 +90,10 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Paper Mask_0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 41
-      width: 28
-      height: 29
-    spriteID: fd3a49fa92ff82645aea392574d935af
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 41}
-  - name: Paper Mask_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 28
-      height: 29
-    spriteID: 726dece82bdf0a7479b6e318e19d687b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
-  - name: Paper Mask_2
+  - name: papermask_run_right_old
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -144,7 +104,7 @@ ScriptedImporter:
       y: 4
       width: 6
       height: 29
-    spriteID: 8dc21e2a92e1e01408333bada8e75867
+    spriteID: a3a333438148dc940928dc316e52201f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -154,7 +114,8 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 40, y: 4}
-  - name: Paper Mask_3
+    spritePosition: {x: 13, y: 0}
+  - name: papermask_run_left_old
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -165,7 +126,7 @@ ScriptedImporter:
       y: 4
       width: 6
       height: 29
-    spriteID: 8f1ab25961d4fe142b9d17c53b88fd43
+    spriteID: bfd1f9ca11292e04f9bad3cf4fb79ffe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -175,6 +136,51 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 54, y: 4}
+    spritePosition: {x: 173, y: 0}
+  - name: papermask_run_back_old
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 28
+      height: 29
+    spriteID: 8ed4b9df618476e4e96a661ce91edefa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 162, y: 32}
+  - name: papermask_run_front_old
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 28
+      height: 29
+    spriteID: 7f83a9ff23512324c8a1c9bb9cca3abd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 41}
+    spritePosition: {x: 2, y: 33}
   characterData:
     bones: []
     parts: []
@@ -271,8 +277,208 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: papermask_left
-    spriteName: papermask_left
+  - name: back
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 23d24a1b61440bb4ab540bce2363d2a7
+    layerID: 36
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: papermask_run_back_1
+    spriteName: papermask_run_back_1
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 839cc1b9f409b0548864971684c16bf5
+    layerID: 35
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_back_2
+    spriteName: papermask_run_back_2
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 7cd31b46642050a43bcd904856cb21c1
+    layerID: 37
+    mosaicPosition: {x: 4, y: 164}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_back_3
+    spriteName: papermask_run_back_3
+    isGroup: 0
+    parentIndex: 0
+    spriteID: d853c1fada79fc64497801d643d303a1
+    layerID: 38
+    mosaicPosition: {x: 4, y: 44}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_back_4
+    spriteName: papermask_run_back_4
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 3e4179fa7185ad4438a8ab32f2fcb34b
+    layerID: 39
+    mosaicPosition: {x: 4, y: 203}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: front
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: a126d680f37fc9e4ba060d1ba01d53f0
+    layerID: 29
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: papermask_run_front_1
+    spriteName: papermask_run_front_1
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 83464ff1a33ba07448b7b2230d72c7aa
+    layerID: 22
+    mosaicPosition: {x: 4, y: 84}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_front_2
+    spriteName: papermask_run_front_2
+    isGroup: 0
+    parentIndex: 5
+    spriteID: b9521a95ac40b184196fa89e8bf8f6ec
+    layerID: 26
+    mosaicPosition: {x: 40, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_front_3
+    spriteName: papermask_run_front_3
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 4534e730b6f18204292e800b593365e9
+    layerID: 27
+    mosaicPosition: {x: 4, y: 124}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_front_4
+    spriteName: papermask_run_front_4
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 6ad6b3cdac6f7e1458049e014051b0af
+    layerID: 28
+    mosaicPosition: {x: 40, y: 43}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: left
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: c7eb8ac0b833bd84aa51baaae667cc38
+    layerID: 53
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: papermask_run_left_1
+    spriteName: papermask_run_left_1
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 5448c4703cb9a6846bf60cffbef58420
+    layerID: 52
+    mosaicPosition: {x: 76, y: 80}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_left_2
+    spriteName: papermask_run_left_2
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 2da1f8b135eba5e47af95468db6758a5
+    layerID: 51
+    mosaicPosition: {x: 40, y: 158}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_left_3
+    spriteName: papermask_run_left_3
+    isGroup: 0
+    parentIndex: 10
+    spriteID: e04087de35aff484598edfec39b403e6
+    layerID: 50
+    mosaicPosition: {x: 40, y: 82}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_left_4
+    spriteName: papermask_run_left_4
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 696f026390aff38468a9a78538ff1339
+    layerID: 49
+    mosaicPosition: {x: 40, y: 196}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: right
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 3e80cc2279f574b4f933144064511751
+    layerID: 46
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: papermask_run_right_1
+    spriteName: papermask_run_right_1
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 9c1711e9328444d41a627c05637c62d8
+    layerID: 43
+    mosaicPosition: {x: 76, y: 118}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_right_2
+    spriteName: papermask_run_right_2
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 483498832b48e6d48970d9ae0f30edc8
+    layerID: 42
+    mosaicPosition: {x: 76, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_right_3
+    spriteName: papermask_run_right_3
+    isGroup: 0
+    parentIndex: 15
+    spriteID: d6a6ea9894837e8428c16a5a92e3fa01
+    layerID: 41
+    mosaicPosition: {x: 40, y: 120}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_right_4
+    spriteName: papermask_run_right_4
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 1377faf5af4631341baadd540bd6f7a5
+    layerID: 45
+    mosaicPosition: {x: 76, y: 42}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: papermask_run_right_old
+    spriteName: papermask_run_right_old
     isGroup: 0
     parentIndex: -1
     spriteID: a3a333438148dc940928dc316e52201f
@@ -281,8 +487,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: papermask_right
-    spriteName: papermask_right
+  - name: papermask_run_left_old
+    spriteName: papermask_run_left_old
     isGroup: 0
     parentIndex: -1
     spriteID: bfd1f9ca11292e04f9bad3cf4fb79ffe
@@ -291,8 +497,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: papermask_back
-    spriteName: papermask_back
+  - name: papermask_run_back_old
+    spriteName: papermask_run_back_old
     isGroup: 0
     parentIndex: -1
     spriteID: 8ed4b9df618476e4e96a661ce91edefa
@@ -301,8 +507,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: papermask_front
-    spriteName: papermask_front
+  - name: papermask_run_front_old
+    spriteName: papermask_run_front_old
     isGroup: 0
     parentIndex: -1
     spriteID: 7f83a9ff23512324c8a1c9bb9cca3abd

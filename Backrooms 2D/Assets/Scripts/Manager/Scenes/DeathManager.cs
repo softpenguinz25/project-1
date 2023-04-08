@@ -1,4 +1,5 @@
 using MyBox;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,24 +10,19 @@ public class DeathManager : MonoBehaviour
 
 	[SerializeField] private SceneReference currentScene;
 
-	/*private void Awake()
-	{
-		currentScene.Scene = SceneManager.GetActiveScene();
-	}*/
+	public event Action<SceneReference> ResetScene;
 
 	public IEnumerator DeathSequenceCoroutine(JumpscareMonster jumpscareMonsterType)
 	{
-		//jumspscareAnimator.Play(jumpscareClip.name);
-		//jumpscareSFX.Play();
 		if (jumpscareIsPlaying) { Debug.LogWarning("Jumpscare already playing!"); yield break; }
 
 		jumpscareIsPlaying = true;
 
 		FindObjectOfType<JumpscareManager>().PlayJumpscare(jumpscareMonsterType);
 
-		yield return new WaitForSeconds(jumpscareDuration)/*new WaitForSeconds(jumpscareClip.length)*/;
+		yield return new WaitForSeconds(jumpscareDuration);
 
-		FindObjectOfType<SceneLoader>().LoadScene(currentScene);
+		ResetScene?.Invoke(currentScene);
 
 		jumpscareIsPlaying = false;
 	}
@@ -36,7 +32,7 @@ public class DeathManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-			FindObjectOfType<SceneLoader>().LoadScene(currentScene);
+			ResetScene?.Invoke(currentScene);
 		}
 	}
 #endif

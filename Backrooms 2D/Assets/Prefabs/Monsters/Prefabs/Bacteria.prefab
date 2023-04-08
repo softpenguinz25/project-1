@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 1473480131879910231}
   - component: {fileID: 4742552814224836672}
   - component: {fileID: 1261276159012262394}
+  - component: {fileID: -2441064262011289578}
   m_Layer: 8
   m_Name: Bacteria
   m_TagString: Untagged
@@ -210,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae167f48f378274583d39bf6796d890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalAnimParam: Horizontal
+  verticalAnimParam: Vertical
   playerPoses:
   - {fileID: 8847880655631828528, guid: b9131726bd12db342977d1196c905a56, type: 3}
   - {fileID: -9104186808193540083, guid: b9131726bd12db342977d1196c905a56, type: 3}
@@ -582,6 +585,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-2441064262011289578
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368467659627920316}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e98bf54555052d94a81e900da016d75c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7376563580031610336
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +661,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2

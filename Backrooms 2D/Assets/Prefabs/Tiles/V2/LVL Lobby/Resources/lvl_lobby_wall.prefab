@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4190474133609123099}
   - component: {fileID: 3020438186759426547}
   - component: {fileID: 7457107118308550321}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lvl_lobby_wall_gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8531852235824747439}
   - component: {fileID: 3602672317553600768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lvl_lobby_wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

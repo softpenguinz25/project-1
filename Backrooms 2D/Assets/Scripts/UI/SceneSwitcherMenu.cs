@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcherMenu : MonoBehaviour
 {
-	SceneLoader sl;
-
 	[Header("Functionality")]
 	[SerializeField] SceneReference firstLevel;
 	//[SerializeField] SceneReference finalLevel;
@@ -16,10 +14,7 @@ public class SceneSwitcherMenu : MonoBehaviour
 	[SerializeField] int playAdEveryXIterations = 2;
 	static int iteration;
 
-	private void Awake()
-	{
-		sl = FindObjectOfType<SceneLoader>();
-	}
+	public event Action<int> SwitchScene;
 
 	public void LoadScenePlusIndex(int index)
 	{
@@ -85,7 +80,6 @@ public class SceneSwitcherMenu : MonoBehaviour
 
 	private void LoadScene(int nextSceneIndex)
 	{
-		if (sl != null) sl.LoadScene(nextSceneIndex);
-		else SceneManager.LoadScene(nextSceneIndex);
+		SwitchScene?.Invoke(nextSceneIndex);
 	}
 }

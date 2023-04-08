@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ public class TileSpawnerV2 : MonoBehaviour
 	TileLoaderV2 tl;
 	[SerializeField] TileCollectionV2 tc;
 
+	[Header("Spawning Options")]
+	[SerializeField] int tileSize;
+
 	[Header("Spawning Instance Vars")]
 	bool playerChunkChanged;
 	List<TileV2> tilesToSpawn = new();
@@ -20,8 +24,12 @@ public class TileSpawnerV2 : MonoBehaviour
 	TileV2 mustUseReferenceCpTile = null;
 
 	[Header("Debugging")]
-	[SerializeField] bool applyGhostTileFrameDelays;
-	[SerializeField] bool applyRealTileFrameDelays = true;
+	[SerializeField] int applyGhostTileFrameDelays = 0;
+	[SerializeField] int applyRealTileFrameDelays = 0;
+
+	public event Action NoCPsRemaining;
+
+	public static int TileSize;
 
 	private void Awake()
 	{
@@ -29,7 +37,9 @@ public class TileSpawnerV2 : MonoBehaviour
 		tl = GetComponent<TileLoaderV2>();
 
 		mustUseRegularTile = false;
-		mustUseReferenceCpTile = null;//For some reason, playing without reloading makes this not reset. :shrug:
+		mustUseReferenceCpTile = null;
+
+		TileSize = tileSize;
 	}
 
 	private void OnEnable()
@@ -39,12 +49,13 @@ public class TileSpawnerV2 : MonoBehaviour
 
 	void Start()
 	{
+		//tc.AllocateTilePool();
 		CreateInitialGhostTile();
 	}
 
 	void CreateInitialGhostTile()
 	{
-		TileV2 initialGhostTile = new(tc.initialTile);
+		TileV2 initialGhostTile = new(tc.InitialTile);
 		initialGhostTile.AddTile(tdm);
 
 		StartCoroutine(SpawnTileLoop());
@@ -52,10 +63,12 @@ public class TileSpawnerV2 : MonoBehaviour
 
 	private IEnumerator SpawnTileLoop()
 	{
+		int loopIndex = 0;
 		while (true)
 		{
 			//Delay a frame (FOR TESTING)
-			if (applyGhostTileFrameDelays) yield return null;
+			loopIndex++;
+			if (applyGhostTileFrameDelays != 0 && loopIndex % applyGhostTileFrameDelays == 0) yield return null;
 
 			//Check # of Load CPs
 			if (tl.loadCPs.Count <= 0)
@@ -71,7 +84,7 @@ public class TileSpawnerV2 : MonoBehaviour
 						if (!loadTile.hasSpawned)
 						{
 							loadTile.Spawn(tc);
-							if (applyRealTileFrameDelays) yield return null;
+							if (applyRealTileFrameDelays != 0 && tileToSpawnIndex % applyRealTileFrameDelays == 0) yield return null;
 						}
 					}
 
@@ -79,10 +92,11 @@ public class TileSpawnerV2 : MonoBehaviour
 					tilesToSpawn.Clear();
 
 				//Check # of CPs
-				if (tdm.cpDict.Count <= 0)
+				if (tdm.CpDict.Count <= 0)
 				{
 					//Restart generation if no CPs found
 					Debug.LogError("No More CPs! Terminating Spawn Tile Loop.");
+					NoCPsRemaining?.Invoke();
 					yield break;
 				}
 
@@ -98,7 +112,7 @@ public class TileSpawnerV2 : MonoBehaviour
 			TileV2.TileType randomTileType = tc.GetRandomTileType(mustUseRegularTile);
 			bool isGroupTile = tc.IsGroupTile(randomTileType);
 
-			TileV2 newTile = !isGroupTile ? new TileV2(randomTileType) : new GroupTileV2(randomTileType, tc.tileSpawnChances[randomTileType].tileGO as GroupTileV2Data);
+			TileV2 newTile = !isGroupTile ? new TileV2(randomTileType) : new GroupTileV2(randomTileType, tc.TileSpawnChances[randomTileType].tileGO as GroupTileV2Data);
 			newTileGizmo = newTile;
 
 			//Pick a Random Tile Based on CP in Chunk 
@@ -109,31 +123,23 @@ public class TileSpawnerV2 : MonoBehaviour
 			int connectingCPIndex = newTile.GetConnectingCPIndex();
 
 			//Position ghost tile where it's connecting CP matches with tile of reference CP
-			if (newTile.cps.Count <= 0)
+			if (newTile.Cps.Count <= 0)
 			{
 				Debug.LogError(newTile.ToString() + " has no CPs!");
 				yield break;
 			}
 
-			//if (applyGhostTileFrameDelays) yield return null;
-
-			newTile.MoveTileByDir(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
-
-			//if (applyGhostTileFrameDelays) yield return null;
+			newTile.MoveTileByDir(referenceCPTile.TilePosition - newTile.Cps[connectingCPIndex]);
 
 			//Check if any existing tiles are obstructing this tile OR if newTile is placed in a position a referenceTile CP is not at
 			int obstructionCheckIndex = 0;
-			while (newTile.IsOverlappingWithPosList(tdm.tileDict.Keys.ToHashSet()) || 
-				!newTile.IsOverlappingWithPosList(referenceCPTile.cps.ToHashSet()))
+			while (newTile.IsOverlappingWithPosList(tdm.TileDict.Keys.ToHashSet()) || 
+				!newTile.IsOverlappingWithPosList(referenceCPTile.Cps.ToHashSet()))
 			{
 				//Obstruction detected: Rotate 90 Degrees, Repeat
 				newTile.Rotate(90);
 
-				//if (applyGhostTileFrameDelays) yield return null;
-
-				newTile.MoveTileByDir(referenceCPTile.tilePosition - newTile.cps[connectingCPIndex]);
-
-				//if (applyGhostTileFrameDelays) yield return null;
+				newTile.MoveTileByDir(referenceCPTile.TilePosition - newTile.Cps[connectingCPIndex]);
 
 				if (obstructionCheckIndex >= 4)
 				{
@@ -156,8 +162,8 @@ public class TileSpawnerV2 : MonoBehaviour
 				else
 				{
 					//No - Close off all reference CP tile CPs
-					for (int referenceCPTileIndex = referenceCPTile.cps.Count - 1; referenceCPTileIndex >= 0; referenceCPTileIndex--) {
-						Vector2Int referenceCP = referenceCPTile.cps[referenceCPTileIndex];
+					for (int referenceCPTileIndex = referenceCPTile.Cps.Count - 1; referenceCPTileIndex >= 0; referenceCPTileIndex--) {
+						Vector2Int referenceCP = referenceCPTile.Cps[referenceCPTileIndex];
 						referenceCPTile.RemoveCP(tc, tdm, referenceCP, true);
 					}
 				}
@@ -177,21 +183,21 @@ public class TileSpawnerV2 : MonoBehaviour
 			referenceTileGizmo = null;
 
 			//Delete reference CP of old tile + connecting CP of new tile
-			referenceCPTile.RemoveCP(tc, tdm, newTile.tilePosition);
-			newTile.RemoveCP(tc, tdm, newTile.cps[connectingCPIndex]);
+			referenceCPTile.RemoveCP(tc, tdm, newTile.TilePosition);
+			newTile.RemoveCP(tc, tdm, newTile.Cps[connectingCPIndex]);
 
 			//Remove CPs in newTile overlapping with other tiles
 			Dictionary<Vector2Int, TileV2> surroundingTiles = newTile.GetSurroundingTiles(tdm);
-			for (int i = newTile.cps.Count - 1; i >= 0; i--)
+			for (int i = newTile.Cps.Count - 1; i >= 0; i--)
 			{
-				if (surroundingTiles.ContainsKey(newTile.cps[i]))
+				if (surroundingTiles.ContainsKey(newTile.Cps[i]))
 				{
 					//Remove Dead Ends
 					if (Random.value > tc.deadEndProbability)
-						if (newTile.NumWallsBetweenTiles(newTile, surroundingTiles[newTile.cps[i]]) > 0)
-							newTile.RemoveWallsBetweenTiles(newTile, surroundingTiles[newTile.cps[i]]);
+						if (newTile.NumWallsBetweenTiles(newTile, surroundingTiles[newTile.Cps[i]]) > 0)
+							newTile.RemoveWallsBetweenTiles(newTile, surroundingTiles[newTile.Cps[i]]);
 
-					newTile.RemoveCP(tc, tdm, newTile.cps[i]);
+					newTile.RemoveCP(tc, tdm, newTile.Cps[i]);
 				}
 			}
 
@@ -199,30 +205,30 @@ public class TileSpawnerV2 : MonoBehaviour
 			for (int surroundingTileIndex = surroundingTiles.Count - 1; surroundingTileIndex >= 0; surroundingTileIndex--)
 			{
 				TileV2 surroundingTile = surroundingTiles[surroundingTiles.Keys.ElementAt(surroundingTileIndex)];
-				for (int surroundingTileCPIndex = surroundingTile.cps.Count - 1; surroundingTileCPIndex >= 0; surroundingTileCPIndex--)
+				for (int surroundingTileCPIndex = surroundingTile.Cps.Count - 1; surroundingTileCPIndex >= 0; surroundingTileCPIndex--)
 				{
-					if (newTile.PosOverlaps(surroundingTile.cps[surroundingTileCPIndex]))
+					if (newTile.PosOverlaps(surroundingTile.Cps[surroundingTileCPIndex]))
 					{
 						//Remove Dead Ends
 						if (Random.value > tc.deadEndProbability)
 							if (surroundingTile.NumWallsBetweenTiles(surroundingTile, newTile) > 0)
 								surroundingTile.RemoveWallsBetweenTiles(surroundingTile, newTile);
 
-						surroundingTile.RemoveCP(tc, tdm, surroundingTile.cps[surroundingTileCPIndex]);
+						surroundingTile.RemoveCP(tc, tdm, surroundingTile.Cps[surroundingTileCPIndex]);
 					}
 				}
 			}
 		}
 	}
 
-#if UNITY_EDITOR
 	TileV2 newTileGizmo;
-	Color newTileGizmoColor = new(1, 0, 1), newCPGizmoColor = new Color(1, .5f, 1);
+	Color newTileGizmoColor = new(1, 0, 1), newCPGizmoColor = new Color(1, .5f, 1) * TileSize;
 	float newTileGizmoTestingSphereRadius = .25f;
 
 	TileV2 referenceTileGizmo;
 	Color referenceTileGizmoColor = Color.yellow;
-	Vector3 referenceTileGizmoTestingCubeSize = new Vector3(.25f, .25f, .25f);
+	Vector3 referenceTileGizmoTestingCubeSize = new Vector3(.25f, .25f, .25f) * TileSize;
+
 	private void OnDrawGizmos()
 	{
 		if (newTileGizmo != null) newTileGizmo.DrawTile(newTileGizmoColor, newCPGizmoColor, newTileGizmoTestingSphereRadius);
@@ -230,8 +236,7 @@ public class TileSpawnerV2 : MonoBehaviour
 		if (referenceTileGizmo != null)
 		{
 			Gizmos.color = referenceTileGizmoColor;
-			Gizmos.DrawCube((Vector3Int)referenceTileGizmo.tilePosition, referenceTileGizmoTestingCubeSize);
+			Gizmos.DrawCube((Vector3Int)referenceTileGizmo.TilePosition, referenceTileGizmoTestingCubeSize);
 		}
 	}
-#endif
 }

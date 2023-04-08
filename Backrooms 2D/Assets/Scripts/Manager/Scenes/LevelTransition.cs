@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,8 @@ public class LevelTransition : MonoBehaviour
     [SerializeField] private Animator animator;
 	[SerializeField] private bool startingFade = true;
 	[SerializeField] private float transitionDelay = 5f;
+
+	public event Action<int> LoadNextLevel;
 
 	private void Start()
 	{
@@ -19,6 +22,6 @@ public class LevelTransition : MonoBehaviour
 
 		yield return new WaitForSeconds(transitionDelay);
 
-		FindObjectOfType<SceneLoader>().LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		LoadNextLevel?.Invoke(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }

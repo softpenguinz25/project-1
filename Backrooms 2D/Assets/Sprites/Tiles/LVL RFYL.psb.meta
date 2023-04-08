@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: lvl_!_obstacle_stretcher
@@ -111,7 +113,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 44, y: -28}
+    uvTransform: {x: 44, y: 4}
+    spritePosition: {x: 0, y: 32}
   - name: lvl_!_obstacle_chair
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 26, y: 6}
+    uvTransform: {x: 44, y: 84}
+    spritePosition: {x: 18, y: 78}
   - name: lvl_!_obstacle_bed
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +157,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 44, y: -20}
+    uvTransform: {x: 44, y: 44}
+    spritePosition: {x: 0, y: 64}
   - name: lvl_!_corner_inverted
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -174,7 +179,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 44, y: -14}
+    uvTransform: {x: 44, y: 110}
+    spritePosition: {x: 0, y: 124}
   - name: lvl_!_corner_free
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -195,7 +201,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 56, y: 14}
+    uvTransform: {x: 56, y: 110}
+    spritePosition: {x: 0, y: 96}
   - name: lvl_!_corner_true
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +223,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 40, y: -80}
+    uvTransform: {x: 68, y: 16}
+    spritePosition: {x: 28, y: 96}
   - name: lvl_!_wall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -237,7 +245,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 64, y: -92}
+    uvTransform: {x: 68, y: 4}
+    spritePosition: {x: 4, y: 96}
   - name: lvl_!_open
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +267,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: -92}
+    uvTransform: {x: 3, y: 3}
+    spritePosition: {x: -1, y: 95}
   - name: Hall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +289,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -92, y: -52}
+    uvTransform: {x: 4, y: 44}
+    spritePosition: {x: 96, y: 96}
   - name: Corner
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -300,7 +311,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -60, y: -12}
+    uvTransform: {x: 4, y: 84}
+    spritePosition: {x: 64, y: 96}
   characterData:
     bones: []
     parts: []

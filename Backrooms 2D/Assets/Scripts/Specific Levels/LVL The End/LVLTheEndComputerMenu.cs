@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LVLTheEndComputerMenu : MonoBehaviour
+public class LVLTheEndComputerMenu : GoalItems
 {
 	[Header("References")]
     [SerializeField] LVLTheEndComputerState compState;
@@ -13,7 +13,7 @@ public class LVLTheEndComputerMenu : MonoBehaviour
 	[Header("Menu")]
 	[SerializeField] GameObject menu, backButton, passwordMenu, h97menu;
 	[SerializeField] List<TMP_InputField> numberInputs = new List<TMP_InputField>();
-	int currentEntry = 9999;
+	int currentEntry = (int)Mathf.Pow(10, LVLTheEndPasswordGenerator.NumNotesToSpawn) - 1;
 
 	[Header("Next Level")]
 	[SerializeField] AudioSource nextLevelSFX;
@@ -128,6 +128,6 @@ public class LVLTheEndComputerMenu : MonoBehaviour
 
 		yield return new WaitForSeconds(transitionDelay);
 
-		FindObjectOfType<SceneLoader>().LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		NextLevelInvoke(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }

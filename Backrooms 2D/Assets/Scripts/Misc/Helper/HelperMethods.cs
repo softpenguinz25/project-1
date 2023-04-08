@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class HelperMethods
 {
@@ -36,5 +39,80 @@ public static class HelperMethods
 			if (c != '0' && c != '1')
 				return false;
 		return true;
+	}
+
+	//Thanks Mike Two and AGuyCalledGerald! https://stackoverflow.com/questions/2571716/find-nth-occurrence-of-a-character-in-a-string
+	public static int GetNthIndex(string s, char t, int n)
+	{
+		if (s.Length <= 0 || n < 0) return -1;
+
+		int count = 0;
+		for (int i = 0; i < s.Length; i++)
+		{
+			if (s[i] == t)
+			{
+				count++;
+				if (count == n)
+				{
+					return i;
+				}
+			}
+		}
+		return -1;
+	}
+
+	//Thanks Nicholas Miller! https://stackoverflow.com/questions/5015593/how-to-replace-part-of-string-by-position
+	//// str - the source string
+	//// index- the start location to replace at (0-based)
+	//// length - the number of characters to be removed before inserting
+	//// replace - the string that is replacing characters
+	public static string ReplaceAt(this string str, int index, int length, string replace)
+	{
+		return str.Remove(index, Math.Min(length, str.Length - index))
+				.Insert(index, replace);
+	}
+
+	//THANKS Adriaan Stander! https://stackoverflow.com/questions/1951517/convert-a-to-1-b-to-2-z-to-26-and-then-aa-to-27-ab-to-28-column-indexes-to
+	public static string ExcelColumnFromNumber(int column)
+	{
+		string columnString = "";
+		decimal columnNumber = column;
+		while (columnNumber > 0)
+		{
+			decimal currentLetterNumber = (columnNumber - 1) % 26;
+			char currentLetter = (char)(currentLetterNumber + 65);
+			columnString = currentLetter + columnString;
+			columnNumber = (columnNumber - (currentLetterNumber + 1)) / 26;
+		}
+		return columnString;
+	}
+
+	public static int GetDigitFromInt(int number, int digit)
+	{
+		string numberString = number.ToString();
+		//THANKS Tim Robinson! https://stackoverflow.com/questions/2416894/how-can-i-get-a-character-in-a-string-by-index
+		char digitChar = numberString[digit - 1];
+
+		//Thanks JulesG10! https://www.google.com/search?q=c%23+char+to+int&rlz=1C1RXQR_enUS997US997&oq=c%23+char+to+int&aqs=chrome..69i57j0i512l2j0i22i30l4j69i58.9369j0j7&sourceid=chrome&ie=UTF-8
+		return (int)char.GetNumericValue(digitChar);
+	}
+
+	//THANKS DefianmtMoMo! https://www.google.com/search?q=unity+get+random+values+from+list&rlz=1C1RXQR_enUS997US997&oq=unity+get+random+values+from+list&aqs=chrome..69i57j0i546l5.8266j0j7&sourceid=chrome&ie=UTF-8 (with Grepper chrome extension)
+	public static List<T> GetRandomItemsFromList<T>(List<T> list, int number)
+	{
+		// this is the list we're going to remove picked items from
+		List<T> tmpList = new List<T>(list);
+		// this is the list we're going to move items to
+		List<T> newList = new List<T>();
+
+		// make sure tmpList isn't already empty
+		while (newList.Count < number && tmpList.Count > 0)
+		{
+			int index = Random.Range(0, tmpList.Count);
+			newList.Add(tmpList[index]);
+			tmpList.RemoveAt(index);
+		}
+
+		return newList;
 	}
 }

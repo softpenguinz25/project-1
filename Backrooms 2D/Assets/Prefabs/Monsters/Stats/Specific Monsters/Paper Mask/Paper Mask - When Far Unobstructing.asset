@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da39eecfcc69894e883f1f7d750101c, type: 3}
   m_Name: Paper Mask - When Far Unobstructing
   m_EditorClassIdentifier: 
-  speed: 785
+  speed: 735
   timeBeforeGenerateNextPath: 4
   nextWaypointDistance: 4
   linearDrag: 2

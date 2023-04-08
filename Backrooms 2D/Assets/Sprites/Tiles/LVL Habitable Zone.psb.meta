@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: lvl_habitablezone_wall_small
@@ -99,7 +101,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 836
+      y: 837
       width: 32
       height: 4
     spriteID: 4971b3c6baae7da4c9b66ef8d9fd975e
@@ -111,7 +113,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 305}
+    uvTransform: {x: 4, y: 837}
+    spritePosition: {x: 0, y: 531}
   - name: lvl_habitablezone_wall_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -120,7 +123,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 44
-      y: 836
+      y: 837
       width: 32
       height: 4
     spriteID: 0c11842a4eaa6b44e942ecfd98a2cd92
@@ -132,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 44, y: 309}
+    uvTransform: {x: 44, y: 837}
+    spritePosition: {x: 0, y: 527}
   - name: lvl_habitablezone_tile_open_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -141,7 +145,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 269
       width: 256
       height: 256
     spriteID: 1b0e50f16a4fee44bb0fab8181d0c1fb
@@ -153,7 +157,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -764, y: -508}
+    uvTransform: {x: 4, y: 269}
+    spritePosition: {x: 768, y: 512}
   - name: lvl_habitablezone_tile_split_big_cracked
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -162,7 +167,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 268
+      y: 533
       width: 256
       height: 256
     spriteID: c8be4e15e4029674a8a2550118b7a9dc
@@ -174,7 +179,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 12}
+    uvTransform: {x: 4, y: 533}
+    spritePosition: {x: 0, y: 256}
   - name: lvl_habitablezone_tile_corner_big_cracked
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -182,8 +188,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 532
+      x: 268
+      y: 4
       width: 256
       height: 256
     spriteID: dbc086c0e573d4a4487216a3abe1859e
@@ -195,7 +201,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -252, y: 276}
+    uvTransform: {x: 268, y: 4}
+    spritePosition: {x: 256, y: 256}
   - name: lvl_habitablezone_tile_hall_big_cracked
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -204,7 +211,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 268
-      y: 4
+      y: 268
       width: 256
       height: 256
     spriteID: 208e47ab5d23aed489ef09fd853cb7f6
@@ -216,7 +223,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 12, y: 4}
+    uvTransform: {x: 268, y: 268}
+    spritePosition: {x: 256, y: 0}
   - name: lvl_habitablezone_tile_end_big_cracked
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -224,8 +232,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 268
-      y: 268
+      x: 4
+      y: 4
       width: 256
       height: 256
     spriteID: e8a5a469ed45c0a4580646e495d2d91d
@@ -237,7 +245,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 268, y: 268}
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: -1}
   - name: lvl_habitablezone_tile_split_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +267,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -244, y: 276}
+    uvTransform: {x: 268, y: 532}
+    spritePosition: {x: 512, y: 256}
   - name: lvl_habitablezone_tile_corner_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +289,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -236, y: -252}
+    uvTransform: {x: 532, y: 4}
+    spritePosition: {x: 768, y: 256}
   - name: lvl_habitablezone_tile_hall_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -300,7 +311,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -236, y: 268}
+    uvTransform: {x: 532, y: 268}
+    spritePosition: {x: 768, y: 0}
   - name: lvl_habitablezone_tile_end_big
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -321,7 +333,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 20, y: 532}
+    uvTransform: {x: 532, y: 532}
+    spritePosition: {x: 512, y: 0}
   - name: lvl_habitablezone_tile_open_small_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -330,7 +343,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 796
+      y: 797
       width: 32
       height: 32
     spriteID: 2944fd81bbe9533458b39b299cb8eaad
@@ -342,7 +355,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -92, y: -164}
+    uvTransform: {x: 4, y: 797}
+    spritePosition: {x: 96, y: 960}
   - name: lvl_habitablezone_tile_open_small_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -351,7 +365,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 44
-      y: 796
+      y: 797
       width: 32
       height: 32
     spriteID: bc469e3c7293ad34aaeeeab422118518
@@ -363,7 +377,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -20, y: -164}
+    uvTransform: {x: 44, y: 797}
+    spritePosition: {x: 64, y: 960}
   - name: lvl_habitablezone_tile_split_small
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -372,7 +387,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 84
-      y: 796
+      y: 797
       width: 32
       height: 32
     spriteID: 87ee712df547954488d58705debd7de6
@@ -384,7 +399,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 84, y: -164}
+    uvTransform: {x: 84, y: 797}
+    spritePosition: {x: 0, y: 960}
   - name: lvl_habitablezone_tile_hall_small
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -393,7 +409,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 124
-      y: 796
+      y: 797
       width: 32
       height: 32
     spriteID: cd771f7f1c9157d4facb46c9161dc10b
@@ -405,7 +421,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 28, y: -196}
+    uvTransform: {x: 124, y: 797}
+    spritePosition: {x: 96, y: 992}
   - name: lvl_habitablezone_tile_corner_small
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -414,7 +431,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 164
-      y: 796
+      y: 797
       width: 32
       height: 32
     spriteID: 40cb2df41e26bf54e89282a73f41fff2
@@ -426,7 +443,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 100, y: -196}
+    uvTransform: {x: 164, y: 797}
+    spritePosition: {x: 64, y: 992}
   - name: lvl_habitablezone_tile_end_small
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -435,7 +453,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 204
-      y: 796
+      y: 797
       width: 32
       height: 32
     spriteID: 7ec1d88f30a63434f8221e6a2a2e9bfb
@@ -447,7 +465,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 172, y: -196}
+    uvTransform: {x: 204, y: 797}
+    spritePosition: {x: 32, y: 992}
   characterData:
     bones: []
     parts: []
@@ -548,7 +567,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 4971b3c6baae7da4c9b66ef8d9fd975e
     layerID: 145
-    mosaicPosition: {x: 4, y: 836}
+    mosaicPosition: {x: 4, y: 837}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -558,7 +577,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 0c11842a4eaa6b44e942ecfd98a2cd92
     layerID: 142
-    mosaicPosition: {x: 44, y: 836}
+    mosaicPosition: {x: 44, y: 837}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -568,7 +587,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 1b0e50f16a4fee44bb0fab8181d0c1fb
     layerID: 143
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 4, y: 269}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -578,7 +597,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: c8be4e15e4029674a8a2550118b7a9dc
     layerID: 125
-    mosaicPosition: {x: 4, y: 268}
+    mosaicPosition: {x: 4, y: 533}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -588,7 +607,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: dbc086c0e573d4a4487216a3abe1859e
     layerID: 133
-    mosaicPosition: {x: 4, y: 532}
+    mosaicPosition: {x: 268, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -598,7 +617,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 208e47ab5d23aed489ef09fd853cb7f6
     layerID: 134
-    mosaicPosition: {x: 268, y: 4}
+    mosaicPosition: {x: 268, y: 268}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -608,7 +627,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: e8a5a469ed45c0a4580646e495d2d91d
     layerID: 135
-    mosaicPosition: {x: 268, y: 268}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -748,7 +767,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 2944fd81bbe9533458b39b299cb8eaad
     layerID: 107
-    mosaicPosition: {x: 4, y: 796}
+    mosaicPosition: {x: 4, y: 797}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -758,7 +777,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: bc469e3c7293ad34aaeeeab422118518
     layerID: 7
-    mosaicPosition: {x: 44, y: 796}
+    mosaicPosition: {x: 44, y: 797}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -768,7 +787,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 87ee712df547954488d58705debd7de6
     layerID: 6
-    mosaicPosition: {x: 84, y: 796}
+    mosaicPosition: {x: 84, y: 797}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -778,7 +797,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: cd771f7f1c9157d4facb46c9161dc10b
     layerID: 5
-    mosaicPosition: {x: 124, y: 796}
+    mosaicPosition: {x: 124, y: 797}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -788,7 +807,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 40cb2df41e26bf54e89282a73f41fff2
     layerID: 4
-    mosaicPosition: {x: 164, y: 796}
+    mosaicPosition: {x: 164, y: 797}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -798,7 +817,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 7ec1d88f30a63434f8221e6a2a2e9bfb
     layerID: 3
-    mosaicPosition: {x: 204, y: 796}
+    mosaicPosition: {x: 204, y: 797}
     flatten: 0
     isImported: 1
     isVisible: 1

@@ -7,8 +7,9 @@ public class LVLElectricalStationGate : MonoBehaviour
 	[SerializeField] Animator animator;
 
 	[Header("Gate Variables")]
-    [SerializeField] RangedFloat timeBtwnGateActivationBounds;
-	[SerializeField] bool isGateOpen = false;
+    [SerializeField] RangedFloat gateOpenState;
+    [SerializeField] RangedFloat gateCloseState;
+	 bool isGateOpen;
 	float currentTimeBtwnGateActivation;
 
 	[Header("GFX")]
@@ -17,8 +18,10 @@ public class LVLElectricalStationGate : MonoBehaviour
 
 	private void Start()
 	{
+		isGateOpen = Random.value < .5f;
+
 		animator.SetBool("Is Gate Open", isGateOpen);
-		currentTimeBtwnGateActivation = Random.Range(timeBtwnGateActivationBounds.Min, timeBtwnGateActivationBounds.Max);
+		currentTimeBtwnGateActivation = Random.Range(gateOpenState.Min, gateOpenState.Max);
 	}
 
 	private void Update()
@@ -36,17 +39,21 @@ public class LVLElectricalStationGate : MonoBehaviour
 	private void ActivateGate()
 	{		
 		isGateOpen = !isGateOpen;
-		animator.SetBool("Is Gate Open", isGateOpen);
-
-		if (isGateOpen)
+		if (animator.GetBool("Is Gate Open") != isGateOpen)
 		{
-			openSFX.Play();
-		}
-		else
-		{
-			closeSFX.Play();
+			animator.SetBool("Is Gate Open", isGateOpen);
+
+			if (isGateOpen)
+			{
+				openSFX.Play();
+			}
+			else
+			{
+				closeSFX.Play();
+			}
 		}
 
-		currentTimeBtwnGateActivation = Random.Range(timeBtwnGateActivationBounds.Min, timeBtwnGateActivationBounds.Max);
+		RangedFloat timeBtwnGateToggle = isGateOpen ? gateOpenState : gateCloseState;
+		currentTimeBtwnGateActivation = Random.Range(timeBtwnGateToggle.Min, timeBtwnGateToggle.Max);
 	}
 }

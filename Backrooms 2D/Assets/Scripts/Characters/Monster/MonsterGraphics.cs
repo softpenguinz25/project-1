@@ -6,8 +6,12 @@ public class MonsterGraphics : MonoBehaviour
 	private MonsterMovement mm;
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
+	private Animator anim;
 
 	[Header("Sprite")]
+	[SerializeField] string horizontalAnimParam = "Horizontal"; 
+	[SerializeField] string verticalAnimParam = "Vertical";
+	float maxSpeed;
 	[SerializeField] private Sprite[] playerPoses = new Sprite[4];
 	[SerializeField] private float spriteThreshold = .4f;
 
@@ -38,6 +42,7 @@ public class MonsterGraphics : MonoBehaviour
 		mm = GetComponent<MonsterMovement>();
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
+		anim = GetComponent<Animator>();
 
 		startingAudioLevel = GetComponent<AudioSource>().volume;
 	}
@@ -45,7 +50,7 @@ public class MonsterGraphics : MonoBehaviour
 	private IEnumerator Start()
 	{
 		//originalSpeed = mm.CurrentStats.speed;
-		sr.sprite = playerPoses[2];
+		//sr.sprite = playerPoses[2];
 
 		float t = 0;
 		while (t < ambienceFadeInCurve.keys[ambienceFadeInCurve.keys.Length - 1].time)
@@ -95,10 +100,23 @@ public class MonsterGraphics : MonoBehaviour
 
 	private void Update()
 	{
-		if (rb.velocity.y > spriteThreshold) sr.sprite = playerPoses[0];
-		else if (rb.velocity.y < -spriteThreshold) sr.sprite = playerPoses[2];
-		else if (rb.velocity.x > spriteThreshold) sr.sprite = playerPoses[1];
-		else if (rb.velocity.x < -spriteThreshold) sr.sprite = playerPoses[3];
+		if (anim != null && anim.enabled)
+		{
+			if (rb.velocity.magnitude > maxSpeed) maxSpeed = rb.velocity.magnitude;
+
+			if (maxSpeed == 0) return;
+
+			anim.SetFloat(horizontalAnimParam, rb.velocity.x / maxSpeed);
+			anim.SetFloat(verticalAnimParam, rb.velocity.y / maxSpeed);
+		}
+		//TODO: Delete this
+		else
+		{
+			if (rb.velocity.y > spriteThreshold) sr.sprite = playerPoses[0];
+			else if (rb.velocity.y < -spriteThreshold) sr.sprite = playerPoses[2];
+			else if (rb.velocity.x > spriteThreshold) sr.sprite = playerPoses[1];
+			else if (rb.velocity.x < -spriteThreshold) sr.sprite = playerPoses[3];
+		}
 
 		#region Footstep Particles
 		/*bool isMovingUp = pm.Movement.x*/

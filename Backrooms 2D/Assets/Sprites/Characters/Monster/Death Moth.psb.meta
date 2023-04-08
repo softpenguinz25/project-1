@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -89,51 +90,10 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: deathmoth_left
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 27
-      height: 26
-    spriteID: c2a6d90f17d30cc4fbcb6cc195e06667
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 2, y: 1}
-  - name: deathmoth_right
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 38
-      width: 27
-      height: 26
-    spriteID: a5546dc59cb50d641831eddb297e5653
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 2, y: 35}
-  - name: deathmoth_front
+  - name: deathmoth_run_front_old
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -144,7 +104,7 @@ ScriptedImporter:
       y: 72
       width: 32
       height: 18
-    spriteID: 5a4cf1879e731a343acf61201100e41c
+    spriteID: 8aa55ababfd2f5048af2fd9306885bed
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,8 +113,31 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 65}
-  - name: deathmoth_back
+    uvTransform: {x: 4, y: 72}
+    spritePosition: {x: 2, y: 39}
+  - name: deathmoth_run_right_old
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 27
+      height: 26
+    spriteID: 2d181ad09027b754fb69dd9fdd1c7efb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 130, y: 3}
+  - name: deathmoth_run_back_old
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -165,7 +148,7 @@ ScriptedImporter:
       y: 98
       width: 32
       height: 18
-    spriteID: 7f83a9ff23512324c8a1c9bb9cca3abd
+    spriteID: 5c3f64881a8a381478b249c30fb73f57
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -174,7 +157,30 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 91}
+    uvTransform: {x: 4, y: 98}
+    spritePosition: {x: 125, y: 39}
+  - name: deathmoth_run_left_old
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 27
+      height: 26
+    spriteID: 4cc2f7aacf539de48acf0af976baea79
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 38}
+    spritePosition: {x: 2, y: 3}
   characterData:
     bones: []
     parts: []
@@ -271,65 +277,285 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: deathmoth_left
-    spriteName: deathmoth_left
-    isGroup: 0
+  - name: front
+    spriteName: 
+    isGroup: 1
     parentIndex: -1
-    spriteID: c2a6d90f17d30cc4fbcb6cc195e06667
-    layerID: 11
+    spriteID: 64c247c3b93fb174fb355153709948c9
+    layerID: 19
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: deathmoth_run_front_4
+    spriteName: deathmoth_run_front_4
+    isGroup: 0
+    parentIndex: 0
+    spriteID: e74626fe6ca939447bf0bc8c1aa0027f
+    layerID: 18
+    mosaicPosition: {x: 4, y: 80}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_front_3
+    spriteName: deathmoth_run_front_3
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 7a813cf18be663b4bbb870c0db27b326
+    layerID: 17
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_front_2
+    spriteName: deathmoth_run_front_2
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 0220b0207b6cf20478d7865b703784d1
+    layerID: 16
+    mosaicPosition: {x: 42, y: 70}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_front_1
+    spriteName: deathmoth_run_front_1
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 9be13960152d23a4bace2c0a6969bd64
+    layerID: 15
+    mosaicPosition: {x: 42, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: right
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: b53b959b4c7d59b4cac47c805b30ce47
+    layerID: 38
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: deathmoth_run_right_4
+    spriteName: deathmoth_run_right_4
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 92323b0b624e9e947b8c804b0377c2cd
+    layerID: 37
+    mosaicPosition: {x: 42, y: 166}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_right_3
+    spriteName: deathmoth_run_right_3
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 27d956a9523847a43ac9c75a77881e08
+    layerID: 36
+    mosaicPosition: {x: 4, y: 214}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_right_2
+    spriteName: deathmoth_run_right_2
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 216985ae4c203db4dab8715756dd89e2
+    layerID: 35
+    mosaicPosition: {x: 42, y: 214}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_right_1
+    spriteName: deathmoth_run_right_1
+    isGroup: 0
+    parentIndex: 5
+    spriteID: e8b00dbbd57f8074d9bef6e46d254f12
+    layerID: 34
+    mosaicPosition: {x: 4, y: 146}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: back
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: d4c53bfdc1e03aa45b13e65b85272c85
+    layerID: 25
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: deathmoth_run_back_1
+    spriteName: deathmoth_run_back_1
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 17a7b756f8c253b49b8a7b6bf20de6da
+    layerID: 21
+    mosaicPosition: {x: 42, y: 37}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_back_2
+    spriteName: deathmoth_run_back_2
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 07c3f6dd0defb0a46b3ac7bdac2a0ad0
+    layerID: 22
+    mosaicPosition: {x: 42, y: 101}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_back_3
+    spriteName: deathmoth_run_back_3
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 0efd7431078e7144c98fd458dff7ce02
+    layerID: 23
+    mosaicPosition: {x: 4, y: 42}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_back_4
+    spriteName: deathmoth_run_back_4
+    isGroup: 0
+    parentIndex: 10
+    spriteID: b21d26965e1c0dc4ab0d71a08a7dae34
+    layerID: 24
+    mosaicPosition: {x: 4, y: 113}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: left
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 8b676b4666285ec488b364a3081ed502
+    layerID: 31
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: deathmoth_run_left_4
+    spriteName: deathmoth_run_left_4
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 8992ef7d352ebf1479d4aa77d8f6080b
+    layerID: 30
+    mosaicPosition: {x: 42, y: 190}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_left_3
+    spriteName: deathmoth_run_left_3
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 444970a1c41647e47aee7d23965c75c5
+    layerID: 29
+    mosaicPosition: {x: 42, y: 132}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_left_2
+    spriteName: deathmoth_run_left_2
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 87890d9ada8a22745a87c8259913c88b
+    layerID: 28
+    mosaicPosition: {x: 42, y: 231}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_left_1
+    spriteName: deathmoth_run_left_1
+    isGroup: 0
+    parentIndex: 15
+    spriteID: d194b17b3d812614fb4a7c03f0d609c3
+    layerID: 27
+    mosaicPosition: {x: 4, y: 180}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: old
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: dda43d69a849cfd4ab10c242b2417029
+    layerID: 43
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: deathmoth_run_front_old
+    spriteName: deathmoth_run_front_old
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 8aa55ababfd2f5048af2fd9306885bed
+    layerID: 47
+    mosaicPosition: {x: 4, y: 72}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: deathmoth_run_right_old
+    spriteName: deathmoth_run_right_old
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 2d181ad09027b754fb69dd9fdd1c7efb
+    layerID: 41
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: deathmoth_right
-    spriteName: deathmoth_right
+  - name: deathmoth_run_back_old
+    spriteName: deathmoth_run_back_old
     isGroup: 0
-    parentIndex: -1
-    spriteID: a5546dc59cb50d641831eddb297e5653
-    layerID: 10
+    parentIndex: 20
+    spriteID: 5c3f64881a8a381478b249c30fb73f57
+    layerID: 49
+    mosaicPosition: {x: 4, y: 98}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: deathmoth_run_left_old
+    spriteName: deathmoth_run_left_old
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 4cc2f7aacf539de48acf0af976baea79
+    layerID: 42
     mosaicPosition: {x: 4, y: 38}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: '[OLD] prototypes'
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 09628ab6bc3d1d44e979b3bbdd6015d4
+    layerID: 12
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: Layer 3
     spriteName: 
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 25
     spriteID: e0bb9360b93fb0243814477fc321a942
     layerID: 9
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
-    isVisible: 0
+    isVisible: 1
   - name: Layer 2
     spriteName: 
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 25
     spriteID: 275a501fa55292143a75084d092e0438
     layerID: 8
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
-    isVisible: 0
-  - name: deathmoth_front
-    spriteName: deathmoth_front
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 5a4cf1879e731a343acf61201100e41c
-    layerID: 3
-    mosaicPosition: {x: 4, y: 72}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: deathmoth_back
-    spriteName: deathmoth_back
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7f83a9ff23512324c8a1c9bb9cca3abd
-    layerID: 2
-    mosaicPosition: {x: 4, y: 98}
-    flatten: 0
-    isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []

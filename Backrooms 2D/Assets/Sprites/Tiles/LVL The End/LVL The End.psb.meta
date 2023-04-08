@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: lvl_theend_side_text
@@ -112,6 +114,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -67, y: 699}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_side_wall_bulky
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -133,6 +136,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 600}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_side_desks
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -154,6 +158,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 376}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_side_wall_regular
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -175,6 +180,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -251, y: 333}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_side_floor
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -196,6 +202,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 8, y: 148}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_main_text
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -217,6 +224,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 378, y: 459}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_main_wall_bulky
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -238,6 +246,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 200, y: 493}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_main_wall_regular
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -259,6 +268,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: -316}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_main_desks
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -280,6 +290,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 69}
+    spritePosition: {x: 0, y: 0}
   - name: lvl_theend_main_floor
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -301,6 +312,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: -116}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
     parts: []

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2441064262011289578, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 606261463975722488, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Mass
       value: 100
@@ -22,19 +26,19 @@ PrefabInstance:
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[0]
       value: 
-      objectReference: {fileID: 2330408890453820594, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
+      objectReference: {fileID: -3636070413676657936, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[1]
       value: 
-      objectReference: {fileID: 7202193790348947574, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
+      objectReference: {fileID: -2712211406084280028, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[2]
       value: 
-      objectReference: {fileID: 8169336709193681234, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
+      objectReference: {fileID: -7328480487711202904, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
     - target: {fileID: 2720332078630763168, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: playerPoses.Array.data[3]
       value: 
-      objectReference: {fileID: -2779487498523257783, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
+      objectReference: {fileID: 8385588888428685476, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
     - target: {fileID: 2932896763359969662, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: monsterName
       value: death moth
@@ -69,16 +73,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Size.x
-      value: 0.53125
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.5625
       objectReference: {fileID: 0}
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8169336709193681234, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
+      objectReference: {fileID: -7328480487711202904, guid: 8b108220fdd836649a5880928ca6e638, type: 3}
     - target: {fileID: 7368467659627920306, guid: d2b4475b33a8a9a468dd975ddec6ce32, type: 3}
       propertyPath: m_Color.b
       value: 1

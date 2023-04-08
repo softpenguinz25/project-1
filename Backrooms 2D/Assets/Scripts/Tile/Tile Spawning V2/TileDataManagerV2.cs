@@ -12,11 +12,15 @@ public class TileDataManagerV2 : MonoBehaviour
 	TileSpawnerV2 ts;
 	TileLoaderV2 tl;
 
-	public Dictionary<Vector2Int, TileV2> tileDict = new();
-	public Dictionary<TileV2, List<Vector2Int>> cpDict = new();
+	private Dictionary<Vector2Int, TileV2> tileDict = new();
+	private Dictionary<TileV2, List<Vector2Int>> cpDict = new();
 
 	public event Action<TileV2, Vector2Int> TileCPAdded;
 	public event Action<TileV2, Vector2Int> TileCPRemoved;
+
+	public Dictionary<Vector2Int, TileV2> TileDict { get => tileDict; set => tileDict = value; }
+	public Dictionary<TileV2, List<Vector2Int>> CpDict { get => cpDict; set => cpDict = value; }
+
 	private void Awake()
 	{
 		ts = GetComponent<TileSpawnerV2>();
@@ -26,38 +30,38 @@ public class TileDataManagerV2 : MonoBehaviour
 #if UNITY_EDITOR
 	private void OnDrawGizmos()
 	{
-		foreach (KeyValuePair<Vector2Int, TileV2> tilePair in tileDict) tilePair.Value.DrawTile();
+		foreach (KeyValuePair<Vector2Int, TileV2> tilePair in TileDict) tilePair.Value.DrawTile();
 	}
 #endif
 
 	public void AddTile(TileV2 tile)
 	{
-		tileDict.Add(tile.tilePosition, tile);
+		TileDict.Add(tile.TilePosition, tile);
 
 		AddCP(tile);
 	}
 
 	void AddCP(TileV2 cpOwner, Vector2Int cp)
 	{
-		if (cpDict.ContainsKey(cpOwner)) cpDict[cpOwner].Add(cp);
-		else cpDict.Add(cpOwner, new List<Vector2Int> { cp});
+		if (CpDict.ContainsKey(cpOwner)) CpDict[cpOwner].Add(cp);
+		else CpDict.Add(cpOwner, new List<Vector2Int> { cp});
 
 		TileCPAdded?.Invoke(cpOwner, cp);
 	}
 
 	void AddCP(TileV2 cpOwner)
 	{
-		if (cpOwner.cps.Count <= 0)
+		if (cpOwner.Cps.Count <= 0)
 		{
 			TileCPAdded?.Invoke(cpOwner, TileLoaderV2.NULL_CP);
 			return;
 		}
 
-		if (!cpDict.ContainsKey(cpOwner)) cpDict.Add(cpOwner, new List<Vector2Int>());
+		if (!CpDict.ContainsKey(cpOwner)) CpDict.Add(cpOwner, new List<Vector2Int>());
 
-		foreach (Vector2Int cp in cpOwner.cps)
+		foreach (Vector2Int cp in cpOwner.Cps)
 		{
-			cpDict[cpOwner].Add(cp);
+			CpDict[cpOwner].Add(cp);
 
 			TileCPAdded?.Invoke(cpOwner, cp);
 		}
@@ -65,15 +69,15 @@ public class TileDataManagerV2 : MonoBehaviour
 
 	public void RemoveCP(TileV2 cpOwner, Vector2Int cp)
 	{
-		if (!cpOwner.cps.Contains(cp))
+		if (!cpOwner.Cps.Contains(cp))
 		{
 			Debug.LogError("Cannot Remove CP bc parent tile does not contain cp! (TDM)");
 			return;
 		}
 
 		//Remove CP from cpDict
-		cpDict[cpOwner].Remove(cp);
-		if (cpDict[cpOwner].Count <= 0) cpDict.Remove(cpOwner);
+		CpDict[cpOwner].Remove(cp);
+		if (CpDict[cpOwner].Count <= 0) CpDict.Remove(cpOwner);
 
 		TileCPRemoved?.Invoke(cpOwner, cp);
 	}
@@ -84,44 +88,44 @@ public class TileDataManagerV2 : MonoBehaviour
 		for(int i = 0; i < 360; i += 90)
 		{
 			Vector2Int surroundingTilePos = new Vector2Int(
-				Mathf.RoundToInt(tilePos.x + Mathf.Sin(i * Mathf.Deg2Rad)), 
-				Mathf.RoundToInt(tilePos.y + Mathf.Cos(i * Mathf.Deg2Rad)));
+				Mathf.RoundToInt(tilePos.x + Mathf.Sin(i * Mathf.Deg2Rad) * TileSpawnerV2.TileSize), 
+				Mathf.RoundToInt(tilePos.y + Mathf.Cos(i * Mathf.Deg2Rad) * TileSpawnerV2.TileSize));
 
-			if (tileDict.ContainsKey(surroundingTilePos))
-				surroundingTiles.Add(tileDict[surroundingTilePos].tilePosition, tileDict[surroundingTilePos]);
+			if (TileDict.ContainsKey(surroundingTilePos))
+				surroundingTiles.Add(TileDict[surroundingTilePos].TilePosition, TileDict[surroundingTilePos]);
 		}
 		return surroundingTiles;
 	}
 
 #if UNITY_EDITOR
 	public List<Vector2Int> tilePos = new();
-	public List<CPDataV2> cps = new();
+	public List<DebugCPDataV2> cps = new();
 
 	private void Update()
 	{
 		tilePos.Clear();
 		cps.Clear();
 
-		tilePos = tileDict.Keys.ToList();
-		foreach(KeyValuePair<TileV2, List<Vector2Int>> cpData in cpDict)
+		tilePos = TileDict.Keys.ToList();
+		foreach(KeyValuePair<TileV2, List<Vector2Int>> cpData in CpDict)
 		{
-			cps.Add(new CPDataV2(cpData.Key, cpData.Value));
+			cps.Add(new DebugCPDataV2(cpData.Key, cpData.Value));
 		}
 	}
-}
 #endif
+}
 
 [Serializable]
-public class CPDataV2
+public class DebugCPDataV2
 {
 	[HideInInspector] public TileV2 tile;
 	public Vector2Int tilePos;
 	public List<Vector2Int> cps;
 
-	public CPDataV2(TileV2 t, List<Vector2Int> cp)
+	public DebugCPDataV2(TileV2 t, List<Vector2Int> cp)
 	{
 		tile = t;
-		tilePos = t.tilePosition;
+		tilePos = t.TilePosition;
 		cps = cp;
 	}
 }

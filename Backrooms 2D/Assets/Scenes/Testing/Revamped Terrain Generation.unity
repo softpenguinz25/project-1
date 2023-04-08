@@ -177,7 +177,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -250,9 +250,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824903718}
-  - component: {fileID: 1824903720}
   - component: {fileID: 1824903721}
   - component: {fileID: 1824903719}
+  - component: {fileID: 1824903720}
   m_Layer: 0
   m_Name: Tile Spawner
   m_TagString: Untagged
@@ -318,5 +318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tc: {fileID: 11400000, guid: dd5de98aa8e0ee745837302e4b47b214, type: 2}
-  applyGhostTileFrameDelays: 0
-  applyRealTileFrameDelays: 0
+  tileSize: 1
+  applyGhostTileFrameDelays: 1
+  applyRealTileFrameDelays: 1

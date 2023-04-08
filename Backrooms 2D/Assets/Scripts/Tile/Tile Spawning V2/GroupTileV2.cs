@@ -16,19 +16,21 @@ public class GroupTileV2 : TileV2
 
 	//CPs
 	List<TileV2> childTilesWithCPs = new();
-	public override List<Vector2Int> cps { get {
+	public override List<Vector2Int> Cps { 
+		get {
 			List<Vector2Int> cpResult = new();
 			foreach (TileV2 childTileWithCP in childTilesWithCPs)
-				foreach (Vector2Int childCP in childTileWithCP.cps) cpResult.Add(childCP);
+				foreach (Vector2Int childCP in childTileWithCP.Cps) cpResult.Add(childCP);
 
 			return cpResult;
 		}
-		set => base.cps = value; }
+		set => base.Cps = value; 
+	}
 
 	//Debugging
-	float testingSphereWidth = .15f;
+	float testingSphereWidth = .15f * TileSpawnerV2.TileSize;
 	Color tileColor = new Color(1, .5f, 0), cpColor = Color.red;
-	float wallDistFromTile = .45f;
+	float wallDistFromTile = .45f * TileSpawnerV2.TileSize;
 
 	//Events
 	event Action<TileV2> ChildTileAdded;
@@ -42,7 +44,7 @@ public class GroupTileV2 : TileV2
 		ChildTileAdded += AddGroupCPFromTile;
 		ConnectingCPGenerated += (int connectingCPTileIndex) => {
 			connectingCPTile = childTilesWithCPs[connectingCPTileIndex];
-			tilePosition = connectingCPTile.tilePosition;
+			TilePosition = connectingCPTile.TilePosition;
 		};
 
 		childTiles = DecodeGroupTileData(groupTileData);
@@ -61,6 +63,7 @@ public class GroupTileV2 : TileV2
 			for (int y = 0; y < tileStrings.GridSize.y; y++)
 			{
 				string tileString = tileStrings.GetCell(x, y);
+				int xPos = x * TileSpawnerV2.TileSize, yPos = y * TileSpawnerV2.TileSize;
 
 				//Walls
 				string wallString = tileString.Substring(0, 4);
@@ -88,8 +91,8 @@ public class GroupTileV2 : TileV2
 				for (int cpCharIndex = 0; cpCharIndex < cpString.Length; cpCharIndex++)
 					if (cpString[cpCharIndex] == '1')
 						tileCPs.Add(new Vector2Int(
-							Mathf.RoundToInt(Mathf.Sin(cpCharIndex * Mathf.PI * .5f)) + x,
-							Mathf.RoundToInt(Mathf.Cos(cpCharIndex * Mathf.PI * .5f)) - y));
+							Mathf.RoundToInt((Mathf.Sin(cpCharIndex * Mathf.PI * .5f)) + x) * TileSpawnerV2.TileSize ,
+							Mathf.RoundToInt((Mathf.Cos(cpCharIndex * Mathf.PI * .5f)) - y) * TileSpawnerV2.TileSize ));
 
 				//GameObject
 				GameObject tileGO = null;
@@ -102,13 +105,13 @@ public class GroupTileV2 : TileV2
 
 					if (tileGO == null)
 					{
-						Debug.LogError("Tile " + tileString + " at (" + x + ", " + y + ") could not find " + goPath + " in a Resources folder.");
+						Debug.LogError("Tile " + tileString + " at (" + xPos + ", " + yPos + ") could not find " + goPath + " in a Resources folder.");
 						break;
 					}
 				}
 
 				//Add to childTiles list
-				TileV2 childTile = new(new Vector2Int(x, -y), tileWalls, tileCPs, tileGO);
+				TileV2 childTile = new(new Vector2Int(xPos, -yPos), tileWalls, tileCPs, tileGO);
 				childTiles.Add(childTile);
 
 				//Set other data
@@ -121,7 +124,7 @@ public class GroupTileV2 : TileV2
 
 	void AddGroupCPFromTile(TileV2 childTile)
 	{
-		if (childTile.cps.Count <= 0) return;
+		if (childTile.Cps.Count <= 0) return;
 
 		childTilesWithCPs.Add(childTile);
 	}
@@ -129,25 +132,25 @@ public class GroupTileV2 : TileV2
 	public override int GetConnectingCPIndex()
 	{
 		int tileIndex = Random.Range(0, childTilesWithCPs.Count);
-		int cpIndex = Random.Range(0, childTilesWithCPs[tileIndex].cps.Count);
+		int cpIndex = Random.Range(0, childTilesWithCPs[tileIndex].Cps.Count);
 		ConnectingCPGenerated?.Invoke(tileIndex);
-		return cps.IndexOf(childTilesWithCPs[tileIndex].cps[cpIndex]);
+		return Cps.IndexOf(childTilesWithCPs[tileIndex].Cps[cpIndex]);
 	}
 
-	protected override TileType GetTileType()
+	protected override TileType GetTileType(bool[] walls)
 	{
 		return groupTileType;
 	}
 
 	protected override List<Vector2Int> InitialCPs()
 	{
-		return cps;
+		return Cps;
 	}
 
 	public override bool IsOverlappingWithPosList(HashSet<Vector2Int> posList)
 	{
 		foreach (TileV2 childTile in childTiles)
-			if (posList.Contains(childTile.tilePosition)) return true;
+			if (posList.Contains(childTile.TilePosition)) return true;
 
 		return false;
 	}
@@ -160,7 +163,7 @@ public class GroupTileV2 : TileV2
 			childTile.MoveTileByDir(dir);
 
 			if (childTile == connectingCPTile)
-				tilePosition = childTile.tilePosition;
+				TilePosition = childTile.TilePosition;
 		}
 	}
 
@@ -181,9 +184,9 @@ public class GroupTileV2 : TileV2
 
 			//Move tiles in relation to pivot (0, 0)
 			Vector2Int rotateMoveDir = new Vector2Int(
-				Mathf.RoundToInt(childTile.tilePosition.x * Mathf.Cos(rotationsInRadians) + childTile.tilePosition.y * Mathf.Sin(rotationsInRadians)),
-				Mathf.RoundToInt(-childTile.tilePosition.x * Mathf.Sin(rotationsInRadians) + childTile.tilePosition.y * Mathf.Cos(rotationsInRadians)))
-				- childTile.tilePosition;
+				Mathf.RoundToInt(childTile.TilePosition.x * Mathf.Cos(rotationsInRadians) + childTile.TilePosition.y * Mathf.Sin(rotationsInRadians)),
+				Mathf.RoundToInt(-childTile.TilePosition.x * Mathf.Sin(rotationsInRadians) + childTile.TilePosition.y * Mathf.Cos(rotationsInRadians)))
+				- childTile.TilePosition;
 
 			childTile.MoveTileByDir(rotateMoveDir);
 
@@ -217,7 +220,7 @@ public class GroupTileV2 : TileV2
 
 		foreach (TileV2 childTileWithCP in childTilesWithCPs)
 		{
-			if (childTileWithCP.cps.Contains(cp))
+			if (childTileWithCP.Cps.Contains(cp))
 				possibleCPOwners.Add(childTileWithCP);
 		}
 
@@ -229,7 +232,7 @@ public class GroupTileV2 : TileV2
 		Dictionary<Vector2Int, TileV2> surroundingTiles = new();
 		foreach (TileV2 childTile in childTiles)
 		{
-			Dictionary<Vector2Int, TileV2> childSurroundingTiles = tdm.GetSurroundingTiles(childTile.tilePosition);
+			Dictionary<Vector2Int, TileV2> childSurroundingTiles = tdm.GetSurroundingTiles(childTile.TilePosition);
 			foreach(KeyValuePair<Vector2Int, TileV2> childSurroundingPair in childSurroundingTiles)
 			{
 				if (!childTiles.Contains(childSurroundingPair.Value))
@@ -253,7 +256,7 @@ public class GroupTileV2 : TileV2
 		int childTileIndex = 0;
 		while (childTileIndex < childTiles.Count)
 		{
-			tileDistances.Add(Vector2.Distance(childTiles[childTileIndex].tilePosition, otherTile.tilePosition));
+			tileDistances.Add(Vector2.Distance(childTiles[childTileIndex].TilePosition, otherTile.TilePosition));
 			childTileIndex++;
 		}
 
@@ -287,7 +290,7 @@ public class GroupTileV2 : TileV2
 	public override bool PosOverlaps(Vector2Int pos)
 	{
 		List<Vector2Int> childTilePos = new();
-		foreach (TileV2 childTile in childTiles) childTilePos.Add(childTile.tilePosition);
+		foreach (TileV2 childTile in childTiles) childTilePos.Add(childTile.TilePosition);
 		return childTilePos.Contains(pos);
 	}
 
