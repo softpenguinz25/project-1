@@ -37,6 +37,7 @@ public class TileSpawnerV2 : MonoBehaviour
 	{
 		tdm = GetComponent<TileDataManagerV2>();
 		tl = GetComponent<TileLoaderV2>();
+		tp = GetComponent<TilePoolV2>();
 
 		mustUseRegularTile = false;
 		mustUseReferenceCpTile = null;
@@ -83,9 +84,9 @@ public class TileSpawnerV2 : MonoBehaviour
 					for (int tileToSpawnIndex = 0; tileToSpawnIndex < tilesToSpawn.Count; tileToSpawnIndex++)
 					{
 						TileV2 loadTile = tilesToSpawn[tileToSpawnIndex];
-						if (!loadTile.hasSpawned)
+						if (!loadTile.HasSpawned)
 						{
-							loadTile.Spawn(tc);
+							loadTile.Spawn(tc, tp);
 							if (applyRealTileFrameDelays != 0 && tileToSpawnIndex % applyRealTileFrameDelays == 0) yield return null;
 						}
 					}

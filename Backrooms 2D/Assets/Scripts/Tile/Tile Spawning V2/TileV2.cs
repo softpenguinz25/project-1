@@ -45,8 +45,8 @@ public class TileV2
 	public TileType TileType_ => tileType;
 
 	//Spawn
-	[HideInInspector] public bool hasSpawned;
-	GameObject goToSpawn;
+	[HideInInspector] private bool hasSpawned;
+	TileGOV2 goToSpawn;
 	//TODO: REPLACE ALL GOs WITH TILEGOV2
 	/*TileType tileTypeToSpawn
 	{
@@ -56,7 +56,7 @@ public class TileV2
 		}
 	}*/
 
-	GameObject tileGO;
+	TileGOV2 tileGO;
 
 	//Debugging
 	public bool isPartOfGroupTile;
@@ -66,7 +66,9 @@ public class TileV2
 	float wallDistFromTile = .45f * TileSpawnerV2.TileSize;
 
 	public Vector2Int TilePosition { get => tilePosition; set => tilePosition = value; }
+	public Quaternion TileRotation { get => Quaternion.Euler(new Vector3(0, 0, GetTileRotation())); set => TileRotation = value; }
 	virtual public List<Vector2Int> Cps { get => cps; set => cps = value; }
+	public bool HasSpawned { get => hasSpawned; set => hasSpawned = value; }
 
 	public TileV2(TileType tileType)
 	{
@@ -92,7 +94,7 @@ public class TileV2
 		Cps = InitialCPs();
 	}
 
-	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps, GameObject goToSpawn)
+	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps, TileGOV2 goToSpawn)
 	{
 		if (walls.Length != 4)
 		{
@@ -416,16 +418,21 @@ public class TileV2
 		return TilePosition == pos;
 	}
 
-	public virtual void Spawn(TileCollectionV2 tc)
+	public virtual void Spawn(TileCollectionV2 tc, TilePoolV2 tp)
 	{
 		hasSpawned = true;
 
-		//TODO: Use Object Pooling
-		//GameObject tileGO = tc.SpawnTileFromPool();
+		TileGOV2 goToSpawn = this.goToSpawn == null ? ((GameObject)tc.TileSpawnChances[tileType].tileGO).GetComponent<TileGOV2>() : this.goToSpawn;
 
-		GameObject goToSpawn = this.goToSpawn == null ? (GameObject)tc.TileSpawnChances[tileType].tileGO : this.goToSpawn;
-		tileGO = UnityEngine.Object.Instantiate(goToSpawn, (Vector3Int)TilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
-		tileGO.transform.localScale = new Vector2(TileSpawnerV2.TileSize, TileSpawnerV2.TileSize);
+		if (!tp.enabled)
+		{
+			tileGO = UnityEngine.Object.Instantiate(goToSpawn, (Vector3Int)TilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
+		}
+		else
+		{
+			tileGO = tp.SpawnTileFromPool(goToSpawn.tileType, TilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
+			tileGO.transform.localScale = new Vector2(TileSpawnerV2.TileSize, TileSpawnerV2.TileSize);
+		}
 
 		Vector2Int chunk = TileLoaderV2.GetChunkFromPos(TilePosition, TileLoaderV2.ChunkSize);
 		if (TileLoaderV2.chunkGOs.ContainsKey(chunk))
@@ -434,7 +441,7 @@ public class TileV2
 
 	public virtual void ChangeLoadState(bool loadState)
 	{
-		tileGO.SetActive(loadState);
+		tileGO.gameObject.SetActive(loadState);
 	}
 
 	public virtual void AddTile(TileDataManagerV2 tdm)

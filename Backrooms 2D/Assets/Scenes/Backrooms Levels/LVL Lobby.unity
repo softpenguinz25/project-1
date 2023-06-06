@@ -1078,6 +1078,10 @@ PrefabInstance:
       propertyPath: ssm
       value: 
       objectReference: {fileID: 1264025837}
+    - target: {fileID: 8808207815806834558, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
 --- !u!1 &48662371

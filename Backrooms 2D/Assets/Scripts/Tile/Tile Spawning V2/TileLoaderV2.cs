@@ -9,6 +9,7 @@ using UnityEngine;
 public class TileLoaderV2 : MonoBehaviour
 {
 	TileDataManagerV2 tdm;
+	TilePoolV2 tp;
 
 	[Header("Chunk")]
 	[Tooltip("HAS TO BE EVEN | Unit: Tiles")] [SerializeField] int chunkSize = 16;
@@ -73,6 +74,7 @@ public class TileLoaderV2 : MonoBehaviour
 	private void Awake()
 	{
 		tdm = GetComponent<TileDataManagerV2>();
+		tp = GetComponent<TilePoolV2>();
 
 		chunkGOs = new();
 	}
@@ -219,6 +221,8 @@ public class TileLoaderV2 : MonoBehaviour
 	{
 		if (!unloadChunks) return;
 
+		//if (tp.enabled) return;
+
 		List<Vector2Int> chunksToUnload = new();
 
 		foreach (Vector2Int oldSurroundingPlayerChunk in GetSurroundingChunks(oldPlayerChunk))
@@ -234,9 +238,23 @@ public class TileLoaderV2 : MonoBehaviour
 
 	void LoadChunks()
 	{
-		foreach(Vector2Int surroundingChunk in GetSurroundingChunks(playerChunk))
-			if(!chunkLoadStates[surroundingChunk])
+		foreach (Vector2Int surroundingChunk in GetSurroundingChunks(playerChunk))
+		{
+			if (!chunkLoadStates[surroundingChunk])
+			{
 				chunkGOs[surroundingChunk].SetActive(true);
+				if (tp.enabled)
+				{
+					//Debug.Log(chunkTileCPData[surroundingChunk].Keys.Count);
+					foreach (TileV2 tile in chunkTileCPData[surroundingChunk].Keys)
+					{
+						//if (tile.HasSpawned) continue;
+						//Debug.Log("Spawning Tile From Pool... " + tile.TilePosition);
+						tp.SpawnTileFromPool(tile.TileType_, tile.TilePosition, tile.TileRotation);
+					}
+				}
+			}
+		}
 	}
 
 	private void Update()

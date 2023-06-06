@@ -95,13 +95,13 @@ public class GroupTileV2 : TileV2
 							Mathf.RoundToInt((Mathf.Cos(cpCharIndex * Mathf.PI * .5f)) - y) * TileSpawnerV2.TileSize ));
 
 				//GameObject
-				GameObject tileGO = null;
+				TileGOV2 tileGO = null;
 				if (tileString.Length > 10)
 				{
 					string goString = tileString.Substring(10);
 					string goPath = "lvl_" + groupTileData.tileCollection.levelName + "_" + goString;
 
-					tileGO = Resources.Load<GameObject>(goPath);
+					tileGO = Resources.Load<TileGOV2>(goPath);
 
 					if (tileGO == null)
 					{
@@ -294,10 +294,10 @@ public class GroupTileV2 : TileV2
 		return childTilePos.Contains(pos);
 	}
 
-	public override void Spawn(TileCollectionV2 tc)
+	public override void Spawn(TileCollectionV2 tc, TilePoolV2 tp)
 	{
 		Debug.Log("Group Tile Spawn, Spawning " + childTiles.Count + " tiles.");
-		foreach (TileV2 childTile in childTiles) childTile.Spawn(tc);
+		foreach (TileV2 childTile in childTiles) childTile.Spawn(tc, tp);
 	}
 
 	public override void ChangeLoadState(bool loadState)
