@@ -1,3 +1,4 @@
+using MyBox;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class TilePoolV2 : MonoBehaviour
 	}
 
 	[Header("Tile Pools")]
-	[SerializeField] int defaultPoolSize;
+	[SerializeField] int defaultPoolSize = 250;
 	[SerializeField] TileTypeIntDictionary poolSizes = new();
 	Dictionary<TileV2.TileType, Queue<TileGOV2>> poolGOs = new();
 	//Foreach tsp in TSP

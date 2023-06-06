@@ -427,6 +427,7 @@ public class TileV2
 		if (!tp.enabled)
 		{
 			tileGO = UnityEngine.Object.Instantiate(goToSpawn, (Vector3Int)TilePosition, Quaternion.Euler(0, 0, GetTileRotation()));
+			tileGO.transform.localScale = new Vector3(TileSpawnerV2.TileSize, TileSpawnerV2.TileSize, TileSpawnerV2.TileSize);
 		}
 		else
 		{

@@ -43019,7 +43019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573523, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
@@ -43232,19 +43232,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 105450375779479310, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170269227862914715, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170269227862914715, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: defaultPoolSize
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: tileSize
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: applyRealTileFrameDelays
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: applyGhostTileFrameDelays
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3441267524700144253, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3441267524845511529, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_RootOrder
@@ -43304,19 +43316,23 @@ PrefabInstance:
       objectReference: {fileID: 217976159}
     - target: {fileID: 3441267525647845288, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441267525647845289, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3441267525647845291, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6150343539204150167, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 217976159}
     - target: {fileID: 6150343539204150167, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
-      propertyPath: chunkSize
-      value: 6
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
@@ -43611,7 +43627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427791820475095587, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}

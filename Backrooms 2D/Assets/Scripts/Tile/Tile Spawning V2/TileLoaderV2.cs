@@ -160,8 +160,8 @@ public class TileLoaderV2 : MonoBehaviour
 		}
 	}
 
-	public static Vector2Int GetChunkFromPos(Vector2Int pos, int chunkSize) { return new Vector2Int(Mathf.RoundToInt((float)pos.x / chunkSize), Mathf.RoundToInt((float)pos.y / chunkSize)) * chunkSize; }
-	public static Vector2Int GetChunkFromPos(Vector3 pos, int chunkSize) { return new Vector2Int(Mathf.RoundToInt(pos.x / chunkSize), Mathf.RoundToInt(pos.y / chunkSize)) * chunkSize; }
+	public static Vector2Int GetChunkFromPos(Vector2Int pos, int chunkSize) { return new Vector2Int(Mathf.RoundToInt((float)pos.x / chunkSize), Mathf.RoundToInt((float)pos.y / chunkSize)) * chunkSize/* * TileSpawnerV2.TileSize*/; }
+	public static Vector2Int GetChunkFromPos(Vector3 pos, int chunkSize) { return new Vector2Int(Mathf.RoundToInt(pos.x / chunkSize), Mathf.RoundToInt(pos.y / chunkSize)) * chunkSize/* * TileSpawnerV2.TileSize*/; }
 
 	public List<Vector2Int> GetSurroundingChunks(Vector2Int middleChunk)
 	{
