@@ -7,12 +7,14 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(TileDataManagerV2))]
 [RequireComponent(typeof(TileLoaderV2))]
+[RequireComponent(typeof(TilePoolV2))]
 public class TileSpawnerV2 : MonoBehaviour
 {
 	[Header("References")]
 	TileDataManagerV2 tdm;
 	TileLoaderV2 tl;
-	[SerializeField] TileCollectionV2 tc;
+	[SerializeField] TileCollectionV2 tc;  public TileCollectionV2 Tc { get => tc; set => tc = value; }
+	TilePoolV2 tp;
 
 	[Header("Spawning Options")]
 	[SerializeField] int tileSize;
@@ -49,7 +51,7 @@ public class TileSpawnerV2 : MonoBehaviour
 
 	void Start()
 	{
-		//tc.AllocateTilePool();
+		tp.AllocateTilePool();
 		CreateInitialGhostTile();
 	}
 

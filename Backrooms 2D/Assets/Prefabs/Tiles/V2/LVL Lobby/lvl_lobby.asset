@@ -16,7 +16,7 @@ MonoBehaviour:
   wallGO: {fileID: 8531852235824747437, guid: 97ceba3d1897722418d17e17e9386104, type: 3}
   initialTile: 0
   tileSpawnChances:
-    m_keys: 0000000001000000020000000300000004000000
+    m_keys: 000000000100000002000000030000000400000006000000
     m_values:
     - spawnChance: 3
       tileGO: {fileID: 10204227434682703, guid: 2286eb951a615c148a17abdb79c254da, type: 3}
@@ -28,5 +28,7 @@ MonoBehaviour:
       tileGO: {fileID: 3943107583903681853, guid: 00666682bcedcfe4f8b057a92f121a61, type: 3}
     - spawnChance: 1
       tileGO: {fileID: 4234171344896388432, guid: 00539a65f9454014baf819cc038d77a8, type: 3}
+    - spawnChance: 0
+      tileGO: {fileID: 11400000, guid: cabe172c77c0ee840b6a8e3b7b27d9fb, type: 2}
   deadEndProbability: 0.8
   tilePoolSize: 100

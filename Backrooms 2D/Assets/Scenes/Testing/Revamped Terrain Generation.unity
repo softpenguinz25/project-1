@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 1824903721}
   - component: {fileID: 1824903719}
   - component: {fileID: 1824903720}
+  - component: {fileID: 1824903722}
   m_Layer: 0
   m_Name: Tile Spawner
   m_TagString: Untagged
@@ -319,5 +320,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tc: {fileID: 11400000, guid: dd5de98aa8e0ee745837302e4b47b214, type: 2}
   tileSize: 1
-  applyGhostTileFrameDelays: 1
-  applyRealTileFrameDelays: 1
+  applyGhostTileFrameDelays: 0
+  applyRealTileFrameDelays: 0
+--- !u!114 &1824903722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824903716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b42f721a620a442a0bc9f916cf33c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(TileSpawnerV2))]
 [RequireComponent(typeof(TileLoaderV2))]
-
+[RequireComponent(typeof(TilePoolV2))]
 public class TileDataManagerV2 : MonoBehaviour
 {
 	TileSpawnerV2 ts;
