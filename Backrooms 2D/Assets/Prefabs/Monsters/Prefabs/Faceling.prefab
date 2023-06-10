@@ -237,21 +237,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
   m_Radius: 0.15
---- !u!114 &3112556423420766557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358195583797519872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b80d3c845127643834e64d1fab76a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleSpawnTiles:
-  - {fileID: 7860367701308102915, guid: 685b5fde8e39f3a4b9d0197ec3d6e9b8, type: 3}
-  - {fileID: 2000554729111863132, guid: b0d97a101194d3f49bf530ccf3c470e4, type: 3}
-  - {fileID: 5997680658439493360, guid: fdeaea386aaa2814c8be55a359bd2655, type: 3}
-  - {fileID: 6659174551815613922, guid: 94a446b3793b0144381ecf1f57e8c9d2, type: 3}
-  - {fileID: 6256332544350902762, guid: 9e022ac2e40a4fe47a2f0f48ece44772, type: 3}

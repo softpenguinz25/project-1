@@ -1,6 +1,7 @@
 using Array2DEditor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,6 +28,9 @@ public class GroupTileV2 : TileV2
 		set => base.Cps = value; 
 	}
 
+	//Custom GO
+	public GameObject customGO;
+
 	//Debugging
 	float testingSphereWidth = .15f * TileSpawnerV2.TileSize;
 	Color tileColor = new Color(1, .5f, 0), cpColor = Color.red;
@@ -38,6 +42,8 @@ public class GroupTileV2 : TileV2
 
 	public GroupTileV2(TileType tileType, GroupTileV2Data groupTileData) : base(tileType)
 	{
+		//TilePosition = new Vector2Int(int.MaxValue, int.MaxValue);
+
 		groupTileType = tileType;
 		this.groupTileData = groupTileData;
 
@@ -47,9 +53,18 @@ public class GroupTileV2 : TileV2
 			TilePosition = connectingCPTile.TilePosition;
 		};
 
+		//Get Child Tiles
 		childTiles = DecodeGroupTileData(groupTileData);
 
-		foreach (TileV2 childTile in childTiles) childTile.isPartOfGroupTile = true;
+		//Set Data For All Child Tiles
+		foreach (TileV2 childTile in childTiles)
+		{
+			childTile.isPartOfGroupTile = true;
+			childTile.tcToUse = groupTileData.tileCollection;
+		}
+
+		//Set other data for group tile
+		CanBeRotated = groupTileData.canBeRotated;
 	}
 
 	List<TileV2> DecodeGroupTileData(GroupTileV2Data groupTileData)
@@ -65,34 +80,40 @@ public class GroupTileV2 : TileV2
 				string tileString = tileStrings.GetCell(x, y);
 				int xPos = x * TileSpawnerV2.TileSize, yPos = y * TileSpawnerV2.TileSize;
 
+				if (tileString.Length <= 0) continue;
+
 				//Walls
-				string wallString = tileString.Substring(0, 4);
-				if (!HelperMethods.isBinary(wallString))
-				{
-					Debug.LogError("Tile " + tileString + " at (" + x + ", " + y + ") has incorrect wall encoding.");
-					break;
-				}
-
 				bool[] tileWalls = new bool[4];
+				if (tileString.Length > 1)
+				{
+					string wallString = tileString.Substring(0, 4);
+					if (!HelperMethods.isBinary(wallString))
+					{
+						Debug.LogError("Tile " + tileString + " at (" + x + ", " + y + ") has incorrect wall encoding.");
+						break;
+					}
 
-				for (int wallCharIndex = 0; wallCharIndex < wallString.Length; wallCharIndex++)
-					tileWalls[wallCharIndex] = wallString[wallCharIndex] == '0' ? false : true;
+					for (int wallCharIndex = 0; wallCharIndex < wallString.Length; wallCharIndex++)
+						tileWalls[wallCharIndex] = wallString[wallCharIndex] == '0' ? false : true;
+				}
 
 				//CPs
-				string cpString = tileString.Substring(5, 4);
-				if (!HelperMethods.isBinary(cpString))
-				{
-					Debug.LogError("Tile " + tileString + " at (" + x + ", " + y + ") has incorrect CP encoding.");
-					break;
-				}
-
 				List<Vector2Int> tileCPs = new(4);
+				if (tileString.Length > 5)
+				{
+					string cpString = tileString.Substring(5, 4);
+					if (!HelperMethods.isBinary(cpString))
+					{
+						Debug.LogError("Tile " + tileString + " at (" + x + ", " + y + ") has incorrect CP encoding.");
+						break;
+					}
 
-				for (int cpCharIndex = 0; cpCharIndex < cpString.Length; cpCharIndex++)
-					if (cpString[cpCharIndex] == '1')
-						tileCPs.Add(new Vector2Int(
-							Mathf.RoundToInt((Mathf.Sin(cpCharIndex * Mathf.PI * .5f)) + x) * TileSpawnerV2.TileSize ,
-							Mathf.RoundToInt((Mathf.Cos(cpCharIndex * Mathf.PI * .5f)) - y) * TileSpawnerV2.TileSize ));
+					for (int cpCharIndex = 0; cpCharIndex < cpString.Length; cpCharIndex++)
+						if (cpString[cpCharIndex] == '1')
+							tileCPs.Add(new Vector2Int(
+								Mathf.RoundToInt((Mathf.Sin(cpCharIndex * Mathf.PI * .5f)) + x) * TileSpawnerV2.TileSize,
+								Mathf.RoundToInt((Mathf.Cos(cpCharIndex * Mathf.PI * .5f)) - y) * TileSpawnerV2.TileSize));
+				}
 
 				//GameObject
 				TileGOV2 tileGO = null;
@@ -131,6 +152,11 @@ public class GroupTileV2 : TileV2
 
 	public override int GetConnectingCPIndex()
 	{
+		if (childTilesWithCPs.Count <= 0)
+		{
+			Debug.LogError("Could Not Find Any Child Tiles With CPs");
+			return 0;
+		}
 		int tileIndex = Random.Range(0, childTilesWithCPs.Count);
 		int cpIndex = Random.Range(0, childTilesWithCPs[tileIndex].Cps.Count);
 		ConnectingCPGenerated?.Invoke(tileIndex);
@@ -165,6 +191,12 @@ public class GroupTileV2 : TileV2
 			if (childTile == connectingCPTile)
 				TilePosition = childTile.TilePosition;
 		}
+
+		//Custom GO
+		if (customGO != null)
+		{
+			customGO.transform.position = (Vector3Int)childTiles[0].TilePosition;
+		}
 	}
 
 	public override void Rotate(int degrees)
@@ -190,6 +222,13 @@ public class GroupTileV2 : TileV2
 
 			childTile.MoveTileByDir(rotateMoveDir);
 
+		}
+
+		//Custom GO
+		if (customGO != null)
+		{
+			customGO.transform.position = (Vector3Int)childTiles[0].TilePosition;
+			customGO.transform.Rotate(new Vector3(0, 0, degrees));
 		}
 	}
 
@@ -235,7 +274,7 @@ public class GroupTileV2 : TileV2
 			Dictionary<Vector2Int, TileV2> childSurroundingTiles = tdm.GetSurroundingTiles(childTile.TilePosition);
 			foreach(KeyValuePair<Vector2Int, TileV2> childSurroundingPair in childSurroundingTiles)
 			{
-				if (!childTiles.Contains(childSurroundingPair.Value))
+				if (!childTiles.Contains(childSurroundingPair.Value) && !surroundingTiles.Keys.Contains(childSurroundingPair.Key))
 					surroundingTiles.Add(childSurroundingPair.Key, childSurroundingPair.Value);
 			}
 		}
@@ -250,7 +289,7 @@ public class GroupTileV2 : TileV2
 		return base.DirBetweenTiles(closestTile, otherTile);
 	}
 
-	private TileV2 GetClosestTile(TileV2 otherTile)
+	public override TileV2 GetClosestTile(TileV2 otherTile)
 	{
 		List<float> tileDistances = new();
 		int childTileIndex = 0;
@@ -297,7 +336,7 @@ public class GroupTileV2 : TileV2
 	public override void Spawn(TileCollectionV2 tc, TilePoolV2 tp)
 	{
 		Debug.Log("Group Tile Spawn, Spawning " + childTiles.Count + " tiles.");
-		foreach (TileV2 childTile in childTiles) childTile.Spawn(tc, tp);
+		foreach (TileV2 childTile in childTiles) childTile.Spawn(groupTileData.tileCollection, tp);
 	}
 
 	public override void ChangeLoadState(bool loadState)
@@ -310,6 +349,16 @@ public class GroupTileV2 : TileV2
 		foreach (TileV2 childTile in childTiles)
 		{
 			childTile.AddTile(tdm);
+		}
+	}
+
+	public override void ValidateTile()
+	{
+		//Instantiate Custom GO
+		if (groupTileData.customGO != null)
+		{
+			customGO = UnityEngine.Object.Instantiate(groupTileData.customGO, (Vector3Int)childTiles[0].TilePosition, Quaternion.Euler(childTiles[0].TileRotation.eulerAngles - new Vector3(0,0,90)));
+			customGO.transform.localScale = new Vector3(TileSpawnerV2.TileSize, TileSpawnerV2.TileSize, TileSpawnerV2.TileSize);
 		}
 	}
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
 {
-	private TileLoader tl;
+	private TileLoaderV2 tl;
 
 	[Header("Initial Spawn")]
 	[SerializeField] [Range(0, 250)] private int chunksBeforeSpawn = 25;
@@ -30,7 +30,7 @@ public class MonsterSpawner : MonoBehaviour
 	private bool canSpawnMonster = true;
 	private void Awake()
 	{
-		tl = FindObjectOfType<TileLoader>();
+		tl = FindObjectOfType<TileLoaderV2>();
 	}
 
 	private void Start()
@@ -121,9 +121,9 @@ public class MonsterSpawner : MonoBehaviour
 		Vector2 randomPos = (new Vector2(Mathf.Abs(randomEdgePos.x), Mathf.Abs(randomEdgePos.y)) - randomEdgeOffsetPos) * new Vector2(Mathf.Sign(randomEdgePos.x), Mathf.Sign(randomEdgePos.y));
 
 		List<TileDistance> tileDistances = new List<TileDistance>();
-		foreach(TilePrefab tile in FindObjectOfType<TileDataManager>().tiles)
+		foreach(TileV2 tile in FindObjectOfType<TileDataManagerV2>().TileDict.Values)
 		{
-			tileDistances.Add(new TileDistance(tile, Vector2.Distance(randomPos, tile.transform.position)));
+			tileDistances.Add(new TileDistance(tile, Vector2.Distance(randomPos, tile.TilePosition)));
 		}
 		//THANKS iwaldrop! https://answers.unity.com/questions/476940/how-to-sort-a-list-by-a-class-paramater.html
 		tileDistances = tileDistances.OrderBy(x => x.distance).ToList();
@@ -131,7 +131,7 @@ public class MonsterSpawner : MonoBehaviour
 		List<TileDistance> tooClose = new List<TileDistance>();
 		foreach(TileDistance tileDistance in tileDistances)
 		{
-			if(Vector2.Distance(tileDistance.tile.transform.position, player.transform.position) < minDistanceAwayFromPlayer)
+			if(Vector2.Distance(tileDistance.tile.TilePosition, player.transform.position) < minDistanceAwayFromPlayer)
 			{
 				tooClose.Add(tileDistance);
 			}
@@ -159,7 +159,7 @@ public class MonsterSpawner : MonoBehaviour
 		{
 			chosenMonster = possibleMonsters[UnityEngine.Random.Range(0, possibleMonsters.Count)];
 		}
-		MonsterSpawnTiles monsterSpawnTiles = chosenMonster.GetComponent<MonsterSpawnTiles>();
+		/*MonsterSpawnTiles monsterSpawnTiles = chosenMonster.GetComponent<MonsterSpawnTiles>();
 		if (monsterSpawnTiles != null)
 		{
 			List<string> validSpawnTileNames = new List<string>();
@@ -190,10 +190,10 @@ public class MonsterSpawner : MonoBehaviour
 			//Check if there's a "rogue go" on the tile
 
 			foreach (TileDistance invalidSpawnTile in invalidSpawnTiles) tileDistances.Remove(invalidSpawnTile);
-		}
+		}*/
 		//Debug.Log(tileDistances.Count);
 		//Debug.Log("Spawning monster: " + chosenMonster);
-		GameObject monsterObj = Instantiate(chosenMonster, tileDistances[0].tile.transform.position, Quaternion.identity);
+		GameObject monsterObj = Instantiate(chosenMonster, (Vector3Int)tileDistances[0].tile.TilePosition, Quaternion.identity);
 
 		canSpawnMonster = false;
 		totalMonsters.Add(monsterObj);
@@ -218,10 +218,10 @@ public class MonsterSpawner : MonoBehaviour
 
 public struct TileDistance
 {
-	public TilePrefab tile;
+	public TileV2 tile;
 	public float distance;
 
-	public TileDistance(TilePrefab _tile, float _distance)
+	public TileDistance(TileV2 _tile, float _distance)
 	{
 		tile = _tile;
 		distance = _distance;

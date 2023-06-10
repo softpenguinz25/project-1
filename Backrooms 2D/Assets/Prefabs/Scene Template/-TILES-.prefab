@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 439831595459291987}
   - component: {fileID: 6070177446795552311}
   - component: {fileID: 6150343539204150167}
+  - component: {fileID: 170269227862914715}
   m_Layer: 0
   m_Name: Tile Spawner V2
   m_TagString: Untagged
@@ -80,6 +81,22 @@ MonoBehaviour:
   player: {fileID: 0}
   unloadChunks: 1
   loadTiles: []
+--- !u!114 &170269227862914715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105450375779479310}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b42f721a620a442a0bc9f916cf33c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPoolSize: 250
+  poolSizes:
+    m_keys: 
+    m_values: 
 --- !u!1 &3441267524700144253
 GameObject:
   m_ObjectHideFlags: 0

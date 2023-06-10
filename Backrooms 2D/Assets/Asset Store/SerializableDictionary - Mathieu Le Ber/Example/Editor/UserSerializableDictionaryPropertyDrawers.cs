@@ -6,6 +6,7 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(StringStringDictionary))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
 [CustomPropertyDrawer(typeof(StringColorArrayDictionary))]
+[CustomPropertyDrawer(typeof(TileTypeSpawnChanceArrayDictionary))]
 [CustomPropertyDrawer(typeof(TileTypeGameObjectDictionary))]
 [CustomPropertyDrawer(typeof(TileTypeSpawnChanceDictionary))]
 [CustomPropertyDrawer(typeof(TileTypeIntDictionary))]

@@ -47,11 +47,14 @@ public class TilePoolV2 : MonoBehaviour
 
 	public void AllocateTilePool()
 	{
-		foreach (KeyValuePair<TileV2.TileType, TileSpawnChance> tsp in tc.TileSpawnChances)
+		foreach (KeyValuePair<TileV2.TileType, TileSpawnChance[]> tileSpawnChanceArray in tc.TileSpawnChances)
 		{
-			if (tc.IsGroupTile(tsp.Key)) continue;
+			if (tc.IsGroupTile(tileSpawnChanceArray.Key)) continue;
 
-			SpawnQueuedGOs(tsp);
+			foreach (TileSpawnChance tileSpawnChance in tileSpawnChanceArray.Value)
+			{
+				SpawnQueuedGOs(new KeyValuePair<TileV2.TileType, TileSpawnChance>(tileSpawnChanceArray.Key, tileSpawnChance));
+			}
 		}
 	}
 

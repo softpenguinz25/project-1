@@ -52,13 +52,13 @@ public class TileSpawnerV2 : MonoBehaviour
 
 	void Start()
 	{
-		tp.AllocateTilePool();
+		if(tp.enabled) tp.AllocateTilePool();
 		CreateInitialGhostTile();
 	}
 
 	void CreateInitialGhostTile()
 	{
-		TileV2 initialGhostTile = new(tc.InitialTile);
+		TileV2 initialGhostTile = !tc.UseCustomInitialRotation ? new(tc.InitialTile) : new(tc.InitialTile, tc.InitialRotation);
 		initialGhostTile.AddTile(tdm);
 
 		StartCoroutine(SpawnTileLoop());
@@ -86,6 +86,7 @@ public class TileSpawnerV2 : MonoBehaviour
 						TileV2 loadTile = tilesToSpawn[tileToSpawnIndex];
 						if (!loadTile.HasSpawned)
 						{
+							TileCollectionV2 tc = loadTile.tcToUse == null ? this.tc : loadTile.tcToUse;
 							loadTile.Spawn(tc, tp);
 							if (applyRealTileFrameDelays != 0 && tileToSpawnIndex % applyRealTileFrameDelays == 0) yield return null;
 						}
@@ -115,7 +116,7 @@ public class TileSpawnerV2 : MonoBehaviour
 			TileV2.TileType randomTileType = tc.GetRandomTileType(mustUseRegularTile);
 			bool isGroupTile = tc.IsGroupTile(randomTileType);
 
-			TileV2 newTile = !isGroupTile ? new TileV2(randomTileType) : new GroupTileV2(randomTileType, tc.TileSpawnChances[randomTileType].tileGO as GroupTileV2Data);
+			TileV2 newTile = !isGroupTile ? new TileV2(randomTileType) : new GroupTileV2(randomTileType, tc.GetRandomTileOnTileType(randomTileType) as GroupTileV2Data);
 			newTileGizmo = newTile;
 
 			//Pick a Random Tile Based on CP in Chunk 
@@ -139,6 +140,14 @@ public class TileSpawnerV2 : MonoBehaviour
 			while (newTile.IsOverlappingWithPosList(tdm.TileDict.Keys.ToHashSet()) || 
 				!newTile.IsOverlappingWithPosList(referenceCPTile.Cps.ToHashSet()))
 			{
+				//If tile cannot be rotated, skip this step
+				if (!newTile.CanBeRotated)
+				{
+					Debug.LogError("NO VALID TILE ROTATION FOUND!");
+					obstructionCheckIndex += 4;
+					break;
+				}
+
 				//Obstruction detected: Rotate 90 Degrees, Repeat
 				newTile.Rotate(90);
 
@@ -181,6 +190,7 @@ public class TileSpawnerV2 : MonoBehaviour
 			mustUseReferenceCpTile = null;
 
 			//No tiles exist in this pos - Valid!
+			newTile.ValidateTile();
 			newTile.AddTile(tdm);
 			newTileGizmo = null;
 			referenceTileGizmo = null;
@@ -214,8 +224,8 @@ public class TileSpawnerV2 : MonoBehaviour
 					{
 						//Remove Dead Ends
 						if (Random.value > tc.deadEndProbability)
-							if (surroundingTile.NumWallsBetweenTiles(surroundingTile, newTile) > 0)
-								surroundingTile.RemoveWallsBetweenTiles(surroundingTile, newTile);
+							if (surroundingTile.NumWallsBetweenTiles(surroundingTile, newTile.GetClosestTile(surroundingTile)) > 0)
+								surroundingTile.RemoveWallsBetweenTiles(surroundingTile, newTile.GetClosestTile(surroundingTile));
 
 						surroundingTile.RemoveCP(tc, tdm, surroundingTile.Cps[surroundingTileCPIndex]);
 					}

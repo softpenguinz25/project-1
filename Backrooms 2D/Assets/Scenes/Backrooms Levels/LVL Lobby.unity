@@ -1052,7 +1052,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4790919719597316243, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.sceneIndex
@@ -1080,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 1264025837}
     - target: {fileID: 8808207815806834558, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
@@ -42938,14 +42938,6 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: maxSpawnTimeDelay.Max
-      value: 32.819916
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
-      propertyPath: maxSpawnTimeDelay.Min
-      value: 30.306889
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295088066230371667, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: possibleMonsters.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -43019,7 +43011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2295088066985573523, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11573726b79e404a9cb55ab15d17182, type: 3}
@@ -43242,6 +43234,10 @@ PrefabInstance:
       propertyPath: defaultPoolSize
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: tc
+      value: 
+      objectReference: {fileID: 11400000, guid: 280f41bead983a745b304b938ec93335, type: 2}
     - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: tileSize
       value: 3
@@ -43627,7 +43623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427791820475095587, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427791821919923567, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
+      propertyPath: tilesUntilDoorSpawns
+      value: 960
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}

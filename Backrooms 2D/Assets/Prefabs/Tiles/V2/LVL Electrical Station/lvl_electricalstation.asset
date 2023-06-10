@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e880d33f6de662941a14fb1fb3249396, type: 3}
+  m_Name: lvl_electricalstation
+  m_EditorClassIdentifier: 
+  levelName: Electrical Station
+  wallGO: {fileID: 8531852235824747437, guid: 409d6ec9f1045ed4abf3bf092b82071b, type: 3}
+  initialTile: 0
+  tileSpawnChances:
+    m_keys: 0000000001000000020000000300000004000000
+    m_values:
+    - data:
+      - spawnChance: 0
+        tileGO: {fileID: 10204227434682703, guid: 51338614559e07b4c8c1f19e7372e01b, type: 3}
+    - data:
+      - spawnChance: 0.65
+        tileGO: {fileID: 8568275225654426712, guid: 84064f89f2d83f5448c8062dcfebdec4, type: 3}
+    - data:
+      - spawnChance: 5
+        tileGO: {fileID: 797890368167240986, guid: c37f84d6d9de1d1479fcdba0fdd48eb9, type: 3}
+      - spawnChance: 0.4
+        tileGO: {fileID: 797890368167240986, guid: 27791022936f7604ba15af01daa3ac8c, type: 3}
+    - data:
+      - spawnChance: 0.85
+        tileGO: {fileID: 3943107583903681853, guid: 2373a76a043ca4341a7cb047015a1664, type: 3}
+    - data:
+      - spawnChance: 0
+        tileGO: {fileID: 4234171344896388432, guid: cb68daf2e69298f40a1ee557b51a6122, type: 3}
+  deadEndProbability: 0.5

@@ -13,7 +13,7 @@ public class TileLoaderV2 : MonoBehaviour
 
 	[Header("Chunk")]
 	[Tooltip("HAS TO BE EVEN | Unit: Tiles")] [SerializeField] int chunkSize = 16;
-	public static int ChunkSize = 8;
+	public static int ChunkSize;
 
 	[Header("Player")]
 	[SerializeField] GameObject player;
@@ -51,6 +51,7 @@ public class TileLoaderV2 : MonoBehaviour
 	public Dictionary<Vector2Int, bool> chunkLoadStates = new();
 	public static Dictionary<Vector2Int, GameObject> chunkGOs = new();
 
+	public event Action<int> ChunkSpawned;
 	public event Action PlayerChunkChanged;
 	private void OnDrawGizmos()
 	{
@@ -64,7 +65,7 @@ public class TileLoaderV2 : MonoBehaviour
 		Gizmos.DrawLine(new Vector2(playerChunk.x + chunkSize * .5f, playerChunk.y - chunkSize * .5f), new Vector2(playerChunk.x - chunkSize * .5f, playerChunk.y - chunkSize * .5f));
 		Gizmos.DrawLine(new Vector2(playerChunk.x - chunkSize * .5f, playerChunk.y - chunkSize * .5f), new Vector2(playerChunk.x - chunkSize * .5f, playerChunk.y + chunkSize * .5f));
 
-		Gizmos.color = new Color(.5f, 0, .5f);
+		Gizmos.color = new Color(.5f, 0, .5f);//Purplea
 		Gizmos.DrawLine(new Vector2(playerChunk.x - chunkSize * 1.5f, playerChunk.y + chunkSize * 1.5f), new Vector2(playerChunk.x + chunkSize * 1.5f, playerChunk.y + chunkSize * 1.5f));
 		Gizmos.DrawLine(new Vector2(playerChunk.x + chunkSize * 1.5f, playerChunk.y + chunkSize * 1.5f), new Vector2(playerChunk.x + chunkSize * 1.5f, playerChunk.y - chunkSize * 1.5f));
 		Gizmos.DrawLine(new Vector2(playerChunk.x + chunkSize * 1.5f, playerChunk.y - chunkSize * 1.5f), new Vector2(playerChunk.x - chunkSize * 1.5f, playerChunk.y - chunkSize * 1.5f));
@@ -96,6 +97,7 @@ public class TileLoaderV2 : MonoBehaviour
 	private void Start()
 	{
 		chunkSize *= TileSpawnerV2.TileSize;
+		ChunkSize = chunkSize;
 		playerChunk = Vector2Int.zero;
 	}
 
@@ -146,6 +148,8 @@ public class TileLoaderV2 : MonoBehaviour
 		GameObject chunkGO = new(chunk.ToString());
 		chunkGO.transform.parent = transform;
 		chunkGOs.Add(chunk, chunkGO);
+
+		ChunkSpawned?.Invoke(chunkGOs.Count);
 	}
 
 	private void RemoveCP(TileV2 cpOwner, Vector2Int cp)

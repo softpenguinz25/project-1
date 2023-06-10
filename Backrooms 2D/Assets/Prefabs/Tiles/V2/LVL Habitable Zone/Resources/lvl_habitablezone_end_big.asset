@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f587d48c51bda1046b6497a67aa13e3a, type: 3}
+  m_Name: lvl_habitablezone_end_big
+  m_EditorClassIdentifier: 
+  documentation: "<i><color=grey>Documentation V1.1</color></i>\n1010 0001 hall =
+    Hall tile w/ top and bottom walls with a CP on the open left side.\n\nTile connections
+    are:\n\t-Anything connected to a tile\n\t\t-Walls\n\t\t-CPs\n\t-Are written in
+    this order: <color=yellow><b>TOP, RIGHT, BOTTOM, LEFT</b></color>\n\nFirst 4
+    Digits = Walls\n\t-1010 Means:\n\t\t-Top: Wall\n\t\t-Right: No Wall\n\t\t-Bottom:
+    Wall\n\t\t-Left: No Wall\n\nSecond 4 Digits = CPs\n\t-0001 Means:\n\t\t-Top:
+    No CP\n\t\t-Right: No CP\n\t\t-Bottom: No CP\n\t\t-Left: CP\n\nLast Word = Specific
+    GameObject To Be Spawned\n\t<b>NOT NECCESARY</b>, only use if tile walls <b>WILL
+    NOT</b> change\n\t\t-Tile collection specified will be used if last word is null\n\t-GameObject
+    MUST be in the <color=cyan><b>same folder or subfolder</b></color> of the scriptable
+    object\n\t-Only <b>part</b> of the GameObject only needs to contain the word\n\t-If
+    multiple GameObjects contain the word, theoretically the first GameObject will
+    be used"
+  tileCollection: {fileID: 11400000, guid: 2ac05c6d6bb559e4aa2ea35dc6216c91, type: 2}
+  tileLayout:
+    gridSize: {x: 8, y: 8}
+    cellSize: {x: 64, y: 16}
+    cells:
+    - row:
+      - 1001
+      - 1000
+      - 1000
+      - 0000 1000
+      - 1000
+      - 1000
+      - 1000
+      - 1100
+    - row:
+      - 0001
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0100
+    - row:
+      - 0001
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0100
+    - row:
+      - 0001
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0100
+    - row:
+      - 0001
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0100
+    - row:
+      - 0001
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0100
+    - row:
+      - 0001
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0000
+      - 0100
+    - row:
+      - 0011
+      - 0010
+      - 0010
+      - 0010
+      - 0010
+      - 0010
+      - 0010
+      - 0110
+  customGO: {fileID: 5339124128973661765, guid: 85be3992dc041d74cae03305513389c8, type: 3}

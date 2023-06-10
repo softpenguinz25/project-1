@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e880d33f6de662941a14fb1fb3249396, type: 3}
+  m_Name: lvl_poolrooms
+  m_EditorClassIdentifier: 
+  levelName: Lobby
+  wallGO: {fileID: 8531852235824747437, guid: 8494e4426d237704f8a6e8533fc02360, type: 3}
+  initialTile: 0
+  tileSpawnChances:
+    m_keys: 000000000100000002000000030000000400000006000000
+    m_values:
+    - data:
+      - spawnChance: 2
+        tileGO: {fileID: 10204227434682703, guid: 6107f5ff828bf2e459ef80292063aa23, type: 3}
+    - data:
+      - spawnChance: 2
+        tileGO: {fileID: 8568275225654426712, guid: 7c56498d291f19645b930a9e75c37f0a, type: 3}
+    - data:
+      - spawnChance: 1.5
+        tileGO: {fileID: 797890368167240986, guid: 93d00b54b6efbca4caa2e99b6a7df039, type: 3}
+    - data:
+      - spawnChance: 0.5
+        tileGO: {fileID: 3943107583903681853, guid: 03eec4630dd4b4d44b65b248914758a7, type: 3}
+    - data:
+      - spawnChance: 0.1
+        tileGO: {fileID: 4234171344896388432, guid: e378d9057e440e846b1cbf4a010d3889, type: 3}
+    - data:
+      - spawnChance: 1
+        tileGO: {fileID: 11400000, guid: 98de8bbc573fdc744b8d9f31f2a5531e, type: 2}
+      - spawnChance: 1
+        tileGO: {fileID: 11400000, guid: 10474fc056d7981409ef16514e5e5ad7, type: 2}
+  deadEndProbability: 0.8

@@ -15,6 +15,7 @@ public class TileDataManagerV2 : MonoBehaviour
 	private Dictionary<Vector2Int, TileV2> tileDict = new();
 	private Dictionary<TileV2, List<Vector2Int>> cpDict = new();
 
+	public event Action<TileV2, int> TileAdded;
 	public event Action<TileV2, Vector2Int> TileCPAdded;
 	public event Action<TileV2, Vector2Int> TileCPRemoved;
 
@@ -37,6 +38,7 @@ public class TileDataManagerV2 : MonoBehaviour
 	public void AddTile(TileV2 tile)
 	{
 		TileDict.Add(tile.TilePosition, tile);
+		TileAdded?.Invoke(tile, tileDict.Count);
 
 		AddCP(tile);
 	}

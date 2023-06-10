@@ -8,7 +8,7 @@ public class GroupTileV2Data : ScriptableObject
 	[ShowOnly]
 	[SerializeField]
 	private string documentation =
-		"<i><color=grey>Documentation V1.1</color></i>" +
+		"<i><color=grey>Documentation V1.13</color></i>" +
 		"\n" +
 		"1010 0001 hall = Hall tile w/ top and bottom walls with a CP on the open left side.\n" +
 		"\n" +
@@ -19,6 +19,7 @@ public class GroupTileV2Data : ScriptableObject
 		"\t-Are written in this order: <color=yellow><b>TOP, RIGHT, BOTTOM, LEFT</b></color>\n" +
 		"\n" +
 		"First 4 Digits = Walls\n" +
+		"\t-Type \"-\" if there are no Walls for this tile\n" +
 		"\t-1010 Means:\n" +
 		"\t\t-Top: Wall\n" +
 		"\t\t-Right: No Wall\n" +
@@ -26,6 +27,7 @@ public class GroupTileV2Data : ScriptableObject
 		"\t\t-Left: No Wall\n" +
 		"\n" +
 		"Second 4 Digits = CPs\n" +
+		"\t-Leave this blank if there are no CPs for this tile\n" +
 		"\t-0001 Means:\n" +
 		"\t\t-Top: No CP\n" +
 		"\t\t-Right: No CP\n" +
@@ -42,4 +44,7 @@ public class GroupTileV2Data : ScriptableObject
 	[Space]
 	public TileCollectionV2 tileCollection;
 	public Array2DString tileLayout;
+	[Tooltip("If you want the group tile to have custom scripting, use this. Leave blank if custom scripting is not required")]
+	public GameObject customGO;
+	public bool canBeRotated = true;
 }

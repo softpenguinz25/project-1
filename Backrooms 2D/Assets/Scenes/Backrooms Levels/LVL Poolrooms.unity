@@ -197,6 +197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4790919719597316243, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.Scene
       value: 
@@ -570,6 +574,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 105450375779479310, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: tc
+      value: 
+      objectReference: {fileID: 11400000, guid: 38bac6bbd71c70942bc62838fed1c79d, type: 2}
+    - target: {fileID: 3441267524700144253, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3441267524845511529, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -626,6 +642,14 @@ PrefabInstance:
       propertyPath: tileCollection
       value: 
       objectReference: {fileID: 11400000, guid: 485a882c179c50b4db0c8ab7cd946453, type: 2}
+    - target: {fileID: 3441267525647845291, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150343539204150167, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 217976159}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
 --- !u!114 &3441267525530728948 stripped

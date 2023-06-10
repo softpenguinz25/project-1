@@ -409,7 +409,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 86
-      y: 77
+      y: 78
       width: 20
       height: 1
     spriteID: 45ae65adf719d7f47b3052628a28f93e
@@ -421,8 +421,30 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 86, y: 77}
+    uvTransform: {x: 86, y: 78}
     spritePosition: {x: 6, y: 127}
+  - name: lvl_abandonedoffice_wall_full
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 67
+      width: 32
+      height: 3
+    spriteID: aec55962e4b4eca47a0207e1c4f583af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 46, y: 67}
+    spritePosition: {x: 0, y: 125}
   - name: lvl_abandonedoffice_wall_mid
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -430,8 +452,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 86
-      y: 67
+      x: 33
+      y: 87
       width: 20
       height: 2
     spriteID: 9e0456008b4c6a14cb7a61edce89a074
@@ -443,7 +465,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 86, y: 67}
+    uvTransform: {x: 33, y: 87}
     spritePosition: {x: 6, y: 126}
   - name: lvl_abandonedoffice_wall
     originalName: 
@@ -452,7 +474,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 46
+      x: 86
       y: 67
       width: 32
       height: 3
@@ -465,7 +487,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 46, y: 67}
+    uvTransform: {x: 86, y: 67}
     spritePosition: {x: 0, y: 125}
   - name: lvl_abandonedoffice_divider
     originalName: 
@@ -833,7 +855,17 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 45ae65adf719d7f47b3052628a28f93e
     layerID: 153
-    mosaicPosition: {x: 86, y: 77}
+    mosaicPosition: {x: 86, y: 78}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_abandonedoffice_wall_full
+    spriteName: lvl_abandonedoffice_wall_full
+    isGroup: 0
+    parentIndex: -1
+    spriteID: aec55962e4b4eca47a0207e1c4f583af
+    layerID: 232
+    mosaicPosition: {x: 46, y: 67}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -843,7 +875,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 9e0456008b4c6a14cb7a61edce89a074
     layerID: 154
-    mosaicPosition: {x: 86, y: 67}
+    mosaicPosition: {x: 33, y: 87}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -873,7 +905,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 0c11842a4eaa6b44e942ecfd98a2cd92
     layerID: 142
-    mosaicPosition: {x: 46, y: 67}
+    mosaicPosition: {x: 86, y: 67}
     flatten: 0
     isImported: 1
     isVisible: 1

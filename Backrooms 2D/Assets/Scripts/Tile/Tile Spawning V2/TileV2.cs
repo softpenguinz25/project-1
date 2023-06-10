@@ -8,8 +8,14 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class TileV2
 {
+	//References
+	public TileCollectionV2 tcToUse;
+
 	//Position
 	private Vector2Int tilePosition;
+
+	//Rotation
+	private bool canBeRotated = true;
 
 	//Walls
 	[SerializeField] protected bool[] walls = new bool[4];
@@ -23,23 +29,7 @@ public class TileV2
 	//Tile Type
 	public enum TileType
 	{
-		Open, Split, Hall, Corner, End, Closed,
-		GroupTile1,
-		GroupTile2,
-		GroupTile3,
-		GroupTile4,
-		GroupTile5,
-		GroupTile6,
-		GroupTile7,
-		GroupTile8,
-		GroupTile9,
-		GroupTile10,
-		GroupTile11,
-		GroupTile12,
-		GroupTile13,
-		GroupTile14,
-		GroupTile15,
-		GroupTile16,
+		Open, Split, Hall, Corner, End, Closed, GroupTile
 	}
 	[SerializeField] TileType tileType => GetTileType(walls);
 	public TileType TileType_ => tileType;
@@ -66,6 +56,7 @@ public class TileV2
 	float wallDistFromTile = .45f * TileSpawnerV2.TileSize;
 
 	public Vector2Int TilePosition { get => tilePosition; set => tilePosition = value; }
+	public bool CanBeRotated { get => canBeRotated; set => canBeRotated = value; }
 	public Quaternion TileRotation { get => Quaternion.Euler(new Vector3(0, 0, GetTileRotation())); set => TileRotation = value; }
 	virtual public List<Vector2Int> Cps { get => cps; set => cps = value; }
 	public bool HasSpawned { get => hasSpawned; set => hasSpawned = value; }
@@ -80,6 +71,22 @@ public class TileV2
 
 		walls = GetWallsFromTileType(tileType);
 		Cps = InitialCPs();
+	}
+
+	public TileV2(TileType tileType, int rotationValue)
+	{
+		if (walls.Length != 4)
+		{
+			Debug.LogError("GhostTile Created With walls[] Length Not 4!");
+			return;
+		}
+
+		walls = GetWallsFromTileType(tileType);
+		Cps = InitialCPs();
+
+		int rotationAmount = GetTileRotation() - rotationValue;
+		while (rotationAmount < 0) rotationAmount += 360;
+		Rotate(rotationAmount);
 	}
 
 	public TileV2(bool[] walls)
@@ -173,7 +180,11 @@ public class TileV2
 				end[endIndex] = false;
 				return end;
 			case TileType.Closed: return new bool[] { true, true, true, true };
-			default: return null;
+			default:
+				{
+					Debug.LogError("Could Not Generate Walls From " + this + " Bc of This Tile Type: " + tileType);
+					return null;
+				}
 		}
 	}
 
@@ -218,7 +229,6 @@ public class TileV2
 
 		//Rotate Walls
 		bool[] rotatedWalls = new bool[walls.Length];
-
 		for (int i = 0; i < walls.Length; i++)
 		{
 			int newIndex = (i + rotations) % walls.Length;
@@ -337,6 +347,11 @@ public class TileV2
 		return -1;
 	}
 
+	public virtual TileV2 GetClosestTile(TileV2 otherTile)
+	{
+		return this;
+	} 
+
 	public virtual int NumWallsBetweenTiles(TileV2 thisTile, TileV2 otherTile)
 	{
 		int numWalls = 0;
@@ -346,6 +361,8 @@ public class TileV2
 
 		if (dir == -1) return -1;
 
+		//Debug.Log("This Tile Pos: " + thisTile + ", Other Tile Pos: " + otherTile);
+		//Debug.Log("This Tile: " + thisTile + " | Other Tile: " + otherTile + " | Other Tile Walls: " + otherTile.walls);
 		//Increment numWalls
 		int tileWalls = thisTile.walls[dir] ? 1 : 0;
 		int otherTileWalls = otherTile.walls[(dir + 2) % 4] ? 1 : 0;
@@ -422,7 +439,7 @@ public class TileV2
 	{
 		hasSpawned = true;
 
-		TileGOV2 goToSpawn = this.goToSpawn == null ? ((GameObject)tc.TileSpawnChances[tileType].tileGO).GetComponent<TileGOV2>() : this.goToSpawn;
+		TileGOV2 goToSpawn = this.goToSpawn == null ? ((GameObject)tc.GetRandomTileOnTileType(tileType)).GetComponent<TileGOV2>() : this.goToSpawn;
 
 		if (!tp.enabled)
 		{
@@ -448,6 +465,11 @@ public class TileV2
 	public virtual void AddTile(TileDataManagerV2 tdm)
 	{
 		tdm.AddTile(this);
+	}
+
+	public virtual void ValidateTile()
+	{
+
 	}
 
 	public override string ToString()

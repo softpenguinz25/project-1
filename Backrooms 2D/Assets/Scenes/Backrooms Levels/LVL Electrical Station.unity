@@ -223,6 +223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4790919719597316243, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.Scene
       value: 
@@ -588,6 +592,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 105450375779479310, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170269227862914715, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: tc
+      value: 
+      objectReference: {fileID: 11400000, guid: 81d48fa86b1471743bf69fda8d6e0386, type: 2}
+    - target: {fileID: 3441267524700144253, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3441267524845511529, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -648,6 +668,14 @@ PrefabInstance:
       propertyPath: tileCollection
       value: 
       objectReference: {fileID: 11400000, guid: 1e570657d459c4d4cbe7aba2b6e37424, type: 2}
+    - target: {fileID: 3441267525647845291, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150343539204150167, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 217976159}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
 --- !u!114 &3441267525530728948 stripped
@@ -805,7 +833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8427791821919923567, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}
       propertyPath: tilesUntilDoorSpawns
-      value: 250
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528e9b37af0a5044292b0ce83a39808a, type: 3}

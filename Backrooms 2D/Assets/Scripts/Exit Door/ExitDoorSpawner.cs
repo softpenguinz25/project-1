@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExitDoorSpawner : MonoBehaviour
 {
-    private TileDataManager tdm;
+    private TileDataManagerV2 tdm;
 
 	[SerializeField] private GameObject exitDoor;
 	[SerializeField] private float tilesUntilDoorSpawns = 960;
@@ -17,7 +17,7 @@ public class ExitDoorSpawner : MonoBehaviour
 	private const float angleOffset = 0;
 	private void Awake()
 	{
-		tdm = FindObjectOfType<TileDataManager>();
+		tdm = FindObjectOfType<TileDataManagerV2>();
 	}
 
 	private void OnEnable()
@@ -27,8 +27,10 @@ public class ExitDoorSpawner : MonoBehaviour
 			if (!enabled) return;
 
 			if (numTiles < tilesUntilDoorSpawns) return;
+
+			SpawnDoor(tile);
 			//Check if tile is in valid tiles list
-			if (spawnOnCertainTiles)
+			/*if (spawnOnCertainTiles)
 			{
 				foreach(TileTemplate possibleTile in possibleTiles.tiles)
 				{
@@ -43,13 +45,13 @@ public class ExitDoorSpawner : MonoBehaviour
 			else
 			{
 				SpawnDoor(tile);
-			}
+			}*/
 		};
 	}
 
-	private void SpawnDoor(TilePrefab tile)
+	private void SpawnDoor(TileV2 tile)
 	{
-		GameObject exitDoorObj = Instantiate(exitDoor, tile.transform.position, tile.transform.rotation);
+		GameObject exitDoorObj = Instantiate(exitDoor, (Vector3Int)tile.TilePosition, tile.TileRotation);
 		ExitDoorSpawned?.Invoke(exitDoorObj);
 		enabled = false;
 	}
