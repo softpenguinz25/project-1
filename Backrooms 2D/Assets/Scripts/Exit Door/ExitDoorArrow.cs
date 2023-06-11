@@ -69,7 +69,7 @@ public class ExitDoorArrow : MonoBehaviour
 			float tileSize = /*FindObjectOfType<TileSpawner>().tileCollection.tileSize*/1;
 			gg.center = new Vector3(Mathf.Round(transform.position.x / tileSize), Mathf.Round(transform.position.y / tileSize), Mathf.Round(transform.position.z / tileSize)) * tileSize;
 
-			pathfinding.Scan();
+			pathfinding.Scan(AstarPath.active.data.gridGraph);
 
 			/*Debug.Log(player, player);
 			Debug.Log(exitDoor, exitDoor);*/

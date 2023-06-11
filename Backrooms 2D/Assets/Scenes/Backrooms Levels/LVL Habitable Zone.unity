@@ -203,7 +203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4790919719597316243, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.Scene
@@ -641,14 +641,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 170269227862914715, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
-      propertyPath: applyRealTileFrameDelays
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
-      propertyPath: applyGhostTileFrameDelays
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3441267524700144253, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}

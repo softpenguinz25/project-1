@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tc: {fileID: 11400000, guid: dd5de98aa8e0ee745837302e4b47b214, type: 2}
   tileSize: 3
-  applyGhostTileFrameDelays: 0
+  applyGhostTileFrameDelays: 6
   applyRealTileFrameDelays: 0
 --- !u!114 &6070177446795552311
 MonoBehaviour:

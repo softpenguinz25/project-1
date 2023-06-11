@@ -323,7 +323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4790919719597316243, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4832884539536724279, guid: e8ce480ca04a2ab46988e1f646b1fdba, type: 3}
       propertyPath: currentScene.Scene
@@ -710,6 +710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: -ITEMS-
       objectReference: {fileID: 0}
+    - target: {fileID: 1155866431819248786, guid: 2cd06f2b40511d548bce9cbcdd04288d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1155866431819248787, guid: 2cd06f2b40511d548bce9cbcdd04288d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1034,14 +1038,6 @@ PrefabInstance:
       propertyPath: tc
       value: 
       objectReference: {fileID: 11400000, guid: dc98a478b04e64a49a0e50cde65c7154, type: 2}
-    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
-      propertyPath: applyRealTileFrameDelays
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 439831595459291987, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
-      propertyPath: applyGhostTileFrameDelays
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3441267524700144253, guid: 289b2fe005e1fc848be034caa0e88653, type: 3}
       propertyPath: m_IsActive
       value: 0
