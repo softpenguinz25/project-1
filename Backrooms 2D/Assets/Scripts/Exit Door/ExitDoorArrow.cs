@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ExitDoorArrow : MonoBehaviour
 {
-	private Animator animator;
+	[Header("References")]
+	[SerializeField] Animator animator;
+	[SerializeField] SpriteRenderer spriteRenderer;
 	private ExitDoorSpawner eds;
 
 	[SerializeField] private GameObject player;
@@ -25,32 +27,43 @@ public class ExitDoorArrow : MonoBehaviour
 
 	private void Awake()
 	{
-		animator = GetComponent<Animator>();
+		//animator = GetComponent<Animator>();
 		playerSeeker = player.GetComponent<Seeker>();
 		pathfinding = FindObjectOfType<AstarPath>();
-		eds = FindObjectOfType<ExitDoorSpawner>();
 	}
 
 	private bool sceneJustLaunched = true;
 	private void OnEnable()
 	{
-		eds.ExitDoorSpawned += (exitDoorObj) =>
-		{
-			gameObject.SetActive(true);
-			animator.SetTrigger("StartFlash");
-			GetComponent<AudioSource>().Play();
-			//exitDoor = exitDoorObj;
-		};
+		eds = FindObjectOfType<ExitDoorSpawner>();
+		//print("found eds");
+		eds.ExitDoorSpawned += ActivateArrow;
 
 		if (sceneJustLaunched) sceneJustLaunched = false;
 			else StartCoroutine(GeneratePathCoroutine());
 	}
 
+	private void OnDisable()
+	{
+		eds.ExitDoorSpawned -= ActivateArrow;
+	}
+
 	private void Start()
 	{
 		zPos = Camera.main.transform.position.z + Camera.main.nearClipPlane + .01f;
-		gameObject.SetActive(false);
+		//gameObject.SetActive(false);
 		screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));		
+	}
+
+	public void ActivateArrow()
+	{
+		animator.SetBool("EndFlash", false);
+		animator.SetTrigger("StartFlash");
+	}
+
+	public void DeactivateArrow()
+	{
+		animator.SetBool("EndFlash", true);
 	}
 
 	private IEnumerator GeneratePathCoroutine()
@@ -90,6 +103,26 @@ public class ExitDoorArrow : MonoBehaviour
 
 	private void Update()
 	{
+		//Debug.Log(eds + " | " + Resources.FindObjectsOfTypeAll<ExitDoorSpawner>().Length);
+		/*if (eds == null && Resources.FindObjectsOfTypeAll<ExitDoorSpawner>().Length > 0)
+		{
+			eds = Resources.FindObjectsOfTypeAll<ExitDoorSpawner>()[0];
+			print("found eds");
+			eds.ExitDoorSpawned += (exitDoorObj) =>
+			{
+				print("event called");
+				//gameObject.SetActive(true);
+				animator.SetTrigger("StartFlash");
+				audioSource.Play();
+				//exitDoor = exitDoorObj;
+			};
+		}*/
+
+		if (FindObjectOfType<ExitDoor>() != null)
+		{
+			exitDoor = FindObjectOfType<ExitDoor>().gameObject;
+		}
+
 		if (exitDoor == null)
 		{
 			//Debug.LogError("Exit door could not be detected!");
@@ -145,7 +178,7 @@ public class ExitDoorArrow : MonoBehaviour
 		wayPointPos = path.vectorPath[4];*/
 
 		//Position
-		if (GetComponent<SpriteRenderer>().color.a <= 0.01f)
+		if (spriteRenderer.color.a <= 0.01f)
 		{
 			Vector2 newPos = wayPointPos;
 			Vector2 cameraPos = Camera.main.transform.position;
@@ -158,7 +191,7 @@ public class ExitDoorArrow : MonoBehaviour
 		//Rotation
 		//THANKS Kastenessen! https://answers.unity.com/questions/1350050/how-do-i-rotate-a-2d-object-to-face-another-object.html
 		//THANKS sean 244! https://answers.unity.com/questions/1592029/how-do-you-make-enemies-rotate-to-your-position-in.html
-		if (GetComponent<SpriteRenderer>().color.a <= 0.01f)
+		if (spriteRenderer.color.a <= 0.01f)
 		{
 			Vector3 targetPos = wayPointPos;
 			Vector2 direction = targetPos - transform.position;

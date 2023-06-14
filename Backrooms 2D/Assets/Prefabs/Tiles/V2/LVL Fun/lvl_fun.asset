@@ -15,25 +15,33 @@ MonoBehaviour:
   levelName: fun
   wallGO: {fileID: 8531852235824747437, guid: f02d3fbadfb6f434e9efa4657c892857, type: 3}
   initialTile: 1
+  useCustomInitialRotation: 0
+  initialRotation: 90
   tileSpawnChances:
     m_keys: 000000000100000002000000030000000400000006000000
     m_values:
     - data:
-      - spawnChance: 0.1
-        tileGO: {fileID: 10204227434682703, guid: 85e26bce91b48a74c8ea8245ddc98d99, type: 3}
+      - tileGO: {fileID: 10204227434682703, guid: 85e26bce91b48a74c8ea8245ddc98d99, type: 3}
+        spawnChance: 0.1
+        numTilesUntilCanBeSpawned: 0
     - data:
-      - spawnChance: 2
-        tileGO: {fileID: 8568275225654426712, guid: 5852f50317dd71b4b96b36fad9fb9696, type: 3}
+      - tileGO: {fileID: 8568275225654426712, guid: 5852f50317dd71b4b96b36fad9fb9696, type: 3}
+        spawnChance: 2
+        numTilesUntilCanBeSpawned: 0
     - data:
-      - spawnChance: 3
-        tileGO: {fileID: 797890368167240986, guid: c3ca14aba0490c14a91ce8ca10710466, type: 3}
+      - tileGO: {fileID: 797890368167240986, guid: c3ca14aba0490c14a91ce8ca10710466, type: 3}
+        spawnChance: 3
+        numTilesUntilCanBeSpawned: 0
     - data:
-      - spawnChance: 3
-        tileGO: {fileID: 3943107583903681853, guid: 6d56d9ca9e6db714fabd024e6f1ba459, type: 3}
+      - tileGO: {fileID: 3943107583903681853, guid: 6d56d9ca9e6db714fabd024e6f1ba459, type: 3}
+        spawnChance: 3
+        numTilesUntilCanBeSpawned: 0
     - data:
-      - spawnChance: 0.01
-        tileGO: {fileID: 4234171344896388432, guid: b36d57df8897218429c453dbbf5ef119, type: 3}
+      - tileGO: {fileID: 4234171344896388432, guid: b36d57df8897218429c453dbbf5ef119, type: 3}
+        spawnChance: 0.01
+        numTilesUntilCanBeSpawned: 0
     - data:
-      - spawnChance: 10
-        tileGO: {fileID: 11400000, guid: 131ef817d9422394c899c774180a1f14, type: 2}
+      - tileGO: {fileID: 11400000, guid: 131ef817d9422394c899c774180a1f14, type: 2}
+        spawnChance: 10
+        numTilesUntilCanBeSpawned: 0
   deadEndProbability: 0.2

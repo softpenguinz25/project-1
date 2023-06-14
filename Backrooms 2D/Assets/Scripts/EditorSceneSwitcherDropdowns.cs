@@ -26,6 +26,24 @@ namespace KingdomOfNight
         public static void LoadLVLRFYL() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL RFYL.unity"); }
         [MenuItem("Scenes/Backrooms Levels/LVL The End")]
         public static void LoadLVLTheEnd() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/LVL The End.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/3D Scenes/LVL Lobby Pitfalls")]
+        public static void LoadLVLLobbyPitfalls() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/3D Scenes/LVL Lobby Pitfalls.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Abandoned Office 1")]
+        public static void LoadLVLAbandonedOffice1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Abandoned Office 1.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Electrical Station 1")]
+        public static void LoadLVLElectricalStation1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Electrical Station 1.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Fun 1")]
+        public static void LoadLVLFun1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Fun 1.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Habitable Zone 1")]
+        public static void LoadLVLHabitableZone1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Habitable Zone 1.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Lobby 1")]
+        public static void LoadLVLLobby1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Lobby 1.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Pipe Dreams 1")]
+        public static void LoadLVLPipeDreams1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Pipe Dreams 1.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Poolrooms 1")]
+        public static void LoadLVLPoolrooms1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL Poolrooms 1.unity"); }
+        [MenuItem("Scenes/Backrooms Levels/Backup/Tile Gen V1/LVL RFYL 1")]
+        public static void LoadLVLRFYL1() { EditorSceneSwitcher.OpenScene("Assets/scenes/Backrooms Levels/Backup/Tile Gen V1/LVL RFYL 1.unity"); }
         [MenuItem("Scenes/Testing/Abandoned Office Wall Test")]
         public static void LoadAbandonedOfficeWallTest() { EditorSceneSwitcher.OpenScene("Assets/scenes/Testing/Abandoned Office Wall Test.unity"); }
         [MenuItem("Scenes/Testing/Electrical Station Gate Test")]
@@ -62,6 +80,10 @@ namespace KingdomOfNight
         public static void LoadPart3Intro() { EditorSceneSwitcher.OpenScene("Assets/scenes/Videos/Part 3/Part 3 Intro.unity"); }
         [MenuItem("Scenes/Videos/Part 4/Part 4 Hook")]
         public static void LoadPart4Hook() { EditorSceneSwitcher.OpenScene("Assets/scenes/Videos/Part 4/Part 4 Hook.unity"); }
+        [MenuItem("Scenes/Videos/Part 5/Part 5 Hook")]
+        public static void LoadPart5Hook() { EditorSceneSwitcher.OpenScene("Assets/scenes/Videos/Part 5/Part 5 Hook.unity"); }
+        [MenuItem("Scenes/Videos/Part 5/Smaller Problems")]
+        public static void LoadSmallerProblems() { EditorSceneSwitcher.OpenScene("Assets/scenes/Videos/Part 5/Smaller Problems.unity"); }
 #endif
     }
 }

@@ -103,3 +103,5 @@ MonoBehaviour:
       - 0010
       - 0110
   customGO: {fileID: 5339124128973661765, guid: 85be3992dc041d74cae03305513389c8, type: 3}
+  canBeRotated: 1
+  canBeUnended: 1

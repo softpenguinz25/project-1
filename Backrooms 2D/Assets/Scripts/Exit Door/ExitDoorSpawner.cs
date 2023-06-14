@@ -1,58 +1,19 @@
-using MyBox;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ExitDoorSpawner : MonoBehaviour
 {
-    private TileDataManagerV2 tdm;
-
 	[SerializeField] private GameObject exitDoor;
-	[SerializeField] private float tilesUntilDoorSpawns = 960;
+	public event Action ExitDoorSpawned;
 
-	[Header("Spawn on Certain Tiles")]
-	[SerializeField] private bool spawnOnCertainTiles = false;
-	[ConditionalField(nameof(spawnOnCertainTiles))] [SerializeField] private TileCollection possibleTiles;
-
-	public event Action<GameObject> ExitDoorSpawned;
-	private const float angleOffset = 0;
-	private void Awake()
+	public void SpawnDoor(TileV2 tile)
 	{
-		tdm = FindObjectOfType<TileDataManagerV2>();
-	}
-
-	private void OnEnable()
-	{
-		tdm.TileAdded += (tile, numTiles) =>
-		{
-			if (!enabled) return;
-
-			if (numTiles < tilesUntilDoorSpawns) return;
-
-			SpawnDoor(tile);
-			//Check if tile is in valid tiles list
-			/*if (spawnOnCertainTiles)
-			{
-				foreach(TileTemplate possibleTile in possibleTiles.tiles)
-				{
-					if(tile.name.Contains(possibleTile.tilePrefab.name))
-					{
-						SpawnDoor(tile);
-						break;
-					}
-				}
-				//if (enabled) Debug.Log(tile.name + " is not a possible tile name for door to spawn on!");
-			}
-			else
-			{
-				SpawnDoor(tile);
-			}*/
-		};
-	}
-
-	private void SpawnDoor(TileV2 tile)
-	{
+		//print("spawning door...");
 		GameObject exitDoorObj = Instantiate(exitDoor, (Vector3Int)tile.TilePosition, tile.TileRotation);
-		ExitDoorSpawned?.Invoke(exitDoorObj);
+		ExitDoorSpawned?.Invoke();
 		enabled = false;
 	}
 }

@@ -47,4 +47,5 @@ public class GroupTileV2Data : ScriptableObject
 	[Tooltip("If you want the group tile to have custom scripting, use this. Leave blank if custom scripting is not required")]
 	public GameObject customGO;
 	public bool canBeRotated = true;
+	public bool canBeUnended = true;
 }

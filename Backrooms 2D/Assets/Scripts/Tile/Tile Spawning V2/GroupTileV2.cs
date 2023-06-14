@@ -132,7 +132,7 @@ public class GroupTileV2 : TileV2
 				}
 
 				//Add to childTiles list
-				TileV2 childTile = new(new Vector2Int(xPos, -yPos), tileWalls, tileCPs, tileGO);
+				TileV2 childTile = new(new Vector2Int(xPos, -yPos), tileWalls, tileCPs, tileGO, groupTileData.canBeUnended);
 				childTiles.Add(childTile);
 
 				//Set other data
@@ -346,6 +346,7 @@ public class GroupTileV2 : TileV2
 
 	public override void AddTile(TileDataManagerV2 tdm)
 	{
+		TileDataManagerV2.TilesPerType[TileType.GroupTile]++;
 		foreach (TileV2 childTile in childTiles)
 		{
 			childTile.AddTile(tdm);

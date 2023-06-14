@@ -20,7 +20,7 @@ public class TileV2
 	//Walls
 	[SerializeField] protected bool[] walls = new bool[4];
 	int numWalls => GetNumWalls();
-	[HideInInspector] bool canBeUnended => goToSpawn == null;
+	[HideInInspector] bool canBeUnended;
 
 	//CPs
 	//TODO: Refactor this into a bool[] and add a get cps method
@@ -101,7 +101,7 @@ public class TileV2
 		Cps = InitialCPs();
 	}
 
-	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps, TileGOV2 goToSpawn)
+	public TileV2(Vector2Int tilePosition, bool[] walls, List<Vector2Int> cps, TileGOV2 goToSpawn, bool canBeUnended = true)
 	{
 		if (walls.Length != 4)
 		{
@@ -113,6 +113,9 @@ public class TileV2
 		this.walls = walls;
 		this.Cps = cps;
 		this.goToSpawn = goToSpawn;
+
+		if (canBeUnended) this.canBeUnended = goToSpawn == null;
+		else this.canBeUnended = canBeUnended;
 	}
 
 	public virtual int GetConnectingCPIndex()

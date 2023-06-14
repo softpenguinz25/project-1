@@ -31,7 +31,7 @@ public class TileCollectionV2 : ScriptableObject
 			if (IsGroupTile(tileSpawnChanceArray.Key) && mustBeRegularTile) continue;
 			foreach (TileSpawnChance tileSpawnChance in tileSpawnChanceArray.Value)
 			{
-				totalDenomination += tileSpawnChance.spawnChance;
+				totalDenomination += tileSpawnChance.GetSpawnChance(tileSpawnChanceArray.Key);
 			}
 		}
 
@@ -43,12 +43,12 @@ public class TileCollectionV2 : ScriptableObject
 
 			foreach (TileSpawnChance tileSpawnChance in tileSpawnChanceArray.Value)
 			{
-				if (tileSpawnChance.spawnChance >= randomNumber)
+				if (tileSpawnChance.GetSpawnChance(tileSpawnChanceArray.Key) >= randomNumber)
 				{
 					return tileSpawnChanceArray.Key;
 				}
 
-				randomNumber -= tileSpawnChance.spawnChance;
+				randomNumber -= tileSpawnChance.GetSpawnChance(tileSpawnChanceArray.Key);
 			}
 		}
 
@@ -61,21 +61,21 @@ public class TileCollectionV2 : ScriptableObject
 		float totalDenomination = 0;
 
 		//Debug.Log(TileSpawnChances[tileType].Length);
-		foreach(TileSpawnChance tileSpawnChance in TileSpawnChances[tileType])
+		foreach (TileSpawnChance tileSpawnChance in TileSpawnChances[tileType])
 		{
-			totalDenomination += tileSpawnChance.spawnChance;
+			totalDenomination += tileSpawnChance.GetSpawnChance(tileType);
 		}
 
 		float randomNumber = Random.Range(0, totalDenomination);
 
 		foreach (TileSpawnChance tileSpawnChance in TileSpawnChances[tileType])
 		{
-			if(tileSpawnChance.spawnChance >= randomNumber)
+			if (tileSpawnChance.GetSpawnChance(tileType) >= randomNumber)
 			{
 				return tileSpawnChance.tileGO;
 			}
 
-			randomNumber -= tileSpawnChance.spawnChance;
+			randomNumber -= tileSpawnChance.GetSpawnChance(tileType);
 		}
 
 		Debug.LogError("Could not choose tile on this tile type: " + tileType);
@@ -99,7 +99,7 @@ public class TileCollectionV2 : ScriptableObject
 		{
 			foreach (TileSpawnChance tileSpawnChance in tileTypePairs.Value)
 			{
-				if (!IsGroupTile(tileTypePairs.Key) && tileSpawnChance.spawnChance > 0)
+				if (!IsGroupTile(tileTypePairs.Key) && tileSpawnChance.GetSpawnChance(tileTypePairs.Key) > 0)
 					return true;
 			}
 		}
@@ -111,6 +111,24 @@ public class TileCollectionV2 : ScriptableObject
 [System.Serializable]
 public class TileSpawnChance
 {
-	public float spawnChance;
 	public Object tileGO;
+	public float spawnChance;
+	int numTiles => TileDataManagerV2.NumTiles;
+	public int numTilesUntilCanBeSpawned;
+	public int maxNumTilesOfType;
+
+	public float GetSpawnChance(TileV2.TileType tileType)
+	{
+		if (maxNumTilesOfType > 0 && TileDataManagerV2.TilesPerType[tileType] >= maxNumTilesOfType)
+			return 0;
+
+		if (numTiles < numTilesUntilCanBeSpawned)
+			return 0;
+
+		return spawnChance;
+	}
+	public void SetSpawnChance(float value)
+	{
+		spawnChance = value;
+	}
 }

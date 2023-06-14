@@ -47,3 +47,4 @@ MonoBehaviour:
       - 0100
   customGO: {fileID: 7982503589454042866, guid: ccddef502e6d46c479488504f8a066a0, type: 3}
   canBeRotated: 0
+  canBeUnended: 1

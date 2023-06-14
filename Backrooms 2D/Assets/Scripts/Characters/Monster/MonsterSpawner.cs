@@ -15,6 +15,13 @@ public class MonsterSpawner : MonoBehaviour
 
 	[Header("Reocurring Spawns")]
 	[SerializeField] private bool canReocurringlySpawn = true;
+
+	public void Disable()
+	{
+		canSpawnMonster = false;
+		enabled = false;
+	}
+
 	[ConditionalField(nameof(canReocurringlySpawn))][SerializeField] [Range(0, 250)] private int reoccurringChunksBeforeSpawn = 25;
 	[ConditionalField(nameof(canReocurringlySpawn))] [SerializeField] [MinMaxRange(0, 60)] private RangedFloat reoccurringMaxSpawnTimeDelay = new RangedFloat(20, 40);
 	private bool hasSpawnedOnce;
