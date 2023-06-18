@@ -18,21 +18,36 @@ MonoBehaviour:
   useCustomInitialRotation: 1
   initialRotation: 90
   tileSpawnChances:
-    m_keys: 0000000001000000020000000300000004000000
+    m_keys: 000000000100000002000000030000000400000006000000
     m_values:
     - data:
-      - spawnChance: 0
-        tileGO: {fileID: 10204227434682703, guid: 8f711384ec39e1f4c8941ae29ef0e086, type: 3}
+      - tileGO: {fileID: 10204227434682703, guid: 8f711384ec39e1f4c8941ae29ef0e086, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
     - data:
-      - spawnChance: 0
-        tileGO: {fileID: 8568275225654426712, guid: 47d12ecea9ad8454c899cfe9653b5a18, type: 3}
+      - tileGO: {fileID: 8568275225654426712, guid: 47d12ecea9ad8454c899cfe9653b5a18, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
     - data:
-      - spawnChance: 5
-        tileGO: {fileID: 797890368167240986, guid: 3793f99a178ba9e42986bdd2b8367ec0, type: 3}
+      - tileGO: {fileID: 797890368167240986, guid: 3793f99a178ba9e42986bdd2b8367ec0, type: 3}
+        spawnChance: 5
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
     - data:
-      - spawnChance: 0.03
-        tileGO: {fileID: 3943107583903681853, guid: 3c178c56c5ad1224f8534d30cb624d7a, type: 3}
+      - tileGO: {fileID: 3943107583903681853, guid: 3c178c56c5ad1224f8534d30cb624d7a, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
     - data:
-      - spawnChance: 0
-        tileGO: {fileID: 4234171344896388432, guid: 4cdc3ba76bcd0b1409dd739096637bb3, type: 3}
+      - tileGO: {fileID: 4234171344896388432, guid: 4cdc3ba76bcd0b1409dd739096637bb3, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
+    - data:
+      - tileGO: {fileID: 11400000, guid: 9939eaf8082246d47881a1d691965ef8, type: 2}
+        spawnChance: 10000
+        numTilesUntilCanBeSpawned: 1
+        maxNumTilesOfType: 0
   deadEndProbability: 0

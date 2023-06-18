@@ -10,6 +10,8 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(TileTypeGameObjectDictionary))]
 [CustomPropertyDrawer(typeof(TileTypeSpawnChanceDictionary))]
 [CustomPropertyDrawer(typeof(TileTypeIntDictionary))]
+[CustomPropertyDrawer(typeof(CodeValueCodeGODictionary))]
+[CustomPropertyDrawer(typeof(IntGameObjectDictionary))]
 public class AnySerializableDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer {}
 
 [CustomPropertyDrawer(typeof(ColorArrayStorage))]

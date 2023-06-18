@@ -8,6 +8,9 @@ public class GroupTileV2EnterTriggerFinalRoom : GroupTileV2EnterTrigger
 	[Header("Functionality")]
 	[SerializeField] GameObject wall;
 	ExitDoorArrow eda;
+	[SerializeField] List<string> goNamesToDisable = new();
+	[SerializeField] List<GameObject> gosToEnable = new();
+	//[SerializeField] List<Types> scriptsToDisable = new();
 
 	[Header("GFX")]
 	[SerializeField] AudioMixer mainMixer;
@@ -22,19 +25,29 @@ public class GroupTileV2EnterTriggerFinalRoom : GroupTileV2EnterTrigger
 
 	public override void PlayerEntered()
 	{
+		base.PlayerEntered();
+
 		eda.DeactivateArrow();
 
-		MonsterSpawner ms = FindObjectOfType<MonsterSpawner>();
-		ms.enabled = false;
-		ms.Disable();
+		foreach (MonsterSpawner ms in FindObjectsOfType<MonsterSpawner>())
+		{
+			ms.enabled = false;
+			ms.Disable();
+		}
 		foreach (MonsterInfo monster in FindObjectsOfType<MonsterInfo>()) Destroy(monster.gameObject);
 		wall.SetActive(true);
 
-		StartCoroutine(MuffleSounds());
+		//foreach (Component script in scriptsToDisable) foreach(Component sceneScript in FindObjectsOfType<script.GetType()>())/*sceneScript.enabled = false;*/
+		foreach (string goName in goNamesToDisable) if(GameObject.Find(goName) != null) GameObject.Find(goName).SetActive(false);
+		foreach (GameObject go in gosToEnable) go.SetActive(true);
+
+		if(mainMixer != null) StartCoroutine(MuffleSounds());
 	}
 
 	public override void PlayerExit()
 	{
+		base.PlayerExit();
+
 		eda.ActivateArrow();
 	}
 

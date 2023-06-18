@@ -29,6 +29,10 @@ public class TileTypeSpawnChanceArrayDictionary : SerializableDictionary<TileV2.
 
 [Serializable]
 public class TileTypeIntDictionary : SerializableDictionary<TileV2.TileType, int> { }
+[Serializable]
+public class CodeValueCodeGODictionary : SerializableDictionary<LVLRFYLBossMinigameSimonSays.CodeValue, LVLRFYLBossMinigameSimonSaysCodeGO> { }
+[Serializable]
+public class IntGameObjectDictionary : SerializableDictionary<int, GameObject> { }
 
 [Serializable]
 public class MyClass

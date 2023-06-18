@@ -14,6 +14,7 @@ public class GroupTileV2EnterTriggerPitfallsCutscene : GroupTileV2EnterTrigger
 
 	public override void PlayerEntered()
 	{
+		base.PlayerEntered();
 		lvlLobbyTransitionIntoCutscene.StartTransitionIntoCutscene(playerFailPos, playerWinPos);
 	}
 }

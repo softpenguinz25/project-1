@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e880d33f6de662941a14fb1fb3249396, type: 3}
+  m_Name: lvl_rfyl_boss
+  m_EditorClassIdentifier: 
+  levelName: rfyl
+  wallGO: {fileID: 8531852235824747437, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
+  initialTile: 2
+  useCustomInitialRotation: 1
+  initialRotation: 90
+  tileSpawnChances:
+    m_keys: 0000000001000000020000000300000004000000
+    m_values:
+    - data:
+      - tileGO: {fileID: 10204227434682703, guid: 7c9a6b38a941aa546a0d7c9240d01acf, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
+    - data:
+      - tileGO: {fileID: 8568275225654426712, guid: fca8f0e7d21ded049afe4d4a4980ed85, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
+    - data:
+      - tileGO: {fileID: 797890368167240986, guid: 092ead89d5762b94697168db01215cb5, type: 3}
+        spawnChance: 5
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
+    - data:
+      - tileGO: {fileID: 3943107583903681853, guid: 1790c8a47994e1a40b6704cebef77558, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
+    - data:
+      - tileGO: {fileID: 4234171344896388432, guid: 1098b1db94496c849877a0ac20f30a19, type: 3}
+        spawnChance: 0
+        numTilesUntilCanBeSpawned: 0
+        maxNumTilesOfType: 0
+  deadEndProbability: 0

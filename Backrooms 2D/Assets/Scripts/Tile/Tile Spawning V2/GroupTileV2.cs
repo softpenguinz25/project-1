@@ -358,8 +358,19 @@ public class GroupTileV2 : TileV2
 		//Instantiate Custom GO
 		if (groupTileData.customGO != null)
 		{
-			customGO = UnityEngine.Object.Instantiate(groupTileData.customGO, (Vector3Int)childTiles[0].TilePosition, Quaternion.Euler(childTiles[0].TileRotation.eulerAngles - new Vector3(0,0,90)));
+			customGO = UnityEngine.Object.Instantiate(groupTileData.customGO, (Vector3Int)GetCustomGOPos(), Quaternion.Euler(childTiles[0].TileRotation.eulerAngles - new Vector3(0,0,90)));
 			customGO.transform.localScale = new Vector3(TileSpawnerV2.TileSize, TileSpawnerV2.TileSize, TileSpawnerV2.TileSize);
 		}
+	}
+
+	Vector2Int GetCustomGOPos()
+	{
+		Vector2Int pos = childTiles[0].TilePosition;
+		for (int i = 1; i < childTiles.Count; i++)
+		{
+			if (childTiles[i].TilePosition.x < pos.x) pos.x = childTiles[i].TilePosition.x;
+			if (childTiles[i].TilePosition.y > pos.y) pos.y = childTiles[i].TilePosition.y;
+		}
+		return pos;
 	}
 }

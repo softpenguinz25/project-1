@@ -19266,8 +19266,8 @@ MonoBehaviour:
   cutsceneVideoGO: {fileID: 315083679}
   cutsceneVideo: {fileID: 39751346}
   rotationSpeedRange:
-    Min: 79.799904
-    Max: 228.56009
+    Min: 0.01
+    Max: 0.01
 --- !u!114 &998174437
 MonoBehaviour:
   m_ObjectHideFlags: 0
