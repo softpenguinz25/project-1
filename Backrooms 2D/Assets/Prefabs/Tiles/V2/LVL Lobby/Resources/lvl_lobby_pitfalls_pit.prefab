@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584285505580112607}
   - component: {fileID: 5203985267257741338}
+  - component: {fileID: 5291026937036124435}
   m_Layer: 0
   m_Name: lvl_lobby_pitfalls_pit
   m_TagString: Untagged
@@ -84,3 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5291026937036124435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963412177172284050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c798f7bd4e3bea4d90de88ce2e7ccfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midSprite: {fileID: 3980738590661264075, guid: 2f02d51599618ff4d8e33a29fb826dd7, type: 3}
+  edgeSprites:
+  - {fileID: 1440805848222589455, guid: 2f02d51599618ff4d8e33a29fb826dd7, type: 3}
+  - {fileID: 2036151404005066952, guid: 2f02d51599618ff4d8e33a29fb826dd7, type: 3}
+  - {fileID: -10813806642991036, guid: 2f02d51599618ff4d8e33a29fb826dd7, type: 3}
+  cornerSprites:
+  - {fileID: -3336923266168563007, guid: 2f02d51599618ff4d8e33a29fb826dd7, type: 3}
+  - {fileID: -1526816442489502721, guid: 2f02d51599618ff4d8e33a29fb826dd7, type: 3}
+  - {fileID: 6709041316046632747, guid: 2f02d51599618ff4d8e33a29fb826dd7, type: 3}
+  perspectiveDistanceThreshold: 0.5
+  circleSize: 0.2

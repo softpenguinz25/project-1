@@ -115,4 +115,22 @@ public static class HelperMethods
 
 		return newList;
 	}
+
+	// Snaps the given vector to the nearest cardinal direction
+	public static Vector3 SnapToCardinalDirection(Vector3 vector)
+	{
+		// Get the absolute values of the vector components
+		Vector3 absVector = new(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
+
+		// Find the maximum component of the vector
+		float maxComponent = Mathf.Max(absVector.x, Mathf.Max(absVector.y, absVector.z));
+
+		// Check which cardinal direction the vector is closest to
+		if (absVector.x == maxComponent)
+			return (vector.x >= 0) ? Vector3.right : Vector3.left;
+		else if (absVector.y == maxComponent)
+			return (vector.y >= 0) ? Vector3.up : Vector3.down;
+		else
+			return (vector.z >= 0) ? Vector3.forward : Vector3.back;
+	}
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fov: 360
-  viewDistance: 13
+  viewDistance: 20
   fovAngle: 0
   tileMask:
     serializedVersion: 2

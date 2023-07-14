@@ -1,7 +1,9 @@
 using MyBox;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LVLLobbyCutsceneBalance : LVLLobbyCutscene
 {
@@ -12,6 +14,7 @@ public class LVLLobbyCutsceneBalance : LVLLobbyCutscene
 	float rotationSpeed;
 
 	bool doBalance = true;
+
 
 	private void Start()
 	{

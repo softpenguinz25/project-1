@@ -24,7 +24,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public AxisOptions AxisOptions { get { return AxisOptions; } set { axisOptions = value; } }
     public bool SnapX { get { return snapX; } set { snapX = value; } }
     public bool SnapY { get { return snapY; } set { snapY = value; } }
-    public bool Enabled { get { return enabled; } set { enabled = value; if (!enabled) input = Vector2.zero; } }
+    public bool Enabled { get { return enabled; } set { if (enabled != value) { enabled = value; input = Vector2.zero; background.gameObject.SetActive(false); } } }
 
     [SerializeField] private float handleRange = 1;
     [SerializeField] private float deadZone = 0;

@@ -15,6 +15,7 @@ public class PlayerGraphics : MonoBehaviour
 	private float lastHorizontalMovement, lastVerticalMovement;
 	//[SerializeField] private Sprite[] playerPoses = new Sprite[4];
 	//[SerializeField] private float changeSpriteThreshold = .1f;
+	bool canSetIdleAnimParams = true;
 
 	[Header("Footstep SFX")]
 	[SerializeField] private float velocityThreshold = .4f;
@@ -95,16 +96,24 @@ public class PlayerGraphics : MonoBehaviour
 		animator.SetFloat("Speed", pm.Movement.sqrMagnitude);
 		if(pm.Movement.sqrMagnitude > .01f)
 		{
-			animator.SetFloat("Horizontal_Moving", pm.Movement.x);
-			animator.SetFloat("Vertical_Moving", pm.Movement.y);
+			SetMovementAnimParams(pm.Movement.x, pm.Movement.y);
+			//animator.SetFloat("Horizontal_Moving", pm.Movement.x);
+			//animator.SetFloat("Vertical_Moving", pm.Movement.y);
 
 			lastHorizontalMovement = pm.Movement.x;
 			lastVerticalMovement = pm.Movement.y;
+
+			canSetIdleAnimParams = true;
 		}
 		else
 		{
-			animator.SetFloat("Horizontal_Idle", lastHorizontalMovement);
-			animator.SetFloat("Vertical_Idle", lastVerticalMovement);
+			if (canSetIdleAnimParams)
+			{
+				SetIdleAnimParams(lastHorizontalMovement, lastVerticalMovement);
+				canSetIdleAnimParams = false;
+			}
+			//animator.SetFloat("Horizontal_Idle", lastHorizontalMovement);
+			//animator.SetFloat("Vertical_Idle", lastVerticalMovement);
 		}
 		#endregion
 
@@ -121,6 +130,18 @@ public class PlayerGraphics : MonoBehaviour
 				footstepParticles.Stop();
 		}
 		#endregion
+	}
+
+	public void SetIdleAnimParams(float horizontalIdle, float verticalIdle)
+	{
+		animator.SetFloat("Horizontal_Idle", horizontalIdle);
+		animator.SetFloat("Vertical_Idle", verticalIdle);
+	}
+
+	void SetMovementAnimParams(float horizontalMovement, float verticalMovement)
+	{
+		animator.SetFloat("Horizontal_Moving", horizontalMovement);
+		animator.SetFloat("Vertical_Moving", verticalMovement);
 	}
 
 	private void FixedUpdate()

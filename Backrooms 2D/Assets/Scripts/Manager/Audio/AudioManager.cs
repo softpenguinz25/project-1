@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
                 s.sources[i].clip = s.clips[i];
                 s.sources[i].volume = (s.volume.Min + s.volume.Max) * .5f;
                 s.sources[i].pitch = (s.pitch.Min + s.pitch.Max) * .5f;
+                s.sources[i].loop = s.loop;
                 s.sources[i].outputAudioMixerGroup = sfxMixerGroup;
             }
         }

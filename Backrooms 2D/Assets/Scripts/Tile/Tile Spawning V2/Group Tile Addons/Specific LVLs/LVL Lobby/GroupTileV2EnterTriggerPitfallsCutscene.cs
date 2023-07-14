@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class GroupTileV2EnterTriggerPitfallsCutscene : GroupTileV2EnterTrigger
 {
-	[SerializeField] Transform playerFailPos, playerWinPos;
-	LVLLobbyTransitionToCutscene lvlLobbyTransitionIntoCutscene;
+	//[SerializeField] Transform playerFailPos, playerWinPos;
+
+	[SerializeField] LVLLobbyPitfallsPlayerInAnim inAnim;
+	//LVLLobbyTransitionToCutscene lvlLobbyTransitionIntoCutscene;
 
 	private void Awake()
 	{
-		lvlLobbyTransitionIntoCutscene = FindObjectOfType<LVLLobbyTransitionToCutscene>();
+		//lvlLobbyTransitionIntoCutscene = FindObjectOfType<LVLLobbyTransitionToCutscene>();
 	}
 
 	public override void PlayerEntered()
 	{
 		base.PlayerEntered();
-		lvlLobbyTransitionIntoCutscene.StartTransitionIntoCutscene(playerFailPos, playerWinPos);
+		inAnim.gameObject.SetActive(true);
+		//lvlLobbyTransitionIntoCutscene.StartTransitionIntoCutscene(playerFailPos, playerWinPos);
 	}
 }

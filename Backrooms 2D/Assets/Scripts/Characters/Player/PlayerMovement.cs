@@ -87,4 +87,9 @@ public class PlayerMovement : MonoBehaviour
 
 		currentSpeed = startSpeed;
 	}
+
+	public void MoveToPos(Vector3 pos)
+	{
+		transform.position = pos;
+	}
 }

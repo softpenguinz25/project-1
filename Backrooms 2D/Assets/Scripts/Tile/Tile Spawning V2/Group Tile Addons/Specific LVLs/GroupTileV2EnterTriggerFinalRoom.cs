@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 public class GroupTileV2EnterTriggerFinalRoom : GroupTileV2EnterTrigger
 {
 	[Header("Functionality")]
-	[SerializeField] GameObject wall;
 	ExitDoorArrow eda;
 	[SerializeField] List<string> goNamesToDisable = new();
 	[SerializeField] List<GameObject> gosToEnable = new();
@@ -35,13 +34,12 @@ public class GroupTileV2EnterTriggerFinalRoom : GroupTileV2EnterTrigger
 			ms.Disable();
 		}
 		foreach (MonsterInfo monster in FindObjectsOfType<MonsterInfo>()) Destroy(monster.gameObject);
-		wall.SetActive(true);
 
 		//foreach (Component script in scriptsToDisable) foreach(Component sceneScript in FindObjectsOfType<script.GetType()>())/*sceneScript.enabled = false;*/
 		foreach (string goName in goNamesToDisable) if(GameObject.Find(goName) != null) GameObject.Find(goName).SetActive(false);
 		foreach (GameObject go in gosToEnable) go.SetActive(true);
 
-		if(mainMixer != null) StartCoroutine(MuffleSounds());
+		if (mainMixer != null) MuffleSounds(true);
 	}
 
 	public override void PlayerExit()
@@ -51,12 +49,17 @@ public class GroupTileV2EnterTriggerFinalRoom : GroupTileV2EnterTrigger
 		eda.ActivateArrow();
 	}
 
-	private IEnumerator MuffleSounds()
+	public void MuffleSounds(bool shouldMuffle)
 	{
-		float t = 0;
-		while (t < lowpassCurve.keys[lowpassCurve.keys.Length - 1].time)
+		StartCoroutine(MuffleSoundsCoroutine(shouldMuffle));
+	}
+
+	private IEnumerator MuffleSoundsCoroutine(bool shouldMuffle)
+	{
+		float t = shouldMuffle ? 0 : lowpassCurve.keys[lowpassCurve.keys.Length - 1].time;
+		while (shouldMuffle ? (t < lowpassCurve.keys[lowpassCurve.keys.Length - 1].time) : (t > 0))
 		{
-			t += Time.deltaTime;
+			t += Time.deltaTime * (shouldMuffle ? 1 : -1);
 
 			for (int i = 0; i < AudioDataResetter.lowpassParams.Count; i++)
 				for (int j = 0; j < mixersTooMuffle.Count; j++)
@@ -69,6 +72,11 @@ public class GroupTileV2EnterTriggerFinalRoom : GroupTileV2EnterTrigger
 		for (int i = 0; i < AudioDataResetter.lowpassParams.Count; i++)
 			for (int j = 0; j < mixersTooMuffle.Count; j++)
 				if (AudioDataResetter.lowpassParams[i].Contains(mixersTooMuffle[j], System.StringComparison.CurrentCultureIgnoreCase)) 
-					mainMixer.SetFloat(AudioDataResetter.lowpassParams[i], targetLowpassCutoffFrequency);
+					mainMixer.SetFloat(AudioDataResetter.lowpassParams[i], shouldMuffle ? targetLowpassCutoffFrequency : 22000);
+	}
+
+	public void PlayHeartbeat()
+	{
+		FindObjectOfType<AudioManager>().Play("LVLLobby_Pitfall_Heartbeat");
 	}
 }

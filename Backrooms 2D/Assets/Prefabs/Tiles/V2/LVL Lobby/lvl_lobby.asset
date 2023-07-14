@@ -47,7 +47,7 @@ MonoBehaviour:
         maxNumTilesOfType: 0
     - data:
       - tileGO: {fileID: 11400000, guid: 9aaf5a614f20b4b47a2ef2e43270fe46, type: 2}
-        spawnChance: 1
-        numTilesUntilCanBeSpawned: 960
+        spawnChance: 100
+        numTilesUntilCanBeSpawned: 1
         maxNumTilesOfType: 1
   deadEndProbability: 0.8

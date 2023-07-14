@@ -30,7 +30,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 32
@@ -93,18 +93,18 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: lvl_lobby_pitfalls_half
+  - name: lvl_lobby_pitfalls_corner_4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 84
+      x: 4
       y: 4
       width: 32
-      height: 16
-    spriteID: 6e4eacc06b29ad34aa7bfcc07f26b708
+      height: 32
+    spriteID: 73cca39a064067b479703596277de4fe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -113,9 +113,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 84, y: 4}
-    spritePosition: {x: 96, y: 80}
-  - name: lvl_lobby_pitfalls
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 96, y: 64}
+  - name: lvl_lobby_pitfalls_corner_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -123,6 +123,116 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
+      y: 44
+      width: 32
+      height: 32
+    spriteID: 314ba0b8eba0fd244a48bfa1582e78ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 44}
+    spritePosition: {x: 64, y: 64}
+  - name: lvl_lobby_pitfalls_corner_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 32
+      height: 32
+    spriteID: ecfaf19272825cb44a5b23fdcb234fbe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 84}
+    spritePosition: {x: 32, y: 64}
+  - name: lvl_lobby_pitfalls_edge_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 124
+      width: 32
+      height: 32
+    spriteID: c3bbc9674420f194ab07fdb3bc3c86bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 124}
+    spritePosition: {x: 96, y: 96}
+  - name: lvl_lobby_pitfalls_edge_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 164
+      width: 32
+      height: 32
+    spriteID: 12e6810485dbf434faa5345c6b74117a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 164}
+    spritePosition: {x: 64, y: 96}
+  - name: lvl_lobby_pitfalls_edge_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 204
+      width: 32
+      height: 32
+    spriteID: 01d43cc889fbfe94ca3ad36dab7a1fb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 204}
+    spritePosition: {x: 32, y: 96}
+  - name: lvl_lobby_pitfalls
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
       y: 4
       width: 32
       height: 32
@@ -135,8 +245,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 64, y: 64}
+    uvTransform: {x: 44, y: 4}
+    spritePosition: {x: 0, y: 96}
   - name: lvl_lobby_corner
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -188,7 +298,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 44
       y: 44
       width: 32
       height: 32
@@ -201,7 +311,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 44}
+    uvTransform: {x: 44, y: 44}
     spritePosition: {x: 0, y: 0}
   - name: lvl_lobby_ground_hall
     originalName: 
@@ -210,7 +320,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 44
       y: 84
       width: 32
       height: 32
@@ -223,7 +333,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 84}
+    uvTransform: {x: 44, y: 84}
     spritePosition: {x: 96, y: 32}
   - name: lvl_lobby_ground_corner
     originalName: 
@@ -232,7 +342,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 44
       y: 124
       width: 32
       height: 32
@@ -245,7 +355,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 124}
+    uvTransform: {x: 44, y: 124}
     spritePosition: {x: 64, y: 32}
   - name: lvl_lobby_ground_end
     originalName: 
@@ -254,7 +364,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 44
       y: 164
       width: 32
       height: 32
@@ -267,7 +377,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 164}
+    uvTransform: {x: 44, y: 164}
     spritePosition: {x: 32, y: 32}
   - name: lvl_lobby_ground_open
     originalName: 
@@ -276,7 +386,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 44
       y: 204
       width: 32
       height: 32
@@ -289,7 +399,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 204}
+    uvTransform: {x: 44, y: 204}
     spritePosition: {x: 32, y: 0}
   - name: Open
     originalName: 
@@ -298,7 +408,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
+      x: 84
       y: 4
       width: 32
       height: 32
@@ -311,118 +421,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 44, y: 4}
-    spritePosition: {x: 32, y: 64}
-  - name: Split
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 44
-      width: 32
-      height: 32
-    spriteID: 87ee712df547954488d58705debd7de6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 44}
-    spritePosition: {x: 0, y: 64}
-  - name: Hall
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 84
-      width: 32
-      height: 32
-    spriteID: cd771f7f1c9157d4facb46c9161dc10b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 84}
-    spritePosition: {x: 96, y: 96}
-  - name: Corner
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 124
-      width: 32
-      height: 32
-    spriteID: 40cb2df41e26bf54e89282a73f41fff2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 124}
-    spritePosition: {x: 64, y: 96}
-  - name: End
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 164
-      width: 32
-      height: 32
-    spriteID: 7ec1d88f30a63434f8221e6a2a2e9bfb
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 164}
-    spritePosition: {x: 32, y: 96}
-  - name: Closed
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 204
-      width: 32
-      height: 32
-    spriteID: 1801c65faa8858848b7cc3372768f0cf
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 44, y: 204}
-    spritePosition: {x: 0, y: 96}
+    uvTransform: {x: 84, y: 4}
+    spritePosition: {x: 0, y: 32}
   characterData:
     bones: []
     parts: []
@@ -471,6 +471,28 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   - name: Android
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
     overridden: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -535,18 +557,8 @@ ScriptedImporter:
     layerID: 26
     mosaicPosition: {x: 84, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: lvl_lobby_pitfalls
-    spriteName: lvl_lobby_pitfalls
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 8c3167f506e2d6241bb8d838910b780b
-    layerID: 25
-    mosaicPosition: {x: 4, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: lvl_lobby_pitfalls
     spriteName: lvl_lobby_pitfalls
     isGroup: 0
@@ -557,6 +569,76 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 0
+  - name: lvl_lobby_pitfalls_corner_4
+    spriteName: lvl_lobby_pitfalls_corner_4
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 73cca39a064067b479703596277de4fe
+    layerID: 62
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_lobby_pitfalls_corner_3
+    spriteName: lvl_lobby_pitfalls_corner_3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 314ba0b8eba0fd244a48bfa1582e78ab
+    layerID: 61
+    mosaicPosition: {x: 4, y: 44}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_lobby_pitfalls_corner_2
+    spriteName: lvl_lobby_pitfalls_corner_2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ecfaf19272825cb44a5b23fdcb234fbe
+    layerID: 57
+    mosaicPosition: {x: 4, y: 84}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_lobby_pitfalls_edge_4
+    spriteName: lvl_lobby_pitfalls_edge_4
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c3bbc9674420f194ab07fdb3bc3c86bb
+    layerID: 37
+    mosaicPosition: {x: 4, y: 124}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_lobby_pitfalls_edge_3
+    spriteName: lvl_lobby_pitfalls_edge_3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 12e6810485dbf434faa5345c6b74117a
+    layerID: 29
+    mosaicPosition: {x: 4, y: 164}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_lobby_pitfalls_edge_2
+    spriteName: lvl_lobby_pitfalls_edge_2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 01d43cc889fbfe94ca3ad36dab7a1fb7
+    layerID: 28
+    mosaicPosition: {x: 4, y: 204}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lvl_lobby_pitfalls
+    spriteName: lvl_lobby_pitfalls
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8c3167f506e2d6241bb8d838910b780b
+    layerID: 25
+    mosaicPosition: {x: 44, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: lvl_lobby_pitfalls_half
     spriteName: lvl_lobby_pitfalls_half
     isGroup: 0
@@ -603,7 +685,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 71435cf974bd0ba4e8b857aae3733981
     layerID: 17
-    mosaicPosition: {x: 4, y: 44}
+    mosaicPosition: {x: 44, y: 44}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -613,7 +695,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: de8ccd2923ed10c41a1fffa3db4318ff
     layerID: 16
-    mosaicPosition: {x: 4, y: 84}
+    mosaicPosition: {x: 44, y: 84}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -623,7 +705,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 8b86e2b8d386d1d4384a370b7e9bc869
     layerID: 15
-    mosaicPosition: {x: 4, y: 124}
+    mosaicPosition: {x: 44, y: 124}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -633,7 +715,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 031851fe1a5ef2e439331e7dce229ff2
     layerID: 14
-    mosaicPosition: {x: 4, y: 164}
+    mosaicPosition: {x: 44, y: 164}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -643,7 +725,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: d6ba1aff249c5c7438d717cd76584863
     layerID: 8
-    mosaicPosition: {x: 4, y: 204}
+    mosaicPosition: {x: 44, y: 204}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -653,7 +735,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: bc469e3c7293ad34aaeeeab422118518
     layerID: 7
-    mosaicPosition: {x: 44, y: 4}
+    mosaicPosition: {x: 84, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -665,8 +747,8 @@ ScriptedImporter:
     layerID: 6
     mosaicPosition: {x: 44, y: 44}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: Hall
     spriteName: Hall
     isGroup: 0
@@ -675,8 +757,8 @@ ScriptedImporter:
     layerID: 5
     mosaicPosition: {x: 44, y: 84}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: Corner
     spriteName: Corner
     isGroup: 0
@@ -685,8 +767,8 @@ ScriptedImporter:
     layerID: 4
     mosaicPosition: {x: 44, y: 124}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: End
     spriteName: End
     isGroup: 0
@@ -695,8 +777,8 @@ ScriptedImporter:
     layerID: 3
     mosaicPosition: {x: 44, y: 164}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: Closed
     spriteName: Closed
     isGroup: 0
@@ -705,8 +787,8 @@ ScriptedImporter:
     layerID: 2
     mosaicPosition: {x: 44, y: 204}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   generateGOHierarchy: 0
