@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1478601586699995888
 Transform:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672285801430443050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: -1, z: 0}
+  m_LocalPosition: {x: 5.5, y: -1.5, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -425,7 +425,7 @@ MonoBehaviour:
     - {fileID: 4197175775721586712}
     - {fileID: 4996482792597997415}
     - {fileID: 6607158299827949145}
-  triggerGO: {fileID: 2581849182542213446}
+  triggerGO: {fileID: 7888490669337175422}
   codeLength: 5
   disableConsecutive: 1
   timeBtwnCodeDisplaysInSeconds: 1
@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &698262612323150396
 Transform:
   m_ObjectHideFlags: 0
@@ -649,10 +649,95 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3965613827581025384}
+  - {fileID: 2908163632911141040}
   - {fileID: 5254157942463998564}
   m_Father: {fileID: 8577103712272830693}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3767328101422776171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2908163632911141040}
+  - component: {fileID: 8483334613784559577}
+  m_Layer: 0
+  m_Name: Ping Pong Ball Proxy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2908163632911141040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767328101422776171}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.5, y: -1.125, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 698262612323150396}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &8483334613784559577
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767328101422776171}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 8f64c94d66e6daf499f3b27aae7caa51, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &3774944217635129682
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,12 +1032,12 @@ MonoBehaviour:
   animator: {fileID: 6039702593869774272}
   numShuffleIndexes: 10
   regenerateShuffleIndexTime: 1
-  numShuffles: 15
+  numShuffles: 2
   correctCup: 2
   cupsInOrder:
-  - {fileID: 7017495238636418088}
-  - {fileID: 3864971635617631226}
-  - {fileID: 2525898679541671605}
+  - {fileID: 8997936896220291569}
+  - {fileID: 2891049739695906339}
+  - {fileID: 4517666940093330284}
 --- !u!114 &3226220727002778315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +1051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cupGameShuffler: {fileID: 7807722353253453509}
-  ball: {fileID: 672285801430443050}
+  shuffleAnim: {fileID: 6039702593869774272}
+  ballProxy: {fileID: 3767328101422776171}
 --- !u!114 &2423142815050510034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +1066,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cupGameShuffler: {fileID: 7807722353253453509}
+  animator: {fileID: 6039702593869774272}
+  Restart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1743922438960863627}
+        m_TargetAssemblyTypeName: LVLRFYLBossMinigameButton, Assembly-CSharp
+        m_MethodName: Unpressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1743922438960863627}
+        m_TargetAssemblyTypeName: LVLRFYLBossMinigameButton, Assembly-CSharp
+        m_MethodName: IndicateFail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7807722353253453509}
+        m_TargetAssemblyTypeName: LVLRFYLBossMinigameCupGameShuffler, Assembly-CSharp
+        m_MethodName: ResetNumShuffles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6130603673186725570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1231,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalRound: 3
   animator: {fileID: 1009722177802739986}
+  Reset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1052973518310809676}
+        m_TargetAssemblyTypeName: LVLRFYLBossMinigameReactionTimeGFX, Assembly-CSharp
+        m_MethodName: ChangeGraphics
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5944928456935978886}
+        m_TargetAssemblyTypeName: LVLRFYLBossMinigameButton, Assembly-CSharp
+        m_MethodName: IndicateFail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1052973518310809676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,6 +1278,21 @@ MonoBehaviour:
     - {fileID: 5915926377339160046}
   reactionTime: {fileID: 5475757249974189591}
   timeUntilNextRoundInSeconds: 1
+  NextRoundStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5944928456935978886}
+        m_TargetAssemblyTypeName: LVLRFYLBossMinigameButton, Assembly-CSharp
+        m_MethodName: ResetIndication
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6298210820777311208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,43 +1775,60 @@ PrefabInstance:
       propertyPath: minigameSimonSays
       value: 
       objectReference: {fileID: 4983902170209814631}
-    m_RemovedComponents:
-    - {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: stayPressed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: becomeUnpressed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4983902170209814631}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayCode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LVLRFYLBossMinigameSimonSays, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
 --- !u!4 &4440725771171272337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2330641144938322122, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
   m_PrefabInstance: {fileID: 2159679750705204827}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &5753239932673456413 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5921992128266024774, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
-  m_PrefabInstance: {fileID: 2159679750705204827}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6208123564473133599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5467112898520441924, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
-  m_PrefabInstance: {fileID: 2159679750705204827}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2581849182542213446
+--- !u!114 &7888490669337175422 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+  m_PrefabInstance: {fileID: 2159679750705204827}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6208123564473133599}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6e1ee1d0b6b6c438902505c5d776c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1410bb2d160d23144aa9233324c37684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 5753239932673456413}
-  unpressedSprite: {fileID: 2330408890453820594, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
-  pressedSprite: {fileID: -4642624502335604636, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
-  repressThresholdTimeInSeconds: 0.1
-  minigameSimonSays: {fileID: 4983902170209814631}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  failColor: {r: 1, g: 0.5, b: 0, a: 1}
 --- !u!1001 &2450404403932798115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,41 +1884,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5475757249974189591}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopCursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LVLRFYLBossMinigameReactionTime, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
 --- !u!4 &169320493336413289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2330641144938322122, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
   m_PrefabInstance: {fileID: 2450404403932798115}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7628679840584169703 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5467112898520441924, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+--- !u!114 &5944928456935978886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
   m_PrefabInstance: {fileID: 2450404403932798115}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7240985113684259844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7628679840584169703}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab02fe36601ed3d4babd417cfd9a7cc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1410bb2d160d23144aa9233324c37684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 8083593701181565925}
-  unpressedSprite: {fileID: 2330408890453820594, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
-  pressedSprite: {fileID: -4642624502335604636, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
-  repressThresholdTimeInSeconds: 0.25
-  reactionTime: {fileID: 5475757249974189591}
---- !u!212 &8083593701181565925 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5921992128266024774, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
-  m_PrefabInstance: {fileID: 2450404403932798115}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2605990557316771727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1812,10 +2008,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3965613827581025384}
     m_Modifications:
+    - target: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6039702593869774272}
+    - target: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: cupGamePicker
+      value: 
+      objectReference: {fileID: 2423142815050510034}
     - target: {fileID: 1249611032514174710, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
       propertyPath: cupGamePicker
       value: 
       objectReference: {fileID: 2423142815050510034}
+    - target: {fileID: 1421839325965919031, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: m_Name
+      value: lvl_rfyl_boss_cup_gfx
+      objectReference: {fileID: 0}
     - target: {fileID: 2514952410239953717, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
       propertyPath: m_Name
       value: lvl_rfyl_boss_cup_1
@@ -1870,9 +2078,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
---- !u!114 &3864971635617631226 stripped
+--- !u!114 &2891049739695906339 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1249611032514174710, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
   m_PrefabInstance: {fileID: 2662931008040047884}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1893,10 +2101,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3965613827581025384}
     m_Modifications:
+    - target: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6039702593869774272}
+    - target: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: cupGamePicker
+      value: 
+      objectReference: {fileID: 2423142815050510034}
     - target: {fileID: 1249611032514174710, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
       propertyPath: cupGamePicker
       value: 
       objectReference: {fileID: 2423142815050510034}
+    - target: {fileID: 1421839325965919031, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: m_Name
+      value: lvl_rfyl_boss_cup_gfx
+      objectReference: {fileID: 0}
     - target: {fileID: 2514952410239953717, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
       propertyPath: m_Name
       value: lvl_rfyl_boss_cup_2
@@ -1951,9 +2171,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
---- !u!114 &2525898679541671605 stripped
+--- !u!114 &4517666940093330284 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1249611032514174710, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
   m_PrefabInstance: {fileID: 3628293720662554691}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2212,11 +2432,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
---- !u!1 &2960742190338655408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8531852235824747437, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
-  m_PrefabInstance: {fileID: 6877437752033482525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2960742190338655410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8531852235824747439, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
@@ -2231,7 +2446,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2330641144938322122, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2330641144938322122, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2277,36 +2492,111 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: stayPressed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7807722353253453509}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6039702593869774272}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6039702593869774272}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetCupPositions
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LVLRFYLBossMinigameCupGameShuffler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Choose Cup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+      propertyPath: PressedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
---- !u!1 &2552849659708839658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5467112898520441924, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
+--- !u!114 &1743922438960863627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8106819342746790693, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
   m_PrefabInstance: {fileID: 7544264994165650094}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6433921479281519639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2552849659708839658}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5260f539aac32bb4491d862c620cbdbf, type: 3}
+  m_Script: {fileID: 11500000, guid: 1410bb2d160d23144aa9233324c37684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 4223735970242807272}
-  unpressedSprite: {fileID: 2330408890453820594, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
-  pressedSprite: {fileID: -4642624502335604636, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
-  repressThresholdTimeInSeconds: 0.25
-  animator: {fileID: 6039702593869774272}
---- !u!212 &4223735970242807272 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5921992128266024774, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
-  m_PrefabInstance: {fileID: 7544264994165650094}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5254157942463998564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2330641144938322122, guid: 79775faa993ea924faed44ff24d4c1c2, type: 3}
@@ -2472,7 +2762,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableAfterEnter: 0
-  wall: {fileID: 5930516120088329250}
+  enterEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  exitEvents:
+    m_PersistentCalls:
+      m_Calls: []
   goNamesToDisable:
   - Player Light
   - Black
@@ -2517,10 +2812,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3965613827581025384}
     m_Modifications:
+    - target: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6039702593869774272}
+    - target: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: cupGamePicker
+      value: 
+      objectReference: {fileID: 2423142815050510034}
     - target: {fileID: 1249611032514174710, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
       propertyPath: cupGamePicker
       value: 
       objectReference: {fileID: 2423142815050510034}
+    - target: {fileID: 1421839325965919031, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+      propertyPath: m_Name
+      value: lvl_rfyl_boss_cup_gfx
+      objectReference: {fileID: 0}
     - target: {fileID: 2514952410239953717, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
       propertyPath: m_Name
       value: lvl_rfyl_boss_cup
@@ -2580,9 +2887,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6224549827543142341, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
   m_PrefabInstance: {fileID: 8085267689381145310}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7017495238636418088 stripped
+--- !u!114 &8997936896220291569 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1249611032514174710, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 931035450176883503, guid: 3aa5cb8d2d7209943bddee2ea393311f, type: 3}
   m_PrefabInstance: {fileID: 8085267689381145310}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2760,7 +3067,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableAfterEnter: 1
-  wall: {fileID: 2960742190338655408}
+  enterEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5930516120088329250}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  exitEvents:
+    m_PersistentCalls:
+      m_Calls: []
   goNamesToDisable: []
   gosToEnable: []
   mainMixer: {fileID: 0}

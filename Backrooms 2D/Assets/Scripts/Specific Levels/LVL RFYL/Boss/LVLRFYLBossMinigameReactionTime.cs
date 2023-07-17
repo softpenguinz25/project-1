@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LVLRFYLBossMinigameReactionTime : LVLRFYLBossMinigame
 {
@@ -10,7 +11,7 @@ public class LVLRFYLBossMinigameReactionTime : LVLRFYLBossMinigame
 	[SerializeField] int finalRound = 3;
 	[SerializeField] Animator animator;
 
-	public event Action Reset;
+	public UnityEvent Reset;
 	public event Action<int> RoundPromoted;
 	public event Action Win;
 	public void SetCurrentRound(AnimationEvent v)

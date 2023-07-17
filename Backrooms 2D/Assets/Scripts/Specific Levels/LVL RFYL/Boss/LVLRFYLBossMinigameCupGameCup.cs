@@ -26,7 +26,6 @@ public class LVLRFYLBossMinigameCupGameCup : LVLRFYLBossMinigame
 	{
 		if (collision.CompareTag("Player"))
 		{
-			animator.SetTrigger("Open");
 			cupGamePicker.PickCup(CupNum);
 		}
 	}

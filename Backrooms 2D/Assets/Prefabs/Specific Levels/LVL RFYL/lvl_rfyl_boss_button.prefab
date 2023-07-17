@@ -102,6 +102,12 @@ MonoBehaviour:
   unpressedSprite: {fileID: 2330408890453820594, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
   pressedSprite: {fileID: -4642624502335604636, guid: ea6b5f2b7036a47468a34adfca7d39b9, type: 3}
   repressThresholdTimeInSeconds: 0.1
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  failColor: {r: 1, g: 0.5, b: 0, a: 1}
+  stayPressed: 0
+  PressedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &5657657497097554727
 CircleCollider2D:
   m_ObjectHideFlags: 0

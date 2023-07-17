@@ -10,7 +10,7 @@ public class LVLRFYLBossMinigameSimonSays : LVLRFYLBossMinigame
 	public enum CodeValue { Green, Red, Yellow, Blue }
 	[Header("Functionality")]
 	[SerializeField] CodeValueCodeGODictionary codeGOs;
-	[SerializeField] LVLRFYLBossMinigameSimonSaysTriggerGO triggerGO;
+	[SerializeField] LVLRFYLBossMinigameButton triggerGO;
 
 	[SerializeField] int codeLength = 5;
 	List<CodeValue> code;
@@ -88,12 +88,12 @@ public class LVLRFYLBossMinigameSimonSays : LVLRFYLBossMinigame
 		}
 	}
 
-	public void DisplayCode(int numToDisplay)
+	public void DisplayCode()
 	{
 		//Debug.Log("DISPLAYING CODE! :D");
 		foreach (LVLRFYLBossMinigameSimonSaysCodeGO codeGO in codeGOs.Values) codeGO.Disable(false);
 
-		StartCoroutine(DisplayCodeCoroutine(numToDisplay));
+		StartCoroutine(DisplayCodeCoroutine(CodeLengthOfCurrentRound));
 	}
 
 	private IEnumerator DisplayCodeCoroutine(int numToDisplay)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LVLRFYLBossMinigameReactionTimeGFX : MonoBehaviour
 {
@@ -11,9 +12,11 @@ public class LVLRFYLBossMinigameReactionTimeGFX : MonoBehaviour
 
 	[SerializeField] float timeUntilNextRoundInSeconds = 1;
 
+	public UnityEvent NextRoundStarted;
+
 	private void OnEnable()
 	{
-		reactionTime.Reset += () => ChangeGraphics(1);
+		//reactionTime.Reset += () => ChangeGraphics(1);
 		reactionTime.RoundPromoted += ChangeGraphics;
 	}
 
@@ -22,7 +25,7 @@ public class LVLRFYLBossMinigameReactionTimeGFX : MonoBehaviour
 		reactionTime.RoundPromoted -= ChangeGraphics;
 	}
 
-	private void ChangeGraphics(int currentRound)
+	public void ChangeGraphics(int currentRound)
 	{
 		StartCoroutine(StartNextRoundCoroutine(currentRound));
 	}
@@ -35,5 +38,7 @@ public class LVLRFYLBossMinigameReactionTimeGFX : MonoBehaviour
 			roundGOsGFX[i].SetActive(i == currentRound);
 
 		reactionTime.StartRound();
+
+		NextRoundStarted?.Invoke();
 	}
 }

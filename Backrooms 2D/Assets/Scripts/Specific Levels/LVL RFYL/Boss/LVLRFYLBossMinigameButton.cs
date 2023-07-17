@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LVLRFYLBossMinigameButton : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class LVLRFYLBossMinigameButton : MonoBehaviour
 
 	[SerializeField] float repressThresholdTimeInSeconds = .1f;
 
+	[SerializeField] Color normalColor = new Color(68f / 255, 68f / 255, 68f / 255), failColor = new Color(1, 1f / 2, 0);
+	[SerializeField] bool stayPressed = false;
+	[SerializeField] UnityEvent PressedEvent;
+
 	public virtual void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("Player") && !isPressed)
@@ -20,7 +25,7 @@ public class LVLRFYLBossMinigameButton : MonoBehaviour
 
 	public virtual void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Player") && isPressed)		
+		if (collision.CompareTag("Player") && isPressed && !stayPressed)		
 			Unpressed();
 	}
 
@@ -28,6 +33,10 @@ public class LVLRFYLBossMinigameButton : MonoBehaviour
 	{
 		isPressed = true;
 		sr.sprite = pressedSprite;
+
+		ResetIndication();
+
+		PressedEvent?.Invoke();
 	}
 
 	public virtual void Unpressed()
@@ -36,4 +45,14 @@ public class LVLRFYLBossMinigameButton : MonoBehaviour
 		sr.sprite = unpressedSprite;
 	}
 	void SetIsPressedFalse() => isPressed = false;
+
+	public void ResetIndication()
+	{
+		sr.color = normalColor;
+	}
+
+	public void IndicateFail()
+	{
+		sr.color = failColor;
+	}
 }

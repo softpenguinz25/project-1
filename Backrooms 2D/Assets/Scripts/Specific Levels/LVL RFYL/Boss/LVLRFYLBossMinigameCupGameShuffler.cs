@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class LVLRFYLBossMinigameCupGameShuffler : LVLRFYLBossMinigame
@@ -22,9 +23,11 @@ public class LVLRFYLBossMinigameCupGameShuffler : LVLRFYLBossMinigame
 	[SerializeField] int correctCup = 2;
 	int[] currentPositions = new int[] {1, 2, 3 };
 	[SerializeField] LVLRFYLBossMinigameCupGameCup[] cupsInOrder = new LVLRFYLBossMinigameCupGameCup[3];
+	
+	[Header("Event")]
 	bool isShuffling = false;
-
-	public bool IsShuffling { get => isShuffling; set => isShuffling = value; }
+	bool lastIsShuffling = false;
+	public event Action<bool> IsShuffling;
 	public int CorrectCupNum
 	{
 		get
@@ -49,11 +52,23 @@ public class LVLRFYLBossMinigameCupGameShuffler : LVLRFYLBossMinigame
 		return null;
 	}
 
+	public int GetCupIndexFromCupNum(int cupNum)
+	{
+		for (int i = 0; i < numCups; i++)
+			if (CupsInOrder[i].CupNum == cupNum) return i + 1;
+
+		Debug.LogError("Couldn't get cup from " + cupNum);
+		return 0;
+	}
+
 	private void Start()
 	{
-		currentNumShuffles = numShuffles + 1;
+		lastIsShuffling = isShuffling;
+
+		ResetNumShuffles();
 		InvokeRepeating(nameof(RegenerateShuffleIndex), regenerateShuffleIndexTime, regenerateShuffleIndexTime);
 	}
+
 	public void RegenerateShuffleIndex()
 	{
 		animator.SetInteger("Shuffle Index", Random.Range(1, numShuffleIndexes + 1));
@@ -84,8 +99,26 @@ public class LVLRFYLBossMinigameCupGameShuffler : LVLRFYLBossMinigame
 	}
 	public void ShuffleUsed()
 	{
+		//print("shuffle used");
 		currentNumShuffles--;
-		IsShuffling = currentNumShuffles > 0;
+		isShuffling = currentNumShuffles > 0;
 		animator.SetInteger("Shuffles Remaining", currentNumShuffles);
+
+		if(isShuffling != lastIsShuffling)
+		{
+			lastIsShuffling = isShuffling;
+			//print("isShuffling invoked: " + isShuffling);
+			IsShuffling?.Invoke(isShuffling);
+		}
+	}
+	public void ResetNumShuffles()
+	{
+		currentNumShuffles = numShuffles + 1;
+		//animator.SetInteger("Shuffles Remaining", currentNumShuffles);
+	}
+
+	public void ResetCupPositions()
+	{
+		currentPositions = new int[] { 1, 2, 3 };
 	}
 }
