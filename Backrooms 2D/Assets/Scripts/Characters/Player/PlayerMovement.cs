@@ -70,7 +70,12 @@ public class PlayerMovement : MonoBehaviour
 	{
 		currentSpeed = speed;
 	}
-	
+
+	public void ResetSpeed()
+	{
+		currentSpeed = startSpeed;
+	}
+
 	public IEnumerator ChangeSpeedWithCurveCoroutine(AnimationCurve multiplierSpeedCurve)
 	{
 		float currentSpeedBeforeCurve = currentSpeed;

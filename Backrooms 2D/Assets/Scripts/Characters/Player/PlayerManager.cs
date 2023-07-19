@@ -12,9 +12,19 @@ public class PlayerManager : MonoBehaviour
 		FindObjectOfType<Joystick>().Enabled = true;
 	}
 
+	public void EnablePlayerControls()
+	{
+		FindObjectOfType<Joystick>().Enabled = true;
+	}
+
 	public void DisablePlayer()
 	{
 		DisableEvents?.Invoke();
+		FindObjectOfType<Joystick>().Enabled = false;
+	}
+
+	public void DisablePlayerControls()
+	{
 		FindObjectOfType<Joystick>().Enabled = false;
 	}
 }

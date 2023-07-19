@@ -26,16 +26,19 @@ public class LVLRFYLBossMinigameCupGameCup : LVLRFYLBossMinigame
 	{
 		if (collision.CompareTag("Player"))
 		{
+			Disable();
 			cupGamePicker.PickCup(CupNum);
 		}
 	}
 
 	public void Enable()
 	{
-		col.isTrigger = true;
+		col.enabled = true;
+		//col.isTrigger = true;
 	}
 	public void Disable()
 	{
-		col.isTrigger = false;
+		col.enabled = false;
+		//col.isTrigger = false;
 	}
 }

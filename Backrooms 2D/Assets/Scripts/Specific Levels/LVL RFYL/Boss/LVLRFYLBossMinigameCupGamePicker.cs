@@ -8,7 +8,8 @@ public class LVLRFYLBossMinigameCupGamePicker : LVLRFYLBossMinigame
 	[SerializeField] LVLRFYLBossMinigameCupGameShuffler cupGameShuffler;
 	[SerializeField] Animator animator;
 	public UnityEvent Restart;
-    public void PickCup(int cupNum)
+	int processWinTime = 1;
+	public void PickCup(int cupNum)
 	{
 		//print("Pick Cup: " + cupNum + ", Cup Index From Cup Num: " + cupGameShuffler.GetCupIndexFromCupNum(cupNum));
 		animator.SetFloat("Cup Picked", cupGameShuffler.GetCupIndexFromCupNum(cupNum));
@@ -31,6 +32,12 @@ public class LVLRFYLBossMinigameCupGamePicker : LVLRFYLBossMinigame
 	public override void WinGame()
 	{
 		print("WEINER IS YOU");
+		foreach (LVLRFYLBossMinigameCupGameCup cup in cupGameShuffler.CupsInOrder) cup.Disable();
+		Invoke(nameof(CallBaseWinGame), processWinTime);
+	}
+
+	public void CallBaseWinGame()
+	{
 		base.WinGame();
 	}
 }

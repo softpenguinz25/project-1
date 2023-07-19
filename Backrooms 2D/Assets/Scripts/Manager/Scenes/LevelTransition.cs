@@ -24,4 +24,9 @@ public class LevelTransition : MonoBehaviour
 
 		LoadNextLevel?.Invoke(SceneManager.GetActiveScene().buildIndex + 1);
 	}
+
+	public void TransitionToNextLevel()
+	{
+		LoadNextLevel?.Invoke(SceneManager.GetActiveScene().buildIndex + 1);
+	}
 }

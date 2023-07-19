@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class LVLRFYLBossMinigameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField] Animator cutsceneAnim;
+	[SerializeField] Animator bossAnim;
+	[SerializeField] Animator miniGameAnim;
+	int bossCutscene, currentMinigame;
+    public void SetAnimatorState(AnimationEvent enabled)
+	{
+		bossAnim.enabled = !enabled.stringParameter.Equals("");
+	}
+	public void StartMinigame()
+	{
+		currentMinigame++;
+		miniGameAnim.SetInteger("Minigame Number", currentMinigame);
+		miniGameAnim.SetTrigger("Start Minigame");
+	}
+	public void EndMinigame()
+	{
+		miniGameAnim.SetTrigger("End Minigame");
+		bossCutscene++;
+		//print("boss cutscene: " + bossCutscene);
+		cutsceneAnim.SetInteger("Boss Cutscene", bossCutscene);
+		cutsceneAnim.SetTrigger("Play Cutscene");
+	}
 }

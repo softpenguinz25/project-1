@@ -9,6 +9,10 @@ public class GroupTileV2Camera : GroupTileV2Addon
 	[SerializeField] PolygonCollider2D cameraConfiner;
 	[SerializeField] bool useConfinerAsTrigger = true;
 
+	[Header("Size")]
+	[SerializeField] bool useCustomCameraSize;
+	public float cameraSize;
+
 	[Header("Follow")]
 	[SerializeField] bool followPlayer = true;
 
@@ -71,6 +75,12 @@ public class GroupTileV2Camera : GroupTileV2Addon
 		StopAllCoroutines();
 		StartCoroutine(ResetBlendTime(activeCinemachineBrain.m_DefaultBlend.BlendTime));
 		activeCinemachineBrain.m_DefaultBlend.m_Time = blendTime;
+	}
+
+	private void Update()
+	{
+		if (!useCustomCameraSize) return;
+		virtualCamera.m_Lens.OrthographicSize = cameraSize * TileSpawnerV2.TileSize;
 	}
 
 	public override void ScaleVarsWithTileSize()
