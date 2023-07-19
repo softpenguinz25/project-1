@@ -624,6 +624,7 @@ MonoBehaviour:
   resetCollidingThreshold: 0.25
   timeDisplayedInSeconds: 0.8
   displaySpriteRendererColorOverlay: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  sfxName: LVLRFYL_Minigame_SimonSays_Button_Blue
 --- !u!1 &2801669313289854832
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +963,7 @@ MonoBehaviour:
   resetCollidingThreshold: 0.25
   timeDisplayedInSeconds: 0.8
   displaySpriteRendererColorOverlay: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  sfxName: LVLRFYL_Minigame_SimonSays_Button_Green
 --- !u!1 &3834801924633901423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,6 +1750,7 @@ MonoBehaviour:
   resetCollidingThreshold: 0.25
   timeDisplayedInSeconds: 0.8
   displaySpriteRendererColorOverlay: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  sfxName: LVLRFYL_Minigame_SimonSays_Button_Red
 --- !u!1 &6357150386641876650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,6 +2165,7 @@ MonoBehaviour:
   resetCollidingThreshold: 0.25
   timeDisplayedInSeconds: 0.8
   displaySpriteRendererColorOverlay: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  sfxName: LVLRFYL_Minigame_SimonSays_Button_Yellow
 --- !u!1 &9088449170904588150
 GameObject:
   m_ObjectHideFlags: 0

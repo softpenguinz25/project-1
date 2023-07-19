@@ -224,6 +224,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 31
     messageOptions: 0
+  - time: 0.5
+    functionName: PlaySFX
+    data: LVLRFYL_Minigame_ReactionTime_Tick
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.53333336
     functionName: SetCurrentRound
     data: 
@@ -265,6 +272,13 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 31
+    messageOptions: 0
+  - time: 1.5
+    functionName: PlaySFX
+    data: LVLRFYL_Minigame_ReactionTime_Tick
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 1.5333333
     functionName: SetCurrentRound

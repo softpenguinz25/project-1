@@ -5,7 +5,7 @@ using UnityEngine;
 public class LVLRFYLBossMinigameCupGameGFX : LVLRFYLBossMinigame
 {
 	[Header("References")]
-    [SerializeField] LVLRFYLBossMinigameCupGameShuffler cupGameShuffler;
+	[SerializeField] LVLRFYLBossMinigameCupGameShuffler cupGameShuffler;
 	//bool isShuffling;
 
 	[Header("GFX")]
@@ -29,7 +29,7 @@ public class LVLRFYLBossMinigameCupGameGFX : LVLRFYLBossMinigame
 	{
 		cupGameShuffler.IsShuffling += UpdateGFX;
 	}
-	
+
 	private void OnDisable()
 	{
 		cupGameShuffler.IsShuffling -= UpdateGFX;
@@ -55,5 +55,10 @@ public class LVLRFYLBossMinigameCupGameGFX : LVLRFYLBossMinigame
 				//shuffleAnim.SetFloat("Ball Pos", cupGameShuffler.GetCupIndexFromCupNum(cupGameShuffler.CorrectCupNum));
 				break;
 		}
+	}
+
+	public void PlaySFXGFX(AnimationEvent animationEvent)
+	{
+		PlaySFX(animationEvent);
 	}
 }

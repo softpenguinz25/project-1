@@ -27,6 +27,7 @@ public class LVLRFYLBossMinigameReactionTimeGFX : MonoBehaviour
 
 	public void ChangeGraphics(int currentRound)
 	{
+		FindObjectOfType<AudioManager>().Play("LVLRFYL_Minigame_Progress");
 		StartCoroutine(StartNextRoundCoroutine(currentRound));
 	}
 

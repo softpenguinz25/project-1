@@ -33,6 +33,7 @@ public class LVLRFYLBossMinigameButton : MonoBehaviour
 	{
 		isPressed = true;
 		sr.sprite = pressedSprite;
+		FindObjectOfType<AudioManager>().Play("LVLRFYL_Minigame_Button");
 
 		ResetIndication();
 

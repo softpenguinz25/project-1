@@ -237,6 +237,7 @@ MonoBehaviour:
     pitch:
       Min: 0
       Max: 0
+    loop: 0
     sources: []
   - name: LVLLobby_Player_Footsteps
     clips:
@@ -251,6 +252,40 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
+    sources: []
+  - name: LVLLobby_Pitfall_Balance
+    clips:
+    - {fileID: 8300000, guid: 31b69c105a164bc4895e0b5f6c70805a, type: 3}
+    volume:
+      Min: 0.34896073
+      Max: 0.44530985
+    pitch:
+      Min: 0.20325941
+      Max: 1.7967405
+    loop: 0
+    sources: []
+  - name: LVLLobby_Pitfall_Fall
+    clips:
+    - {fileID: 8300000, guid: ebcb31189fd79b441a3faf9305c47b9d, type: 3}
+    volume:
+      Min: 0.49828607
+      Max: 0.49828607
+    pitch:
+      Min: 1
+      Max: 1
+    loop: 0
+    sources: []
+  - name: LVLLobby_Pitfall_Heartbeat
+    clips:
+    - {fileID: 8300000, guid: 67b72870d277aaf428db3105d23f2201, type: 3}
+    volume:
+      Min: 1
+      Max: 1
+    pitch:
+      Min: 1
+      Max: 1
+    loop: 1
     sources: []
   - name: LVLHabitableZone_Player_Footsteps
     clips:
@@ -266,6 +301,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1.1082056
+    loop: 0
     sources: []
   - name: LVLPipeDreams_Player_Footsteps
     clips:
@@ -280,6 +316,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: LVLElectricalStation_Player_Footsteps
     clips:
@@ -294,6 +331,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9121844
       Max: 1.1317234
+    loop: 0
     sources: []
   - name: LVLAbandonedOffice_Player_Footsteps
     clips:
@@ -308,6 +346,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: LVLFun_Player_Footsteps
     clips:
@@ -322,6 +361,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Player_Footsteps
     clips:
@@ -336,6 +376,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: LVLPoolrooms_Player_Footsteps
     clips:
@@ -353,6 +394,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Computer_Menu_Highlight
     clips:
@@ -363,6 +405,7 @@ MonoBehaviour:
     pitch:
       Min: 0.99634683
       Max: 0.99634683
+    loop: 0
     sources: []
   - name: LVLTheEnd_Computer_Menu_In
     clips:
@@ -373,6 +416,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Computer_Menu_Out
     clips:
@@ -383,6 +427,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Computer_Menu_Select
     clips:
@@ -393,6 +438,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Code_Select
     clips:
@@ -403,6 +449,7 @@ MonoBehaviour:
     pitch:
       Min: 0.8073063
       Max: 1.1926937
+    loop: 0
     sources: []
   - name: LVLTheEnd_Code_Type
     clips:
@@ -413,6 +460,7 @@ MonoBehaviour:
     pitch:
       Min: 0.8073063
       Max: 1.1926937
+    loop: 0
     sources: []
   - name: LVLTheEnd_Computer_Code_Wrong
     clips:
@@ -423,6 +471,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Computer_Code_Correct
     clips:
@@ -433,6 +482,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Computer_RunH97
     clips:
@@ -443,6 +493,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Note_Seen
     clips:
@@ -453,6 +504,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Overhang_Transparent
     clips:
@@ -463,6 +515,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLTheEnd_Overhang_Opaque
     clips:
@@ -473,6 +526,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: Item_AlmondWater_Drink
     clips:
@@ -483,6 +537,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLRFYL_Player_Footsteps
     clips:
@@ -498,6 +553,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: LVLRFYL_Obstacle_Collision_Player
     clips:
@@ -508,6 +564,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: LVLPoolrooms_Splash
     clips:
@@ -520,6 +577,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: Escape_Player_Footsteps
     clips:
@@ -532,6 +590,7 @@ MonoBehaviour:
     pitch:
       Min: 0.9
       Max: 1.1
+    loop: 0
     sources: []
   - name: Monster_Chase_Activated
     clips:
@@ -542,6 +601,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: Monster_Chase_Heartbeat
     clips:
@@ -552,6 +612,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: Monster_Partypooper_InstructionText
     clips:
@@ -562,6 +623,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: Monster_Partypooper_Attack
     clips:
@@ -572,6 +634,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: Item_AlmondWater_Drink
     clips:
@@ -582,6 +645,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
   - name: Debug_Screenshot
     clips:
@@ -592,6 +656,7 @@ MonoBehaviour:
     pitch:
       Min: 1
       Max: 1
+    loop: 0
     sources: []
 --- !u!1 &4832884539536724277
 GameObject:

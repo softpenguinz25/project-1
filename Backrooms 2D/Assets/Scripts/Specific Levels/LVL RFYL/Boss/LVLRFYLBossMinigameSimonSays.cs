@@ -66,7 +66,7 @@ public class LVLRFYLBossMinigameSimonSays : LVLRFYLBossMinigame
 		if (codeValue == code[numCorrectInCurrentRound])
 		{
 			numCorrectInCurrentRound++;
-			print(numCorrectInCurrentRound);
+			//print(numCorrectInCurrentRound);
 			if (numCorrectInCurrentRound >= CodeLengthOfCurrentRound)
 			{
 				numCorrectInCurrentRound = 0;
@@ -76,6 +76,8 @@ public class LVLRFYLBossMinigameSimonSays : LVLRFYLBossMinigame
 				{
 					triggerGO.Unpressed();
 					foreach (LVLRFYLBossMinigameSimonSaysCodeGO codeGO in codeGOs.Values) codeGO.Disable(true);
+
+					FindObjectOfType<AudioManager>().Play("LVLRFYL_Minigame_Progress");
 					//DisplayCode(CodeLengthOfCurrentRound);
 				}
 				else WinGame();

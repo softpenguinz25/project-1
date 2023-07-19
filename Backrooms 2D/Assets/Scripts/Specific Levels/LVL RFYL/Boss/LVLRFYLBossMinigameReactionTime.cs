@@ -30,7 +30,7 @@ public class LVLRFYLBossMinigameReactionTime : LVLRFYLBossMinigame
 		if (!inWindow) RestartGame();
 		else
 		{
-			currentRound++;print(currentRound);
+			currentRound++;//print(currentRound);
 			if (currentRound > finalRound) WinGame();
 			else RoundPromoted?.Invoke(currentRound);
 		}

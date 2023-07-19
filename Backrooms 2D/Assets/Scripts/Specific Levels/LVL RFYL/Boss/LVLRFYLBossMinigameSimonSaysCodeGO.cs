@@ -18,6 +18,7 @@ public class LVLRFYLBossMinigameSimonSaysCodeGO : MonoBehaviour
 	[SerializeField] float timeDisplayedInSeconds = 1;
 	Color originalColor = Color.white;
 	[SerializeField] Color displaySpriteRendererColorOverlay = Color.gray;
+	[SerializeField] string sfxName;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -55,6 +56,7 @@ public class LVLRFYLBossMinigameSimonSaysCodeGO : MonoBehaviour
 	public void Display()
 	{
 		//Debug.Log("Displaying GO GFX!", this);
+		FindObjectOfType<AudioManager>().Play(sfxName);
 		StartCoroutine(DisplayCoroutine());
 	}
 
