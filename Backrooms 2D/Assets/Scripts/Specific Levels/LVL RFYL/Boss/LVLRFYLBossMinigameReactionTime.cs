@@ -50,7 +50,8 @@ public class LVLRFYLBossMinigameReactionTime : LVLRFYLBossMinigame
 
 	public override void RestartGame()
 	{
-		print("ur bad");
+		//print("ur bad");
+		base.RestartGame();
 
 		currentRound = 1;
 		Reset?.Invoke();

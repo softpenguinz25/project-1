@@ -149,6 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObj: {fileID: 3637390730184187103}
+  timeBtwnDialogueSFXRange:
+    Min: 0.0914449
+    Max: 0.1900594
 --- !u!1 &6850442746361363961
 GameObject:
   m_ObjectHideFlags: 0

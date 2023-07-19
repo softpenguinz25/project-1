@@ -23,6 +23,7 @@ public class CinematicBlackBars : MonoBehaviour
 	public void SetAnimationIndex(int animationIndex) => anim.SetFloat("Index", animationIndex);
 	public void TriggerIn()
 	{
+		FindObjectOfType<AudioManager>().Play("Polish_CinematicBlackBars_Trigger_In");
 		anim.SetTrigger("In");
 	}
 	public void TriggerOut()

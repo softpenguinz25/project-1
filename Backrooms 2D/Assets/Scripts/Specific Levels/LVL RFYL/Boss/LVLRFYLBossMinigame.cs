@@ -9,6 +9,7 @@ public class LVLRFYLBossMinigame : MonoBehaviour
 	[SerializeField] LVLRFYLBossMinigameManager minigameManager;
     public virtual void RestartGame()
 	{
+		//print("u failed, palying SXDFX");
 		FindObjectOfType<AudioManager>().Play("LVLRFYL_Minigame_Fail");
 	}
 	public virtual void WinGame()

@@ -1410,44 +1410,72 @@ AnimationClip:
     floatParameter: 2
     intParameter: 0
     messageOptions: 0
+  - time: 1.9666667
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2
     functionName: SetDialogueText
     data: Im-
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 2.7166667
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 2.75
     functionName: SetDialogueText
-    data: Impossible...
+    data: Impossible
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 3.0833333
     functionName: SetDialogueText
-    data: Impossible..
+    data: Impossible.
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 3.4166667
     functionName: SetDialogueText
-    data: Impossible.
+    data: Impossible..
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 3.75
     functionName: SetDialogueText
-    data: Impossible
+    data: Impossible...
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 3
+    messageOptions: 0
+  - time: 4.6
+    functionName: SetDialogueText
+    data: <color=red><b><i>AGHHHHHHHH</i></b></color>
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 4.6
-    functionName: SetDialogueText
-    data: <color=red><b><i>AGHHHHHHHH</i></b></color>
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.7
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1457,7 +1485,7 @@ AnimationClip:
     data: Follow This Ball With Your Eyes.
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 5
     messageOptions: 0
   - time: 5.633333
     functionName: SetDialogueText
@@ -1466,9 +1494,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 5.633333
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 5.7
     functionName: SetDialogueText
     data: Follow This <color=red><b>BalL</b></color> With Your Eyes.
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.766667
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1494,9 +1536,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 5.9
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 5.9666667
     functionName: SetDialogueText
     data: Follow This <color=red><b>BalL</b></color> With Your Eyes.
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 6.0333333
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1522,6 +1578,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 7.7
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 7.7166667
     functionName: SetDialogueText
     data: <color=orange><b><i>PUNISH</i></b></color>
@@ -1541,18 +1604,32 @@ AnimationClip:
     data: This Will Be Your Demise.
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
+    intParameter: 5
+    messageOptions: 0
+  - time: 9.933333
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 10
     functionName: SetDialogueText
     data: This Will <color=red><b><i>ITSOVERITSOVER</i></b></color> Your DEMISE!
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
+    floatParameter: 123213
+    intParameter: 1
     messageOptions: 0
   - time: 10.166667
     functionName: SetDialogueText
     data: This <color=red><b><i>ITSOVERITSOVERITSOVERITSOVER</i></b></color> DEMISE!
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 12321
+    intParameter: 1
+    messageOptions: 0
+  - time: 10.166667
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1561,6 +1638,20 @@ AnimationClip:
     functionName: SetDialogueText
     data: <color=red><b><i>ITSJOEVERITSJOEVERITSJOEVERITSJOEVERITSJOEVERITSJOEVER</i></b></color>
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 123
+    intParameter: 1
+    messageOptions: 0
+  - time: 10.333333
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 10.433333
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
@@ -1568,6 +1659,6 @@ AnimationClip:
     functionName: SetCupAnimator
     data: enable asihldsalbkjdsakjldaskjlbasdk
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
+    floatParameter: 123
+    intParameter: 1
     messageOptions: 0

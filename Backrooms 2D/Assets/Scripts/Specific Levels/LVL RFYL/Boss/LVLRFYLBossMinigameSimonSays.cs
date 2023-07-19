@@ -118,6 +118,7 @@ public class LVLRFYLBossMinigameSimonSays : LVLRFYLBossMinigame
 
 	public override void RestartGame()
 	{
+		base.RestartGame();
 		triggerGO.IndicateFail();
 		GenerateCode();
 	}

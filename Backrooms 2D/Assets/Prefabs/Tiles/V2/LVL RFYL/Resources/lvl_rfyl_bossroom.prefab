@@ -2559,6 +2559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 326705055822765815}
     m_Modifications:
+    - target: {fileID: 3020438186759426547, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8531852235824747437, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
       propertyPath: m_Name
       value: lvl_rfyl_wall
@@ -3459,6 +3463,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 326705055822765815}
     m_Modifications:
+    - target: {fileID: 3020438186759426547, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8531852235824747437, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
       propertyPath: m_Name
       value: lvl_rfyl_wall_1
@@ -3513,6 +3521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
+--- !u!1 &2960742190338655408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8531852235824747437, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
+  m_PrefabInstance: {fileID: 6877437752033482525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2960742190338655410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8531852235824747439, guid: cb9bbc2c874fd37459a1f4b5afc8932c, type: 3}
@@ -4014,7 +4027,19 @@ MonoBehaviour:
   disableAfterEnter: 0
   enterEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5930516120088329250}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   exitEvents:
     m_PersistentCalls:
       m_Calls: []
@@ -4441,7 +4466,7 @@ MonoBehaviour:
   enterEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5930516120088329250}
+      - m_Target: {fileID: 2960742190338655408}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6

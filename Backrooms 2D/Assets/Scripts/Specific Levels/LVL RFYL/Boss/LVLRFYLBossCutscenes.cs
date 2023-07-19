@@ -75,4 +75,9 @@ public class LVLRFYLBossCutscenes : MonoBehaviour
 	{
 		FindObjectOfType<LevelTransition>().TransitionToNextLevel();
 	}
+
+	public void PlaySFX(AnimationEvent sfxData)
+	{
+		FindObjectOfType<AudioManager>().Play(sfxData.stringParameter);
+	}
 }

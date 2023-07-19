@@ -6553,6 +6553,41 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Rumble_1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.6166666
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Rumble_2
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.2166667
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Assemble
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.9166667
+    functionName: TriggerFlash
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.16666667
+    intParameter: 0
+    messageOptions: 0
+  - time: 6.766667
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_ZoomIn
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 7
     functionName: SetGroupTileCamera
     data: enable
@@ -6563,6 +6598,13 @@ AnimationClip:
   - time: 8.5
     functionName: SetDialogueText
     data: Wanna Play a Game?
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 3
+    messageOptions: 0
+  - time: 10.65
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -6588,6 +6630,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 11.2
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 11.266666
     functionName: SetDialogueText
     data: Wanna Play a Game?
@@ -6598,6 +6647,13 @@ AnimationClip:
   - time: 11.5
     functionName: SetDialogueText
     data: Hit the Colors In Order, Then We'll See!
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 4
+    messageOptions: 0
+  - time: 11.766666
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -6612,6 +6668,13 @@ AnimationClip:
   - time: 11.8
     functionName: SetDialogueText
     data: Hit the <color=orange><b>COLORS</b></color> In Order, Then We'll See!
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 11.833333
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -6637,9 +6700,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 11.9
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 11.933333
     functionName: SetDialogueText
     data: Hit the <color=purple><b>COLORS</b></color> In Order, Then We'll See!
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 11.966666
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -6662,12 +6739,26 @@ AnimationClip:
     functionName: SetDialogueText
     data: Hit the Colors In <color=red>HA</color>, Then We'll See!
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 69
+    intParameter: 5
+    messageOptions: 0
+  - time: 14.45
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 14.8
     functionName: SetDialogueText
     data: Hit the Colors <color=red>HAHAHA</color> We'll See!
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 131322
+    intParameter: 5
+    messageOptions: 0
+  - time: 14.8
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -6676,12 +6767,40 @@ AnimationClip:
     functionName: SetDialogueText
     data: Hit the <color=red>HAHAHAAHAHA</color> See!
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 21321
+    intParameter: 5
+    messageOptions: 0
+  - time: 15.15
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 15.5
     functionName: SetDialogueText
     data: <b><color=red>HAHAHAHAHAAHAHA</color></b>
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 123213
+    intParameter: 2
+    messageOptions: 0
+  - time: 15.5
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 15.616667
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 15.733334
+    functionName: PlaySFX
+    data: LVLRFYL_Boss_Cutscene_Glitch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
